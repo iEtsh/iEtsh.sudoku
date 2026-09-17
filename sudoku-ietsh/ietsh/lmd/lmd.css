@@ -1,0 +1,28 @@
+h1.topdash { border-top: 1px dotted #5a8; padding: 8px 0; margin-top: 40px; }
+h1.subhead { border-bottom: 1px dotted #5a8; padding: 8px 0; }
+h3 { margin: 0; color: #dd9; font-size: 1.9em; }
+a { color: #6ab; }
+p { margin: 8px 0px; }
+.spacer { min-height: 20px; }
+.date { font-size: 120%; font-weight: bold; }
+.solv { color: white; }
+.note { margin: 0 60px; color: #486; font-size: 80%; }
+#since { margin: 20px 30px 0 30px; text-align: right; }
+#content { position: relative; }
+#summary-table { margin: 0 30px; background-color: #112; padding: 4px; cursor: pointer; }
+#summary-table ul { display: flex; margin: 0; padding: 4px; }
+#summary-table li { display: block; margin: 2px; padding: 0; font-size: 90%; }
+#summary-table li:nth-child(1) { width: 50px; text-align: right; padding: 0 12px; }
+#summary-table li:nth-child(2) { width: 350px; color: #dd9; }
+#summary-table li:nth-child(3) { width: 170px; }
+#summary-table li:nth-child(4) { width: 100px; }
+#summary-table li:nth-child(5) { width: 60px; font-size: 80%; text-align: right; }
+#summary-table li:nth-child(6) { width: 60px; font-size: 80%; text-align: right; }
+#summary-table li:nth-child(7) { width: 140px; text-align: right; }
+.multicol { display: flex; justify-content: space-between; margin-bottom: 30px; }
+.multicol > div { margin: 20px; }
+.star-1 { fill: goldenrod; }
+.star-0 { fill: #445; }
+#tooltip { opacity: 0; position: absolute; top: -12px; left: 0; padding: 0.6em 1em; background: #448; color: #aae; text-align: center; border: 2px solid #77a; z-index: 10; transition: all 0.2s ease-out; pointer-events: none; }
+.thumb img { width: 200px; height: 200px; margin: 2px; }
+.caption { color: white; font-size: 80%; }
