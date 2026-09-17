@@ -1,0 +1,38 @@
+{
+  "opts": {},
+  "items": [
+    {
+      "num": 3,
+      "id": "ietsh-harrypotter1",
+      "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+      "date": "April 18, 2026",
+      "stars": 2,
+      "puzz": "https://sudokupad.app/ecounu3znr",
+      "lmd": "000SDA",
+      "ctags": "-",
+      "series": "hp"
+    },
+    {
+      "num": 2,
+      "id": "ietsh-15s",
+      "title": "15s",
+      "date": "April 16, 2026",
+      "stars": 2,
+      "puzz": "https://sudokupad.app/dfkxorg4e0",
+      "lmd": "000SC5",
+      "ctags": "-",
+      "series": "-"
+    },
+    {
+      "num": 1,
+      "id": "ietsh-itshouldwork",
+      "title": "The \"It Should Work\" Framework",
+      "date": "April 16, 2026",
+      "stars": 2,
+      "puzz": "https://sudokupad.app/ork1m3ah19",
+      "lmd": "000SBZ",
+      "ctags": "-",
+      "series": "-"
+    }
+  ]
+}
