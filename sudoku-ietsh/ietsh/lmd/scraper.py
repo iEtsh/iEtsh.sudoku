@@ -41,6 +41,10 @@ def get_date_from_puzzle(html):
     m = re.search(r'Published on ([^<]+?)\s+by\s', html)
     if m:
         return m.group(1).strip()
+    # جرب شكل تاني
+    m = re.search(r'Published on ([^<]+?)\s*<a', html)
+    if m:
+        return m.group(1).strip()
     return ""
 
 def parse_puzzles(html):
