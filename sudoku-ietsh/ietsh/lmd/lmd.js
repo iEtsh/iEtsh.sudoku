@@ -4,6 +4,8 @@ const cache = { titles: {}, hovered: null };
 const recent = d3.select('#most-recent');
 const summs = d3.select('#summary-table');
 
+let lastCheckTime = null;
+
 const setLink = (node, url, qs) => node.append('a').attr('href', url + qs).attr('target', '_blank').text('[play]');
 const lmdLink = code => `https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id=${code}`;
 const setLmd = (node, code) => node.append('a').attr('href', lmdLink(code)).attr('target', '_blank').text('[LMD]');
@@ -61,9 +63,36 @@ const onMouseMove = ev => {
     }
 };
 
+function updateTimer() {
+    if (!lastCheckTime) return;
+    const now = new Date();
+    const diffSec = Math.floor((now - lastCheckTime) / 1000);
+    let text = "";
+    if (diffSec < 0) {
+        text = "آخر تحديث: الآن";
+    } else if (diffSec < 60) {
+        text = `آخر تحديث: منذ ${diffSec} ثانية`;
+    } else if (diffSec < 3600) {
+        const min = Math.floor(diffSec / 60);
+        const sec = diffSec % 60;
+        text = `آخر تحديث: منذ ${min} دقيقة و ${sec} ثانية`;
+    } else {
+        const hr = Math.floor(diffSec / 3600);
+        const min = Math.floor((diffSec % 3600) / 60);
+        text = `آخر تحديث: منذ ${hr} ساعة و ${min} دقيقة`;
+    }
+    d3.select('#since').text(text);
+}
+
 d3.json(confPath).then(d => {
     genMostRecent(d);
     genSummaryItems(d);
+    
+    if (d.last_check) {
+        lastCheckTime = new Date(d.last_check);
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    }
 });
 d3.select('#content').on('mousemove', onMouseMove);
 })();
