@@ -2,30 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>iEtsh on LMD</title>
-    <link href="../../../lib/base.css" type="text/css" rel="stylesheet">
-    <link href="./lmd.css" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>iEtsh's Puzzles</title>
+
+    <link href="../../../lib/base.css" rel="stylesheet">
+    <link href="./lmd.css" rel="stylesheet">
+
     <script src="../../../lib/d3-v7.8.4.js"></script>
     <script defer src="../../../lib/common.js"></script>
     <script defer src="../../../lib/logo.js"></script>
     <script defer src="./lmd.js"></script>
 </head>
+
 <body>
+
 <div id="content">
-    <h1>iEtsh's Puzzles</h1>
-    <h1 class="subhead"> on
-        <a href="https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
-           target="_blank">Logic Masters Germany</a>
-    </h1>
-    <h1>Published Most Recently</h1>
-    <div id="most-recent"></div>
-    <h1 class="topdash">Chronological Listing</h1>
-    <p id="since" class="note"></p>
-    <div id="summary-table"></div>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <div class="brand">
+            <div class="brand-mark">iE</div>
+
+            <div class="brand-info">
+                <div class="brand-title">iEtsh's Puzzles</div>
+                <div class="brand-subtitle">
+                    Logic Masters Germany
+                </div>
+            </div>
+        </div>
+
+        <div class="live-status">
+            <span class="status-dot"></span>
+            <span>LIVE DATA</span>
+        </div>
+
+    </header>
+
+
+    <!-- Latest Puzzle -->
+    <section class="latest-section">
+
+        <div class="section-label">
+            <span>01</span>
+            LATEST PUZZLE
+        </div>
+
+        <div id="most-recent"></div>
+
+    </section>
+
+
+    <!-- Puzzle Archive -->
+    <section class="listing-section">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="section-label">
+                    <span>02</span>
+                    PUZZLE ARCHIVE
+                </div>
+
+                <h1>All Puzzles</h1>
+            </div>
+
+            <div id="since" class="update-status">
+                <span class="update-dot"></span>
+                <span class="update-text">Checking...</span>
+            </div>
+
+        </div>
+
+        <div id="summary-table"></div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <span>iEtsh's Puzzle Collection</span>
+
+        <a
+            href="https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Logic Masters Germany ↗
+        </a>
+
+    </footer>
+
+
+    <!-- Tooltip -->
     <div id="tooltip" class="tooltip">
-        <div class="thumb"><img src=""></div>
+        <div class="thumb">
+            <img src="" alt="">
+        </div>
+
         <div class="caption"></div>
     </div>
+
 </div>
+
 </body>
 </html>
