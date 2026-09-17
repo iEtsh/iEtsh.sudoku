@@ -80,14 +80,15 @@
       .attr('class', 'latest-date')
       .text(i.date);
 
-    const stars = info
-      .append('div')
-      .attr('class', 'latest-stars');
+    // -------------------------------------------------------
+    // Stars
+    // Original working version
+    // -------------------------------------------------------
 
     _iEtsh_.logo.drawStarBar(
-      stars,
+      info.append('div'),
       i.stars,
-      34
+      30
     );
 
     const meta = info
@@ -219,12 +220,13 @@
         .attr('class', 'archive-date')
         .text(i.date);
 
+      // -------------------------------------------------------
       // Stars
-      const stars = ul.append('li')
-        .attr('class', 'archive-stars');
+      // Original working version
+      // -------------------------------------------------------
 
       _iEtsh_.logo.drawStarBar(
-        stars,
+        ul.append('li'),
         i.stars
       );
 
