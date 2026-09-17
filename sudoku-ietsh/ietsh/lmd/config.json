@@ -6,7 +6,7 @@
       "id": "ietsh-evilsaboteurs",
       "title": "Evil Saboteurs",
       "date": "",
-      "stars": 5,
+      "stars": "N/A",
       "puzz": "",
       "lmd": "000SCS",
       "solves": 5,
@@ -262,7 +262,7 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/dfkxorg4e0",
       "lmd": "000SC5",
-      "solves": 104,
+      "solves": 105,
       "rating": "92%"
     },
     {
@@ -277,5 +277,5 @@
       "rating": "83%"
     }
   ],
-  "last_check": "2026-09-17T05:45:31.645589Z"
+  "last_check": "2026-09-17T05:53:21.369374Z"
 }
