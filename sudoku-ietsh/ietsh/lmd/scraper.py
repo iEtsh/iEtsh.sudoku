@@ -44,7 +44,7 @@ def parse_puzzles(html):
         
         # عدد الحلول: نستخرج أول رقم من الخلية فقط
         solved_text = cells[2].get_text(strip=True)
-        solved_match = re.match(r"(\d+)", solved_text.strip())
+        solved_match = re.search(r"\d+", solved_text)
         solved = int(solved_match.group(1)) if solved_match else 0
         
         # النجوم: من اسم الصورة
