@@ -26,21 +26,28 @@ def parse_puzzles(html):
         return puzzles
     
     rows = table.find_all("tr")
-    for row in rows[1:]:
+    for row in rows:
         cells = row.find_all("td")
         if len(cells) < 4:
             continue
         
+        # اسم اللغز + كود LMD
         link = cells[1].find("a")
         if not link:
             continue
         title = link.get_text(strip=True)
         href = link.get("href", "")
         m = re.search(r"id=([A-Z0-9]+)", href)
-        lmd_code = m.group(1) if m else ""
+        if not m:
+            continue
+        lmd_code = m.group(1)
         
-        solved = cells[2].get_text(strip=True)
+        # عدد الحلول: نستخرج أول رقم من الخلية
+        solved_text = cells[2].get_text(strip=True)
+        solved_match = re.search(r"\d+", solved_text)
+        solved = int(solved_match.group()) if solved_match else 0
         
+        # النجوم: من اسم الصورة
         stars = 0
         img = cells[3].find("img")
         if img:
@@ -51,8 +58,14 @@ def parse_puzzles(html):
             elif "ulevel5" in src:
                 stars = 5
         
+        # النسبة: من الـ span
         rating_span = cells[3].find("span")
-        rating = rating_span.get_text(strip=True) if rating_span else ""
+        rating = ""
+        if rating_span:
+            rating_text = rating_span.get_text(strip=True)
+            rating_match = re.search(r"\d+", rating_text)
+            if rating_match:
+                rating = rating_match.group() + "%"
         
         puzzles.append({
             "title": title,
@@ -86,7 +99,7 @@ def update_config():
         for p in all_puzzles:
             if p["lmd"] == item["lmd"]:
                 item["stars"] = p["stars"]
-                item["solves"] = int(p["solved"])
+                item["solves"] = p["solved"]
                 item["rating"] = p["rating"]
                 print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
                 updated += 1
