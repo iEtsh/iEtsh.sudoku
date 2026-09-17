@@ -61,12 +61,12 @@ def parse_puzzles(html):
         
         # التاريخ من صفحة القايمة
         date = ""
-        date_span = cells[1].find("span")
-        if date_span:
-            date_text = date_span.get_text(strip=True)
+        for span in cells[1].find_all("span"):
+            date_text = span.get_text(strip=True)
             date_match = re.search(r"on (.+?)\)", date_text)
             if date_match:
                 date = date_match.group(1)
+                break
         
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
