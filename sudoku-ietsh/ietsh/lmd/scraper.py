@@ -42,10 +42,14 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # عدد الحلول: من الخلية 2 — أول رقم فقط
+        # عدد الحلول: من الخلية 2 — الرقم كامل، وبعدين شيل آخر رقمين (التقييم)
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
-        solved = int(solved_match.group(1)) if solved_match else 0
+        if solved_match:
+            full_num = solved_match.group(1)   # مثلاً "11495"
+            solved = int(full_num[:-2])        # شيل آخر رقمين → "114"
+        else:
+            solved = 0
         
         # النجوم: من اسم الصورة
         stars = 0
