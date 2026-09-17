@@ -9,6 +9,7 @@ import json
 import re
 import time
 import requests
+from datetime import datetime
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
@@ -29,7 +30,6 @@ def fetch_puzzle(lmd_code):
 def get_sudokupad_link(html):
     """يجيب رابط SudokuPad من صفحة اللغز (الرابط اللي حوالين الصورة)"""
     soup = BeautifulSoup(html, "html.parser")
-    # دور على أول <a> جواه <img>
     for a in soup.find_all("a", href=True):
         if a.find("img"):
             href = a["href"]
@@ -60,7 +60,6 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # التاريخ
         date_span = cells[1].find("span")
         date = ""
         if date_span:
@@ -69,7 +68,6 @@ def parse_puzzles(html):
             if date_match:
                 date = date_match.group(1)
         
-        # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
         if solved_match:
@@ -81,7 +79,6 @@ def parse_puzzles(html):
         else:
             solved = 0
         
-        # النجوم
         stars = "-"
         img = cells[3].find("img")
         if img:
@@ -92,7 +89,6 @@ def parse_puzzles(html):
             elif "ulevel5" in src:
                 stars = 5
         
-        # التقييم
         rating = "-"
         rating_span = cells[3].find("span")
         if rating_span:
@@ -114,7 +110,6 @@ def parse_puzzles(html):
     return puzzles
 
 def update_config():
-    # اقرا كل الألغاز من LMD
     all_puzzles = []
     start = 0
     while True:
@@ -132,10 +127,8 @@ def update_config():
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         cfg = json.load(f)
     
-    # الألغاز الموجودة
     existing_lmd = {item["lmd"]: item for item in cfg["items"]}
     
-    # الألغاز الجديدة
     new_puzzles = []
     for p in all_puzzles:
         if p["lmd"] not in existing_lmd:
@@ -143,9 +136,7 @@ def update_config():
     
     print(f"New puzzles: {len(new_puzzles)}")
     
-    # ضيف الألغاز الجديدة
     for p in new_puzzles:
-        # جيب رابط SudokuPad من صفحة اللغز
         try:
             puzzle_html = fetch_puzzle(p["lmd"])
             puzz_link = get_sudokupad_link(puzzle_html)
@@ -153,7 +144,6 @@ def update_config():
             print(f"Error fetching {p['lmd']}: {e}")
             puzz_link = ""
         
-        # اعمل id
         new_id = "ietsh-" + re.sub(r'[^a-z0-9]', '', p["title"].lower())
         
         new_item = {
@@ -172,7 +162,6 @@ def update_config():
         
         time.sleep(0.5)
     
-    # حدّث الألغاز الموجودة
     for item in cfg["items"]:
         for p in all_puzzles:
             if p["lmd"] == item["lmd"]:
@@ -181,6 +170,8 @@ def update_config():
                 item["rating"] = p["rating"]
                 print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
                 break
+    
+    cfg["last_check"] = datetime.utcnow().isoformat() + "Z"
     
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
         json.dump(cfg, f, ensure_ascii=False, indent=2)
