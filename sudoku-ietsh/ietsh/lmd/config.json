@@ -3,20 +3,9 @@
   "items": [
     {
       "num": 25,
-      "id": "ietsh-evilsaboteurs",
-      "title": "Evil Saboteurs",
-      "date": "",
-      "stars": "N/A",
-      "puzz": "",
-      "lmd": "000SCS",
-      "solves": 5,
-      "rating": "N/A"
-    },
-    {
-      "num": 24,
       "id": "ietsh-coin",
       "title": "Coin",
-      "date": "September 14, 2026",
+      "date": "14. September 2026, 09:14",
       "stars": 1,
       "puzz": "https://sudokupad.app/cflm167p1z",
       "lmd": "000UVR",
@@ -24,10 +13,10 @@
       "rating": "95%"
     },
     {
-      "num": 23,
+      "num": 24,
       "id": "ietsh-vibrantspots7",
       "title": "Vibrant Spots VII - Special Edition",
-      "date": "September 7, 2026",
+      "date": "7. September 2026, 04:05",
       "stars": 3,
       "puzz": "https://sudokupad.app/z5vf5kram0",
       "lmd": "000UR2",
@@ -35,10 +24,10 @@
       "rating": "97%"
     },
     {
-      "num": 22,
+      "num": 23,
       "id": "ietsh-vibrantspots6",
       "title": "Vibrant Spots VI - Special Edition",
-      "date": "September 1, 2026",
+      "date": "1. September 2026, 20:51",
       "stars": 2,
       "puzz": "https://sudokupad.app/cn1x8tx9xy",
       "lmd": "000UNY",
@@ -46,10 +35,10 @@
       "rating": "92%"
     },
     {
-      "num": 21,
+      "num": 22,
       "id": "ietsh-vibrantspots5",
       "title": "Vibrant Spots V",
-      "date": "August 29, 2026",
+      "date": "29. August 2026, 20:58",
       "stars": 2,
       "puzz": "https://sudokupad.app/gs5jsfuroh",
       "lmd": "000UM4",
@@ -57,10 +46,10 @@
       "rating": "87%"
     },
     {
-      "num": 20,
+      "num": 21,
       "id": "ietsh-blink5",
       "title": "Blink V",
-      "date": "August 20, 2026",
+      "date": "20. August 2026, 08:07",
       "stars": 1,
       "puzz": "https://sudokupad.app/ltry6ibgck",
       "lmd": "000UFX",
@@ -68,10 +57,10 @@
       "rating": "66%"
     },
     {
-      "num": 19,
+      "num": 20,
       "id": "ietsh-blink4",
       "title": "Blink IV",
-      "date": "August 19, 2026",
+      "date": "19. August 2026, 10:27",
       "stars": 1,
       "puzz": "https://sudokupad.app/6ihl37tq23",
       "lmd": "000UFT",
@@ -79,10 +68,10 @@
       "rating": "84%"
     },
     {
-      "num": 18,
+      "num": 19,
       "id": "ietsh-blink3",
       "title": "Blink III",
-      "date": "August 16, 2026",
+      "date": "16. August 2026, 04:39",
       "stars": 1,
       "puzz": "https://sudokupad.app/z1jja1angl",
       "lmd": "000UDT",
@@ -90,10 +79,10 @@
       "rating": "79%"
     },
     {
-      "num": 17,
+      "num": 18,
       "id": "ietsh-blink2",
       "title": "Blink II",
-      "date": "August 14, 2026",
+      "date": "14. August 2026, 10:10",
       "stars": 1,
       "puzz": "https://sudokupad.app/hswdlhrpuo",
       "lmd": "000UCQ",
@@ -101,10 +90,10 @@
       "rating": "87%"
     },
     {
-      "num": 16,
+      "num": 17,
       "id": "ietsh-vibrantspots4",
       "title": "Vibrant Spots IV",
-      "date": "August 10, 2026",
+      "date": "10. August 2026, 03:10",
       "stars": 5,
       "puzz": "https://sudokupad.app/ctp85b8w6b",
       "lmd": "000U9Y",
@@ -112,10 +101,10 @@
       "rating": "87%"
     },
     {
-      "num": 15,
+      "num": 16,
       "id": "ietsh-vibrantspots3",
       "title": "Vibrant Spots III",
-      "date": "August 7, 2026",
+      "date": "7. August 2026, 00:19",
       "stars": 2,
       "puzz": "https://sudokupad.app/cfrqw6red1",
       "lmd": "000U86",
@@ -123,10 +112,10 @@
       "rating": "90%"
     },
     {
-      "num": 14,
+      "num": 15,
       "id": "ietsh-blink",
       "title": "Blink",
-      "date": "August 5, 2026",
+      "date": "5. August 2026, 00:42",
       "stars": 1,
       "puzz": "https://sudokupad.app/evh9tt2q0i",
       "lmd": "000U75",
@@ -134,87 +123,10 @@
       "rating": "82%"
     },
     {
-      "num": 13,
-      "id": "ietsh-vibrantspots2",
-      "title": "Vibrant Spots II",
-      "date": "July 31, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/402m41n7ya",
-      "lmd": "000U4O",
-      "solves": 80,
-      "rating": "92%"
-    },
-    {
-      "num": 12,
-      "id": "ietsh-vibrantspots",
-      "title": "Vibrant Spots",
-      "date": "July 29, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/q4yzi1h1e6",
-      "lmd": "000U38",
-      "solves": 104,
-      "rating": "87%"
-    },
-    {
-      "num": 11,
-      "id": "ietsh-crosscurrents2",
-      "title": "Crosscurrents II",
-      "date": "July 26, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/505e2zbaw0",
-      "lmd": "000U2A",
-      "solves": 74,
-      "rating": "84%"
-    },
-    {
-      "num": 10,
-      "id": "ietsh-lucifersfall",
-      "title": "Lucifer's Fall",
-      "date": "July 19, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/l0vo4o13rd",
-      "lmd": "000TSS",
-      "solves": 45,
-      "rating": "84%"
-    },
-    {
-      "num": 9,
-      "id": "ietsh-crosscurrents",
-      "title": "Crosscurrents",
-      "date": "July 18, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/ujqcxri2fz",
-      "lmd": "000TSP",
-      "solves": 88,
-      "rating": "92%"
-    },
-    {
-      "num": 8,
-      "id": "ietsh-lonelyhouse",
-      "title": "Lonely House",
-      "date": "May 14, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/gunf4ya35z",
-      "lmd": "000STU",
-      "solves": 55,
-      "rating": "85%"
-    },
-    {
-      "num": 7,
-      "id": "ietsh-16s",
-      "title": "16s",
-      "date": "May 10, 2026",
-      "stars": 3,
-      "puzz": "https://sudokupad.app/5jowj6dgs8",
-      "lmd": "000SR0",
-      "solves": 56,
-      "rating": "83%"
-    },
-    {
-      "num": 6,
+      "num": 14,
       "id": "ietsh-entropydominion",
       "title": "Entropy Dominion",
-      "date": "April 29, 2026",
+      "date": "29. April 2026, 06:43",
       "stars": 3,
       "puzz": "https://sudokupad.app/pnkh0wymgo",
       "lmd": "000SJN",
@@ -222,10 +134,10 @@
       "rating": "87%"
     },
     {
-      "num": 5,
+      "num": 13,
       "id": "ietsh-nocontact",
       "title": "No-Contact",
-      "date": "April 23, 2026",
+      "date": "23. April 2026, 19:17",
       "stars": 3,
       "puzz": "https://sudokupad.app/iapen15ls1",
       "lmd": "000SG8",
@@ -233,10 +145,10 @@
       "rating": "86%"
     },
     {
-      "num": 4,
+      "num": 12,
       "id": "ietsh-arabesque",
       "title": "Arabesque",
-      "date": "April 22, 2026",
+      "date": "22. April 2026, 03:43",
       "stars": 3,
       "puzz": "https://sudokupad.app/nv449euelf",
       "lmd": "000SFF",
@@ -244,10 +156,10 @@
       "rating": "81%"
     },
     {
-      "num": 3,
+      "num": 11,
       "id": "ietsh-harrypotter1",
       "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
-      "date": "April 18, 2026",
+      "date": "18. April 2026, 19:20",
       "stars": 2,
       "puzz": "https://sudokupad.app/ecounu3znr",
       "lmd": "000SDA",
@@ -255,10 +167,21 @@
       "rating": "81%"
     },
     {
-      "num": 2,
+      "num": 10,
+      "id": "ietsh-evilsaboteurs",
+      "title": "Evil Saboteurs",
+      "date": "17. April 2026, 18:35",
+      "stars": "N/A",
+      "puzz": "",
+      "lmd": "000SCS",
+      "solves": 5,
+      "rating": "N/A"
+    },
+    {
+      "num": 9,
       "id": "ietsh-15s",
       "title": "15s",
-      "date": "April 16, 2026",
+      "date": "16. April 2026, 15:39",
       "stars": 2,
       "puzz": "https://sudokupad.app/dfkxorg4e0",
       "lmd": "000SC5",
@@ -266,16 +189,93 @@
       "rating": "92%"
     },
     {
-      "num": 1,
+      "num": 8,
       "id": "ietsh-itshouldwork",
       "title": "The \"It Should Work\" Framework",
-      "date": "April 16, 2026",
+      "date": "16. April 2026, 03:08",
       "stars": 2,
       "puzz": "https://sudokupad.app/ork1m3ah19",
       "lmd": "000SBZ",
       "solves": 55,
       "rating": "83%"
+    },
+    {
+      "num": 7,
+      "id": "ietsh-vibrantspots2",
+      "title": "Vibrant Spots II",
+      "date": "31. Juli 2026, 19:42",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/402m41n7ya",
+      "lmd": "000U4O",
+      "solves": 80,
+      "rating": "92%"
+    },
+    {
+      "num": 6,
+      "id": "ietsh-vibrantspots",
+      "title": "Vibrant Spots",
+      "date": "29. Juli 2026, 11:35",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/q4yzi1h1e6",
+      "lmd": "000U38",
+      "solves": 104,
+      "rating": "87%"
+    },
+    {
+      "num": 5,
+      "id": "ietsh-crosscurrents2",
+      "title": "Crosscurrents II",
+      "date": "26. Juli 2026, 20:40",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/505e2zbaw0",
+      "lmd": "000U2A",
+      "solves": 74,
+      "rating": "84%"
+    },
+    {
+      "num": 4,
+      "id": "ietsh-lucifersfall",
+      "title": "Lucifer's Fall",
+      "date": "19. Juli 2026, 06:25",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/l0vo4o13rd",
+      "lmd": "000TSS",
+      "solves": 45,
+      "rating": "84%"
+    },
+    {
+      "num": 3,
+      "id": "ietsh-crosscurrents",
+      "title": "Crosscurrents",
+      "date": "18. Juli 2026, 07:14",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/ujqcxri2fz",
+      "lmd": "000TSP",
+      "solves": 88,
+      "rating": "92%"
+    },
+    {
+      "num": 2,
+      "id": "ietsh-lonelyhouse",
+      "title": "Lonely House",
+      "date": "14. Mai 2026, 16:03",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/gunf4ya35z",
+      "lmd": "000STU",
+      "solves": 55,
+      "rating": "85%"
+    },
+    {
+      "num": 1,
+      "id": "ietsh-16s",
+      "title": "16s",
+      "date": "10. Mai 2026, 10:07",
+      "stars": 3,
+      "puzz": "https://sudokupad.app/5jowj6dgs8",
+      "lmd": "000SR0",
+      "solves": 56,
+      "rating": "83%"
     }
   ],
-  "last_check": "2026-09-17T06:15:48.339170Z"
+  "last_check": "2026-09-17T06:37:41.219070Z"
 }
