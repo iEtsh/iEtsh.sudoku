@@ -36,17 +36,6 @@ def get_sudokupad_link(html):
                 return href
     return ""
 
-def get_date_from_puzzle(html):
-    """يجيب التاريخ من صفحة اللغز نفسها"""
-    m = re.search(r'Published on ([^<]+?)\s+by\s', html)
-    if m:
-        return m.group(1).strip()
-    # جرب شكل تاني
-    m = re.search(r'Published on ([^<]+?)\s*<a', html)
-    if m:
-        return m.group(1).strip()
-    return ""
-
 def parse_puzzles(html):
     soup = BeautifulSoup(html, "html.parser")
     puzzles = []
@@ -70,6 +59,15 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
+        # التاريخ من صفحة القايمة
+        date = ""
+        date_span = cells[1].find("span")
+        if date_span:
+            date_text = date_span.get_text(strip=True)
+            date_match = re.search(r"on (.+?)\)", date_text)
+            if date_match:
+                date = date_match.group(1)
+        
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
@@ -87,7 +85,6 @@ def parse_puzzles(html):
         img = cells[3].find("img")
         if img:
             src = img.get("src", "")
-            # لو الصورة ulevel5 (تقدير المؤلف - أزرق) → N/A
             if "ulevel5" in src:
                 stars = "N/A"
             else:
@@ -109,6 +106,7 @@ def parse_puzzles(html):
         puzzles.append({
             "title": title,
             "lmd": lmd_code,
+            "date": date,
             "solved": solved,
             "stars": stars,
             "rating": rating
@@ -146,11 +144,9 @@ def update_config():
         try:
             puzzle_html = fetch_puzzle(p["lmd"])
             puzz_link = get_sudokupad_link(puzzle_html)
-            date = get_date_from_puzzle(puzzle_html)
         except Exception as e:
             print(f"Error fetching {p['lmd']}: {e}")
             puzz_link = ""
-            date = ""
         
         new_id = "ietsh-" + re.sub(r'[^a-z0-9]', '', p["title"].lower())
         
@@ -158,7 +154,7 @@ def update_config():
             "num": 0,
             "id": new_id,
             "title": p["title"],
-            "date": date,
+            "date": p["date"],
             "stars": p["stars"],
             "puzz": puzz_link,
             "lmd": p["lmd"],
@@ -176,14 +172,9 @@ def update_config():
                 item["stars"] = p["stars"]
                 item["solves"] = p["solved"]
                 item["rating"] = p["rating"]
-                if not item.get("date") or item["date"] == "":
-                    try:
-                        puzzle_html = fetch_puzzle(p["lmd"])
-                        item["date"] = get_date_from_puzzle(puzzle_html)
-                        print(f"Got date for {item['title']}: {item['date']}")
-                    except Exception as e:
-                        print(f"Error getting date for {item['title']}: {e}")
-                print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
+                if p["date"]:
+                    item["date"] = p["date"]
+                print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']} | date: {p['date']}")
                 break
     
     def parse_date(item):
