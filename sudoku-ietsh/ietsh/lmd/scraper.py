@@ -20,6 +20,13 @@ HEADERS = {
     'Accept-Language': 'en-US,en;q=0.9',
 }
 
+MONTH_MAP = {
+    'Januar': 'January', 'Februar': 'February', 'März': 'March',
+    'April': 'April', 'Mai': 'May', 'Juni': 'June',
+    'Juli': 'July', 'August': 'August', 'September': 'September',
+    'Oktober': 'October', 'November': 'November', 'Dezember': 'December'
+}
+
 def fetch_page(start=0):
     url = f"{BASE_URL}&start={start}"
     r = requests.get(url, headers=HEADERS, timeout=30)
@@ -34,16 +41,19 @@ def fetch_puzzle(lmd_code):
 
 def extract_date(text):
     """استخرج التاريخ من النص (بغض النظر عن اللغة)"""
-    # جرب أشكال متعددة
     patterns = [
-        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',   # 14. September 2026, 09:14
-        r'(\d{4}-\d{2}-\d{2})',                             # 2026-09-14
-        r'(\d{1,2}/\d{1,2}/\d{4})',                         # 14/09/2026
+        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+        r'(\d{4}-\d{2}-\d{2})',
+        r'(\d{1,2}/\d{1,2}/\d{4})',
     ]
     for p in patterns:
         m = re.search(p, text)
         if m:
-            return m.group(1)
+            result = m.group(1)
+            # ترجم الشهور الألمانية للإنجليزية
+            for de, en in MONTH_MAP.items():
+                result = result.replace(de, en)
+            return result
     return ""
 
 def get_sudokupad_link(html):
@@ -81,10 +91,8 @@ def parse_puzzles(html):
         # التاريخ — جرب من HTML الصف كامل
         date = extract_date(str(row))
         if not date:
-            # جرب من نص الخلية
             date = extract_date(cells[1].get_text(" ", strip=True))
         if not date:
-            # جرب من HTML الصفحة كلها (نفس الصف)
             for sibling in row.find_all("span"):
                 date = extract_date(sibling.get_text(strip=True))
                 if date:
@@ -199,7 +207,6 @@ def update_config():
                 if p["date"]:
                     item["date"] = p["date"]
                 elif not item.get("date") or item["date"] == "":
-                    # محاولة أخيرة: جلب التاريخ من صفحة اللغز
                     try:
                         puzzle_html = fetch_puzzle(p["lmd"])
                         item["date"] = extract_date(puzzle_html)
