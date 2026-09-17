@@ -31,6 +31,7 @@ def parse_puzzles(html):
         if len(cells) < 4:
             continue
         
+        # اسم اللغز + كود LMD
         link = cells[1].find("a")
         if not link:
             continue
@@ -41,17 +42,13 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
+        # عدد الحلول: من cells[2] لوحده
         solved_text = cells[2].get_text(strip=True)
+        # النص ممكن يكون "114" أو "5N/A" أو "104"
         solved_match = re.match(r"(\d+)", solved_text.strip())
-        if solved_match:
-            full_num = solved_match.group(1)
-            if len(full_num) >= 3:
-                solved = int(full_num[:-2])
-            else:
-                solved = int(full_num)
-        else:
-            solved = 0
+        solved = int(solved_match.group(1)) if solved_match else 0
         
+        # النجوم: من cells[3]
         stars = 0
         img = cells[3].find("img")
         if img:
@@ -62,10 +59,13 @@ def parse_puzzles(html):
             elif "ulevel5" in src:
                 stars = 5
         
+        # التقييم: من cells[3]
         rating_span = cells[3].find("span")
         rating = ""
         if rating_span:
             rating_text = rating_span.get_text(strip=True)
+            # نشيل \xa0 (مسافة غير قابلة للكسر)
+            rating_text = rating_text.replace('\xa0', ' ')
             rating_match = re.search(r"(\d+)", rating_text)
             if rating_match:
                 rating = rating_match.group(1) + "%"
@@ -93,6 +93,8 @@ def update_config():
         start += 20
     
     print(f"Found {len(all_puzzles)} puzzles")
+    for p in all_puzzles[:3]:
+        print(f"  {p['lmd']} | {p['title'][:30]} | {p['solved']} solves | {p['stars']} stars | {p['rating']}")
     
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         cfg = json.load(f)
