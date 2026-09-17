@@ -347,6 +347,23 @@ body {
     margin: 0 0 23px;
 }
 
+/* =========================================================
+   Stars
+   Original working star styles
+   ========================================================= */
+
+.star-bar {
+    display: block;
+}
+
+.star-1 {
+    fill: #d8b85d;
+}
+
+.star-0 {
+    fill: #303746;
+}
+
 .latest-stars {
     margin-bottom: 24px;
 }
@@ -354,6 +371,10 @@ body {
 .latest-stars svg {
     display: block;
 }
+
+/* =========================================================
+   Latest Meta
+   ========================================================= */
 
 .latest-meta {
     display: flex;
