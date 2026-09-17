@@ -4,21 +4,22 @@
   const cache = {
     titles: {},
     hovered: null,
-    data: null
+    data: null,
+    state: null
   };
 
   const recent = d3.select('#most-recent');
   const summs = d3.select('#summary-table');
   const tooltip = d3.select('#tooltip');
 
-  let lastCheckTime = null;
   let lastCheckRaw = null;
+  let lastCheckTime = null;
 
   const setLink = (node, url, qs) => {
     if (!url) return;
 
     node.append('a')
-      .attr('href', url + qs)
+      .attr('href', url + (qs || ''))
       .attr('target', '_blank')
       .attr('rel', 'noopener noreferrer')
       .text('[play]');
@@ -38,7 +39,7 @@
   };
 
   const genSummaryItems = d => {
-    d.items.forEach(i => {
+    (d.items || []).forEach(i => {
       const id = i.id;
 
       const div = summs
@@ -50,13 +51,11 @@
 
       ul.append('li').text(`#${i.num}`);
 
-      ul.append('li')
-        .text(i.title);
+      ul.append('li').text(i.title);
 
       cache.titles[id] = i.title;
 
-      ul.append('li')
-        .text(i.date);
+      ul.append('li').text(i.date);
 
       _iEtsh_.logo.drawStarBar(
         ul.append('li'),
@@ -118,7 +117,7 @@
   };
 
   const genMostRecent = d => {
-    const i = d.items[0];
+    const i = d.items && d.items[0];
 
     if (!i) return;
 
@@ -135,30 +134,12 @@
   };
 
   /*
-   * Render the complete puzzle data.
-   * This is called on first load and whenever
-   * the data inside config.json changes.
-   */
-  function renderData(d) {
-    recent.html('');
-    summs.html('');
-
-    cache.titles = {};
-    cache.hovered = null;
-    cache.data = d;
-
-    genMostRecent(d);
-    genSummaryItems(d);
-  }
-
-  /*
-   * Create a stable representation of the actual
-   * puzzle data, ignoring last_check.
+   * Build a stable snapshot of all puzzle data.
    *
-   * This allows us to distinguish:
+   * last_check is deliberately NOT included.
    *
-   * - Check happened but nothing changed
-   * - Check happened and puzzle data changed
+   * Any change to any puzzle field will therefore
+   * be detected.
    */
   function getPuzzleState(d) {
     return JSON.stringify(
@@ -177,16 +158,41 @@
     );
   }
 
+  /*
+   * Render all puzzle information.
+   */
+  function renderData(d) {
+    recent.html('');
+    summs.html('');
+
+    cache.titles = {};
+    cache.hovered = null;
+
+    genMostRecent(d);
+    genSummaryItems(d);
+
+    /*
+     * Store a COPY of the data.
+     * This prevents accidental reference sharing.
+     */
+    cache.data = JSON.parse(JSON.stringify(d));
+    cache.state = getPuzzleState(d);
+  }
+
+  /*
+   * Update the "Last checked" timer.
+   */
   function updateTimer() {
     if (!lastCheckTime) return;
 
     const now = new Date();
+
     const diffSec = Math.max(
       0,
       Math.floor((now - lastCheckTime) / 1000)
     );
 
-    let text = '';
+    let text;
 
     if (diffSec < 60) {
       text = `Last checked: ${diffSec} seconds ago`;
@@ -206,95 +212,135 @@
   }
 
   /*
-   * Check config.json for a new scraper check.
+   * Fetch the newest config.json.
    *
-   * Every time last_check changes:
-   *
-   * 1. Reset the timer
-   * 2. Compare the actual puzzle data
-   * 3. Re-render the page if anything changed
+   * Cache busting is mandatory here.
    */
-  function checkForUpdates() {
-    d3.json(confPath + '?t=' + Date.now())
-      .then(d => {
+  async function fetchConfig() {
+    const response = await fetch(
+      confPath + '?t=' + Date.now(),
+      {
+        cache: 'no-store'
+      }
+    );
 
-        if (!d.last_check) return;
+    if (!response.ok) {
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
 
-        const newState = getPuzzleState(d);
-        const oldState = cache.data
-          ? getPuzzleState(cache.data)
-          : null;
-
-        /*
-         * A new last_check means that the scraper
-         * has performed another check on LMD.
-         */
-        if (d.last_check !== lastCheckRaw) {
-
-          lastCheckRaw = d.last_check;
-          lastCheckTime = new Date(d.last_check);
-
-          /*
-           * IMPORTANT:
-           * Timer resets on EVERY check,
-           * even if the puzzle data didn't change.
-           */
-          updateTimer();
-
-          /*
-           * Only rebuild the page if the actual
-           * puzzle data changed.
-           */
-          if (newState !== oldState) {
-            renderData(d);
-          }
-        }
-      })
-      .catch(() => {
-        /*
-         * Ignore temporary network errors.
-         * The next check will try again.
-         */
-      });
+    return await response.json();
   }
 
   /*
-   * Initial load.
-   *
-   * Cache-busting is used here too so the browser
-   * doesn't start with an old config.json.
+   * Check for a new scraper check.
    */
-  d3.json(confPath + '?t=' + Date.now())
-    .then(d => {
+  async function checkForUpdates() {
+    try {
+      const d = await fetchConfig();
 
-      cache.data = d;
+      if (!d.last_check) return;
 
-      renderData(d);
+      /*
+       * Has the scraper performed a new check?
+       */
+      const newCheck =
+        d.last_check !== lastCheckRaw;
 
-      if (d.last_check) {
+      /*
+       * Has any actual puzzle data changed?
+       */
+      const newState =
+        getPuzzleState(d);
+
+      const dataChanged =
+        newState !== cache.state;
+
+      /*
+       * If a new scraper check happened:
+       *
+       * RESET TIMER ALWAYS.
+       */
+      if (newCheck) {
         lastCheckRaw = d.last_check;
         lastCheckTime = new Date(d.last_check);
 
         updateTimer();
 
         /*
-         * Update the visible timer every second.
+         * If the actual puzzle data changed,
+         * rebuild the page.
          */
-        setInterval(updateTimer, 1000);
+        if (dataChanged) {
+          renderData(d);
+        }
 
-        /*
-         * Check whether GitHub Actions/scraper
-         * produced a newer config.json.
-         */
-        setInterval(checkForUpdates, 30000);
+        return;
       }
-    })
-    .catch(err => {
-      console.error('Failed to load puzzle data:', err);
-    });
+
+      /*
+       * Extra protection:
+       *
+       * If data somehow changes without last_check
+       * changing, update the UI anyway.
+       */
+      if (dataChanged) {
+        renderData(d);
+      }
+
+    } catch (error) {
+      console.warn(
+        'Unable to check puzzle data:',
+        error
+      );
+    }
+  }
 
   /*
-   * Tooltip / row highlighting
+   * Initial load.
+   */
+  async function initialLoad() {
+    try {
+      const d = await fetchConfig();
+
+      if (!d.last_check) {
+        renderData(d);
+        return;
+      }
+
+      lastCheckRaw = d.last_check;
+      lastCheckTime = new Date(d.last_check);
+
+      renderData(d);
+      updateTimer();
+
+      /*
+       * Update timer every second.
+       */
+      setInterval(
+        updateTimer,
+        1000
+      );
+
+      /*
+       * Check GitHub Pages config every 30 seconds.
+       */
+      setInterval(
+        checkForUpdates,
+        30000
+      );
+
+    } catch (error) {
+      console.error(
+        'Failed to load puzzle data:',
+        error
+      );
+    }
+  }
+
+  /*
+   * Tooltip / row highlighting.
    */
   const onMouseMove = ev => {
     const mPos = d3.pointer(ev);
@@ -306,14 +352,25 @@
 
     let p = node.parentNode;
 
-    while (p && !t.classed('rec')) {
+    while (
+      p &&
+      !t.classed('rec')
+    ) {
       t = d3.select(p);
-      p = t.node().parentNode;
+
+      const currentNode = t.node();
+
+      if (!currentNode) break;
+
+      p = currentNode.parentNode;
     }
 
     if (p) {
       if (cache.hovered) {
-        cache.hovered.style('background-color', null);
+        cache.hovered.style(
+          'background-color',
+          null
+        );
       }
 
       cache.hovered = t;
@@ -323,11 +380,14 @@
         'rgba(255,255,255,0.04)'
       );
 
-      const id = t.attr('id').slice(3);
+      const id =
+        t.attr('id').slice(3);
 
       tooltip
         .select('.caption')
-        .text(cache.titles[id] || '');
+        .text(
+          cache.titles[id] || ''
+        );
 
       tooltip
         .style(
@@ -339,15 +399,27 @@
     } else {
 
       if (cache.hovered) {
-        cache.hovered.style('background-color', null);
+        cache.hovered.style(
+          'background-color',
+          null
+        );
+
         cache.hovered = null;
       }
 
-      tooltip.style('opacity', 0);
+      tooltip.style(
+        'opacity',
+        0
+      );
     }
   };
 
   d3.select('#content')
-    .on('mousemove', onMouseMove);
+    .on(
+      'mousemove',
+      onMouseMove
+    );
+
+  initialLoad();
 
 })();
