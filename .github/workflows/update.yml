@@ -2,7 +2,6 @@ name: Update Puzzle Data
 
 on:
   schedule:
-    # كل ساعة (في الدقيقة 0)
     - cron: '*/5 * * * *'
   workflow_dispatch:
 
