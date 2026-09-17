@@ -70,17 +70,17 @@ function updateTimer() {
     const diffSec = Math.floor((now - lastCheckTime) / 1000);
     let text = "";
     if (diffSec < 0) {
-        text = "آخر تحديث: الآن";
+        text = "Last updated: just now";
     } else if (diffSec < 60) {
-        text = `آخر تحديث: منذ ${diffSec} ثانية`;
+        text = `Last updated: ${diffSec} seconds ago`;
     } else if (diffSec < 3600) {
         const min = Math.floor(diffSec / 60);
         const sec = diffSec % 60;
-        text = `آخر تحديث: منذ ${min} دقيقة و ${sec} ثانية`;
+        text = `Last updated: ${min} min ${sec} sec ago`;
     } else {
         const hr = Math.floor(diffSec / 3600);
         const min = Math.floor((diffSec % 3600) / 60);
-        text = `آخر تحديث: منذ ${hr} ساعة و ${min} دقيقة`;
+        text = `Last updated: ${hr} hr ${min} min ago`;
     }
     d3.select('#since').text(text);
 }
