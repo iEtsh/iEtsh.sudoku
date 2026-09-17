@@ -1,71 +1,109 @@
 #!/usr/bin/env python3
 """
 scraper.py
-يقرأ كل صفحة لغز (نسخة print) على LMD ويحدث config.json
+يقرأ كل صفحات iEtsh على LMD ويحدث config.json
 """
 
 import json
 import re
-import time
 import requests
+from bs4 import BeautifulSoup
 
+BASE_URL = "https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
 CONFIG_PATH = "sudoku-ietsh/ietsh/lmd/config.json"
 
-def fetch_puzzle_print(lmd_code):
-    url = f"https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id={lmd_code}&print=true"
+def fetch_page(start=0):
+    url = f"{BASE_URL}&start={start}"
     r = requests.get(url, timeout=30)
     r.raise_for_status()
     return r.text
 
-def parse_puzzle(html):
-    # نشيل الـ HTML tags ونحول النص لنص عادي
-    text = re.sub(r'<[^>]+>', ' ', html)
-    text = re.sub(r'\s+', ' ', text)
+def parse_puzzles(html):
+    soup = BeautifulSoup(html, "html.parser")
+    puzzles = []
+    table = soup.find("table", class_="rp_raetselliste")
+    if not table:
+        return puzzles
     
-    stars = 0
-    m = re.search(r'level(\d)\.png', html)
-    if m:
-        stars = int(m.group(1))
-    elif 'ulevel5' in html:
-        stars = 5
-    
-    rating = ""
-    m = re.search(r'(\d+)\s*%', text)
-    if m:
-        rating = m.group(1) + "%"
-    
-    solved = 0
-    m = re.search(r'(\d+)\s*times', text)
-    if m:
-        solved = int(m.group(1))
-    
-    return {
-        "stars": stars,
-        "rating": rating,
-        "solved": solved
-    }
+    rows = table.find_all("tr")
+    for row in rows:
+        cells = row.find_all("td")
+        if len(cells) < 4:
+            continue
+        
+        # اسم اللغز + كود LMD
+        link = cells[1].find("a")
+        if not link:
+            continue
+        title = link.get_text(strip=True)
+        href = link.get("href", "")
+        m = re.search(r"id=([A-Z0-9]+)", href)
+        if not m:
+            continue
+        lmd_code = m.group(1)
+        
+        # عدد الحلول: من الخلية 2 — أول رقم فقط
+        solved_text = cells[2].get_text(strip=True)
+        solved_match = re.match(r"(\d+)", solved_text.strip())
+        solved = int(solved_match.group(1)) if solved_match else 0
+        
+        # النجوم: من اسم الصورة
+        stars = 0
+        img = cells[3].find("img")
+        if img:
+            src = img.get("src", "")
+            m = re.search(r"level(\d)\.png", src)
+            if m:
+                stars = int(m.group(1))
+            elif "ulevel5" in src:
+                stars = 5
+        
+        # النسبة: من الـ span
+        rating_span = cells[3].find("span")
+        rating = ""
+        if rating_span:
+            rating_text = rating_span.get_text(strip=True)
+            rating_match = re.search(r"(\d+)", rating_text)
+            if rating_match:
+                rating = rating_match.group(1) + "%"
+        
+        puzzles.append({
+            "title": title,
+            "lmd": lmd_code,
+            "solved": solved,
+            "stars": stars,
+            "rating": rating
+        })
+    return puzzles
 
 def update_config():
+    all_puzzles = []
+    start = 0
+    while True:
+        html = fetch_page(start)
+        puzzles = parse_puzzles(html)
+        if not puzzles:
+            break
+        all_puzzles.extend(puzzles)
+        if len(puzzles) < 20:
+            break
+        start += 20
+    
+    print(f"Found {len(all_puzzles)} puzzles")
+    
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         cfg = json.load(f)
     
     updated = 0
     for item in cfg["items"]:
-        lmd_code = item["lmd"]
-        try:
-            html = fetch_puzzle_print(lmd_code)
-            data = parse_puzzle(html)
-            
-            item["stars"] = data["stars"]
-            item["solves"] = data["solved"]
-            item["rating"] = data["rating"]
-            
-            print(f"Updated: {item['title']} -> {data['stars']} stars, {data['solved']} solves, {data['rating']}")
-            updated += 1
-        except Exception as e:
-            print(f"Error with {lmd_code}: {e}")
-        
-        time.sleep(0.5)
+        for p in all_puzzles:
+            if p["lmd"] == item["lmd"]:
+                item["stars"] = p["stars"]
+                item["solves"] = p["solved"]
+                item["rating"] = p["rating"]
+                print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
+                updated += 1
+                break
     
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
         json.dump(cfg, f, ensure_ascii=False, indent=2)
