@@ -5,6 +5,7 @@ const recent = d3.select('#most-recent');
 const summs = d3.select('#summary-table');
 
 let lastCheckTime = null;
+let lastCheckRaw = null;
 
 const setLink = (node, url, qs) => node.append('a').attr('href', url + qs).attr('target', '_blank').text('[play]');
 const lmdLink = code => `https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id=${code}`;
@@ -85,14 +86,26 @@ function updateTimer() {
     d3.select('#since').text(text);
 }
 
+function checkForUpdates() {
+    d3.json(confPath + '?t=' + Date.now()).then(d => {
+        if (d.last_check && d.last_check !== lastCheckRaw) {
+            lastCheckRaw = d.last_check;
+            lastCheckTime = new Date(d.last_check);
+            updateTimer();
+        }
+    }).catch(() => {});
+}
+
 d3.json(confPath).then(d => {
     genMostRecent(d);
     genSummaryItems(d);
     
     if (d.last_check) {
+        lastCheckRaw = d.last_check;
         lastCheckTime = new Date(d.last_check);
         updateTimer();
         setInterval(updateTimer, 1000);
+        setInterval(checkForUpdates, 30000);
     }
 });
 d3.select('#content').on('mousemove', onMouseMove);
