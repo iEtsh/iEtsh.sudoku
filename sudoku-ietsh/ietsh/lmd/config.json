@@ -2,6 +2,17 @@
   "opts": {},
   "items": [
     {
+      "num": 25,
+      "id": "ietsh-evilsaboteurs",
+      "title": "Evil Saboteurs",
+      "date": "",
+      "stars": 5,
+      "puzz": "",
+      "lmd": "000SCS",
+      "solves": 5,
+      "rating": "-"
+    },
+    {
       "num": 24,
       "id": "ietsh-coin",
       "title": "Coin",
@@ -265,5 +276,6 @@
       "solves": 55,
       "rating": "83%"
     }
-  ]
+  ],
+  "last_check": "2026-09-17T05:19:45.244021Z"
 }
