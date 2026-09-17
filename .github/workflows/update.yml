@@ -22,7 +22,7 @@ jobs:
           python-version: '3.11'
       
       - name: Install dependencies
-        run: pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4 htmldate
       
       - name: Run scraper
         run: python sudoku-ietsh/ietsh/lmd/scraper.py
