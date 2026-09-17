@@ -11,22 +11,40 @@ import time
 import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
-from htmldate import find_date
 
 BASE_URL = "https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
 CONFIG_PATH = "sudoku-ietsh/ietsh/lmd/config.json"
 
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9',
+}
+
 def fetch_page(start=0):
     url = f"{BASE_URL}&start={start}"
-    r = requests.get(url, timeout=30)
+    r = requests.get(url, headers=HEADERS, timeout=30)
     r.raise_for_status()
     return r.text
 
 def fetch_puzzle(lmd_code):
     url = f"https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id={lmd_code}"
-    r = requests.get(url, timeout=30)
+    r = requests.get(url, headers=HEADERS, timeout=30)
     r.raise_for_status()
     return r.text
+
+def extract_date(text):
+    """استخرج التاريخ من النص (بغض النظر عن اللغة)"""
+    # جرب أشكال متعددة
+    patterns = [
+        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',   # 14. September 2026, 09:14
+        r'(\d{4}-\d{2}-\d{2})',                             # 2026-09-14
+        r'(\d{1,2}/\d{1,2}/\d{4})',                         # 14/09/2026
+    ]
+    for p in patterns:
+        m = re.search(p, text)
+        if m:
+            return m.group(1)
+    return ""
 
 def get_sudokupad_link(html):
     soup = BeautifulSoup(html, "html.parser")
@@ -60,14 +78,17 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # التاريخ من صفحة القايمة
-        date = ""
-        for span in cells[1].find_all("span"):
-            date_text = span.get_text(strip=True)
-            date_match = re.search(r"on (.+?)\)", date_text)
-            if date_match:
-                date = date_match.group(1)
-                break
+        # التاريخ — جرب من HTML الصف كامل
+        date = extract_date(str(row))
+        if not date:
+            # جرب من نص الخلية
+            date = extract_date(cells[1].get_text(" ", strip=True))
+        if not date:
+            # جرب من HTML الصفحة كلها (نفس الصف)
+            for sibling in row.find_all("span"):
+                date = extract_date(sibling.get_text(strip=True))
+                if date:
+                    break
         
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
@@ -81,7 +102,7 @@ def parse_puzzles(html):
         else:
             solved = 0
         
-        # النجوم — لو مفيش تقييم، N/A
+        # النجوم
         stars = "N/A"
         img = cells[3].find("img")
         if img:
@@ -145,12 +166,11 @@ def update_config():
         try:
             puzzle_html = fetch_puzzle(p["lmd"])
             puzz_link = get_sudokupad_link(puzzle_html)
-            # استخدم htmldate لاستخراج التاريخ
-            date = find_date(puzzle_html)
+            if not p["date"]:
+                p["date"] = extract_date(puzzle_html)
         except Exception as e:
             print(f"Error fetching {p['lmd']}: {e}")
             puzz_link = ""
-            date = ""
         
         new_id = "ietsh-" + re.sub(r'[^a-z0-9]', '', p["title"].lower())
         
@@ -158,7 +178,7 @@ def update_config():
             "num": 0,
             "id": new_id,
             "title": p["title"],
-            "date": date,
+            "date": p["date"],
             "stars": p["stars"],
             "puzz": puzz_link,
             "lmd": p["lmd"],
@@ -178,12 +198,19 @@ def update_config():
                 item["rating"] = p["rating"]
                 if p["date"]:
                     item["date"] = p["date"]
-                print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']} | date: {p['date']}")
+                elif not item.get("date") or item["date"] == "":
+                    # محاولة أخيرة: جلب التاريخ من صفحة اللغز
+                    try:
+                        puzzle_html = fetch_puzzle(p["lmd"])
+                        item["date"] = extract_date(puzzle_html)
+                    except:
+                        pass
+                print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']} | date: {item['date']}")
                 break
     
     def parse_date(item):
         try:
-            return datetime.strptime(item["date"], "%Y-%m-%d")
+            return datetime.strptime(item["date"], "%d. %B %Y, %H:%M")
         except:
             return datetime.min
     
