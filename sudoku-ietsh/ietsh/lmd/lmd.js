@@ -15,14 +15,24 @@
   let lastCheckRaw = null;
   let lastCheckTime = null;
 
+  // ---------------------------------------------------------
+  // Action buttons
+  // ---------------------------------------------------------
+
   const setLink = (node, url, qs) => {
     if (!url) return;
 
-    node.append('a')
+    const link = node.append('a')
       .attr('href', url + (qs || ''))
       .attr('target', '_blank')
       .attr('rel', 'noopener noreferrer')
-      .text('[play]');
+      .attr('class', 'archive-action play-action')
+      .attr('title', 'Play this puzzle')
+      .attr('aria-label', 'Play this puzzle');
+
+    link.append('span')
+      .attr('class', 'action-icon')
+      .text('▶');
   };
 
   const lmdLink = code =>
@@ -31,15 +41,158 @@
   const setLmd = (node, code) => {
     if (!code) return;
 
-    node.append('a')
+    const link = node.append('a')
       .attr('href', lmdLink(code))
       .attr('target', '_blank')
       .attr('rel', 'noopener noreferrer')
-      .text('[LMD]');
+      .attr('class', 'archive-action lmd-action')
+      .attr('title', 'View this puzzle on Logic Masters Germany')
+      .attr('aria-label', 'View this puzzle on Logic Masters Germany');
+
+    link.append('span')
+      .attr('class', 'action-icon')
+      .text('↗');
   };
+
+  // ---------------------------------------------------------
+  // Latest Puzzle
+  // ---------------------------------------------------------
+
+  const recentStats = (info, i) => {
+
+    const top = info
+      .append('div')
+      .attr('class', 'latest-top');
+
+    top.append('span')
+      .attr('class', 'latest-badge')
+      .text('LATEST PUZZLE');
+
+    top.append('span')
+      .attr('class', 'latest-number')
+      .text(`#${i.num}`);
+
+    info.append('h2')
+      .attr('class', 'latest-title')
+      .text(i.title);
+
+    info.append('p')
+      .attr('class', 'latest-date')
+      .text(i.date);
+
+    const stars = info
+      .append('div')
+      .attr('class', 'latest-stars');
+
+    _iEtsh_.logo.drawStarBar(
+      stars,
+      i.stars,
+      34
+    );
+
+    const meta = info
+      .append('div')
+      .attr('class', 'latest-meta');
+
+    const solves = meta
+      .append('div')
+      .attr('class', 'meta-pill');
+
+    solves.append('span')
+      .text('SOLVED');
+
+    solves.append('strong')
+      .text(`${i.solves || 0}`);
+
+    const rating = meta
+      .append('div')
+      .attr('class', 'meta-pill');
+
+    rating.append('span')
+      .text('RATING');
+
+    rating.append('strong')
+      .text(i.rating || 'N/A');
+
+    const actions = info
+      .append('div')
+      .attr('class', 'latest-actions');
+
+    if (i.puzz) {
+      const play = actions
+        .append('a')
+        .attr('href', i.puzz + (i.qs || ''))
+        .attr('target', '_blank')
+        .attr('rel', 'noopener noreferrer')
+        .attr('class', 'action-btn play-btn')
+        .attr('title', 'Play this puzzle')
+        .attr('aria-label', 'Play this puzzle');
+
+      play.append('span')
+        .attr('class', 'action-icon')
+        .text('▶');
+
+      play.append('span')
+        .attr('class', 'action-label')
+        .text('PLAY');
+    }
+
+    if (i.lmd) {
+      const lmd = actions
+        .append('a')
+        .attr('href', lmdLink(i.lmd))
+        .attr('target', '_blank')
+        .attr('rel', 'noopener noreferrer')
+        .attr('class', 'action-btn lmd-btn')
+        .attr('title', 'View this puzzle on Logic Masters Germany')
+        .attr('aria-label', 'View this puzzle on Logic Masters Germany');
+
+      lmd.append('span')
+        .attr('class', 'action-icon')
+        .text('↗');
+
+      lmd.append('span')
+        .attr('class', 'action-label')
+        .text('LMD');
+    }
+  };
+
+  const genMostRecent = d => {
+    const i = d.items && d.items[0];
+
+    if (!i) return;
+
+    const card = recent
+      .append('div')
+      .attr('class', 'latest-card');
+
+    const glow = card
+      .append('div')
+      .attr('class', 'latest-glow');
+
+    const numberBg = card
+      .append('div')
+      .attr('class', 'latest-number-bg')
+      .text(`#${i.num}`);
+
+    const inner = card
+      .append('div')
+      .attr('class', 'latest-inner');
+
+    const info = inner
+      .append('div')
+      .attr('class', 'latest-info');
+
+    recentStats(info, i);
+  };
+
+  // ---------------------------------------------------------
+  // Archive
+  // ---------------------------------------------------------
 
   const genSummaryItems = d => {
     (d.items || []).forEach(i => {
+
       const id = i.id;
 
       const div = summs
@@ -49,98 +202,64 @@
 
       const ul = div.append('ul');
 
-      ul.append('li').text(`#${i.num}`);
+      // Number
+      ul.append('li')
+        .attr('class', 'archive-number')
+        .text(`#${i.num}`);
 
-      ul.append('li').text(i.title);
+      // Title
+      ul.append('li')
+        .attr('class', 'archive-title')
+        .text(i.title);
 
       cache.titles[id] = i.title;
 
-      ul.append('li').text(i.date);
+      // Date
+      ul.append('li')
+        .attr('class', 'archive-date')
+        .text(i.date);
+
+      // Stars
+      const stars = ul.append('li')
+        .attr('class', 'archive-stars');
 
       _iEtsh_.logo.drawStarBar(
-        ul.append('li'),
+        stars,
         i.stars
       );
 
-      setLmd(
-        ul.append('li'),
-        i.lmd
-      );
+      // LMD
+      const lmd = ul.append('li')
+        .attr('class', 'archive-link');
+
+      setLmd(lmd, i.lmd);
+
+      // Play
+      const play = ul.append('li')
+        .attr('class', 'archive-link');
 
       setLink(
-        ul.append('li'),
+        play,
         i.puzz,
         i.qs || ''
       );
 
+      // Solves
       ul.append('li')
-        .attr('class', 'nsolves')
-        .text(`${i.solves || 0} solves`);
+        .attr('class', 'archive-solves')
+        .text(`${i.solves || 0}`);
 
+      // Rating
       ul.append('li')
-        .attr('class', 'rating')
+        .attr('class', 'archive-rating')
         .text(i.rating || 'N/A');
     });
   };
 
-  const recentStats = (div, i) => {
-    div.append('h3')
-      .text(i.title);
+  // ---------------------------------------------------------
+  // State
+  // ---------------------------------------------------------
 
-    div.append('p')
-      .attr('class', 'date')
-      .text(i.date);
-
-    _iEtsh_.logo.drawStarBar(
-      div.append('div'),
-      i.stars,
-      30
-    );
-
-    div.append('p')
-      .attr('class', 'spacer');
-
-    div.append('p')
-      .attr('class', 'nsolves')
-      .html(`Solved ${i.solves || 0} times`);
-
-    setLink(
-      div.append('p'),
-      i.puzz,
-      i.qs || ''
-    );
-
-    setLmd(
-      div.append('p'),
-      i.lmd
-    );
-  };
-
-  const genMostRecent = d => {
-    const i = d.items && d.items[0];
-
-    if (!i) return;
-
-    const div = recent.append('div');
-
-    const mc = div
-      .append('div')
-      .attr('class', 'multicol');
-
-    recentStats(
-      mc.append('div').attr('class', 'desc'),
-      i
-    );
-  };
-
-  /*
-   * Build a stable snapshot of all puzzle data.
-   *
-   * last_check is deliberately NOT included.
-   *
-   * Any change to any puzzle field will therefore
-   * be detected.
-   */
   function getPuzzleState(d) {
     return JSON.stringify(
       (d.items || []).map(i => ({
@@ -158,9 +277,6 @@
     );
   }
 
-  /*
-   * Render all puzzle information.
-   */
   function renderData(d) {
     recent.html('');
     summs.html('');
@@ -171,17 +287,14 @@
     genMostRecent(d);
     genSummaryItems(d);
 
-    /*
-     * Store a COPY of the data.
-     * This prevents accidental reference sharing.
-     */
     cache.data = JSON.parse(JSON.stringify(d));
     cache.state = getPuzzleState(d);
   }
 
-  /*
-   * Update the "Last checked" timer.
-   */
+  // ---------------------------------------------------------
+  // Update timer
+  // ---------------------------------------------------------
+
   function updateTimer() {
     if (!lastCheckTime) return;
 
@@ -195,27 +308,33 @@
     let text;
 
     if (diffSec < 60) {
+
       text = `Last checked: ${diffSec} seconds ago`;
+
     } else if (diffSec < 3600) {
+
       const min = Math.floor(diffSec / 60);
       const sec = diffSec % 60;
 
       text = `Last checked: ${min} min ${sec} sec ago`;
+
     } else {
+
       const hr = Math.floor(diffSec / 3600);
       const min = Math.floor((diffSec % 3600) / 60);
 
       text = `Last checked: ${hr} hr ${min} min ago`;
     }
 
-    d3.select('#since').text(text);
+    d3.select('#since')
+      .select('.update-text')
+      .text(text);
   }
 
-  /*
-   * Fetch the newest config.json.
-   *
-   * Cache busting is mandatory here.
-   */
+  // ---------------------------------------------------------
+  // Fetch config
+  // ---------------------------------------------------------
+
   async function fetchConfig() {
     const response = await fetch(
       confPath + '?t=' + Date.now(),
@@ -233,45 +352,33 @@
     return await response.json();
   }
 
-  /*
-   * Check for a new scraper check.
-   */
+  // ---------------------------------------------------------
+  // Check for updates
+  // ---------------------------------------------------------
+
   async function checkForUpdates() {
     try {
+
       const d = await fetchConfig();
 
       if (!d.last_check) return;
 
-      /*
-       * Has the scraper performed a new check?
-       */
       const newCheck =
         d.last_check !== lastCheckRaw;
 
-      /*
-       * Has any actual puzzle data changed?
-       */
       const newState =
         getPuzzleState(d);
 
       const dataChanged =
         newState !== cache.state;
 
-      /*
-       * If a new scraper check happened:
-       *
-       * RESET TIMER ALWAYS.
-       */
       if (newCheck) {
+
         lastCheckRaw = d.last_check;
         lastCheckTime = new Date(d.last_check);
 
         updateTimer();
 
-        /*
-         * If the actual puzzle data changed,
-         * rebuild the page.
-         */
         if (dataChanged) {
           renderData(d);
         }
@@ -279,17 +386,12 @@
         return;
       }
 
-      /*
-       * Extra protection:
-       *
-       * If data somehow changes without last_check
-       * changing, update the UI anyway.
-       */
       if (dataChanged) {
         renderData(d);
       }
 
     } catch (error) {
+
       console.warn(
         'Unable to check puzzle data:',
         error
@@ -297,11 +399,13 @@
     }
   }
 
-  /*
-   * Initial load.
-   */
+  // ---------------------------------------------------------
+  // Initial load
+  // ---------------------------------------------------------
+
   async function initialLoad() {
     try {
+
       const d = await fetchConfig();
 
       if (!d.last_check) {
@@ -315,23 +419,18 @@
       renderData(d);
       updateTimer();
 
-      /*
-       * Update timer every second.
-       */
       setInterval(
         updateTimer,
         1000
       );
 
-      /*
-       * Check GitHub Pages config every 30 seconds.
-       */
       setInterval(
         checkForUpdates,
         30000
       );
 
     } catch (error) {
+
       console.error(
         'Failed to load puzzle data:',
         error
@@ -339,10 +438,12 @@
     }
   }
 
-  /*
-   * Tooltip / row highlighting.
-   */
+  // ---------------------------------------------------------
+  // Tooltip
+  // ---------------------------------------------------------
+
   const onMouseMove = ev => {
+
     const mPos = d3.pointer(ev);
 
     let t = d3.select(ev.target);
@@ -366,6 +467,7 @@
     }
 
     if (p) {
+
       if (cache.hovered) {
         cache.hovered.style(
           'background-color',
@@ -399,6 +501,7 @@
     } else {
 
       if (cache.hovered) {
+
         cache.hovered.style(
           'background-color',
           null
