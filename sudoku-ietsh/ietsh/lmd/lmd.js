@@ -23,7 +23,7 @@ const genSummaryItems = d => {
         setLmd(ul.append('li'), i.lmd);
         setLink(ul.append('li'), i.puzz, i.qs || '');
         ul.append('li').attr('class', 'nsolves').text(`${i.solves || 0} solves`);
-        ul.append('li').attr('class', 'rating').text(i.rating || '-');
+        ul.append('li').attr('class', 'rating').text(i.rating || 'N/A');
     });
 };
 
