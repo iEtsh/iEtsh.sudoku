@@ -38,7 +38,7 @@ def get_sudokupad_link(html):
 
 def get_date_from_puzzle(html):
     """يجيب التاريخ من صفحة اللغز نفسها"""
-    m = re.search(r'Published on ([^<]+)', html)
+    m = re.search(r'Published on ([^<]+?)\s+by\s', html)
     if m:
         return m.group(1).strip()
     return ""
@@ -66,15 +66,6 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # التاريخ من صفحة القايمة (لو موجود)
-        date = ""
-        date_span = cells[1].find("span")
-        if date_span:
-            date_text = date_span.get_text(strip=True)
-            date_match = re.search(r"on (.+?)\)", date_text)
-            if date_match:
-                date = date_match.group(1)
-        
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
@@ -92,11 +83,13 @@ def parse_puzzles(html):
         img = cells[3].find("img")
         if img:
             src = img.get("src", "")
-            m = re.search(r"level(\d)\.png", src)
-            if m:
-                stars = int(m.group(1))
-            elif "ulevel5" in src:
+            # لو الصورة ulevel5 (تقدير المؤلف - أزرق) → N/A
+            if "ulevel5" in src:
                 stars = "N/A"
+            else:
+                m = re.search(r"level(\d)\.png", src)
+                if m:
+                    stars = int(m.group(1))
         
         # التقييم
         rating = "N/A"
@@ -112,7 +105,6 @@ def parse_puzzles(html):
         puzzles.append({
             "title": title,
             "lmd": lmd_code,
-            "date": date,
             "solved": solved,
             "stars": stars,
             "rating": rating
