@@ -18,10 +18,10 @@
       "id": "ietsh-vibrantspots7",
       "title": "Vibrant Spots VII - Special Edition",
       "date": "7. September 2026, 04:05",
-      "stars": 3,
+      "stars": 4,
       "puzz": "https://sudokupad.app/z5vf5kram0",
       "lmd": "000UR2",
-      "solves": 64,
+      "solves": 65,
       "rating": "97%",
       "author_rated": false
     },
@@ -302,5 +302,5 @@
       "author_rated": false
     }
   ],
-  "last_check": "2026-09-17T18:40:18.963444Z"
+  "last_check": "2026-09-17T18:45:15.096194Z"
 }
