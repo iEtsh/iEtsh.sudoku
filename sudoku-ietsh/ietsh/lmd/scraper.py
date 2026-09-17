@@ -11,6 +11,7 @@ import time
 import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
+from htmldate import find_date
 
 BASE_URL = "https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
 CONFIG_PATH = "sudoku-ietsh/ietsh/lmd/config.json"
@@ -59,12 +60,14 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # التاريخ من صفحة القايمة — باستخدام regex على HTML الخام
+        # التاريخ من صفحة القايمة
         date = ""
-        row_html = str(row)
-        date_match = re.search(r'on (\d{1,2}\. \w+ \d{4}, \d{2}:\d{2})\)', row_html)
-        if date_match:
-            date = date_match.group(1)
+        for span in cells[1].find_all("span"):
+            date_text = span.get_text(strip=True)
+            date_match = re.search(r"on (.+?)\)", date_text)
+            if date_match:
+                date = date_match.group(1)
+                break
         
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
@@ -142,9 +145,12 @@ def update_config():
         try:
             puzzle_html = fetch_puzzle(p["lmd"])
             puzz_link = get_sudokupad_link(puzzle_html)
+            # استخدم htmldate لاستخراج التاريخ
+            date = find_date(puzzle_html)
         except Exception as e:
             print(f"Error fetching {p['lmd']}: {e}")
             puzz_link = ""
+            date = ""
         
         new_id = "ietsh-" + re.sub(r'[^a-z0-9]', '', p["title"].lower())
         
@@ -152,7 +158,7 @@ def update_config():
             "num": 0,
             "id": new_id,
             "title": p["title"],
-            "date": p["date"],
+            "date": date,
             "stars": p["stars"],
             "puzz": puzz_link,
             "lmd": p["lmd"],
@@ -177,7 +183,7 @@ def update_config():
     
     def parse_date(item):
         try:
-            return datetime.strptime(item["date"], "%d. %B %Y, %H:%M")
+            return datetime.strptime(item["date"], "%Y-%m-%d")
         except:
             return datetime.min
     
