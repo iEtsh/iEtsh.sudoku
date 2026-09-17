@@ -2,10 +2,12 @@
 """
 scraper.py
 يقرأ كل صفحات iEtsh على LMD ويحدث config.json
+ويضيف الألغاز الجديدة تلقائيًا
 """
 
 import json
 import re
+import time
 import requests
 from bs4 import BeautifulSoup
 
@@ -17,6 +19,23 @@ def fetch_page(start=0):
     r = requests.get(url, timeout=30)
     r.raise_for_status()
     return r.text
+
+def fetch_puzzle(lmd_code):
+    url = f"https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id={lmd_code}"
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    return r.text
+
+def get_sudokupad_link(html):
+    """يجيب رابط SudokuPad من صفحة اللغز (الرابط اللي حوالين الصورة)"""
+    soup = BeautifulSoup(html, "html.parser")
+    # دور على أول <a> جواه <img>
+    for a in soup.find_all("a", href=True):
+        if a.find("img"):
+            href = a["href"]
+            if "sudokupad" in href:
+                return href
+    return ""
 
 def parse_puzzles(html):
     soup = BeautifulSoup(html, "html.parser")
@@ -31,7 +50,6 @@ def parse_puzzles(html):
         if len(cells) < 4:
             continue
         
-        # اسم اللغز + كود LMD
         link = cells[1].find("a")
         if not link:
             continue
@@ -42,20 +60,29 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # عدد الحلول: من cells[2]، نشيل آخر رقمين (التقييم)
+        # التاريخ
+        date_span = cells[1].find("span")
+        date = ""
+        if date_span:
+            date_text = date_span.get_text(strip=True)
+            date_match = re.search(r"on (.+?)\)", date_text)
+            if date_match:
+                date = date_match.group(1)
+        
+        # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
         if solved_match:
             full_num = solved_match.group(1)
             if len(full_num) >= 3:
-                solved = int(full_num[:-2])  # شيل آخر رقمين
+                solved = int(full_num[:-2])
             else:
                 solved = int(full_num)
         else:
             solved = 0
         
-        # النجوم: من cells[3]
-        stars = 0
+        # النجوم
+        stars = "-"
         img = cells[3].find("img")
         if img:
             src = img.get("src", "")
@@ -65,19 +92,21 @@ def parse_puzzles(html):
             elif "ulevel5" in src:
                 stars = 5
         
-        # التقييم: من cells[3]
+        # التقييم
+        rating = "-"
         rating_span = cells[3].find("span")
-        rating = ""
         if rating_span:
             rating_text = rating_span.get_text(strip=True)
             rating_text = rating_text.replace('\xa0', ' ')
-            rating_match = re.search(r"(\d+)", rating_text)
-            if rating_match:
-                rating = rating_match.group(1) + "%"
+            if "N/A" not in rating_text:
+                rating_match = re.search(r"(\d+)", rating_text)
+                if rating_match:
+                    rating = rating_match.group(1) + "%"
         
         puzzles.append({
             "title": title,
             "lmd": lmd_code,
+            "date": date,
             "solved": solved,
             "stars": stars,
             "rating": rating
@@ -85,6 +114,7 @@ def parse_puzzles(html):
     return puzzles
 
 def update_config():
+    # اقرا كل الألغاز من LMD
     all_puzzles = []
     start = 0
     while True:
@@ -97,12 +127,52 @@ def update_config():
             break
         start += 20
     
-    print(f"Found {len(all_puzzles)} puzzles")
+    print(f"Found {len(all_puzzles)} puzzles on LMD")
     
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         cfg = json.load(f)
     
-    updated = 0
+    # الألغاز الموجودة
+    existing_lmd = {item["lmd"]: item for item in cfg["items"]}
+    
+    # الألغاز الجديدة
+    new_puzzles = []
+    for p in all_puzzles:
+        if p["lmd"] not in existing_lmd:
+            new_puzzles.append(p)
+    
+    print(f"New puzzles: {len(new_puzzles)}")
+    
+    # ضيف الألغاز الجديدة
+    for p in new_puzzles:
+        # جيب رابط SudokuPad من صفحة اللغز
+        try:
+            puzzle_html = fetch_puzzle(p["lmd"])
+            puzz_link = get_sudokupad_link(puzzle_html)
+        except Exception as e:
+            print(f"Error fetching {p['lmd']}: {e}")
+            puzz_link = ""
+        
+        # اعمل id
+        new_id = "ietsh-" + re.sub(r'[^a-z0-9]', '', p["title"].lower())
+        
+        new_item = {
+            "num": max([item["num"] for item in cfg["items"]], default=0) + 1,
+            "id": new_id,
+            "title": p["title"],
+            "date": p["date"],
+            "stars": p["stars"],
+            "puzz": puzz_link,
+            "lmd": p["lmd"],
+            "solves": p["solved"],
+            "rating": p["rating"]
+        }
+        cfg["items"].insert(0, new_item)
+        print(f"Added: {p['title']}")
+        
+        time.sleep(0.5)
+    
+    # حدّث الألغاز الموجودة
     for item in cfg["items"]:
         for p in all_puzzles:
             if p["lmd"] == item["lmd"]:
@@ -110,13 +180,12 @@ def update_config():
                 item["solves"] = p["solved"]
                 item["rating"] = p["rating"]
                 print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
-                updated += 1
                 break
     
     with open(CONFIG_PATH, "w", encoding="utf-8") as f:
         json.dump(cfg, f, ensure_ascii=False, indent=2)
     
-    print(f"config.json updated. {updated} puzzles updated.")
+    print(f"config.json updated.")
 
 if __name__ == "__main__":
     update_config()
