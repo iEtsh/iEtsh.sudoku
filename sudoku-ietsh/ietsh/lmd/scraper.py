@@ -59,14 +59,12 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # التاريخ من صفحة القايمة
+        # التاريخ من صفحة القايمة — باستخدام regex على HTML الخام
         date = ""
-        for span in cells[1].find_all("span"):
-            date_text = span.get_text(strip=True)
-            date_match = re.search(r"on (.+?)\)", date_text)
-            if date_match:
-                date = date_match.group(1)
-                break
+        row_html = str(row)
+        date_match = re.search(r'on (\d{1,2}\. \w+ \d{4}, \d{2}:\d{2})\)', row_html)
+        if date_match:
+            date = date_match.group(1)
         
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
