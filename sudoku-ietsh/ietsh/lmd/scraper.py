@@ -42,10 +42,10 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # عدد الحلول: نستخرج أول رقم من الخلية
+        # عدد الحلول: نستخرج أول رقم من الخلية فقط
         solved_text = cells[2].get_text(strip=True)
-        solved_match = re.search(r"\d+", solved_text)
-        solved = int(solved_match.group()) if solved_match else 0
+        solved_match = re.match(r"(\d+)", solved_text.strip())
+        solved = int(solved_match.group(1)) if solved_match else 0
         
         # النجوم: من اسم الصورة
         stars = 0
@@ -63,9 +63,9 @@ def parse_puzzles(html):
         rating = ""
         if rating_span:
             rating_text = rating_span.get_text(strip=True)
-            rating_match = re.search(r"\d+", rating_text)
+            rating_match = re.search(r"(\d+)", rating_text)
             if rating_match:
-                rating = rating_match.group() + "%"
+                rating = rating_match.group(1) + "%"
         
         puzzles.append({
             "title": title,
