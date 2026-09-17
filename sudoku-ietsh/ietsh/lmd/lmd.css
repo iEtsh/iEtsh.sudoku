@@ -104,8 +104,13 @@ body {
 }
 
 @keyframes livePulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
 }
 
 /* Sections */
@@ -138,10 +143,17 @@ body {
     padding: 38px 40px;
     border-radius: 21px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(135deg, rgba(88, 104, 169, 0.14), rgba(255, 255, 255, 0.025));
+    background: linear-gradient(
+        135deg,
+        rgba(88, 104, 169, 0.14),
+        rgba(255, 255, 255, 0.025)
+    );
     box-shadow: 0 28px 75px rgba(0, 0, 0, 0.28);
     animation: cardEnter 0.6s ease both;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .latest-card:hover {
@@ -228,6 +240,41 @@ body {
     margin: 0 0 23px;
 }
 
+/* =========================================================
+   Stars
+   ========================================================= */
+
+.puzzle-stars {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.puzzle-stars .star-bar {
+    display: block;
+    width: auto;
+    height: auto;
+    overflow: visible;
+}
+
+.puzzle-stars .star-bar path {
+    display: block;
+}
+
+/* Normal LMD difficulty */
+.puzzle-stars .star-1 {
+    fill: #d8b85d !important;
+}
+
+.puzzle-stars .star-0 {
+    fill: #303746 !important;
+}
+
+/* Author-estimated difficulty */
+.puzzle-stars.author-stars .star-1 {
+    fill: #5d9fe3 !important;
+}
+
 .latest-stars {
     margin-bottom: 24px;
 }
@@ -282,7 +329,11 @@ body {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.8px;
-    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .action-btn:hover {
@@ -383,6 +434,7 @@ body {
 /* Thin column header */
 .archive-header {
     display: grid;
+
     grid-template-columns:
         58px
         minmax(240px, 1fr)
@@ -406,6 +458,7 @@ body {
     letter-spacing: 1px;
     line-height: 1;
     text-transform: uppercase;
+
     pointer-events: none;
     user-select: none;
 }
@@ -435,7 +488,10 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.055);
     background: rgba(255, 255, 255, 0.018);
-    transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease;
     animation: rowEnter 0.45s ease both;
 }
 
@@ -459,6 +515,7 @@ body {
 
 #summary-table ul {
     display: grid;
+
     grid-template-columns:
         58px
         minmax(240px, 1fr)
@@ -529,12 +586,18 @@ body {
 .archive-action {
     width: 34px;
     height: 34px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 9px;
     text-decoration: none;
-    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
 }
 
 .archive-action:hover {
@@ -617,7 +680,9 @@ body {
     border-radius: 9px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
     z-index: 10;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
     pointer-events: none;
 }
 
@@ -650,6 +715,7 @@ body {
             44px
             105px
             65px;
+
         gap: 8px;
     }
 
@@ -684,18 +750,6 @@ body {
 
     .latest-card {
         padding: 30px;
-    }
-
-    .archive-header {
-        grid-template-columns:
-            45px
-            minmax(150px, 1fr)
-            70px
-            44px
-            44px
-            105px;
-
-        gap: 8px;
     }
 
     #summary-table ul {
@@ -848,7 +902,9 @@ body {
             42px
             42px;
 
-        grid-template-rows: 18px;
+        grid-template-rows:
+            18px;
+
         gap: 8px;
 
         height: 18px;
