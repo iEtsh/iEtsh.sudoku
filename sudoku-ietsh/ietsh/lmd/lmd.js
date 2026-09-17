@@ -16,6 +16,28 @@
   let lastCheckTime = null;
 
   // ---------------------------------------------------------
+  // Star rendering
+  // ---------------------------------------------------------
+
+  const drawStars = (node, stars, authorRated = false, size) => {
+
+    const container = node
+      .append('div')
+      .attr(
+        'class',
+        authorRated
+          ? 'puzzle-stars author-stars'
+          : 'puzzle-stars'
+      );
+
+    _iEtsh_.logo.drawStarBar(
+      container,
+      stars,
+      size
+    );
+  };
+
+  // ---------------------------------------------------------
   // Action buttons
   // ---------------------------------------------------------
 
@@ -80,9 +102,10 @@
       .attr('class', 'latest-date')
       .text(i.date);
 
-    _iEtsh_.logo.drawStarBar(
-      info.append('div'),
+    drawStars(
+      info,
       i.stars,
+      i.author_rated === true,
       30
     );
 
@@ -115,6 +138,7 @@
       .attr('class', 'latest-actions');
 
     if (i.puzz) {
+
       const play = actions
         .append('a')
         .attr('href', i.puzz + (i.qs || ''))
@@ -134,6 +158,7 @@
     }
 
     if (i.lmd) {
+
       const lmd = actions
         .append('a')
         .attr('href', lmdLink(i.lmd))
@@ -154,6 +179,7 @@
   };
 
   const genMostRecent = d => {
+
     const i = d.items && d.items[0];
 
     if (!i) return;
@@ -179,7 +205,10 @@
       .append('div')
       .attr('class', 'latest-info');
 
-    recentStats(info, i);
+    recentStats(
+      info,
+      i
+    );
   };
 
   // ---------------------------------------------------------
@@ -187,6 +216,7 @@
   // ---------------------------------------------------------
 
   const genSummaryHeader = () => {
+
     const header = summs
       .append('div')
       .attr('class', 'archive-header');
@@ -254,12 +284,10 @@
         .text(i.date);
 
       // Difficulty
-      const stars = ul.append('li')
-        .attr('class', 'archive-stars');
-
-      _iEtsh_.logo.drawStarBar(
-        stars,
-        i.stars
+      drawStars(
+        ul.append('li'),
+        i.stars,
+        i.author_rated === true
       );
 
       // LMD Link
@@ -298,6 +326,7 @@
   // ---------------------------------------------------------
 
   function getPuzzleState(d) {
+
     return JSON.stringify(
       (d.items || []).map(i => ({
         num: i.num,
@@ -305,6 +334,7 @@
         title: i.title,
         date: i.date,
         stars: i.stars,
+        author_rated: i.author_rated === true,
         puzz: i.puzz,
         lmd: i.lmd,
         solves: i.solves,
@@ -315,6 +345,7 @@
   }
 
   function renderData(d) {
+
     recent.html('');
     summs.html('');
 
@@ -324,8 +355,13 @@
     genMostRecent(d);
     genSummaryItems(d);
 
-    cache.data = JSON.parse(JSON.stringify(d));
-    cache.state = getPuzzleState(d);
+    cache.data = JSON.parse(
+      JSON.stringify(d)
+    );
+
+    cache.state = getPuzzleState(
+      d
+    );
   }
 
   // ---------------------------------------------------------
@@ -333,29 +369,48 @@
   // ---------------------------------------------------------
 
   function updateTimer() {
+
     if (!lastCheckTime) return;
 
     const now = new Date();
 
     const diffSec = Math.max(
       0,
-      Math.floor((now - lastCheckTime) / 1000)
+      Math.floor(
+        (now - lastCheckTime) / 1000
+      )
     );
 
     let text;
 
     if (diffSec < 60) {
-      text = `Last checked: ${diffSec} seconds ago`;
+
+      text =
+        `Last checked: ${diffSec} seconds ago`;
+
     } else if (diffSec < 3600) {
-      const min = Math.floor(diffSec / 60);
-      const sec = diffSec % 60;
 
-      text = `Last checked: ${min} min ${sec} sec ago`;
+      const min =
+        Math.floor(diffSec / 60);
+
+      const sec =
+        diffSec % 60;
+
+      text =
+        `Last checked: ${min} min ${sec} sec ago`;
+
     } else {
-      const hr = Math.floor(diffSec / 3600);
-      const min = Math.floor((diffSec % 3600) / 60);
 
-      text = `Last checked: ${hr} hr ${min} min ago`;
+      const hr =
+        Math.floor(diffSec / 3600);
+
+      const min =
+        Math.floor(
+          (diffSec % 3600) / 60
+        );
+
+      text =
+        `Last checked: ${hr} hr ${min} min ago`;
     }
 
     d3.select('#since')
@@ -368,6 +423,7 @@
   // ---------------------------------------------------------
 
   async function fetchConfig() {
+
     const response = await fetch(
       confPath + '?t=' + Date.now(),
       {
@@ -376,6 +432,7 @@
     );
 
     if (!response.ok) {
+
       throw new Error(
         `HTTP ${response.status}`
       );
@@ -389,9 +446,11 @@
   // ---------------------------------------------------------
 
   async function checkForUpdates() {
+
     try {
 
-      const d = await fetchConfig();
+      const d =
+        await fetchConfig();
 
       if (!d.last_check) return;
 
@@ -406,8 +465,11 @@
 
       if (newCheck) {
 
-        lastCheckRaw = d.last_check;
-        lastCheckTime = new Date(d.last_check);
+        lastCheckRaw =
+          d.last_check;
+
+        lastCheckTime =
+          new Date(d.last_check);
 
         updateTimer();
 
@@ -436,19 +498,27 @@
   // ---------------------------------------------------------
 
   async function initialLoad() {
+
     try {
 
-      const d = await fetchConfig();
+      const d =
+        await fetchConfig();
 
       if (!d.last_check) {
+
         renderData(d);
+
         return;
       }
 
-      lastCheckRaw = d.last_check;
-      lastCheckTime = new Date(d.last_check);
+      lastCheckRaw =
+        d.last_check;
+
+      lastCheckTime =
+        new Date(d.last_check);
 
       renderData(d);
+
       updateTimer();
 
       setInterval(
@@ -476,31 +546,41 @@
 
   const onMouseMove = ev => {
 
-    const mPos = d3.pointer(ev);
+    const mPos =
+      d3.pointer(ev);
 
-    let t = d3.select(ev.target);
-    let node = t.node();
+    let t =
+      d3.select(ev.target);
+
+    let node =
+      t.node();
 
     if (!node) return;
 
-    let p = node.parentNode;
+    let p =
+      node.parentNode;
 
     while (
       p &&
       !t.classed('rec')
     ) {
-      t = d3.select(p);
 
-      const currentNode = t.node();
+      t =
+        d3.select(p);
+
+      const currentNode =
+        t.node();
 
       if (!currentNode) break;
 
-      p = currentNode.parentNode;
+      p =
+        currentNode.parentNode;
     }
 
     if (p) {
 
       if (cache.hovered) {
+
         cache.hovered.style(
           'background-color',
           null
@@ -528,7 +608,10 @@
           'transform',
           `translate(calc(-50% + ${mPos[0]}px), calc(-100% + ${mPos[1] - 15}px))`
         )
-        .style('opacity', 1);
+        .style(
+          'opacity',
+          1
+        );
 
     } else {
 
