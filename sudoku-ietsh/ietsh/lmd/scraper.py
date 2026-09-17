@@ -42,13 +42,17 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # عدد الحلول: من cells[2] لوحده
+        # عدد الحلول: من cells[2]، نشيل آخر رقمين (التقييم)
         solved_text = cells[2].get_text(strip=True)
-        # النص ممكن يكون "114" أو "5N/A" أو "104"
-        print(f"[DEBUG] cells[2] = {repr(solved_text)}")
-        print(f"[DEBUG] cells[3] = {repr(cells[3].get_text(strip=True))}")
         solved_match = re.match(r"(\d+)", solved_text.strip())
-        solved = int(solved_match.group(1)) if solved_match else 0
+        if solved_match:
+            full_num = solved_match.group(1)
+            if len(full_num) >= 3:
+                solved = int(full_num[:-2])  # شيل آخر رقمين
+            else:
+                solved = int(full_num)
+        else:
+            solved = 0
         
         # النجوم: من cells[3]
         stars = 0
@@ -66,7 +70,6 @@ def parse_puzzles(html):
         rating = ""
         if rating_span:
             rating_text = rating_span.get_text(strip=True)
-            # نشيل \xa0 (مسافة غير قابلة للكسر)
             rating_text = rating_text.replace('\xa0', ' ')
             rating_match = re.search(r"(\d+)", rating_text)
             if rating_match:
@@ -95,8 +98,6 @@ def update_config():
         start += 20
     
     print(f"Found {len(all_puzzles)} puzzles")
-    for p in all_puzzles[:3]:
-        print(f"  {p['lmd']} | {p['title'][:30]} | {p['solved']} solves | {p['stars']} stars | {p['rating']}")
     
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         cfg = json.load(f)
