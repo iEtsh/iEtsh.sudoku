@@ -20,22 +20,8 @@ const genSummaryItems = d => {
         _iEtsh_.logo.drawStarBar(ul.append('li'), i.stars);
         setLmd(ul.append('li'), i.lmd);
         setLink(ul.append('li'), i.puzz, i.qs || '');
-        ul.append('li').attr('class', 'nsolves').text('? solves');
+        ul.append('li').attr('class', 'nsolves').text(`${i.solves || 0} solves`);
     });
-};
-
-const imgPath = id => {
-    const i = id.indexOf('-');
-    if (i === -1) return '';
-    const author = id.slice(0, i).trim();
-    const title = id.slice(i + 1).trim();
-    return `../img/${author}/${title.charAt(0)}/${title}.png`;
-};
-
-const addThumb = (div, id, url, qs, size) => {
-    const wh = size || 200;
-    div.append('a').attr('href', url + (qs || '')).attr('target', '_blank')
-        .append('img').attr('src', imgPath(id)).attr('width', wh).attr('height', wh);
 };
 
 const recentStats = (div, i) => {
@@ -43,7 +29,7 @@ const recentStats = (div, i) => {
     div.append('p').attr('class', 'date').text(i.date);
     _iEtsh_.logo.drawStarBar(div.append('div'), i.stars, 30);
     div.append('p').attr('class', 'spacer');
-    div.append('p').attr('class', 'nsolves').html('Solved ? times');
+    div.append('p').attr('class', 'nsolves').html(`Solved ${i.solves || 0} times`);
     setLink(div.append('p'), i.puzz, i.qs || '');
     setLmd(div.append('p'), i.lmd);
 };
@@ -53,7 +39,6 @@ const genMostRecent = d => {
     const div = recent.append('div');
     const mc = div.append('div').attr('class', 'multicol');
     recentStats(mc.append('div').attr('class', 'desc'), i);
-    addThumb(mc.append('div'), i.id, i.puzz, i.qs, 400);
 };
 
 const tooltip = d3.select('#tooltip');
@@ -67,7 +52,6 @@ const onMouseMove = ev => {
         cache.hovered = t;
         t.style('background-color', '#336');
         const id = t.attr('id').slice(3);
-        tooltip.select('.thumb img').attr('src', imgPath(id));
         tooltip.select('.caption').text(cache.titles[id]);
         tooltip.style('transform', `translate(calc(-50% + ${mPos[0]}px), calc(-100% + ${mPos[1] - 15}px))`);
         tooltip.style('opacity', 1);
