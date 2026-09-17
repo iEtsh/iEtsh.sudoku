@@ -28,7 +28,6 @@ def fetch_puzzle(lmd_code):
     return r.text
 
 def get_sudokupad_link(html):
-    """يجيب رابط SudokuPad من صفحة اللغز (الرابط اللي حوالين الصورة)"""
     soup = BeautifulSoup(html, "html.parser")
     for a in soup.find_all("a", href=True):
         if a.find("img"):
@@ -60,14 +59,16 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        date_span = cells[1].find("span")
+        # التاريخ
         date = ""
+        date_span = cells[1].find("span")
         if date_span:
             date_text = date_span.get_text(strip=True)
             date_match = re.search(r"on (.+?)\)", date_text)
             if date_match:
                 date = date_match.group(1)
         
+        # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
         if solved_match:
@@ -79,6 +80,7 @@ def parse_puzzles(html):
         else:
             solved = 0
         
+        # النجوم — لو مفيش تقييم، يبقى "-"
         stars = "-"
         img = cells[3].find("img")
         if img:
@@ -87,8 +89,10 @@ def parse_puzzles(html):
             if m:
                 stars = int(m.group(1))
             elif "ulevel5" in src:
-                stars = 5
+                # لو اللغز مش متقيّم، النجوم تبقى "-"
+                stars = "-"
         
+        # التقييم
         rating = "-"
         rating_span = cells[3].find("span")
         if rating_span:
@@ -147,7 +151,7 @@ def update_config():
         new_id = "ietsh-" + re.sub(r'[^a-z0-9]', '', p["title"].lower())
         
         new_item = {
-            "num": max([item["num"] for item in cfg["items"]], default=0) + 1,
+            "num": 0,  # هيتحسب بعدين
             "id": new_id,
             "title": p["title"],
             "date": p["date"],
@@ -157,7 +161,7 @@ def update_config():
             "solves": p["solved"],
             "rating": p["rating"]
         }
-        cfg["items"].insert(0, new_item)
+        cfg["items"].append(new_item)
         print(f"Added: {p['title']}")
         
         time.sleep(0.5)
@@ -168,8 +172,23 @@ def update_config():
                 item["stars"] = p["stars"]
                 item["solves"] = p["solved"]
                 item["rating"] = p["rating"]
+                if p["date"]:
+                    item["date"] = p["date"]
                 print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
                 break
+    
+    # رتب الألغاز حسب التاريخ (الأحدث أولاً)
+    def parse_date(item):
+        try:
+            return datetime.strptime(item["date"], "%d. %B %Y, %H:%M")
+        except:
+            return datetime.min
+    
+    cfg["items"].sort(key=parse_date, reverse=True)
+    
+    # حدّث الأرقام
+    for idx, item in enumerate(cfg["items"]):
+        item["num"] = len(cfg["items"]) - idx
     
     cfg["last_check"] = datetime.utcnow().isoformat() + "Z"
     
