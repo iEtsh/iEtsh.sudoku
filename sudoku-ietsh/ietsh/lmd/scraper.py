@@ -44,6 +44,7 @@ def parse_puzzles(html):
         
         # عدد الحلول: نستخرج أول رقم من الخلية فقط
         solved_text = cells[2].get_text(strip=True)
+        print(f"[DEBUG] solved_text = {repr(solved_text)}")
         solved_match = re.match(r"(\d+)", solved_text.strip())
         solved = int(solved_match.group(1)) if solved_match else 0
         
