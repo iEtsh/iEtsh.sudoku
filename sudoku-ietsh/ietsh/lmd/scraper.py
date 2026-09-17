@@ -7,6 +7,7 @@ scraper.py
 import json
 import re
 import requests
+from bs4 import BeautifulSoup
 
 BASE_URL = "https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh"
 CONFIG_PATH = "sudoku-ietsh/ietsh/lmd/config.json"
@@ -18,46 +19,54 @@ def fetch_page(start=0):
     return r.text
 
 def parse_puzzles(html):
+    soup = BeautifulSoup(html, "html.parser")
     puzzles = []
+    table = soup.find("table", class_="rp_raetselliste")
+    if not table:
+        return puzzles
     
-    # كل لغز بيبدأ بـ <tr> وفيه <a href="...id=XXXXX">Title</a>
-    # وبعدين <td align="center">SOLVES</td>
-    # وبعدين <td align="center"><img src="...levelN.png"...><br><span...>RATING%</span>
-    
-    # نقسم الصفحة على <tr>
-    rows = re.split(r'<tr[^>]*>', html)
-    
+    rows = table.find_all("tr")
     for row in rows:
-        # اسم اللغز + كود LMD
-        link_match = re.search(
-            r'<a href="/Raetselportal/Raetsel/zeigen\.php\?id=([A-Z0-9]+)"[^>]*>([^<]+)</a>',
-            row
-        )
-        if not link_match:
+        cells = row.find_all("td")
+        if len(cells) < 4:
             continue
-        lmd_code = link_match.group(1)
-        title = link_match.group(2).strip()
         
-        # عدد الحلول: <td align="center">114</td>
-        solved_match = re.search(
-            r'<td align="center">(\d+)</td>',
-            row
-        )
+        # اسم اللغز + كود LMD
+        link = cells[1].find("a")
+        if not link:
+            continue
+        title = link.get_text(strip=True)
+        href = link.get("href", "")
+        m = re.search(r"id=([A-Z0-9]+)", href)
+        if not m:
+            continue
+        lmd_code = m.group(1)
+        
+        # عدد الحلول: من الخلية 2 — أول رقم فقط
+        # الخلية فيها "114\xa0%..." — ناخد أول رقم
+        solved_text = cells[2].get_text(strip=True)
+        solved_match = re.search(r"^(\d+)", solved_text.strip())
         solved = int(solved_match.group(1)) if solved_match else 0
         
-        # النجوم: levelN.png
+        # النجوم: من اسم الصورة
         stars = 0
-        stars_match = re.search(r'level(\d)\.png', row)
-        if stars_match:
-            stars = int(stars_match.group(1))
-        elif 'ulevel5' in row:
-            stars = 5
+        img = cells[3].find("img")
+        if img:
+            src = img.get("src", "")
+            m = re.search(r"level(\d)\.png", src)
+            if m:
+                stars = int(m.group(1))
+            elif "ulevel5" in src:
+                stars = 5
         
-        # النسبة: <span title="...">95&nbsp;%</span>
+        # النسبة: من الـ span
+        rating_span = cells[3].find("span")
         rating = ""
-        rating_match = re.search(r'<span title="[^"]*">(\d+)&nbsp;%</span>', row)
-        if rating_match:
-            rating = rating_match.group(1) + "%"
+        if rating_span:
+            rating_text = rating_span.get_text(strip=True)
+            rating_match = re.search(r"(\d+)", rating_text)
+            if rating_match:
+                rating = rating_match.group(1) + "%"
         
         puzzles.append({
             "title": title,
@@ -66,7 +75,6 @@ def parse_puzzles(html):
             "stars": stars,
             "rating": rating
         })
-    
     return puzzles
 
 def update_config():
