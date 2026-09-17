@@ -38,9 +38,6 @@ def get_sudokupad_link(html):
 
 def get_date_from_puzzle(html):
     """يجيب التاريخ من صفحة اللغز نفسها"""
-    soup = BeautifulSoup(html, "html.parser")
-    # دور على التاريخ في الصفحة
-    # مثال: "(Published on 14. September 2026, 09:14 by iEtsh)"
     m = re.search(r'Published on ([^<]+)', html)
     if m:
         return m.group(1).strip()
@@ -68,6 +65,15 @@ def parse_puzzles(html):
         if not m:
             continue
         lmd_code = m.group(1)
+        
+        # التاريخ من صفحة القايمة (لو موجود)
+        date = ""
+        date_span = cells[1].find("span")
+        if date_span:
+            date_text = date_span.get_text(strip=True)
+            date_match = re.search(r"on (.+?)\)", date_text)
+            if date_match:
+                date = date_match.group(1)
         
         # عدد الحلول
         solved_text = cells[2].get_text(strip=True)
@@ -106,6 +112,7 @@ def parse_puzzles(html):
         puzzles.append({
             "title": title,
             "lmd": lmd_code,
+            "date": date,
             "solved": solved,
             "stars": stars,
             "rating": rating
@@ -173,16 +180,16 @@ def update_config():
                 item["stars"] = p["stars"]
                 item["solves"] = p["solved"]
                 item["rating"] = p["rating"]
-                if not item.get("date"):
+                if not item.get("date") or item["date"] == "":
                     try:
                         puzzle_html = fetch_puzzle(p["lmd"])
                         item["date"] = get_date_from_puzzle(puzzle_html)
-                    except:
-                        pass
+                        print(f"Got date for {item['title']}: {item['date']}")
+                    except Exception as e:
+                        print(f"Error getting date for {item['title']}: {e}")
                 print(f"Updated: {item['title']} -> {p['stars']} stars, {p['solved']} solves, {p['rating']}")
                 break
     
-    # رتب الألغاز حسب التاريخ (الأحدث أولاً)
     def parse_date(item):
         try:
             return datetime.strptime(item["date"], "%d. %B %Y, %H:%M")
@@ -191,7 +198,6 @@ def update_config():
     
     cfg["items"].sort(key=parse_date, reverse=True)
     
-    # حدّث الأرقام
     for idx, item in enumerate(cfg["items"]):
         item["num"] = len(cfg["items"]) - idx
     
