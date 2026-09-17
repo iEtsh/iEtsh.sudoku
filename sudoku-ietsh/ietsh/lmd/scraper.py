@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
 scraper.py
+
 يقرأ كل صفحات iEtsh على LMD ويحدث config.json
-ويضيف الألغاز الجديدة تلقائيًا
+ويضيف الألغاز الجديدة تلقائيًا.
 
 النجوم:
-- levelX.png  = تقييم فعلي من الموقع
-- ulevelX.png = تقدير من مؤلف اللغز
+- levelX.png  = تقييم عادي → author_rated = false
+- ulevelX.png = تقييم المؤلف → author_rated = true
 """
 
 import json
@@ -23,28 +24,29 @@ CONFIG_PATH = "sudoku-ietsh/ietsh/lmd/config.json"
 
 
 HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/120.0.0.0 Safari/537.36"
-    ),
-    "Accept-Language": "en-US,en;q=0.9",
+    'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/120.0.0.0 Safari/537.36',
+
+    'Accept-Language':
+        'en-US,en;q=0.9',
 }
 
 
 MONTH_MAP = {
-    "Januar": "January",
-    "Februar": "February",
-    "März": "March",
-    "April": "April",
-    "Mai": "May",
-    "Juni": "June",
-    "Juli": "July",
-    "August": "August",
-    "September": "September",
-    "Oktober": "October",
-    "November": "November",
-    "Dezember": "December",
+    'Januar': 'January',
+    'Februar': 'February',
+    'März': 'March',
+    'April': 'April',
+    'Mai': 'May',
+    'Juni': 'June',
+    'Juli': 'July',
+    'August': 'August',
+    'September': 'September',
+    'Oktober': 'October',
+    'November': 'November',
+    'Dezember': 'December'
 }
 
 
@@ -80,18 +82,20 @@ def fetch_puzzle(lmd_code):
 
 
 def extract_date(text):
+
     patterns = [
-        r"(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})",
-        r"(\d{4}-\d{2}-\d{2})",
-        r"(\d{1,2}/\d{1,2}/\d{4})",
+        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+        r'(\d{4}-\d{2}-\d{2})',
+        r'(\d{1,2}/\d{1,2}/\d{4})',
     ]
 
-    for pattern in patterns:
+    for p in patterns:
 
-        match = re.search(pattern, text)
+        m = re.search(p, text)
 
-        if match:
-            result = match.group(1)
+        if m:
+
+            result = m.group(1)
 
             for de, en in MONTH_MAP.items():
                 result = result.replace(de, en)
@@ -102,6 +106,7 @@ def extract_date(text):
 
 
 def get_sudokupad_link(html):
+
     soup = BeautifulSoup(
         html,
         "html.parser"
@@ -113,7 +118,7 @@ def get_sudokupad_link(html):
 
             href = a["href"]
 
-            if "sudokupad" in href:
+            if "sudokupad" in href.lower():
                 return href
 
     return ""
@@ -145,32 +150,44 @@ def parse_puzzles(html):
         if len(cells) < 4:
             continue
 
+        # -----------------------------------------------------
+        # Puzzle title + LMD code
+        # -----------------------------------------------------
+
         link = cells[1].find("a")
 
         if not link:
             continue
 
-        title = link.get_text(strip=True)
+        title = link.get_text(
+            strip=True
+        )
 
-        href = link.get("href", "")
+        href = link.get(
+            "href",
+            ""
+        )
 
-        match = re.search(
+        m = re.search(
             r"id=([A-Z0-9]+)",
             href
         )
 
-        if not match:
+        if not m:
             continue
 
-        lmd_code = match.group(1)
+        lmd_code = m.group(1)
 
         # -----------------------------------------------------
         # Date
         # -----------------------------------------------------
 
-        date = extract_date(str(row))
+        date = extract_date(
+            str(row)
+        )
 
         if not date:
+
             date = extract_date(
                 cells[1].get_text(
                     " ",
@@ -201,7 +218,7 @@ def parse_puzzles(html):
 
         solved_match = re.match(
             r"(\d+)",
-            solved_text
+            solved_text.strip()
         )
 
         if solved_match:
@@ -214,13 +231,14 @@ def parse_puzzles(html):
                 solved = int(full_num)
 
         else:
+
             solved = 0
 
         # -----------------------------------------------------
-        # Stars
+        # Difficulty / Stars
         # -----------------------------------------------------
 
-        stars = 0
+        stars = "N/A"
         author_rated = False
 
         img = cells[3].find("img")
@@ -230,52 +248,43 @@ def parse_puzzles(html):
             src = img.get(
                 "src",
                 ""
-            )
+            ).lower()
 
-            # -------------------------------------------------
+            # ---------------------------------------------
             # Author estimated difficulty
-            #
-            # Example:
-            # ulevel5.png
-            #
-            # This is still 5 stars, but the source is
-            # different from normal level5.png.
-            # -------------------------------------------------
+            # ---------------------------------------------
 
-            author_match = re.search(
-                r"ulevel(\d)\.png",
+            m = re.search(
+                r'ulevel(\d)\.png',
                 src
             )
 
-            if author_match:
+            if m:
 
                 stars = int(
-                    author_match.group(1)
+                    m.group(1)
                 )
 
                 author_rated = True
 
             else:
 
-                # ---------------------------------------------
+                # -----------------------------------------
                 # Normal evaluated difficulty
-                #
-                # Example:
-                # level1.png
-                # level2.png
-                # level3.png
-                # ---------------------------------------------
+                # -----------------------------------------
 
-                level_match = re.search(
-                    r"level(\d)\.png",
+                m = re.search(
+                    r'level(\d)\.png',
                     src
                 )
 
-                if level_match:
+                if m:
 
                     stars = int(
-                        level_match.group(1)
+                        m.group(1)
                     )
+
+                    author_rated = False
 
         # -----------------------------------------------------
         # Rating
@@ -283,7 +292,9 @@ def parse_puzzles(html):
 
         rating = "N/A"
 
-        rating_span = cells[3].find("span")
+        rating_span = cells[3].find(
+            "span"
+        )
 
         if rating_span:
 
@@ -292,8 +303,8 @@ def parse_puzzles(html):
             )
 
             rating_text = rating_text.replace(
-                "\xa0",
-                " "
+                '\xa0',
+                ' '
             )
 
             if "N/A" not in rating_text:
@@ -331,14 +342,20 @@ def update_config():
 
     while True:
 
-        html = fetch_page(start)
+        html = fetch_page(
+            start
+        )
 
-        puzzles = parse_puzzles(html)
+        puzzles = parse_puzzles(
+            html
+        )
 
         if not puzzles:
             break
 
-        all_puzzles.extend(puzzles)
+        all_puzzles.extend(
+            puzzles
+        )
 
         if len(puzzles) < 20:
             break
@@ -364,11 +381,13 @@ def update_config():
 
     new_puzzles = []
 
-    for puzzle in all_puzzles:
+    for p in all_puzzles:
 
-        if puzzle["lmd"] not in existing_lmd:
+        if p["lmd"] not in existing_lmd:
 
-            new_puzzles.append(puzzle)
+            new_puzzles.append(
+                p
+            )
 
     print(
         f"New puzzles: {len(new_puzzles)}"
@@ -378,63 +397,53 @@ def update_config():
     # Add new puzzles
     # ---------------------------------------------------------
 
-    for puzzle in new_puzzles:
+    for p in new_puzzles:
 
         try:
 
             puzzle_html = fetch_puzzle(
-                puzzle["lmd"]
+                p["lmd"]
             )
 
             puzz_link = get_sudokupad_link(
                 puzzle_html
             )
 
-            if not puzzle["date"]:
+            if not p["date"]:
 
-                puzzle["date"] = extract_date(
+                p["date"] = extract_date(
                     puzzle_html
                 )
 
         except Exception as e:
 
             print(
-                f"Error fetching "
-                f"{puzzle['lmd']}: {e}"
+                f"Error fetching {p['lmd']}: {e}"
             )
 
             puzz_link = ""
 
         new_id = (
             "ietsh-"
-            + re.sub(
-                r"[^a-z0-9]",
-                "",
-                puzzle["title"].lower()
+            +
+            re.sub(
+                r'[^a-z0-9]',
+                '',
+                p["title"].lower()
             )
         )
 
         new_item = {
-
             "num": 0,
-
             "id": new_id,
-
-            "title": puzzle["title"],
-
-            "date": puzzle["date"],
-
-            "stars": puzzle["stars"],
-
-            "author_rated": puzzle["author_rated"],
-
+            "title": p["title"],
+            "date": p["date"],
+            "stars": p["stars"],
+            "author_rated": p["author_rated"],
             "puzz": puzz_link,
-
-            "lmd": puzzle["lmd"],
-
-            "solves": puzzle["solved"],
-
-            "rating": puzzle["rating"]
+            "lmd": p["lmd"],
+            "solves": p["solved"],
+            "rating": p["rating"]
         }
 
         cfg["items"].append(
@@ -442,10 +451,12 @@ def update_config():
         )
 
         print(
-            f"Added: {puzzle['title']}"
+            f"Added: {p['title']}"
         )
 
-        time.sleep(0.5)
+        time.sleep(
+            0.5
+        )
 
     # ---------------------------------------------------------
     # Update existing puzzles
@@ -453,53 +464,59 @@ def update_config():
 
     for item in cfg["items"]:
 
-        for puzzle in all_puzzles:
+        for p in all_puzzles:
 
-            if puzzle["lmd"] != item["lmd"]:
-                continue
+            if p["lmd"] == item["lmd"]:
 
-            item["stars"] = puzzle["stars"]
+                item["stars"] = p["stars"]
 
-            item["author_rated"] = (
-                puzzle["author_rated"]
-            )
+                item["author_rated"] = p[
+                    "author_rated"
+                ]
 
-            item["solves"] = puzzle["solved"]
+                item["solves"] = p[
+                    "solved"
+                ]
 
-            item["rating"] = puzzle["rating"]
+                item["rating"] = p[
+                    "rating"
+                ]
 
-            if puzzle["date"]:
+                if p["date"]:
 
-                item["date"] = puzzle["date"]
+                    item["date"] = p[
+                        "date"
+                    ]
 
-            elif (
-                not item.get("date")
-                or item["date"] == ""
-            ):
+                elif (
+                    not item.get("date")
+                    or item["date"] == ""
+                ):
 
-                try:
+                    try:
 
-                    puzzle_html = fetch_puzzle(
-                        puzzle["lmd"]
-                    )
+                        puzzle_html = fetch_puzzle(
+                            p["lmd"]
+                        )
 
-                    item["date"] = extract_date(
-                        puzzle_html
-                    )
+                        item["date"] = extract_date(
+                            puzzle_html
+                        )
 
-                except:
-                    pass
+                    except:
 
-            print(
-                f"Updated: {item['title']} -> "
-                f"{puzzle['stars']} stars, "
-                f"author_rated={puzzle['author_rated']}, "
-                f"{puzzle['solved']} solves, "
-                f"{puzzle['rating']} | "
-                f"date: {item['date']}"
-            )
+                        pass
 
-            break
+                print(
+                    f"Updated: {item['title']} "
+                    f"-> {p['stars']} stars, "
+                    f"author_rated={p['author_rated']}, "
+                    f"{p['solved']} solves, "
+                    f"{p['rating']} | "
+                    f"date: {item['date']}"
+                )
+
+                break
 
     # ---------------------------------------------------------
     # Sort by date
@@ -524,7 +541,7 @@ def update_config():
     )
 
     # ---------------------------------------------------------
-    # Numbers
+    # Numbering
     # ---------------------------------------------------------
 
     for idx, item in enumerate(
@@ -532,7 +549,8 @@ def update_config():
     ):
 
         item["num"] = (
-            len(cfg["items"]) - idx
+            len(cfg["items"])
+            - idx
         )
 
     # ---------------------------------------------------------
@@ -560,10 +578,6 @@ def update_config():
             ensure_ascii=False,
             indent=2
         )
-
-    print(
-        "config.json updated."
-    )
 
 
 if __name__ == "__main__":
