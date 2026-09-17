@@ -45,6 +45,8 @@ def parse_puzzles(html):
         # عدد الحلول: من cells[2] لوحده
         solved_text = cells[2].get_text(strip=True)
         # النص ممكن يكون "114" أو "5N/A" أو "104"
+        print(f"[DEBUG] cells[2] = {repr(solved_text)}")
+        print(f"[DEBUG] cells[3] = {repr(cells[3].get_text(strip=True))}")
         solved_match = re.match(r"(\d+)", solved_text.strip())
         solved = int(solved_match.group(1)) if solved_match else 0
         
