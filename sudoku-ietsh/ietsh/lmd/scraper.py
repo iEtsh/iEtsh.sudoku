@@ -31,7 +31,6 @@ def parse_puzzles(html):
         if len(cells) < 4:
             continue
         
-        # اسم اللغز + كود LMD
         link = cells[1].find("a")
         if not link:
             continue
@@ -42,16 +41,17 @@ def parse_puzzles(html):
             continue
         lmd_code = m.group(1)
         
-        # عدد الحلول: من الخلية 2 — الرقم كامل، وبعدين شيل آخر رقمين (التقييم)
         solved_text = cells[2].get_text(strip=True)
         solved_match = re.match(r"(\d+)", solved_text.strip())
         if solved_match:
-            full_num = solved_match.group(1)   # مثلاً "11495"
-            solved = int(full_num[:-2])        # شيل آخر رقمين → "114"
+            full_num = solved_match.group(1)
+            if len(full_num) >= 3:
+                solved = int(full_num[:-2])
+            else:
+                solved = int(full_num)
         else:
             solved = 0
         
-        # النجوم: من اسم الصورة
         stars = 0
         img = cells[3].find("img")
         if img:
@@ -62,7 +62,6 @@ def parse_puzzles(html):
             elif "ulevel5" in src:
                 stars = 5
         
-        # النسبة: من الـ span
         rating_span = cells[3].find("span")
         rating = ""
         if rating_span:
