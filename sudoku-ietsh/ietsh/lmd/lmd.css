@@ -1,29 +1,1028 @@
-h1.topdash { border-top: 1px dotted #5a8; padding: 8px 0; margin-top: 40px; }
-h1.subhead { border-bottom: 1px dotted #5a8; padding: 8px 0; }
-h3 { margin: 0; color: #dd9; font-size: 1.9em; }
-a { color: #6ab; }
-p { margin: 8px 0px; }
-.spacer { min-height: 20px; }
-.date { font-size: 120%; font-weight: bold; }
-.solv { color: white; }
-.note { margin: 0 60px; color: #486; font-size: 80%; }
-#since { margin: 20px 30px 0 30px; text-align: right; }
-#content { position: relative; }
-#summary-table { margin: 0 30px; background-color: #112; padding: 4px; cursor: pointer; }
-#summary-table ul { display: flex; margin: 0; padding: 4px; align-items: center; }
-#summary-table li { display: block; margin: 2px; padding: 0; font-size: 90%; }
-#summary-table li:nth-child(1) { width: 50px; text-align: right; padding: 0 12px; }
-#summary-table li:nth-child(2) { width: 350px; color: #dd9; }
-#summary-table li:nth-child(3) { width: 170px; }
-#summary-table li:nth-child(4) { width: 110px; }
-#summary-table li:nth-child(5) { width: 60px; font-size: 80%; text-align: right; }
-#summary-table li:nth-child(6) { width: 60px; font-size: 80%; text-align: right; }
-#summary-table li:nth-child(7) { width: 140px; text-align: right; }
-#summary-table li:nth-child(8) { width: 60px; text-align: right; color: #6ab; }
-.multicol { display: flex; justify-content: space-between; margin-bottom: 30px; }
-.multicol > div { margin: 20px; }
-.star-1 { fill: goldenrod; }
-.star-0 { fill: #445; }
-#tooltip { opacity: 0; position: absolute; top: -12px; left: 0; padding: 0.6em 1em; background: #448; color: #aae; text-align: center; border: 2px solid #77a; z-index: 10; transition: all 0.2s ease-out; pointer-events: none; }
-.thumb img { width: 200px; height: 200px; margin: 2px; }
-.caption { color: white; font-size: 80%; }
+/* =========================================================
+   iEtsh Puzzle Archive
+   Modern / Premium UI
+   ========================================================= */
+
+
+/* =========================================================
+   Page
+   ========================================================= */
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(92, 108, 176, 0.13),
+            transparent 43%
+        ),
+        linear-gradient(
+            180deg,
+            #0b0e15 0%,
+            #0a0d13 100%
+        );
+
+    color: #d9dde7;
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   Main Container
+   ========================================================= */
+
+#content {
+    width: min(1120px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 40px 0 30px;
+}
+
+
+/* =========================================================
+   Header
+   ========================================================= */
+
+.site-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-bottom: 30px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.065);
+}
+
+
+.brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+.brand-mark {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6879bc,
+            #4d5d96
+        );
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    box-shadow:
+        0 8px 25px rgba(72, 88, 147, 0.25);
+}
+
+
+.brand-title {
+    color: #f0f2f6;
+
+    font-size: 20px;
+    font-weight: 650;
+
+    letter-spacing: -0.4px;
+}
+
+
+.brand-subtitle {
+    color: #737c8e;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+
+    letter-spacing: 0.3px;
+}
+
+
+.live-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #737c8e;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #72bd94;
+
+    box-shadow:
+        0 0 0 4px rgba(114, 189, 148, 0.08);
+
+    animation: livePulse 2s infinite;
+}
+
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}
+
+
+/* =========================================================
+   Sections
+   ========================================================= */
+
+.latest-section {
+    padding-top: 46px;
+}
+
+
+.listing-section {
+    padding-top: 68px;
+}
+
+
+.section-label {
+    color: #737c8e;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 14px;
+}
+
+
+.section-label span {
+    color: #6576b7;
+
+    margin-right: 8px;
+}
+
+
+/* =========================================================
+   Latest Puzzle
+   ========================================================= */
+
+.latest-card {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 34px;
+
+    border-radius: 19px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(88, 104, 169, 0.115),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.22);
+
+    animation:
+        cardEnter 0.55s ease both;
+
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+
+.latest-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    right: -145px;
+    top: -160px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(92, 108, 176, 0.085);
+
+    filter: blur(5px);
+
+    pointer-events: none;
+}
+
+
+.latest-card:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(109, 126, 198, 0.22);
+
+    box-shadow:
+        0 30px 75px rgba(0, 0, 0, 0.29);
+}
+
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.latest-inner {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.latest-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.latest-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 6px 10px;
+
+    margin-bottom: 17px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid rgba(101, 118, 184, 0.19);
+
+    background:
+        rgba(101, 118, 184, 0.10);
+
+    color: #8e9cd0;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.latest-title {
+    color: #f3f4f7;
+
+    font-size:
+        clamp(28px, 4vw, 42px);
+
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+
+    margin: 0 0 9px;
+
+    font-weight: 700;
+}
+
+
+.latest-date {
+    color: #747d8f;
+
+    font-size: 12px;
+
+    margin-bottom: 21px;
+}
+
+
+.latest-stars {
+    margin-bottom: 23px;
+}
+
+
+.latest-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+
+.meta-pill {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.032);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    color: #858e9f;
+
+    font-size: 10px;
+}
+
+
+.meta-pill strong {
+    color: #e0e3e9;
+
+    font-weight: 600;
+}
+
+
+.latest-actions {
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+
+.action-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 112px;
+
+    padding: 11px 14px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.45px;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.action-btn:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+.play-btn {
+    background: #6576b8;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 7px 20px rgba(74, 88, 145, 0.23);
+}
+
+
+.play-btn:hover {
+    background: #7182c5;
+}
+
+
+.lmd-btn {
+    background:
+        rgba(255, 255, 255, 0.032);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.085);
+
+    color: #aeb5c3;
+}
+
+
+.lmd-btn:hover {
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    border-color:
+        rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================================
+   Stars
+   ========================================================= */
+
+.star-bar {
+    display: block;
+}
+
+
+.star-1 {
+    fill: #d8b85d;
+}
+
+
+.star-0 {
+    fill: #303746;
+}
+
+
+/* =========================================================
+   Archive Heading
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 21px;
+}
+
+
+.section-heading h1 {
+    margin: 0;
+
+    color: #eef0f4;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    letter-spacing: -0.8px;
+}
+
+
+.update-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #687285;
+
+    font-size: 10px;
+}
+
+
+.update-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6878b8;
+}
+
+
+.update-text {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   Puzzle List
+   ========================================================= */
+
+#summary-table {
+    margin: 0;
+
+    padding: 0;
+
+    background: transparent;
+
+    cursor: default;
+}
+
+
+#summary-table .rec {
+    margin-bottom: 7px;
+
+    overflow: hidden;
+
+    border-radius: 11px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.052);
+
+    background:
+        rgba(255, 255, 255, 0.017);
+
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease;
+
+    animation:
+        rowEnter 0.45s ease both;
+}
+
+
+#summary-table .rec:hover {
+    transform:
+        translateX(4px);
+
+    background:
+        rgba(94, 108, 169, 0.075);
+
+    border-color:
+        rgba(108, 124, 193, 0.17);
+}
+
+
+@keyframes rowEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+#summary-table ul {
+    display: grid;
+
+    grid-template-columns:
+        55px
+        minmax(220px, 1fr)
+        175px
+        95px
+        65px
+        70px
+        90px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0;
+
+    padding: 13px 16px;
+}
+
+
+#summary-table li {
+    display: block;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 11px;
+}
+
+
+#summary-table li:nth-child(1) {
+    width: auto;
+
+    color: #596275;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-align: left;
+}
+
+
+#summary-table li:nth-child(2) {
+    width: auto;
+
+    color: #dfe2e8;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+#summary-table li:nth-child(3) {
+    width: auto;
+
+    color: #70798c;
+
+    font-size: 10px;
+}
+
+
+#summary-table li:nth-child(4) {
+    width: auto;
+}
+
+
+#summary-table li:nth-child(5),
+#summary-table li:nth-child(6),
+#summary-table li:nth-child(7),
+#summary-table li:nth-child(8) {
+    width: auto;
+
+    text-align: right;
+}
+
+
+#summary-table li:nth-child(5) a,
+#summary-table li:nth-child(6) a {
+    text-decoration: none;
+}
+
+
+#summary-table li:nth-child(5) a {
+    color: #7e8bc7;
+}
+
+
+#summary-table li:nth-child(6) a {
+    color: #737d91;
+}
+
+
+#summary-table li:nth-child(7) {
+    color: #8992a4;
+}
+
+
+#summary-table li:nth-child(8) {
+    color: #77a88f;
+
+    font-weight: 600;
+}
+
+
+#summary-table a {
+    transition:
+        color 0.2s ease;
+}
+
+
+#summary-table a:hover {
+    color: #b0bbe5 !important;
+}
+
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 54px;
+
+    padding-top: 21px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    color: #555e70;
+
+    font-size: 9px;
+}
+
+
+.site-footer a {
+    color: #6877ad;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.site-footer a:hover {
+    color: #9aa8dc;
+}
+
+
+/* =========================================================
+   Tooltip
+   ========================================================= */
+
+#tooltip {
+    opacity: 0;
+
+    position: absolute;
+
+    top: -12px;
+    left: 0;
+
+    padding: 9px;
+
+    background: #171c27;
+
+    color: #cfd4df;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+    z-index: 10;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+    pointer-events: none;
+}
+
+
+.thumb img {
+    width: 180px;
+    height: 180px;
+
+    margin: 2px;
+
+    border-radius: 6px;
+}
+
+
+.caption {
+    color: #dfe3eb;
+
+    font-size: 10px;
+
+    padding: 5px 2px 1px;
+}
+
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    #summary-table ul {
+        grid-template-columns:
+            45px
+            minmax(150px, 1fr)
+            85px
+            70px;
+    }
+
+
+    #summary-table li:nth-child(3) {
+        display: none;
+    }
+
+
+    #summary-table li:nth-child(4) {
+        display: none;
+    }
+
+
+    #summary-table li:nth-child(5) {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    #content {
+        width:
+            calc(100% - 24px);
+
+        padding-top: 24px;
+    }
+
+
+    .site-header {
+        padding-bottom: 24px;
+    }
+
+
+    .brand-mark {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
+
+    .brand-title {
+        font-size: 17px;
+    }
+
+
+    .live-status {
+        display: none;
+    }
+
+
+    .latest-section {
+        padding-top: 32px;
+    }
+
+
+    .latest-card {
+        padding: 23px;
+
+        border-radius: 16px;
+    }
+
+
+    .latest-inner {
+        display: block;
+    }
+
+
+    .latest-title {
+        font-size: 31px;
+    }
+
+
+    .latest-actions {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        margin-top: 25px;
+    }
+
+
+    .action-btn {
+        min-width: 0;
+    }
+
+
+    .listing-section {
+        padding-top: 48px;
+    }
+
+
+    .section-heading {
+        display: block;
+    }
+
+
+    .update-status {
+        margin-top: 12px;
+    }
+
+
+    #summary-table ul {
+        grid-template-columns:
+            40px
+            minmax(0, 1fr)
+            60px
+            55px;
+    }
+
+
+    #summary-table li:nth-child(6) {
+        display: none;
+    }
+
+
+    #summary-table li:nth-child(7),
+    #summary-table li:nth-child(8) {
+        font-size: 9px;
+    }
+
+
+    .site-footer {
+        display: block;
+
+        line-height: 1.8;
+    }
+
+
+    .site-footer a {
+        display: block;
+
+        margin-top: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
