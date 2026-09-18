@@ -874,8 +874,6 @@ def update_config():
 
         for p in all_puzzles:
 
-        for p in all_puzzles:
-
             if p["lmd"] == item["lmd"]:
 
                 item["stars"] = p[
