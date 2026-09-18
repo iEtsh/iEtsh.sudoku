@@ -610,10 +610,6 @@
           return 1 * direction;
         }
 
-        /*
-         * Stable secondary order:
-         * newest puzzle first.
-         */
         const dateA =
           puzzleDate(a);
 
@@ -644,18 +640,7 @@
           : 'asc';
     } else {
       archiveState.sortKey = key;
-
-      /*
-       * First click on a category gives
-       * the most useful/highest direction:
-       *
-       * Date       -> newest
-       * Rating     -> highest
-       * Solves     -> most
-       * Difficulty -> highest
-       */
-      archiveState.sortDirection =
-        'desc';
+      archiveState.sortDirection = 'desc';
     }
 
     renderArchive();
@@ -1016,7 +1001,9 @@
 
   const genDashboard = d => {
     const dashboard =
-      d3.select('#puzzle-dashboard');
+      d3.select(
+        '#puzzle-dashboard'
+      );
 
     if (
       dashboard.empty()
@@ -1110,6 +1097,231 @@
   };
 
   // ---------------------------------------------------------
+  // Tooltip
+  // ---------------------------------------------------------
+
+  const hideTooltip = () => {
+    tooltip
+      .style(
+        'opacity',
+        0
+      );
+
+    if (
+      cache.hovered
+    ) {
+      cache.hovered.style(
+        'background-color',
+        null
+      );
+
+      cache.hovered = null;
+    }
+  };
+
+  const positionTooltip = (
+    event
+  ) => {
+    const tooltipNode =
+      tooltip.node();
+
+    if (!tooltipNode) {
+      return;
+    }
+
+    const rect =
+      tooltipNode.getBoundingClientRect();
+
+    const gap = 16;
+
+    let left =
+      event.clientX;
+
+    let top =
+      event.clientY - rect.height - gap;
+
+    if (
+      left - rect.width / 2 < 8
+    ) {
+      left =
+        rect.width / 2 + 8;
+    }
+
+    if (
+      left + rect.width / 2 >
+      window.innerWidth - 8
+    ) {
+      left =
+        window.innerWidth -
+        rect.width / 2 -
+        8;
+    }
+
+    if (top < 8) {
+      top =
+        event.clientY + gap;
+    }
+
+    if (
+      top + rect.height >
+      window.innerHeight - 8
+    ) {
+      top =
+        Math.max(
+          8,
+          window.innerHeight -
+            rect.height -
+            8
+        );
+    }
+
+    tooltip
+      .style(
+        'left',
+        `${left}px`
+      )
+      .style(
+        'top',
+        `${top}px`
+      )
+      .style(
+        'transform',
+        'translateX(-50%)'
+      );
+  };
+
+  const showTooltip = (
+    id,
+    title,
+    event
+  ) => {
+    tooltip
+      .select('.caption')
+      .text(
+        title || ''
+      );
+
+    const image =
+      cache.images[id] || '';
+
+    if (image) {
+      tooltipImage
+        .attr(
+          'src',
+          image
+        )
+        .attr(
+          'alt',
+          title || 'Puzzle'
+        )
+        .style(
+          'display',
+          'block'
+        );
+    } else {
+      tooltipImage
+        .attr(
+          'src',
+          ''
+        )
+        .attr(
+          'alt',
+          ''
+        )
+        .style(
+          'display',
+          'none'
+        );
+    }
+
+    tooltip
+      .style(
+        'opacity',
+        1
+      );
+
+    positionTooltip(event);
+  };
+
+  const handleRowMouseEnter = function (
+    event
+  ) {
+    const row =
+      d3.select(this);
+
+    if (
+      cache.hovered &&
+      cache.hovered.node() !== this
+    ) {
+      cache.hovered.style(
+        'background-color',
+        null
+      );
+    }
+
+    cache.hovered =
+      row;
+
+    row.style(
+      'background-color',
+      'rgba(255,255,255,0.04)'
+    );
+
+    const rowId =
+      row.attr('id');
+
+    if (!rowId) {
+      hideTooltip();
+      return;
+    }
+
+    const id =
+      rowId.slice(3);
+
+    showTooltip(
+      id,
+      cache.titles[id] || '',
+      event
+    );
+  };
+
+  const handleRowMouseMove = function (
+    event
+  ) {
+    const row =
+      d3.select(this);
+
+    const rowId =
+      row.attr('id');
+
+    if (!rowId) {
+      hideTooltip();
+      return;
+    }
+
+    const id =
+      rowId.slice(3);
+
+    if (
+      cache.hovered &&
+      cache.hovered.node() === this
+    ) {
+      positionTooltip(event);
+      return;
+    }
+
+    showTooltip(
+      id,
+      cache.titles[id] || '',
+      event
+    );
+  };
+
+  const handleRowMouseLeave = function () {
+    hideTooltip();
+  };
+
+  // ---------------------------------------------------------
   // Archive row
   // ---------------------------------------------------------
 
@@ -1139,6 +1351,20 @@
         .attr(
           'aria-label',
           `${puzzle.title || 'Puzzle'}`
+        );
+
+      div
+        .on(
+          'mouseenter',
+          handleRowMouseEnter
+        )
+        .on(
+          'mousemove',
+          handleRowMouseMove
+        )
+        .on(
+          'mouseleave',
+          handleRowMouseLeave
         );
 
       const ul =
@@ -1203,6 +1429,13 @@
         puzzle.author_rated === true
       );
 
+      ul
+        .select('li:last-child')
+        .attr(
+          'class',
+          'archive-difficulty'
+        );
+
       // -----------------------------------------------------
       // LMD Link
       // -----------------------------------------------------
@@ -1249,7 +1482,11 @@
           'archive-solves'
         )
         .text(
-          `${puzzle.solves || 0}`
+          puzzle.solves === null ||
+          puzzle.solves === undefined ||
+          puzzle.solves === ''
+            ? '0'
+            : puzzle.solves
         );
 
       // -----------------------------------------------------
@@ -1263,7 +1500,11 @@
           'archive-rating'
         )
         .text(
-          puzzle.rating || 'N/A'
+          puzzle.rating === null ||
+          puzzle.rating === undefined ||
+          puzzle.rating === ''
+            ? 'N/A'
+            : puzzle.rating
         );
 
       return div;
@@ -1431,6 +1672,8 @@
         activeElement.selectionEnd;
     }
 
+    hideTooltip();
+
     const items =
       cache.data.items || [];
 
@@ -1572,12 +1815,6 @@
     cache.state =
       getPuzzleState(d);
 
-    /*
-     * Dashboard is rendered separately from
-     * the archive so it always reflects the
-     * complete collection, not the search
-     * results.
-     */
     genDashboard(d);
 
     renderArchive();
@@ -1767,190 +2004,8 @@
   }
 
   // ---------------------------------------------------------
-  // Tooltip
-  // ---------------------------------------------------------
-
-  const hideTooltip = () => {
-    tooltip
-      .style(
-        'opacity',
-        0
-      );
-
-    if (
-      cache.hovered
-    ) {
-      cache.hovered.style(
-        'background-color',
-        null
-      );
-
-      cache.hovered = null;
-    }
-  };
-
-  const showTooltip = (
-    id,
-    title,
-    x,
-    y
-  ) => {
-    tooltip
-      .select('.caption')
-      .text(
-        title || ''
-      );
-
-    const image =
-      cache.images[id] || '';
-
-    if (image) {
-      tooltipImage
-        .attr(
-          'src',
-          image
-        )
-        .attr(
-          'alt',
-          title || 'Puzzle'
-        )
-        .style(
-          'display',
-          'block'
-        );
-    } else {
-      tooltipImage
-        .attr(
-          'src',
-          ''
-        )
-        .attr(
-          'alt',
-          ''
-        )
-        .style(
-          'display',
-          'none'
-        );
-    }
-
-    tooltip
-      .style(
-        'transform',
-        `translate(calc(-50% + ${x}px), calc(-100% + ${y - 15}px))`
-      )
-      .style(
-        'opacity',
-        1
-      );
-  };
-
-  const onMouseMove = ev => {
-    const mPos =
-      d3.pointer(ev);
-
-    let t =
-      d3.select(
-        ev.target
-      );
-
-    let node =
-      t.node();
-
-    if (!node) {
-      return;
-    }
-
-    let p =
-      node.parentNode;
-
-    while (
-      p &&
-      !t.classed('rec')
-    ) {
-      t =
-        d3.select(p);
-
-      const currentNode =
-        t.node();
-
-      if (!currentNode) {
-        break;
-      }
-
-      p =
-        currentNode.parentNode;
-    }
-
-    if (
-      t &&
-      t.classed('rec')
-    ) {
-      if (
-        cache.hovered
-      ) {
-        cache.hovered.style(
-          'background-color',
-          null
-        );
-      }
-
-      cache.hovered =
-        t;
-
-      t.style(
-        'background-color',
-        'rgba(255,255,255,0.04)'
-      );
-
-      const rowId =
-        t.attr('id');
-
-      if (!rowId) {
-        hideTooltip();
-        return;
-      }
-
-      const id =
-        rowId.slice(3);
-
-      showTooltip(
-        id,
-        cache.titles[id] || '',
-        mPos[0],
-        mPos[1]
-      );
-
-    } else {
-      hideTooltip();
-    }
-  };
-
-  // ---------------------------------------------------------
-  // Tooltip events
-  // ---------------------------------------------------------
-
-  d3.select('#content')
-    .on(
-      'mousemove',
-      onMouseMove
-    )
-    .on(
-      'mouseleave',
-      hideTooltip
-    );
-
-  // ---------------------------------------------------------
   // Dashboard container
   // ---------------------------------------------------------
-
-  /*
-   * The existing HTML does not need to be manually edited
-   * for the dashboard.
-   *
-   * We create its container next to the archive section.
-   * CSS in the next file controls its desktop/mobile layout.
-   */
 
   const createDashboardContainer = () => {
     if (
