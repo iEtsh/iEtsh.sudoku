@@ -372,11 +372,6 @@ body {
 
     top: 0;
 
-    /*
-       The latest info area reserves space for the puzzle image.
-       Move the number across that reserved space so it sits
-       at the far right of the latest card.
-    */
     right: -285px;
 
     color: #687494;
@@ -677,7 +672,7 @@ body {
 
     grid-template-columns:
         minmax(0, 1fr)
-        220px;
+        190px;
 
     grid-template-areas:
         "heading heading"
@@ -887,21 +882,17 @@ body {
     display: grid;
     align-items: center;
 
-    /*
-       The archive now gives the date and difficulty columns
-       enough room for their actual content.
-    */
     grid-template-columns:
         42px
         minmax(170px, 1fr)
-        110px
-        110px
-        42px
-        42px
-        78px
-        68px;
+        126px
+        112px
+        44px
+        44px
+        88px
+        76px;
 
-    gap: 8px;
+    gap: 13px;
 
     height: 24px;
 
@@ -1041,16 +1032,16 @@ body {
     grid-template-columns:
         42px
         minmax(170px, 1fr)
-        110px
-        110px
-        42px
-        42px
-        78px
-        68px;
+        126px
+        112px
+        44px
+        44px
+        88px
+        76px;
 
     align-items: center;
 
-    gap: 8px;
+    gap: 13px;
 
     width: 100%;
 
@@ -1113,13 +1104,10 @@ body {
 
     font-size: 11px;
 
+    padding: 0 5px;
+
     white-space: nowrap;
 
-    /*
-       Do not cut dates with "...".
-       The column itself was widened above so the complete
-       date can remain visible.
-    */
     overflow: visible;
 
     text-overflow: clip;
@@ -1139,10 +1127,8 @@ body {
 
     min-width: 0;
 
-    /*
-       The star bar is 100px wide in the archive.
-       Keep the complete bar inside the column.
-    */
+    padding: 0 4px;
+
     width: 100%;
 }
 
@@ -1250,7 +1236,7 @@ body {
 #summary-table .archive-solves {
     color: #9aa3b3;
 
-    text-align: right;
+    text-align: center;
 
     font-size: 11px;
 
@@ -1267,7 +1253,7 @@ body {
 #summary-table .archive-rating {
     color: #d0b96c;
 
-    text-align: right;
+    text-align: center;
 
     font-size: 11px;
     font-weight: 650;
@@ -1533,28 +1519,28 @@ body {
         grid-template-columns:
             42px
             minmax(150px, 1fr)
-            100px
-            100px
-            40px
-            40px
-            72px
-            62px;
+            112px
+            104px
+            42px
+            42px
+            78px
+            68px;
 
-        gap: 7px;
+        gap: 9px;
     }
 
     #summary-table ul {
         grid-template-columns:
             42px
             minmax(150px, 1fr)
-            100px
-            100px
-            40px
-            40px
-            72px
-            62px;
+            112px
+            104px
+            42px
+            42px
+            78px
+            68px;
 
-        gap: 7px;
+        gap: 9px;
 
         padding-left: 9px;
         padding-right: 9px;
@@ -1568,6 +1554,8 @@ body {
         width: 100px;
         min-width: 100px;
         max-width: 100px;
+
+        margin: 0 auto;
     }
 
     #summary-table .archive-difficulty svg {
