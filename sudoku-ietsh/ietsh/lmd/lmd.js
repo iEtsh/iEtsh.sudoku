@@ -327,34 +327,6 @@
       )
       .text('UPDATES');
 
-    if (
-      updateLog.length
-    ) {
-      heading
-        .append('button')
-        .attr(
-          'type',
-          'button'
-        )
-        .attr(
-          'class',
-          'update-clear-button'
-        )
-        .attr(
-          'title',
-          'Clear update history'
-        )
-        .attr(
-          'aria-label',
-          'Clear update history'
-        )
-        .text('CLEAR')
-        .on(
-          'click',
-          clearUpdateLog
-        );
-    }
-
     const list =
       monitor
         .append('div')
