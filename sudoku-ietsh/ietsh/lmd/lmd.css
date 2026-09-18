@@ -942,13 +942,19 @@ body {
 .archive-header-sudokupad-solves,
 .archive-header-solves,
 .archive-header-rating {
-    text-align: right;
+    text-align: center;
 
     white-space: nowrap;
 }
 
 .archive-header .archive-sort-button {
     width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
 
     pointer-events: auto;
 
