@@ -5,12 +5,10 @@ scraper.py
 يقرأ كل صفحات iEtsh على LMD ويحدث config.json
 ويضيف الألغاز الجديدة تلقائيًا.
 
-بالإضافة إلى ذلك:
-- يستخرج صورة كل Puzzle من صفحة LMD.
-- يحفظ الصور محليًا داخل:
-  sudoku-ietsh/ietsh/lmd/images/
-- يضيف مسار الصورة داخل config.json.
-- يعمل Backfill تلقائي لأي Puzzle قديمة لا تملك صورة.
+كما يقوم تلقائيًا بتحميل صورة كل Puzzle إلى:
+sudoku-ietsh/ietsh/lmd/images/
+
+ويضيف مسار الصورة داخل config.json.
 
 النجوم:
 - levelX.png  = تقييم عادي → author_rated = false
@@ -22,8 +20,10 @@ import os
 import re
 import time
 import requests
+
 from datetime import datetime
 from urllib.parse import urljoin
+
 from bs4 import BeautifulSoup
 
 
@@ -37,10 +37,13 @@ PUZZLE_BASE_URL = (
     "Raetselportal/Raetsel/zeigen.php?id="
 )
 
-CONFIG_PATH = "sudoku-ietsh/ietsh/lmd/config.json"
+CONFIG_PATH = (
+    "sudoku-ietsh/ietsh/lmd/config.json"
+)
 
-IMAGE_DIR = "sudoku-ietsh/ietsh/lmd/images"
-
+IMAGE_DIR = (
+    "sudoku-ietsh/ietsh/lmd/images"
+)
 
 HEADERS = {
     "User-Agent":
@@ -65,13 +68,13 @@ MONTH_MAP = {
     "September": "September",
     "Oktober": "October",
     "November": "November",
-    "Dezember": "December",
+    "Dezember": "December"
 }
 
 
-# =============================================================
+# ---------------------------------------------------------
 # HTTP
-# =============================================================
+# ---------------------------------------------------------
 
 def fetch_page(start=0):
     url = f"{BASE_URL}&start={start}"
@@ -88,7 +91,10 @@ def fetch_page(start=0):
 
 
 def fetch_puzzle(lmd_code):
-    url = PUZZLE_BASE_URL + lmd_code
+    url = (
+        PUZZLE_BASE_URL
+        + lmd_code
+    )
 
     r = requests.get(
         url,
@@ -101,111 +107,16 @@ def fetch_puzzle(lmd_code):
     return r.text
 
 
-def download_image(url, lmd_code):
-    """
-    Downloads the puzzle image and saves it locally.
-
-    Returns:
-        relative path such as:
-        images/000UVR.png
-
-    Returns empty string if the image cannot be downloaded.
-    """
-
-    if not url:
-        return ""
-
-    os.makedirs(
-        IMAGE_DIR,
-        exist_ok=True
-    )
-
-    try:
-        r = requests.get(
-            url,
-            headers=HEADERS,
-            timeout=30
-        )
-
-        r.raise_for_status()
-
-        content_type = (
-            r.headers.get(
-                "Content-Type",
-                ""
-            )
-            .lower()
-        )
-
-        # -----------------------------------------------------
-        # Determine extension
-        # -----------------------------------------------------
-
-        if "png" in content_type:
-            extension = "png"
-
-        elif "jpeg" in content_type or "jpg" in content_type:
-            extension = "jpg"
-
-        elif "webp" in content_type:
-            extension = "webp"
-
-        elif "gif" in content_type:
-            extension = "gif"
-
-        else:
-            # LMD puzzle images are normally PNG/JPEG.
-            # PNG is used as the safe fallback.
-            extension = "png"
-
-        filename = (
-            f"{lmd_code}.{extension}"
-        )
-
-        filepath = os.path.join(
-            IMAGE_DIR,
-            filename
-        )
-
-        with open(
-            filepath,
-            "wb"
-        ) as f:
-            f.write(
-                r.content
-            )
-
-        relative_path = (
-            f"images/{filename}"
-        )
-
-        print(
-            f"Image saved: "
-            f"{relative_path}"
-        )
-
-        return relative_path
-
-    except Exception as e:
-
-        print(
-            f"Error downloading image "
-            f"for {lmd_code}: {e}"
-        )
-
-        return ""
-
-
-# =============================================================
-# Parsing helpers
-# =============================================================
+# ---------------------------------------------------------
+# Date
+# ---------------------------------------------------------
 
 def extract_date(text):
 
     patterns = [
-        r"(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})",
-        r"(\d{4}-\d{2}-\d{2})",
-        r"(\d{1,2}/\d{1,2}/\d{4})",
+        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+        r'(\d{4}-\d{2}-\d{2})',
+        r'(\d{1,2}/\d{1,2}/\d{4})',
     ]
 
     for p in patterns:
@@ -230,6 +141,10 @@ def extract_date(text):
     return ""
 
 
+# ---------------------------------------------------------
+# SudokuPad
+# ---------------------------------------------------------
+
 def get_sudokupad_link(html):
 
     soup = BeautifulSoup(
@@ -247,21 +162,16 @@ def get_sudokupad_link(html):
             href = a["href"]
 
             if "sudokupad" in href.lower():
-
                 return href
 
     return ""
 
 
+# ---------------------------------------------------------
+# Puzzle image
+# ---------------------------------------------------------
+
 def get_puzzle_image_url(html):
-
-    """
-    Finds the actual puzzle image inside the LMD puzzle page.
-
-    LMD images are normally served from /Dateien/.
-    We intentionally prefer bild.php because that is the
-    image endpoint used by LMD.
-    """
 
     soup = BeautifulSoup(
         html,
@@ -275,10 +185,7 @@ def get_puzzle_image_url(html):
         src=True
     ):
 
-        src = img.get(
-            "src",
-            ""
-        ).strip()
+        src = img.get("src", "").strip()
 
         if not src:
             continue
@@ -290,30 +197,201 @@ def get_puzzle_image_url(html):
 
         lower_url = absolute_url.lower()
 
-        # Strong match:
-        # LMD stored puzzle images.
+        # LMD puzzle images are normally served
+        # through /Dateien/bild.php
         if "/dateien/bild.php" in lower_url:
-
             return absolute_url
 
-        # Secondary candidate:
-        # Other files under /Dateien/.
+        # Keep other /Dateien/ images as fallback.
         if "/dateien/" in lower_url:
-
             candidates.append(
                 absolute_url
             )
 
     if candidates:
-
         return candidates[0]
 
     return ""
 
 
-# =============================================================
-# Puzzle list parser
-# =============================================================
+# ---------------------------------------------------------
+# Image extension
+# ---------------------------------------------------------
+
+def get_extension_from_content_type(content_type):
+
+    content_type = (
+        content_type or ""
+    ).lower()
+
+    if "png" in content_type:
+        return ".png"
+
+    if "jpeg" in content_type:
+        return ".jpg"
+
+    if "jpg" in content_type:
+        return ".jpg"
+
+    if "webp" in content_type:
+        return ".webp"
+
+    if "gif" in content_type:
+        return ".gif"
+
+    return ".png"
+
+
+# ---------------------------------------------------------
+# Download image
+# ---------------------------------------------------------
+
+def download_image(
+    image_url,
+    lmd_code
+):
+
+    if not image_url:
+        return ""
+
+    os.makedirs(
+        IMAGE_DIR,
+        exist_ok=True
+    )
+
+    try:
+
+        response = requests.get(
+            image_url,
+            headers=HEADERS,
+            timeout=60
+        )
+
+        response.raise_for_status()
+
+        content_type = response.headers.get(
+            "Content-Type",
+            ""
+        )
+
+        extension = (
+            get_extension_from_content_type(
+                content_type
+            )
+        )
+
+        filename = (
+            f"{lmd_code}{extension}"
+        )
+
+        filepath = os.path.join(
+            IMAGE_DIR,
+            filename
+        )
+
+        with open(
+            filepath,
+            "wb"
+        ) as f:
+
+            f.write(
+                response.content
+            )
+
+        relative_path = (
+            f"images/{filename}"
+        )
+
+        print(
+            f"Downloaded image: "
+            f"{lmd_code} -> "
+            f"{relative_path}"
+        )
+
+        return relative_path
+
+    except Exception as e:
+
+        print(
+            f"Error downloading image "
+            f"for {lmd_code}: {e}"
+        )
+
+        return ""
+
+
+# ---------------------------------------------------------
+# Ensure puzzle image exists
+# ---------------------------------------------------------
+
+def ensure_puzzle_image(item):
+
+    existing_image = item.get(
+        "image",
+        ""
+    )
+
+    # If config already contains an image
+    # and the file still exists, nothing to do.
+    if existing_image:
+
+        filepath = os.path.join(
+            "sudoku-ietsh/ietsh/lmd",
+            existing_image
+        )
+
+        if os.path.isfile(filepath):
+
+            return existing_image
+
+    lmd_code = item.get(
+        "lmd",
+        ""
+    )
+
+    if not lmd_code:
+        return ""
+
+    try:
+
+        puzzle_html = fetch_puzzle(
+            lmd_code
+        )
+
+        image_url = get_puzzle_image_url(
+            puzzle_html
+        )
+
+        if not image_url:
+
+            print(
+                f"No puzzle image found "
+                f"for {lmd_code}"
+            )
+
+            return ""
+
+        image_path = download_image(
+            image_url,
+            lmd_code
+        )
+
+        if image_path:
+            return image_path
+
+    except Exception as e:
+
+        print(
+            f"Error getting image "
+            f"for {lmd_code}: {e}"
+        )
+
+    return ""
+
+
+# ---------------------------------------------------------
+# Parse puzzle list
+# ---------------------------------------------------------
 
 def parse_puzzles(html):
 
@@ -345,9 +423,9 @@ def parse_puzzles(html):
         if len(cells) < 4:
             continue
 
-        # -----------------------------------------------------
+        # -------------------------------------------------
         # Puzzle title + LMD code
-        # -----------------------------------------------------
+        # -------------------------------------------------
 
         link = cells[1].find(
             "a"
@@ -375,9 +453,9 @@ def parse_puzzles(html):
 
         lmd_code = m.group(1)
 
-        # -----------------------------------------------------
+        # -------------------------------------------------
         # Date
-        # -----------------------------------------------------
+        # -------------------------------------------------
 
         date = extract_date(
             str(row)
@@ -407,9 +485,9 @@ def parse_puzzles(html):
                 if date:
                     break
 
-        # -----------------------------------------------------
+        # -------------------------------------------------
         # Solves
-        # -----------------------------------------------------
+        # -------------------------------------------------
 
         solved_text = cells[2].get_text(
             strip=True
@@ -422,13 +500,14 @@ def parse_puzzles(html):
 
         if solved_match:
 
-            full_num = solved_match.group(1)
+            full_num = solved_match.group(
+                1
+            )
 
             if len(full_num) >= 3:
                 solved = int(
                     full_num[:-2]
                 )
-
             else:
                 solved = int(
                     full_num
@@ -438,9 +517,9 @@ def parse_puzzles(html):
 
             solved = 0
 
-        # -----------------------------------------------------
+        # -------------------------------------------------
         # Difficulty / Stars
-        # -----------------------------------------------------
+        # -------------------------------------------------
 
         stars = "N/A"
         author_rated = False
@@ -456,12 +535,9 @@ def parse_puzzles(html):
                 ""
             ).lower()
 
-            # -------------------------------------------------
             # Author estimated difficulty
-            # -------------------------------------------------
-
             m = re.search(
-                r"ulevel(\d)\.png",
+                r'ulevel(\d)\.png',
                 src
             )
 
@@ -475,12 +551,9 @@ def parse_puzzles(html):
 
             else:
 
-                # ---------------------------------------------
                 # Normal evaluated difficulty
-                # ---------------------------------------------
-
                 m = re.search(
-                    r"level(\d)\.png",
+                    r'level(\d)\.png',
                     src
                 )
 
@@ -492,9 +565,9 @@ def parse_puzzles(html):
 
                     author_rated = False
 
-        # -----------------------------------------------------
+        # -------------------------------------------------
         # Rating
-        # -----------------------------------------------------
+        # -------------------------------------------------
 
         rating = "N/A"
 
@@ -540,97 +613,9 @@ def parse_puzzles(html):
     return puzzles
 
 
-# =============================================================
-# Image handling
-# =============================================================
-
-def ensure_puzzle_image(item):
-    """
-    Ensures that a puzzle has a local image.
-
-    If the image already exists, nothing is downloaded.
-
-    If the image is missing:
-        1. Fetch puzzle page
-        2. Extract image URL
-        3. Download image
-        4. Store relative image path in config
-    """
-
-    existing_image = item.get(
-        "image",
-        ""
-    )
-
-    if existing_image:
-
-        local_path = os.path.join(
-            "sudoku-ietsh/ietsh/lmd",
-            existing_image
-        )
-
-        if os.path.exists(
-            local_path
-        ):
-
-            return existing_image
-
-    lmd_code = item.get(
-        "lmd",
-        ""
-    )
-
-    if not lmd_code:
-        return ""
-
-    try:
-
-        print(
-            f"Fetching image for "
-            f"{lmd_code}..."
-        )
-
-        puzzle_html = fetch_puzzle(
-            lmd_code
-        )
-
-        image_url = get_puzzle_image_url(
-            puzzle_html
-        )
-
-        if not image_url:
-
-            print(
-                f"No puzzle image found "
-                f"for {lmd_code}"
-            )
-
-            return ""
-
-        print(
-            f"Image URL: {image_url}"
-        )
-
-        image_path = download_image(
-            image_url,
-            lmd_code
-        )
-
-        return image_path
-
-    except Exception as e:
-
-        print(
-            f"Error getting image "
-            f"for {lmd_code}: {e}"
-        )
-
-        return ""
-
-
-# =============================================================
-# Main update
-# =============================================================
+# ---------------------------------------------------------
+# Update config
+# ---------------------------------------------------------
 
 def update_config():
 
@@ -638,9 +623,9 @@ def update_config():
 
     start = 0
 
-    # ---------------------------------------------------------
+    # -----------------------------------------------------
     # Read all LMD pages
-    # ---------------------------------------------------------
+    # -----------------------------------------------------
 
     while True:
 
@@ -668,9 +653,9 @@ def update_config():
         f"Found {len(all_puzzles)} puzzles on LMD"
     )
 
-    # ---------------------------------------------------------
+    # -----------------------------------------------------
     # Load config
-    # ---------------------------------------------------------
+    # -----------------------------------------------------
 
     with open(
         CONFIG_PATH,
@@ -678,9 +663,7 @@ def update_config():
         encoding="utf-8"
     ) as f:
 
-        cfg = json.load(
-            f
-        )
+        cfg = json.load(f)
 
     existing_lmd = {
         item["lmd"]: item
@@ -698,15 +681,17 @@ def update_config():
             )
 
     print(
-        f"New puzzles: "
-        f"{len(new_puzzles)}"
+        f"New puzzles: {len(new_puzzles)}"
     )
 
-    # ---------------------------------------------------------
+    # -----------------------------------------------------
     # Add new puzzles
-    # ---------------------------------------------------------
+    # -----------------------------------------------------
 
     for p in new_puzzles:
+
+        puzz_link = ""
+        image_path = ""
 
         try:
 
@@ -721,8 +706,6 @@ def update_config():
             image_url = get_puzzle_image_url(
                 puzzle_html
             )
-
-            image_path = ""
 
             if image_url:
 
@@ -744,15 +727,12 @@ def update_config():
                 f"{p['lmd']}: {e}"
             )
 
-            puzz_link = ""
-            image_path = ""
-
         new_id = (
             "ietsh-"
             +
             re.sub(
-                r"[^a-z0-9]",
-                "",
+                r'[^a-z0-9]',
+                '',
                 p["title"].lower()
             )
         )
@@ -784,84 +764,109 @@ def update_config():
         )
 
     # ---------------------------------------------------------
-    # Update existing puzzles
+    # Backfill images for existing puzzles
+    # ---------------------------------------------------------
+
+    print(
+        "Checking puzzle images..."
+    )
+
+    for item in cfg["items"]:
+
+        image_before = item.get(
+            "image",
+            ""
+        )
+
+        image_after = ensure_puzzle_image(
+            item
+        )
+
+        if image_after:
+
+            item["image"] = image_after
+
+            if image_before != image_after:
+
+                print(
+                    f"Image added: "
+                    f"{item['title']} "
+                    f"-> {image_after}"
+                )
+
+        else:
+
+            # Make sure every item has the field
+            # even if LMD has no image.
+            if "image" not in item:
+                item["image"] = ""
+
+        time.sleep(
+            0.2
+        )
+
+    # ---------------------------------------------------------
+    # Update existing puzzle data
     # ---------------------------------------------------------
 
     for item in cfg["items"]:
 
         for p in all_puzzles:
 
-            if p["lmd"] != item["lmd"]:
-                continue
+            if p["lmd"] == item["lmd"]:
 
-            item["stars"] = p[
-                "stars"
-            ]
-
-            item["author_rated"] = p[
-                "author_rated"
-            ]
-
-            item["solves"] = p[
-                "solved"
-            ]
-
-            item["rating"] = p[
-                "rating"
-            ]
-
-            if p["date"]:
-
-                item["date"] = p[
-                    "date"
+                item["stars"] = p[
+                    "stars"
                 ]
 
-            elif (
-                not item.get("date")
-                or item["date"] == ""
-            ):
+                item["author_rated"] = p[
+                    "author_rated"
+                ]
 
-                try:
+                item["solves"] = p[
+                    "solved"
+                ]
 
-                    puzzle_html = fetch_puzzle(
-                        p["lmd"]
-                    )
+                item["rating"] = p[
+                    "rating"
+                ]
 
-                    item["date"] = extract_date(
-                        puzzle_html
-                    )
+                if p["date"]:
 
-                except Exception:
-                    pass
+                    item["date"] = p[
+                        "date"
+                    ]
 
-            # -------------------------------------------------
-            # Image backfill
-            # -------------------------------------------------
+                elif (
+                    not item.get("date")
+                    or item["date"] == ""
+                ):
 
-            image_path = ensure_puzzle_image(
-                item
-            )
+                    try:
 
-            if image_path:
+                        puzzle_html = fetch_puzzle(
+                            p["lmd"]
+                        )
 
-                item["image"] = image_path
+                        item["date"] = extract_date(
+                            puzzle_html
+                        )
 
-            elif "image" not in item:
+                    except Exception:
+                        pass
 
-                item["image"] = ""
+                print(
+                    f"Updated: "
+                    f"{item['title']} "
+                    f"-> {p['stars']} stars, "
+                    f"author_rated="
+                    f"{p['author_rated']}, "
+                    f"{p['solved']} solves, "
+                    f"{p['rating']} | "
+                    f"date: {item['date']}"
+                )
 
-            print(
-                f"Updated: {item['title']} "
-                f"-> {p['stars']} stars, "
-                f"author_rated={p['author_rated']}, "
-                f"{p['solved']} solves, "
-                f"{p['rating']} | "
-                f"date: {item['date']} | "
-                f"image: "
-                f"{item.get('image', '')}"
-            )
-
-            break
+                break
 
     # ---------------------------------------------------------
     # Sort by date
@@ -928,6 +933,10 @@ def update_config():
         "Config updated successfully."
     )
 
+
+# ---------------------------------------------------------
+# Main
+# ---------------------------------------------------------
 
 if __name__ == "__main__":
     update_config()
