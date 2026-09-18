@@ -1743,3 +1743,81 @@ body {
     transition: none;
   }
 }
+
+/* =========================================================
+   Dashboard Side Panel
+   ========================================================= */
+
+.listing-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-areas:
+        "heading heading"
+        "archive dashboard";
+    column-gap: 24px;
+    align-items: start;
+}
+
+.listing-section .section-heading {
+    grid-area: heading;
+}
+
+.listing-section #summary-table {
+    grid-area: archive;
+    min-width: 0;
+}
+
+.listing-section .puzzle-dashboard {
+    grid-area: dashboard;
+    margin: 0;
+    width: 100%;
+}
+
+
+/* =========================================================
+   Dashboard Side Panel - Cards
+   ========================================================= */
+
+.listing-section .dashboard-cards {
+    grid-template-columns: 1fr;
+}
+
+.listing-section .dashboard-card {
+    padding: 15px;
+}
+
+.listing-section .dashboard-card-value {
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   Tablet / Mobile
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .listing-section {
+        display: block;
+    }
+
+    .listing-section .puzzle-dashboard {
+        margin-bottom: 22px;
+    }
+
+    .listing-section .dashboard-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .listing-section .puzzle-dashboard {
+        margin-bottom: 18px;
+    }
+
+    .listing-section .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+}
