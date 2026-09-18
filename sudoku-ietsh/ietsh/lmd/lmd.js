@@ -980,9 +980,17 @@
 
     const totalSolves =
       puzzles.reduce(
-        (sum, puzzle) =>
-          sum +
-          puzzleSolves(puzzle),
+        (sum, puzzle) => {
+          const value =
+            Number(
+              puzzle.sudokupad_solves
+            );
+
+          return sum +
+            (Number.isFinite(value)
+              ? value
+              : 0);
+        },
         0
       );
 
