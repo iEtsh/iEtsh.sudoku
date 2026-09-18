@@ -19,7 +19,7 @@
   let lastCheckTime = null;
 
   // ---------------------------------------------------------
-  // Archive UI state
+  // Archive UI state 
   // ---------------------------------------------------------
 
   const archiveState = {
