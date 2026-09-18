@@ -826,6 +826,29 @@
           'archive-header-solves'
         );
 
+    const sudokupadSolvesHeader =
+      header
+        .append('div')
+        .attr(
+          'class',
+          'archive-header-sudokupad-solves'
+        )
+        .text('SOLVERS');
+
+    appendSortButton(
+      sudokupadSolvesHeader,
+      'SOLVERS',
+      'sudokupad_solves'
+    );
+
+    const solvesHeader =
+      header
+        .append('div')
+        .attr(
+          'class',
+          'archive-header-solves'
+        );
+
     appendSortButton(
       solvesHeader,
       'LMD SOLVERS',
@@ -1786,6 +1809,8 @@
           puzz: i.puzz,
           lmd: i.lmd,
           solves: i.solves,
+          sudokupad_solves:
+            i.sudokupad_solves,
           rating: i.rating,
           qs: i.qs || '',
           image: i.image || ''
