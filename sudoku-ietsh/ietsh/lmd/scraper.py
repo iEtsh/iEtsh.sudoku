@@ -912,60 +912,60 @@ def update_config():
 
                 for p in all_puzzles:
 
-            if p["lmd"] == item["lmd"]:
+                    if p["lmd"] == item["lmd"]:
 
-                item["stars"] = p[
-                    "stars"
-                ]
+                        item["stars"] = p[
+                            "stars"
+                        ]
 
-                item["author_rated"] = p[
-                    "author_rated"
-                ]
+                        item["author_rated"] = p[
+                            "author_rated"
+                        ]
 
-                item["solves"] = p[
-                    "solved"
-                ]
+                        item["solves"] = p[
+                            "solved"
+                        ]
 
-                item["rating"] = p[
-                    "rating"
-                ]
+                        item["rating"] = p[
+                            "rating"
+                        ]
 
-                if p["date"]:
+                        if p["date"]:
 
-                    item["date"] = p[
-                        "date"
-                    ]
+                            item["date"] = p[
+                                "date"
+                            ]
 
-                elif (
-                    not item.get("date")
-                    or item["date"] == ""
-                ):
+                        elif (
+                            not item.get("date")
+                            or item["date"] == ""
+                        ):
 
-                    try:
+                            try:
 
-                        puzzle_html = fetch_puzzle(
-                            p["lmd"]
+                                puzzle_html = fetch_puzzle(
+                                    p["lmd"]
+                                )
+
+                                item["date"] = extract_date(
+                                    puzzle_html
+                                )
+
+                            except Exception:
+                                pass
+
+                        print(
+                            f"Updated: "
+                            f"{item['title']} "
+                            f"-> {p['stars']} stars, "
+                            f"author_rated="
+                            f"{p['author_rated']}, "
+                            f"{p['solved']} solves, "
+                            f"{p['rating']} | "
+                            f"date: {item['date']}"
                         )
 
-                        item["date"] = extract_date(
-                            puzzle_html
-                        )
-
-                    except Exception:
-                        pass
-
-                print(
-                    f"Updated: "
-                    f"{item['title']} "
-                    f"-> {p['stars']} stars, "
-                    f"author_rated="
-                    f"{p['author_rated']}, "
-                    f"{p['solved']} solves, "
-                    f"{p['rating']} | "
-                    f"date: {item['date']}"
-                )
-
-                    break
+                        break
 
         finally:
 
