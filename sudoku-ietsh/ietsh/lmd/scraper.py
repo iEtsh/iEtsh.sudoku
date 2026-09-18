@@ -145,6 +145,64 @@ def extract_date(text):
 # SudokuPad
 # ---------------------------------------------------------
 
+def get_sudokupad_solve_counter(puzzle_url):
+    if not puzzle_url:
+        return None
+
+    try:
+        response = requests.get(
+            puzzle_url,
+            headers=HEADERS,
+            timeout=30
+        )
+
+        response.raise_for_status()
+
+        soup = BeautifulSoup(
+            response.text,
+            "html.parser"
+        )
+
+        text = soup.get_text(
+            " ",
+            strip=True
+        )
+
+        match = re.search(
+            r"\bSolve Counter\s*:\s*(\d+)\b",
+            text,
+            re.IGNORECASE
+        )
+
+        if match:
+            return int(match.group(1))
+
+    except Exception as e:
+        print(
+            f"Error getting SudokuPad solve counter "
+            f"from {puzzle_url}: {e}"
+        )
+
+    return None
+
+
+def update_sudokupad_solves(item):
+    puzzle_url = item.get(
+        "puzz",
+        ""
+    )
+
+    if not puzzle_url:
+        return
+
+    solves = get_sudokupad_solve_counter(
+        puzzle_url
+    )
+
+    if solves is not None:
+        item["sudokupad_solves"] = solves
+
+
 def get_sudokupad_link(html):
 
     soup = BeautifulSoup(
@@ -747,6 +805,7 @@ def update_config():
             "puzz": puzz_link,
             "lmd": p["lmd"],
             "solves": p["solved"],
+            "sudokupad_solves": None,
             "rating": p["rating"],
             "image": image_path
         }
@@ -810,6 +869,10 @@ def update_config():
     # ---------------------------------------------------------
 
     for item in cfg["items"]:
+
+        update_sudokupad_solves(item)
+
+        for p in all_puzzles:
 
         for p in all_puzzles:
 
