@@ -561,6 +561,17 @@
           : rating;
       }
 
+      case 'sudokupad_solves': {
+        const value =
+          Number(
+            puzzle.sudokupad_solves
+          );
+
+        return Number.isFinite(value)
+          ? value
+          : -Infinity;
+      }
+
       case 'solves':
         return puzzleSolves(puzzle);
 
