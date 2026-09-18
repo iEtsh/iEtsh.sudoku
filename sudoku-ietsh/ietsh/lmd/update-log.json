@@ -34,5 +34,23 @@
     "puzzleNum": 1,
     "title": "The \"It Should Work\" Framework",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-18T10:42:20.425696Z-0",
+    "time": "2026-09-18T10:42:20.425696Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-18T10:42:20.425696Z-1",
+    "time": "2026-09-18T10:42:20.425696Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "rating"
   }
 ]
