@@ -9,7 +9,7 @@ scraper.py
 sudoku-ietsh/ietsh/lmd/images/
 
 ويضيف مسار الصورة داخل config.json.
-
+ 
 النجوم:
 - levelX.png  = تقييم عادي → author_rated = false
 - ulevelX.png = تقييم المؤلف → author_rated = true
