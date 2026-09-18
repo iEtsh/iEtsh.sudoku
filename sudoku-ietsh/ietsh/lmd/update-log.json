@@ -286,5 +286,23 @@
     "puzzleNum": 20,
     "title": "Blink IV",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-18T22:52:18.600205Z-0",
+    "time": "2026-09-18T22:52:18.600205Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-18T22:52:18.600205Z-1",
+    "time": "2026-09-18T22:52:18.600205Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves"
   }
 ]
