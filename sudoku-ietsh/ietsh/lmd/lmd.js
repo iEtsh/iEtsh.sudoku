@@ -184,13 +184,7 @@
       )
       .text('LATEST PUZZLE');
 
-    top
-      .append('span')
-      .attr(
-        'class',
-        'latest-number'
-      )
-      .text(`#${i.num}`);
+
 
     // -------------------------------------------------------
     // Title
@@ -384,6 +378,14 @@
           'class',
           'latest-image'
         );
+
+      imageWrap
+        .append('span')
+        .attr(
+          'class',
+          'latest-number'
+        )
+        .text(`#${i.num}`);
 
       imageWrap
         .append('img')
