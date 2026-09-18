@@ -1658,7 +1658,8 @@ body {
             40px
             40px
             72px
-            62px;
+            62px
+            68px;
 
         gap: 7px;
     }
@@ -1670,7 +1671,8 @@ body {
             40px
             40px
             72px
-            62px;
+            62px
+            68px;
 
         gap: 7px;
     }
@@ -1986,7 +1988,10 @@ body {
     }
 
     #summary-table .archive-date,
-    #summary-table .archive-difficulty {
+    #summary-table .archive-difficulty,
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
         display: none;
     }
 
