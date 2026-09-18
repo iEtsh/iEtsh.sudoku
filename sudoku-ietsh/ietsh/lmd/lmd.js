@@ -835,8 +835,7 @@
         .attr(
           'class',
           'archive-header-sudokupad-solves'
-        )
-        .text('SOLVERS');
+        );
 
     appendSortButton(
       sudokupadSolvesHeader,
