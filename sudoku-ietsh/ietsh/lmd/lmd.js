@@ -915,32 +915,15 @@
           archiveState.search
         );
 
-    input
-  .on(
-    'input',
-    function () {
-      archiveState.search = this.value;
+    input.on(
+      'input',
+      function () {
+        archiveState.search =
+          this.value;
 
-      renderArchive(false);
-
-      const newInput =
-        document.querySelector(
-          '#summary-table .archive-search-input'
-        );
-
-      if (newInput) {
-        newInput.focus();
-
-        const length =
-          newInput.value.length;
-
-        newInput.setSelectionRange(
-          length,
-          length
-        );
+        renderArchive(true);
       }
-    }
-  );
+    );
 
     input.on(
       'keydown',
@@ -949,22 +932,20 @@
           ev.key === 'ArrowDown'
         ) {
           ev.preventDefault();
+
           focusArchiveRow(0);
+
+          return;
         }
 
         if (
           ev.key === 'Escape'
         ) {
-          input
-            .property(
-              'value',
-              ''
-            );
+          ev.preventDefault();
 
-          archiveState.search =
-            '';
+          archiveState.search = '';
 
-          renderArchive();
+          renderArchive(true);
         }
       }
     );
@@ -1420,11 +1401,34 @@
   // Archive rendering
   // ---------------------------------------------------------
 
-  const renderArchive = () => {
+  const renderArchive = (
+    preserveSearchFocus = false
+  ) => {
     if (
       !cache.data
     ) {
       return;
+    }
+
+    const activeElement =
+      document.activeElement;
+
+    const searchWasFocused =
+      preserveSearchFocus &&
+      activeElement &&
+      activeElement.classList.contains(
+        'archive-search-input'
+      );
+
+    let selectionStart = null;
+    let selectionEnd = null;
+
+    if (searchWasFocused) {
+      selectionStart =
+        activeElement.selectionStart;
+
+      selectionEnd =
+        activeElement.selectionEnd;
     }
 
     const items =
@@ -1471,6 +1475,27 @@
             : 'There are no puzzles to display.'
         );
 
+      if (searchWasFocused) {
+        const newInput =
+          document.querySelector(
+            '#summary-table .archive-search-input'
+          );
+
+        if (newInput) {
+          newInput.focus();
+
+          if (
+            selectionStart !== null &&
+            selectionEnd !== null
+          ) {
+            newInput.setSelectionRange(
+              selectionStart,
+              selectionEnd
+            );
+          }
+        }
+      }
+
       return;
     }
 
@@ -1478,13 +1503,26 @@
       createArchiveRow
     );
 
-    /*
-     * Restore focus to the first visible
-     * puzzle when the archive is rebuilt.
-     *
-     * Do not steal focus from the search
-     * box or sorting buttons.
-     */
+    if (searchWasFocused) {
+      const newInput =
+        document.querySelector(
+          '#summary-table .archive-search-input'
+        );
+
+      if (newInput) {
+        newInput.focus();
+
+        if (
+          selectionStart !== null &&
+          selectionEnd !== null
+        ) {
+          newInput.setSelectionRange(
+            selectionStart,
+            selectionEnd
+          );
+        }
+      }
+    }
   };
 
   // ---------------------------------------------------------
@@ -1934,24 +1972,23 @@
       return;
     }
 
-    const dashboard =
-      listing
-        .insert(
-          'aside',
-          '#summary-table'
-        )
-        .attr(
-          'id',
-          'puzzle-dashboard'
-        )
-        .attr(
-          'class',
-          'puzzle-dashboard'
-        )
-        .attr(
-          'aria-label',
-          'Puzzle dashboard'
-        );
+    listing
+      .insert(
+        'aside',
+        '#summary-table'
+      )
+      .attr(
+        'id',
+        'puzzle-dashboard'
+      )
+      .attr(
+        'class',
+        'puzzle-dashboard'
+      )
+      .attr(
+        'aria-label',
+        'Puzzle dashboard'
+      );
   };
 
   createDashboardContainer();
