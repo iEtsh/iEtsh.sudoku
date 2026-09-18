@@ -43,6 +43,10 @@ CONFIG_PATH = (
     "sudoku-ietsh/ietsh/lmd/config.json"
 )
 
+UPDATE_LOG_PATH = (
+    "sudoku-ietsh/ietsh/lmd/update-log.json"
+)
+
 IMAGE_DIR = (
     "sudoku-ietsh/ietsh/lmd/images"
 )
@@ -726,6 +730,139 @@ def parse_puzzles(html):
 
 
 # ---------------------------------------------------------
+# Persistent update log
+# ---------------------------------------------------------
+
+UPDATE_FIELDS = {
+    "title": "Title Changed",
+    "date": "Date Changed",
+    "stars": "Difficulty Changed",
+    "author_rated": "Author Rating Changed",
+    "puzz": "SudokuPad Link Changed",
+    "lmd": "LMD Link Changed",
+    "solves": "LMD Solvers Changed",
+    "sudokupad_solves": "SudokuPad Solvers Changed",
+    "rating": "Rating Changed",
+    "qs": "Puzzle Settings Changed",
+    "image": "Puzzle Image Changed"
+}
+
+
+def load_update_log():
+    if not os.path.isfile(UPDATE_LOG_PATH):
+        return []
+
+    try:
+        with open(
+            UPDATE_LOG_PATH,
+            "r",
+            encoding="utf-8"
+        ) as f:
+            data = json.load(f)
+
+        return data if isinstance(data, list) else []
+
+    except Exception:
+        return []
+
+
+def save_update_log(log):
+    with open(
+        UPDATE_LOG_PATH,
+        "w",
+        encoding="utf-8"
+    ) as f:
+        json.dump(
+            log,
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
+
+
+def record_update_log(
+    previous_items,
+    current_items
+):
+    previous_by_id = {
+        str(item.get("id")): item
+        for item in previous_items
+    }
+
+    current_by_id = {
+        str(item.get("id")): item
+        for item in current_items
+    }
+
+    events = []
+
+    update_time = (
+        datetime.utcnow().isoformat()
+        + "Z"
+    )
+
+    for puzzle in current_items:
+        key = str(puzzle.get("id"))
+
+        if key not in previous_by_id:
+            events.append({
+                "id": (
+                    update_time
+                    + "-"
+                    + str(len(events))
+                ),
+                "time": update_time,
+                "type": "Puzzle Added",
+                "puzzleId": puzzle.get("id"),
+                "puzzleNum": puzzle.get("num"),
+                "title": puzzle.get("title"),
+                "field": None
+            })
+            continue
+
+        old_puzzle = previous_by_id[key]
+
+        for field, label in UPDATE_FIELDS.items():
+            old_value = old_puzzle.get(field)
+            new_value = puzzle.get(field)
+
+            if old_value != new_value:
+                events.append({
+                    "id": (
+                        update_time
+                        + "-"
+                        + str(len(events))
+                    ),
+                    "time": update_time,
+                    "type": label,
+                    "puzzleId": puzzle.get("id"),
+                    "puzzleNum": puzzle.get("num"),
+                    "title": puzzle.get("title"),
+                    "field": field
+                })
+
+    for puzzle in previous_items:
+        key = str(puzzle.get("id"))
+
+        if key not in current_by_id:
+            events.append({
+                "id": (
+                    update_time
+                    + "-"
+                    + str(len(events))
+                ),
+                "time": update_time,
+                "type": "Puzzle Removed",
+                "puzzleId": puzzle.get("id"),
+                "puzzleNum": puzzle.get("num"),
+                "title": puzzle.get("title"),
+                "field": None
+            })
+
+    return events
+
+
+# ---------------------------------------------------------
 # Update config
 # ---------------------------------------------------------
 
@@ -776,6 +913,12 @@ def update_config():
     ) as f:
 
         cfg = json.load(f)
+
+    previous_items = json.loads(
+        json.dumps(
+            cfg.get("items", [])
+        )
+    )
 
     existing_lmd = {
         item["lmd"]: item
@@ -1097,6 +1240,23 @@ def update_config():
             ensure_ascii=False,
             indent=2
         )
+
+    update_log = load_update_log()
+
+    new_events = record_update_log(
+        previous_items,
+        cfg.get("items", [])
+    )
+
+    if new_events:
+        update_log.extend(new_events)
+        save_update_log(update_log)
+
+        print(
+            f"Recorded {len(new_events)} update events."
+        )
+    elif not os.path.isfile(UPDATE_LOG_PATH):
+        save_update_log(update_log)
 
     print(
         "Config updated successfully."
