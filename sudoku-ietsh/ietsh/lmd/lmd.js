@@ -18,7 +18,6 @@
   let lastCheckRaw = null;
   let lastCheckTime = null;
 
-
   // ---------------------------------------------------------
   // Star rendering
   // ---------------------------------------------------------
@@ -29,7 +28,6 @@
     authorRated = false,
     size
   ) => {
-
     const container = node
       .append('div')
       .attr(
@@ -46,7 +44,6 @@
     );
   };
 
-
   // ---------------------------------------------------------
   // Action buttons
   // ---------------------------------------------------------
@@ -56,7 +53,6 @@
     url,
     qs
   ) => {
-
     if (!url) return;
 
     const link = node
@@ -104,7 +100,6 @@
     node,
     code
   ) => {
-
     if (!code) return;
 
     const link = node
@@ -153,89 +148,36 @@
     i
   ) => {
 
-    // -------------------------------------------------------
-    // Latest image
-    // -------------------------------------------------------
+    /*
+     * The Latest card keeps its original dimensions.
+     *
+     * Left side:
+     *   badge
+     *   title
+     *   date
+     *   stars
+     *   meta
+     *   buttons
+     *
+     * Right side:
+     *   puzzle image
+     *
+     * The large translucent number is NOT touched.
+     */
 
-    if (i.image) {
-
-      const imageWrap = info
-        .append('div')
-        .attr(
-          'class',
-          'latest-image'
-        )
-        .style(
-          'width',
-          '100%'
-        )
-        .style(
-          'display',
-          'flex'
-        )
-        .style(
-          'justify-content',
-          'center'
-        )
-        .style(
-          'align-items',
-          'center'
-        )
-        .style(
-          'margin-bottom',
-          '20px'
-        );
-
-      imageWrap
-        .append('img')
-        .attr(
-          'src',
-          i.image
-        )
-        .attr(
-          'alt',
-          i.title || 'Puzzle'
-        )
-        .attr(
-          'loading',
-          'eager'
-        )
-        .style(
-          'display',
-          'block'
-        )
-        .style(
-          'width',
-          'min(100%, 340px)'
-        )
-        .style(
-          'max-width',
-          '340px'
-        )
-        .style(
-          'max-height',
-          '340px'
-        )
-        .style(
-          'height',
-          'auto'
-        )
-        .style(
-          'object-fit',
-          'contain'
-        )
-        .style(
-          'border-radius',
-          '12px'
-        );
-    }
+    const content = info
+      .append('div')
+      .attr(
+        'class',
+        'latest-content'
+      );
 
 
     // -------------------------------------------------------
-    // Top badge
+    // Top badge + small puzzle number
     // -------------------------------------------------------
 
-    const top = info
+    const top = content
       .append('div')
       .attr(
         'class',
@@ -250,6 +192,11 @@
       )
       .text('LATEST PUZZLE');
 
+
+    /*
+     * Small number is kept in the top area.
+     * CSS moves it to the top-right corner of the card.
+     */
     top
       .append('span')
       .attr(
@@ -263,7 +210,7 @@
     // Title
     // -------------------------------------------------------
 
-    info
+    content
       .append('h2')
       .attr(
         'class',
@@ -276,7 +223,7 @@
     // Date
     // -------------------------------------------------------
 
-    info
+    content
       .append('p')
       .attr(
         'class',
@@ -290,7 +237,7 @@
     // -------------------------------------------------------
 
     drawStars(
-      info,
+      content,
       i.stars,
       i.author_rated === true,
       30
@@ -301,7 +248,7 @@
     // Meta
     // -------------------------------------------------------
 
-    const meta = info
+    const meta = content
       .append('div')
       .attr(
         'class',
@@ -349,7 +296,7 @@
     // Actions
     // -------------------------------------------------------
 
-    const actions = info
+    const actions = content
       .append('div')
       .attr(
         'class',
@@ -358,7 +305,6 @@
 
 
     if (i.puzz) {
-
       const play = actions
         .append('a')
         .attr(
@@ -405,7 +351,6 @@
 
 
     if (i.lmd) {
-
       const lmd = actions
         .append('a')
         .attr(
@@ -449,6 +394,35 @@
         )
         .text('LMD');
     }
+
+
+    // -------------------------------------------------------
+    // Latest puzzle image
+    // -------------------------------------------------------
+
+    if (i.image) {
+      const imageWrap = info
+        .append('div')
+        .attr(
+          'class',
+          'latest-image'
+        );
+
+      imageWrap
+        .append('img')
+        .attr(
+          'src',
+          i.image
+        )
+        .attr(
+          'alt',
+          i.title || 'Puzzle'
+        )
+        .attr(
+          'loading',
+          'eager'
+        );
+    }
   };
 
 
@@ -476,6 +450,10 @@
       );
 
 
+    /*
+     * DO NOT CHANGE THIS.
+     * This is the large translucent number.
+     */
     card
       .append('div')
       .attr(
@@ -520,6 +498,7 @@
         'class',
         'archive-header'
       );
+
 
     header
       .append('div')
@@ -925,7 +904,6 @@
 
 
         if (dataChanged) {
-
           renderData(d);
         }
 
@@ -934,7 +912,6 @@
 
 
       if (dataChanged) {
-
         renderData(d);
       }
 
@@ -1016,7 +993,6 @@
         'opacity',
         0
       );
-
 
     if (cache.hovered) {
 
@@ -1125,7 +1101,6 @@
       t =
         d3.select(p);
 
-
       const currentNode =
         t.node();
 
@@ -1170,6 +1145,7 @@
       if (!rowId) {
 
         hideTooltip();
+
         return;
       }
 
