@@ -32,229 +32,117 @@
   // Update monitor
   // ---------------------------------------------------------
 
-  const updateLogKey =
-    'ietsh-lmd-update-log';
+  const updateLogPath =
+    './update-log.json';
+
+  const updateClearKey =
+    'ietsh-lmd-update-cleared-at';
 
   let updateLog = [];
+  let updateClearAt = 0;
 
-  const loadUpdateLog = () => {
+  const loadUpdateClearAt = () => {
     try {
-      const saved =
-        localStorage.getItem(
-          updateLogKey
-        );
-
-      const parsed =
-        saved
-          ? JSON.parse(saved)
-          : [];
-
-      updateLog =
-        Array.isArray(parsed)
-          ? parsed
-          : [];
+      updateClearAt =
+        Number(
+          localStorage.getItem(
+            updateClearKey
+          )
+        ) || 0;
     } catch (error) {
-      updateLog = [];
+      updateClearAt = 0;
     }
   };
 
-  const saveUpdateLog = () => {
+  const fetchUpdateLog = async () => {
     try {
-      localStorage.setItem(
-        updateLogKey,
-        JSON.stringify(
-          updateLog
-        )
-      );
-    } catch (error) {
-      console.warn(
-        'Unable to save update log:',
-        error
-      );
-    }
-  };
-
-  const updateFieldLabels = {
-    title: 'Title Changed',
-    date: 'Date Changed',
-    stars: 'Difficulty Changed',
-    author_rated: 'Author Rating Changed',
-    puzz: 'SudokuPad Link Changed',
-    lmd: 'LMD Link Changed',
-    solves: 'LMD Solvers Changed',
-    sudokupad_solves:
-      'SudokuPad Solvers Changed',
-    rating: 'Rating Changed',
-    qs: 'Puzzle Settings Changed',
-    image: 'Puzzle Image Changed'
-  };
-
-  const puzzleStateFields = [
-    'title',
-    'date',
-    'stars',
-    'author_rated',
-    'puzz',
-    'lmd',
-    'solves',
-    'sudokupad_solves',
-    'rating',
-    'qs',
-    'image'
-  ];
-
-  const addUpdateLogEntry = (
-    type,
-    puzzle,
-    field
-  ) => {
-    const entry = {
-      id:
-        String(Date.now()) +
-        '-' +
-        String(Math.random()),
-      time:
-        new Date().toISOString(),
-      type,
-      puzzleId:
-        puzzle && puzzle.id,
-      puzzleNum:
-        puzzle && puzzle.num,
-      title:
-        puzzle && puzzle.title,
-      field: field || null
-    };
-
-    updateLog.unshift(entry);
-
-    return entry.id;
-  };
-
-  const recordDataChanges = (
-    previous,
-    current
-  ) => {
-    if (
-      !previous ||
-      !current
-    ) {
-      return [];
-    }
-
-    const previousItems =
-      previous.items || [];
-
-    const currentItems =
-      current.items || [];
-
-    const previousById = new Map(
-      previousItems
-        .map(
-          puzzle => [
-            String(puzzle.id),
-            puzzle
-          ]
-        )
-    );
-
-    const currentById = new Map(
-      currentItems
-        .map(
-          puzzle => [
-            String(puzzle.id),
-            puzzle
-          ]
-        )
-    );
-
-    const newEntryIds = [];
-
-    currentItems.forEach(
-      puzzle => {
-        const key =
-          String(puzzle.id);
-
-        if (
-          !previousById.has(key)
-        ) {
-          newEntryIds.push(
-            addUpdateLogEntry(
-              'Puzzle Added',
-              puzzle
-            )
-          );
-
-          return;
-        }
-
-        const oldPuzzle =
-          previousById.get(key);
-
-        puzzleStateFields.forEach(
-          field => {
-            const oldValue =
-              oldPuzzle[field];
-
-            const newValue =
-              puzzle[field];
-
-            if (
-              JSON.stringify(oldValue) !==
-              JSON.stringify(newValue)
-            ) {
-              newEntryIds.push(
-                addUpdateLogEntry(
-                  updateFieldLabels[field],
-                  puzzle,
-                  field
-                )
-              );
-            }
+      const response =
+        await fetch(
+          updateLogPath +
+            '?t=' +
+            Date.now(),
+          {
+            cache: 'no-store'
           }
         );
+
+      if (!response.ok) {
+        throw new Error(
+          `HTTP ${response.status}`
+        );
       }
-    );
 
-    previousItems.forEach(
-      puzzle => {
-        const key =
-          String(puzzle.id);
+      const data =
+        await response.json();
 
-        if (
-          !currentById.has(key)
-        ) {
-          newEntryIds.push(
-            addUpdateLogEntry(
-              'Puzzle Removed',
-              puzzle
+      const previousIds =
+        new Set(
+          updateLog.map(
+            entry => entry.id
+          )
+        );
+
+      updateLog =
+        Array.isArray(data)
+          ? data
+              .filter(
+                entry => {
+                  const time =
+                    new Date(
+                      entry.time
+                    ).getTime();
+
+                  return (
+                    Number.isNaN(time) ||
+                    time > updateClearAt
+                  );
+                }
+              )
+              .sort(
+                (a, b) =>
+                  new Date(b.time) -
+                  new Date(a.time)
+              )
+          : [];
+
+      return updateLog
+        .filter(
+          entry =>
+            !previousIds.has(
+              entry.id
             )
-          );
-        }
-      }
-    );
+        )
+        .map(
+          entry => entry.id
+        );
 
-    if (
-      newEntryIds.length
-    ) {
-      saveUpdateLog();
+    } catch (error) {
+      console.warn(
+        'Unable to load update log:',
+        error
+      );
+
+      return [];
     }
-
-    return newEntryIds;
   };
 
   const clearUpdateLog = () => {
-    updateLog = [];
+    updateClearAt =
+      Date.now();
 
     try {
-      localStorage.removeItem(
-        updateLogKey
+      localStorage.setItem(
+        updateClearKey,
+        String(updateClearAt)
       );
     } catch (error) {
       console.warn(
-        'Unable to clear update log:',
+        'Unable to save update monitor state:',
         error
       );
     }
+
+    updateLog = [];
 
     renderUpdateMonitor();
   };
@@ -420,7 +308,7 @@
     );
   };
 
-  loadUpdateLog();
+  loadUpdateClearAt();
 
   // ---------------------------------------------------------
   // Star rendering
@@ -2434,14 +2322,14 @@
         updateTimer();
 
         if (dataChanged) {
-          const newEntryIds =
-            recordDataChanges(
-              cache.data,
-              d
-            );
+          renderData(d);
+        }
 
-          renderData(
-            d,
+        const newEntryIds =
+          await fetchUpdateLog();
+
+        if (newEntryIds.length) {
+          renderUpdateMonitor(
             newEntryIds
           );
         }
@@ -2450,14 +2338,14 @@
       }
 
       if (dataChanged) {
-        const newEntryIds =
-          recordDataChanges(
-            cache.data,
-            d
-          );
+        renderData(d);
+      }
 
-        renderData(
-          d,
+      const newEntryIds =
+        await fetchUpdateLog();
+
+      if (newEntryIds.length) {
+        renderUpdateMonitor(
           newEntryIds
         );
       }
@@ -2491,6 +2379,8 @@
         new Date(
           d.last_check
         );
+
+      await fetchUpdateLog();
 
       renderData(d);
 
