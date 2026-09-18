@@ -370,9 +370,8 @@ body {
 .latest-number {
     position: absolute;
 
-    top: 0;
-
-    right: -285px;
+    top: -23px;
+    right: 0;
 
     color: #687494;
 
@@ -380,6 +379,8 @@ body {
     font-weight: 650;
 
     letter-spacing: 0.5px;
+
+    line-height: 1;
 
     z-index: 6;
 }
@@ -1645,7 +1646,7 @@ body {
     }
 
     .latest-number {
-        top: 0;
+        top: -20px;
         right: 0;
     }
 
