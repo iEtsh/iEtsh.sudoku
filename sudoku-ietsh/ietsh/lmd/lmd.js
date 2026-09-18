@@ -100,18 +100,7 @@
       )
       .text('▶');
 
-    link.on(
-      'click',
-      event => {
-        event.preventDefault();
 
-        window.open(
-          url + (qs || ''),
-          '_blank',
-          'noopener,noreferrer'
-        );
-      }
-    );
   };
 
   const lmdLink = code =>
@@ -158,18 +147,7 @@
       )
       .text('↗');
 
-    link.on(
-      'click',
-      event => {
-        event.preventDefault();
 
-        window.open(
-          lmdLink(code),
-          '_blank',
-          'noopener,noreferrer'
-        );
-      }
-    );
   };
 
   // ---------------------------------------------------------
