@@ -19,6 +19,16 @@
   let lastCheckTime = null;
 
   // ---------------------------------------------------------
+  // Archive UI state
+  // ---------------------------------------------------------
+
+  const archiveState = {
+    search: '',
+    sortKey: 'date',
+    sortDirection: 'desc'
+  };
+
+  // ---------------------------------------------------------
   // Star rendering
   // ---------------------------------------------------------
 
@@ -91,10 +101,8 @@
       .text('▶');
   };
 
-
   const lmdLink = code =>
     `https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id=${code}`;
-
 
   const setLmd = (
     node,
@@ -138,7 +146,6 @@
       .text('↗');
   };
 
-
   // ---------------------------------------------------------
   // Latest Puzzle
   // ---------------------------------------------------------
@@ -147,31 +154,12 @@
     info,
     i
   ) => {
-
-    /*
-     * The Latest card keeps its original dimensions.
-     *
-     * Left side:
-     *   badge
-     *   title
-     *   date
-     *   stars
-     *   meta
-     *   buttons
-     *
-     * Right side:
-     *   puzzle image
-     *
-     * The large translucent number is NOT touched.
-     */
-
     const content = info
       .append('div')
       .attr(
         'class',
         'latest-content'
       );
-
 
     // -------------------------------------------------------
     // Top badge + small puzzle number
@@ -192,11 +180,6 @@
       )
       .text('LATEST PUZZLE');
 
-
-    /*
-     * Small number is kept in the top area.
-     * CSS moves it to the top-right corner of the card.
-     */
     top
       .append('span')
       .attr(
@@ -204,7 +187,6 @@
         'latest-number'
       )
       .text(`#${i.num}`);
-
 
     // -------------------------------------------------------
     // Title
@@ -218,7 +200,6 @@
       )
       .text(i.title);
 
-
     // -------------------------------------------------------
     // Date
     // -------------------------------------------------------
@@ -231,7 +212,6 @@
       )
       .text(i.date);
 
-
     // -------------------------------------------------------
     // Stars
     // -------------------------------------------------------
@@ -243,7 +223,6 @@
       30
     );
 
-
     // -------------------------------------------------------
     // Meta
     // -------------------------------------------------------
@@ -254,7 +233,6 @@
         'class',
         'latest-meta'
       );
-
 
     const solves = meta
       .append('div')
@@ -273,7 +251,6 @@
         `${i.solves || 0}`
       );
 
-
     const rating = meta
       .append('div')
       .attr(
@@ -291,7 +268,6 @@
         i.rating || 'N/A'
       );
 
-
     // -------------------------------------------------------
     // Actions
     // -------------------------------------------------------
@@ -302,7 +278,6 @@
         'class',
         'latest-actions'
       );
-
 
     if (i.puzz) {
       const play = actions
@@ -349,7 +324,6 @@
         .text('PLAY');
     }
 
-
     if (i.lmd) {
       const lmd = actions
         .append('a')
@@ -395,7 +369,6 @@
         .text('LMD');
     }
 
-
     // -------------------------------------------------------
     // Latest puzzle image
     // -------------------------------------------------------
@@ -425,9 +398,7 @@
     }
   };
 
-
   const genMostRecent = d => {
-
     const i =
       d.items &&
       d.items[0];
@@ -441,7 +412,6 @@
         'latest-card'
       );
 
-
     card
       .append('div')
       .attr(
@@ -449,11 +419,6 @@
         'latest-glow'
       );
 
-
-    /*
-     * DO NOT CHANGE THIS.
-     * This is the large translucent number.
-     */
     card
       .append('div')
       .attr(
@@ -462,14 +427,12 @@
       )
       .text(`#${i.num}`);
 
-
     const inner = card
       .append('div')
       .attr(
         'class',
         'latest-inner'
       );
-
 
     const info = inner
       .append('div')
@@ -478,27 +441,339 @@
         'latest-info'
       );
 
-
     recentStats(
       info,
       i
     );
   };
 
+  // ---------------------------------------------------------
+  // Data helpers
+  // ---------------------------------------------------------
+
+  const toNumber = value => {
+    if (
+      value === null ||
+      value === undefined ||
+      value === ''
+    ) {
+      return null;
+    }
+
+    if (typeof value === 'number') {
+      return Number.isFinite(value)
+        ? value
+        : null;
+    }
+
+    const cleaned =
+      String(value)
+        .replace('%', '')
+        .replace(',', '.')
+        .trim();
+
+    const number =
+      parseFloat(cleaned);
+
+    return Number.isFinite(number)
+      ? number
+      : null;
+  };
+
+  const puzzleDate = puzzle => {
+    if (!puzzle || !puzzle.date) {
+      return 0;
+    }
+
+    const timestamp =
+      Date.parse(puzzle.date);
+
+    if (
+      Number.isFinite(timestamp)
+    ) {
+      return timestamp;
+    }
+
+    return 0;
+  };
+
+  const puzzleRating = puzzle => {
+    return toNumber(
+      puzzle && puzzle.rating
+    );
+  };
+
+  const puzzleSolves = puzzle => {
+    const value =
+      toNumber(
+        puzzle && puzzle.solves
+      );
+
+    return value === null
+      ? 0
+      : value;
+  };
+
+  const puzzleDifficulty = puzzle => {
+    const value =
+      toNumber(
+        puzzle && puzzle.stars
+      );
+
+    return value === null
+      ? 0
+      : value;
+  };
+
+  const compareText = (
+    a,
+    b
+  ) => {
+    return String(a || '')
+      .localeCompare(
+        String(b || ''),
+        undefined,
+        {
+          sensitivity: 'base',
+          numeric: true
+        }
+      );
+  };
 
   // ---------------------------------------------------------
-  // Archive
+  // Sorting
+  // ---------------------------------------------------------
+
+  const getSortValue = (
+    puzzle,
+    key
+  ) => {
+    switch (key) {
+      case 'date':
+        return puzzleDate(puzzle);
+
+      case 'rating': {
+        const rating =
+          puzzleRating(puzzle);
+
+        return rating === null
+          ? -Infinity
+          : rating;
+      }
+
+      case 'solves':
+        return puzzleSolves(puzzle);
+
+      case 'difficulty':
+        return puzzleDifficulty(puzzle);
+
+      default:
+        return 0;
+    }
+  };
+
+  const sortPuzzles = items => {
+    const result =
+      [...(items || [])];
+
+    const key =
+      archiveState.sortKey;
+
+    const direction =
+      archiveState.sortDirection === 'asc'
+        ? 1
+        : -1;
+
+    result.sort(
+      (a, b) => {
+        const av =
+          getSortValue(a, key);
+
+        const bv =
+          getSortValue(b, key);
+
+        if (
+          typeof av === 'string' ||
+          typeof bv === 'string'
+        ) {
+          return (
+            compareText(av, bv) *
+            direction
+          );
+        }
+
+        if (av < bv) {
+          return -1 * direction;
+        }
+
+        if (av > bv) {
+          return 1 * direction;
+        }
+
+        /*
+         * Stable secondary order:
+         * newest puzzle first.
+         */
+        const dateA =
+          puzzleDate(a);
+
+        const dateB =
+          puzzleDate(b);
+
+        if (dateA !== dateB) {
+          return dateB - dateA;
+        }
+
+        return compareText(
+          a.title,
+          b.title
+        );
+      }
+    );
+
+    return result;
+  };
+
+  const toggleSort = key => {
+    if (
+      archiveState.sortKey === key
+    ) {
+      archiveState.sortDirection =
+        archiveState.sortDirection === 'asc'
+          ? 'desc'
+          : 'asc';
+    } else {
+      archiveState.sortKey = key;
+
+      /*
+       * First click on a category gives
+       * the most useful/highest direction:
+       *
+       * Date       -> newest
+       * Rating     -> highest
+       * Solves     -> most
+       * Difficulty -> highest
+       */
+      archiveState.sortDirection =
+        'desc';
+    }
+
+    renderArchive();
+  };
+
+  // ---------------------------------------------------------
+  // Search
+  // ---------------------------------------------------------
+
+  const filteredPuzzles = items => {
+    const query =
+      archiveState.search
+        .trim()
+        .toLocaleLowerCase();
+
+    if (!query) {
+      return [...(items || [])];
+    }
+
+    return (items || []).filter(
+      puzzle =>
+        String(
+          puzzle.title || ''
+        )
+          .toLocaleLowerCase()
+          .includes(query)
+    );
+  };
+
+  // ---------------------------------------------------------
+  // Sort button
+  // ---------------------------------------------------------
+
+  const appendSortButton = (
+    parent,
+    label,
+    key
+  ) => {
+    const active =
+      archiveState.sortKey === key;
+
+    const direction =
+      archiveState.sortDirection;
+
+    const button = parent
+      .append('button')
+      .attr(
+        'type',
+        'button'
+      )
+      .attr(
+        'class',
+        active
+          ? 'archive-sort-button active'
+          : 'archive-sort-button'
+      )
+      .attr(
+        'aria-label',
+        active
+          ? `${label}, ${
+              direction === 'asc'
+                ? 'ascending'
+                : 'descending'
+            }. Click to reverse order.`
+          : `Sort by ${label}`
+      )
+      .attr(
+        'title',
+        active
+          ? `Currently ${
+              direction === 'asc'
+                ? 'ascending'
+                : 'descending'
+            }. Click to reverse.`
+          : `Sort by ${label}`
+      );
+
+    button
+      .append('span')
+      .attr(
+        'class',
+        'archive-sort-label'
+      )
+      .text(label);
+
+    button
+      .append('span')
+      .attr(
+        'class',
+        'archive-sort-arrow'
+      )
+      .text(
+        active
+          ? (
+              direction === 'asc'
+                ? '↑'
+                : '↓'
+            )
+          : '↕'
+      );
+
+    button.on(
+      'click',
+      () => toggleSort(key)
+    );
+  };
+
+  // ---------------------------------------------------------
+  // Archive header
   // ---------------------------------------------------------
 
   const genSummaryHeader = () => {
-
     const header = summs
       .append('div')
       .attr(
         'class',
         'archive-header'
       );
-
 
     header
       .append('div')
@@ -514,20 +789,33 @@
         'archive-header-title'
       );
 
-    header
-      .append('div')
-      .attr(
-        'class',
-        'archive-header-date'
-      );
+    const dateHeader =
+      header
+        .append('div')
+        .attr(
+          'class',
+          'archive-header-date'
+        );
 
-    header
-      .append('div')
-      .attr(
-        'class',
-        'archive-header-difficulty'
-      )
-      .text('DIFFICULTY');
+    appendSortButton(
+      dateHeader,
+      'DATE',
+      'date'
+    );
+
+    const difficultyHeader =
+      header
+        .append('div')
+        .attr(
+          'class',
+          'archive-header-difficulty'
+        );
+
+    appendSortButton(
+      difficultyHeader,
+      'DIFFICULTY',
+      'difficulty'
+    );
 
     header
       .append('div')
@@ -545,33 +833,293 @@
       )
       .text('PLAY');
 
-    header
-      .append('div')
-      .attr(
-        'class',
-        'archive-header-solves'
-      )
-      .text('LMD SOLVERS');
+    const solvesHeader =
+      header
+        .append('div')
+        .attr(
+          'class',
+          'archive-header-solves'
+        );
 
-    header
-      .append('div')
-      .attr(
-        'class',
-        'archive-header-rating'
-      )
-      .text('RATING');
+    appendSortButton(
+      solvesHeader,
+      'LMD SOLVERS',
+      'solves'
+    );
+
+    const ratingHeader =
+      header
+        .append('div')
+        .attr(
+          'class',
+          'archive-header-rating'
+        );
+
+    appendSortButton(
+      ratingHeader,
+      'RATING',
+      'rating'
+    );
   };
 
+  // ---------------------------------------------------------
+  // Search + archive controls
+  // ---------------------------------------------------------
 
-  const genSummaryItems = d => {
+  const genArchiveControls = () => {
+    const controls =
+      summs
+        .append('div')
+        .attr(
+          'class',
+          'archive-controls'
+        );
 
-    genSummaryHeader();
+    const searchWrap =
+      controls
+        .append('div')
+        .attr(
+          'class',
+          'archive-search'
+        );
 
-    (
-      d.items || []
-    ).forEach(i => {
+    searchWrap
+      .append('span')
+      .attr(
+        'class',
+        'archive-search-icon'
+      )
+      .text('⌕');
 
-      const id = i.id;
+    const input =
+      searchWrap
+        .append('input')
+        .attr(
+          'type',
+          'search'
+        )
+        .attr(
+          'class',
+          'archive-search-input'
+        )
+        .attr(
+          'placeholder',
+          'Search puzzle name...'
+        )
+        .attr(
+          'aria-label',
+          'Search puzzles by name'
+        )
+        .property(
+          'value',
+          archiveState.search
+        );
+
+    input
+      .on(
+        'input',
+        function () {
+          archiveState.search =
+            this.value;
+
+          renderArchive();
+        }
+      );
+
+    input.on(
+      'keydown',
+      ev => {
+        if (
+          ev.key === 'ArrowDown'
+        ) {
+          ev.preventDefault();
+          focusArchiveRow(0);
+        }
+
+        if (
+          ev.key === 'Escape'
+        ) {
+          input
+            .property(
+              'value',
+              ''
+            );
+
+          archiveState.search =
+            '';
+
+          renderArchive();
+        }
+      }
+    );
+  };
+
+  // ---------------------------------------------------------
+  // Dashboard
+  // ---------------------------------------------------------
+
+  const calculateDashboard = items => {
+    const puzzles =
+      items || [];
+
+    const totalPuzzles =
+      puzzles.length;
+
+    const totalSolves =
+      puzzles.reduce(
+        (sum, puzzle) =>
+          sum +
+          puzzleSolves(puzzle),
+        0
+      );
+
+    const ratings =
+      puzzles
+        .map(puzzle =>
+          puzzleRating(puzzle)
+        )
+        .filter(
+          value =>
+            value !== null
+        );
+
+    const averageRating =
+      ratings.length
+        ? ratings.reduce(
+            (sum, value) =>
+              sum + value,
+            0
+          ) / ratings.length
+        : null;
+
+    return {
+      totalPuzzles,
+      totalSolves,
+      averageRating
+    };
+  };
+
+  const formatAverageRating =
+    value => {
+      if (
+        value === null ||
+        !Number.isFinite(value)
+      ) {
+        return 'N/A';
+      }
+
+      return `${value.toFixed(1)}%`;
+    };
+
+  const formatNumber =
+    value =>
+      Number(
+        value || 0
+      ).toLocaleString();
+
+  const genDashboard = d => {
+    const dashboard =
+      d3.select('#puzzle-dashboard');
+
+    if (
+      dashboard.empty()
+    ) {
+      return;
+    }
+
+    dashboard.html('');
+
+    const stats =
+      calculateDashboard(
+        d.items || []
+      );
+
+    dashboard
+      .append('div')
+      .attr(
+        'class',
+        'dashboard-heading'
+      )
+      .append('div')
+      .attr(
+        'class',
+        'dashboard-label'
+      )
+      .text('PUZZLE DASHBOARD');
+
+    const cards =
+      dashboard
+        .append('div')
+        .attr(
+          'class',
+          'dashboard-cards'
+        );
+
+    const addCard = (
+      label,
+      value,
+      extraClass
+    ) => {
+      const card =
+        cards
+          .append('div')
+          .attr(
+            'class',
+            `dashboard-card ${
+              extraClass || ''
+            }`
+          );
+
+      card
+        .append('span')
+        .attr(
+          'class',
+          'dashboard-card-label'
+        )
+        .text(label);
+
+      card
+        .append('strong')
+        .attr(
+          'class',
+          'dashboard-card-value'
+        )
+        .text(value);
+    };
+
+    addCard(
+      'TOTAL PUZZLES',
+      formatNumber(
+        stats.totalPuzzles
+      ),
+      'dashboard-puzzles'
+    );
+
+    addCard(
+      'AVG RATING',
+      formatAverageRating(
+        stats.averageRating
+      ),
+      'dashboard-rating'
+    );
+
+    addCard(
+      'TOTAL SOLVES',
+      formatNumber(
+        stats.totalSolves
+      ),
+      'dashboard-solves'
+    );
+  };
+
+  // ---------------------------------------------------------
+  // Archive row
+  // ---------------------------------------------------------
+
+  const createArchiveRow =
+    puzzle => {
+      const id =
+        puzzle.id;
 
       const div = summs
         .append('div')
@@ -582,12 +1130,23 @@
         .attr(
           'class',
           'rec'
+        )
+        .attr(
+          'tabindex',
+          '0'
+        )
+        .attr(
+          'role',
+          'article'
+        )
+        .attr(
+          'aria-label',
+          `${puzzle.title || 'Puzzle'}`
         );
 
-
-      const ul = div
-        .append('ul');
-
+      const ul =
+        div
+          .append('ul');
 
       // -----------------------------------------------------
       // Number
@@ -599,8 +1158,9 @@
           'class',
           'archive-number'
         )
-        .text(`#${i.num}`);
-
+        .text(
+          `#${puzzle.num}`
+        );
 
       // -----------------------------------------------------
       // Title
@@ -612,15 +1172,15 @@
           'class',
           'archive-title'
         )
-        .text(i.title);
-
+        .text(
+          puzzle.title
+        );
 
       cache.titles[id] =
-        i.title;
+        puzzle.title;
 
       cache.images[id] =
-        i.image || '';
-
+        puzzle.image || '';
 
       // -----------------------------------------------------
       // Date
@@ -632,8 +1192,9 @@
           'class',
           'archive-date'
         )
-        .text(i.date);
-
+        .text(
+          puzzle.date
+        );
 
       // -----------------------------------------------------
       // Difficulty
@@ -641,45 +1202,44 @@
 
       drawStars(
         ul.append('li'),
-        i.stars,
-        i.author_rated === true
+        puzzle.stars,
+        puzzle.author_rated === true
       );
-
 
       // -----------------------------------------------------
       // LMD Link
       // -----------------------------------------------------
 
-      const lmd = ul
-        .append('li')
-        .attr(
-          'class',
-          'archive-link'
-        );
+      const lmd =
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-link'
+          );
 
       setLmd(
         lmd,
-        i.lmd
+        puzzle.lmd
       );
-
 
       // -----------------------------------------------------
       // Play
       // -----------------------------------------------------
 
-      const play = ul
-        .append('li')
-        .attr(
-          'class',
-          'archive-link'
-        );
+      const play =
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-link'
+          );
 
       setLink(
         play,
-        i.puzz,
-        i.qs || ''
+        puzzle.puzz,
+        puzzle.qs || ''
       );
-
 
       // -----------------------------------------------------
       // LMD Solvers
@@ -692,9 +1252,8 @@
           'archive-solves'
         )
         .text(
-          `${i.solves || 0}`
+          `${puzzle.solves || 0}`
         );
-
 
       // -----------------------------------------------------
       // Rating
@@ -707,18 +1266,216 @@
           'archive-rating'
         )
         .text(
-          i.rating || 'N/A'
+          puzzle.rating || 'N/A'
         );
-    });
+
+      return div;
+    };
+
+  // ---------------------------------------------------------
+  // Keyboard navigation
+  // ---------------------------------------------------------
+
+  const getVisibleRows = () => {
+    return Array.from(
+      document.querySelectorAll(
+        '#summary-table .rec'
+      )
+    ).filter(
+      row =>
+        row.offsetParent !== null
+    );
   };
 
+  const focusArchiveRow = index => {
+    const rows =
+      getVisibleRows();
+
+    if (!rows.length) {
+      return;
+    }
+
+    const safeIndex =
+      Math.max(
+        0,
+        Math.min(
+          index,
+          rows.length - 1
+        )
+      );
+
+    rows[safeIndex]
+      .focus({
+        preventScroll: false
+      });
+
+    rows[safeIndex]
+      .scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+  };
+
+  const handleArchiveKeyboard =
+    ev => {
+      const target =
+        ev.target;
+
+      if (
+        target &&
+        (
+          target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.tagName === 'SELECT'
+        )
+      ) {
+        return;
+      }
+
+      const row =
+        target &&
+        target.closest
+          ? target.closest(
+              '#summary-table .rec'
+            )
+          : null;
+
+      if (!row) {
+        return;
+      }
+
+      const rows =
+        getVisibleRows();
+
+      const currentIndex =
+        rows.indexOf(row);
+
+      if (
+        ev.key === 'ArrowDown'
+      ) {
+        ev.preventDefault();
+
+        focusArchiveRow(
+          currentIndex + 1
+        );
+
+        return;
+      }
+
+      if (
+        ev.key === 'ArrowUp'
+      ) {
+        ev.preventDefault();
+
+        focusArchiveRow(
+          currentIndex - 1
+        );
+
+        return;
+      }
+
+      if (
+        ev.key === 'Home'
+      ) {
+        ev.preventDefault();
+
+        focusArchiveRow(0);
+
+        return;
+      }
+
+      if (
+        ev.key === 'End'
+      ) {
+        ev.preventDefault();
+
+        focusArchiveRow(
+          rows.length - 1
+        );
+      }
+    };
+
+  document.addEventListener(
+    'keydown',
+    handleArchiveKeyboard
+  );
+
+  // ---------------------------------------------------------
+  // Archive rendering
+  // ---------------------------------------------------------
+
+  const renderArchive = () => {
+    if (
+      !cache.data
+    ) {
+      return;
+    }
+
+    const items =
+      cache.data.items || [];
+
+    const filtered =
+      filteredPuzzles(
+        items
+      );
+
+    const sorted =
+      sortPuzzles(
+        filtered
+      );
+
+    summs.html('');
+
+    genArchiveControls();
+
+    genSummaryHeader();
+
+    if (
+      !sorted.length
+    ) {
+      const empty =
+        summs
+          .append('div')
+          .attr(
+            'class',
+            'archive-empty'
+          );
+
+      empty
+        .append('strong')
+        .text(
+          'No puzzles found'
+        );
+
+      empty
+        .append('span')
+        .text(
+          archiveState.search
+            ? `No puzzle matches "${archiveState.search}".`
+            : 'There are no puzzles to display.'
+        );
+
+      return;
+    }
+
+    sorted.forEach(
+      createArchiveRow
+    );
+
+    /*
+     * Restore focus to the first visible
+     * puzzle when the archive is rebuilt.
+     *
+     * Do not steal focus from the search
+     * box or sorting buttons.
+     */
+  };
 
   // ---------------------------------------------------------
   // State
   // ---------------------------------------------------------
 
   function getPuzzleState(d) {
-
     return JSON.stringify(
       (d.items || []).map(
         i => ({
@@ -740,22 +1497,18 @@
     );
   }
 
-
   // ---------------------------------------------------------
   // Render
   // ---------------------------------------------------------
 
   function renderData(d) {
-
     recent.html('');
-    summs.html('');
 
     cache.titles = {};
     cache.images = {};
     cache.hovered = null;
 
     genMostRecent(d);
-    genSummaryItems(d);
 
     cache.data =
       JSON.parse(
@@ -764,16 +1517,26 @@
 
     cache.state =
       getPuzzleState(d);
-  }
 
+    /*
+     * Dashboard is rendered separately from
+     * the archive so it always reflects the
+     * complete collection, not the search
+     * results.
+     */
+    genDashboard(d);
+
+    renderArchive();
+  }
 
   // ---------------------------------------------------------
   // Update timer
   // ---------------------------------------------------------
 
   function updateTimer() {
-
-    if (!lastCheckTime) return;
+    if (!lastCheckTime) {
+      return;
+    }
 
     const now =
       new Date();
@@ -782,20 +1545,21 @@
       Math.max(
         0,
         Math.floor(
-          (now - lastCheckTime) / 1000
+          (now - lastCheckTime) /
+            1000
         )
       );
 
     let text;
 
-
-    if (diffSec < 60) {
-
+    if (
+      diffSec < 60
+    ) {
       text =
         `Last checked: ${diffSec} seconds ago`;
-
-    } else if (diffSec < 3600) {
-
+    } else if (
+      diffSec < 3600
+    ) {
       const min =
         Math.floor(
           diffSec / 60
@@ -806,9 +1570,7 @@
 
       text =
         `Last checked: ${min} min ${sec} sec ago`;
-
     } else {
-
       const hr =
         Math.floor(
           diffSec / 3600
@@ -823,74 +1585,60 @@
         `Last checked: ${hr} hr ${min} min ago`;
     }
 
-
     d3.select('#since')
       .select('.update-text')
       .text(text);
   }
-
 
   // ---------------------------------------------------------
   // Fetch config
   // ---------------------------------------------------------
 
   async function fetchConfig() {
-
     const response =
       await fetch(
         confPath +
-        '?t=' +
-        Date.now(),
+          '?t=' +
+          Date.now(),
         {
           cache: 'no-store'
         }
       );
 
-
     if (!response.ok) {
-
       throw new Error(
         `HTTP ${response.status}`
       );
     }
 
-
     return await response.json();
   }
-
 
   // ---------------------------------------------------------
   // Check for updates
   // ---------------------------------------------------------
 
   async function checkForUpdates() {
-
     try {
-
       const d =
         await fetchConfig();
 
-
-      if (!d.last_check)
+      if (!d.last_check) {
         return;
-
+      }
 
       const newCheck =
         d.last_check !==
         lastCheckRaw;
 
-
       const newState =
         getPuzzleState(d);
-
 
       const dataChanged =
         newState !==
         cache.state;
 
-
       if (newCheck) {
-
         lastCheckRaw =
           d.last_check;
 
@@ -899,9 +1647,7 @@
             d.last_check
           );
 
-
         updateTimer();
-
 
         if (dataChanged) {
           renderData(d);
@@ -910,13 +1656,11 @@
         return;
       }
 
-
       if (dataChanged) {
         renderData(d);
       }
 
     } catch (error) {
-
       console.warn(
         'Unable to check puzzle data:',
         error
@@ -924,48 +1668,36 @@
     }
   }
 
-
   // ---------------------------------------------------------
   // Initial load
   // ---------------------------------------------------------
 
   async function initialLoad() {
-
     try {
-
       const d =
         await fetchConfig();
 
-
       if (!d.last_check) {
-
         renderData(d);
-
         return;
       }
 
-
       lastCheckRaw =
         d.last_check;
-
 
       lastCheckTime =
         new Date(
           d.last_check
         );
 
-
       renderData(d);
 
-
       updateTimer();
-
 
       setInterval(
         updateTimer,
         1000
       );
-
 
       setInterval(
         checkForUpdates,
@@ -973,7 +1705,6 @@
       );
 
     } catch (error) {
-
       console.error(
         'Failed to load puzzle data:',
         error
@@ -981,21 +1712,20 @@
     }
   }
 
-
   // ---------------------------------------------------------
   // Tooltip
   // ---------------------------------------------------------
 
   const hideTooltip = () => {
-
     tooltip
       .style(
         'opacity',
         0
       );
 
-    if (cache.hovered) {
-
+    if (
+      cache.hovered
+    ) {
       cache.hovered.style(
         'background-color',
         null
@@ -1005,27 +1735,22 @@
     }
   };
 
-
   const showTooltip = (
     id,
     title,
     x,
     y
   ) => {
-
     tooltip
       .select('.caption')
       .text(
         title || ''
       );
 
-
     const image =
       cache.images[id] || '';
 
-
     if (image) {
-
       tooltipImage
         .attr(
           'src',
@@ -1039,9 +1764,7 @@
           'display',
           'block'
         );
-
     } else {
-
       tooltipImage
         .attr(
           'src',
@@ -1057,7 +1780,6 @@
         );
     }
 
-
     tooltip
       .style(
         'transform',
@@ -1069,90 +1791,74 @@
       );
   };
 
-
   const onMouseMove = ev => {
-
     const mPos =
       d3.pointer(ev);
-
 
     let t =
       d3.select(
         ev.target
       );
 
-
     let node =
       t.node();
 
-
-    if (!node) return;
-
+    if (!node) {
+      return;
+    }
 
     let p =
       node.parentNode;
-
 
     while (
       p &&
       !t.classed('rec')
     ) {
-
       t =
         d3.select(p);
 
       const currentNode =
         t.node();
 
-
-      if (!currentNode)
+      if (!currentNode) {
         break;
-
+      }
 
       p =
         currentNode.parentNode;
     }
 
-
     if (
       t &&
       t.classed('rec')
     ) {
-
-      if (cache.hovered) {
-
+      if (
+        cache.hovered
+      ) {
         cache.hovered.style(
           'background-color',
           null
         );
       }
 
-
       cache.hovered =
         t;
-
 
       t.style(
         'background-color',
         'rgba(255,255,255,0.04)'
       );
 
-
       const rowId =
         t.attr('id');
 
-
       if (!rowId) {
-
         hideTooltip();
-
         return;
       }
 
-
       const id =
         rowId.slice(3);
-
 
       showTooltip(
         id,
@@ -1162,11 +1868,9 @@
       );
 
     } else {
-
       hideTooltip();
     }
   };
-
 
   // ---------------------------------------------------------
   // Tooltip events
@@ -1182,6 +1886,59 @@
       hideTooltip
     );
 
+  // ---------------------------------------------------------
+  // Dashboard container
+  // ---------------------------------------------------------
+
+  /*
+   * The existing HTML does not need to be manually edited
+   * for the dashboard.
+   *
+   * We create its container next to the archive section.
+   * CSS in the next file controls its desktop/mobile layout.
+   */
+
+  const createDashboardContainer = () => {
+    if (
+      !d3.select(
+        '#puzzle-dashboard'
+      ).empty()
+    ) {
+      return;
+    }
+
+    const listing =
+      d3.select(
+        '.listing-section'
+      );
+
+    if (
+      listing.empty()
+    ) {
+      return;
+    }
+
+    const dashboard =
+      listing
+        .insert(
+          'aside',
+          '#summary-table'
+        )
+        .attr(
+          'id',
+          'puzzle-dashboard'
+        )
+        .attr(
+          'class',
+          'puzzle-dashboard'
+        )
+        .attr(
+          'aria-label',
+          'Puzzle dashboard'
+        );
+  };
+
+  createDashboardContainer();
 
   // ---------------------------------------------------------
   // Start
