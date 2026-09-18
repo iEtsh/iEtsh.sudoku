@@ -371,7 +371,13 @@ body {
     position: absolute;
 
     top: 0;
-    right: 0;
+
+    /*
+       The latest info area reserves space for the puzzle image.
+       Move the number across that reserved space so it sits
+       at the far right of the latest card.
+    */
+    right: -285px;
 
     color: #687494;
 
@@ -671,13 +677,13 @@ body {
 
     grid-template-columns:
         minmax(0, 1fr)
-        280px;
+        220px;
 
     grid-template-areas:
         "heading heading"
         "archive dashboard";
 
-    column-gap: 24px;
+    column-gap: 20px;
 
     align-items: start;
 }
@@ -881,17 +887,21 @@ body {
     display: grid;
     align-items: center;
 
+    /*
+       The archive now gives the date and difficulty columns
+       enough room for their actual content.
+    */
     grid-template-columns:
-        48px
-        minmax(180px, 1fr)
-        105px
-        75px
+        42px
+        minmax(170px, 1fr)
+        110px
+        110px
         42px
         42px
         78px
         68px;
 
-    gap: 10px;
+    gap: 8px;
 
     height: 24px;
 
@@ -1029,10 +1039,10 @@ body {
     display: grid;
 
     grid-template-columns:
-        48px
-        minmax(180px, 1fr)
-        105px
-        75px
+        42px
+        minmax(170px, 1fr)
+        110px
+        110px
         42px
         42px
         78px
@@ -1040,7 +1050,7 @@ body {
 
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
 
     width: 100%;
 
@@ -1105,9 +1115,16 @@ body {
 
     white-space: nowrap;
 
-    overflow: hidden;
+    /*
+       Do not cut dates with "...".
+       The column itself was widened above so the complete
+       date can remain visible.
+    */
+    overflow: visible;
 
-    text-overflow: ellipsis;
+    text-overflow: clip;
+
+    text-align: center;
 }
 
 
@@ -1121,16 +1138,29 @@ body {
     justify-content: center;
 
     min-width: 0;
+
+    /*
+       The star bar is 100px wide in the archive.
+       Keep the complete bar inside the column.
+    */
+    width: 100%;
 }
 
 #summary-table .archive-difficulty .puzzle-stars {
-    max-width: 100%;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+
+    flex: 0 0 100px;
 }
 
 #summary-table .archive-difficulty svg {
     display: block;
 
-    max-width: 100%;
+    width: 100px;
+    height: 20px;
+
+    max-width: none;
 }
 
 
@@ -1197,33 +1227,36 @@ body {
 
 .lmd-action {
     background:
-        rgba(255, 255, 255, 0.035);
+        rgba(255, 255, 255, 0.025);
 
     border:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid rgba(255, 255, 255, 0.075);
 
-    color: #929baa;
+    color: #8f98a9;
 }
 
 .lmd-action:hover {
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(255, 255, 255, 0.06);
+
+    color: #b8bfcc;
 }
 
 
 /* =========================================================
-   LMD Solvers
+   Solves
    ========================================================= */
 
 #summary-table .archive-solves {
-    color: #9ca4b3;
-
-    font-size: 12px;
-    font-weight: 600;
+    color: #9aa3b3;
 
     text-align: right;
 
+    font-size: 11px;
+
     white-space: nowrap;
+
+    font-variant-numeric: tabular-nums;
 }
 
 
@@ -1232,91 +1265,98 @@ body {
    ========================================================= */
 
 #summary-table .archive-rating {
-    color: #78a990;
-
-    font-size: 12px;
-    font-weight: 650;
+    color: #d0b96c;
 
     text-align: right;
 
+    font-size: 11px;
+    font-weight: 650;
+
     white-space: nowrap;
+
+    font-variant-numeric: tabular-nums;
 }
 
 
 /* =========================================================
-   Empty Search Result
+   Empty Archive
    ========================================================= */
 
 .archive-empty {
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 140px;
+    gap: 6px;
 
-    padding: 25px;
+    min-height: 120px;
 
-    text-align: center;
+    padding: 24px;
+
+    border-radius: 12px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.08);
-
-    border-radius: 10px;
+        1px solid rgba(255, 255, 255, 0.055);
 
     background:
-        rgba(255, 255, 255, 0.025);
+        rgba(255, 255, 255, 0.018);
+
+    color: #687284;
+
+    text-align: center;
 }
 
 .archive-empty strong {
-    margin-bottom: 7px;
+    color: #c7ccd6;
 
-    font-size: 1rem;
+    font-size: 13px;
 }
 
 .archive-empty span {
-    opacity: 0.55;
-
-    font-size: 0.9rem;
+    font-size: 11px;
 }
 
 
 /* =========================================================
-   Puzzle Dashboard
+   Dashboard
    ========================================================= */
 
 .puzzle-dashboard {
     width: 100%;
 
-    box-sizing: border-box;
-
-    margin: 0;
-
-    padding: 18px;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.09);
+    padding: 17px;
 
     border-radius: 12px;
 
+    border:
+        1px solid rgba(255, 255, 255, 0.055);
+
     background:
-        rgba(255, 255, 255, 0.025);
+        rgba(255, 255, 255, 0.018);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
 }
 
 .dashboard-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     margin-bottom: 14px;
 }
 
 .dashboard-label {
-    font-size: 0.78rem;
+    color: #737c8e;
 
+    font-size: 9px;
     font-weight: 700;
 
-    letter-spacing: 0.12em;
+    letter-spacing: 1.5px;
 
-    opacity: 0.6;
+    text-transform: uppercase;
 }
 
 .dashboard-cards {
@@ -1324,57 +1364,59 @@ body {
 
     grid-template-columns: 1fr;
 
-    gap: 10px;
+    gap: 8px;
 }
 
 .dashboard-card {
-    min-width: 0;
-
-    padding: 15px;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.07);
+    padding:
+        12px 13px;
 
     border-radius: 9px;
 
+    border:
+        1px solid rgba(255, 255, 255, 0.045);
+
     background:
-        rgba(255, 255, 255, 0.025);
+        rgba(255, 255, 255, 0.022);
 
     transition:
         background 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .dashboard-card:hover {
+    transform: translateY(-1px);
+
     background:
-        rgba(255, 255, 255, 0.045);
+        rgba(255, 255, 255, 0.035);
 
     border-color:
-        rgba(255, 255, 255, 0.12);
+        rgba(255, 255, 255, 0.075);
 }
 
 .dashboard-card-label {
-    display: block;
+    color: #626c7d;
 
-    margin-bottom: 6px;
+    font-size: 8px;
+    font-weight: 700;
 
-    font-size: 0.68rem;
+    letter-spacing: 0.9px;
 
-    font-weight: 600;
+    text-transform: uppercase;
 
-    letter-spacing: 0.08em;
-
-    opacity: 0.5;
+    margin-bottom: 5px;
 }
 
 .dashboard-card-value {
-    display: block;
+    color: #e1e4ea;
 
-    font-size: 1.5rem;
-
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 650;
 
     line-height: 1.1;
+
+    font-variant-numeric: tabular-nums;
 }
 
 
@@ -1383,50 +1425,54 @@ body {
    ========================================================= */
 
 #tooltip {
-    opacity: 0;
-
     position: fixed;
-
-    top: 0;
-    left: 0;
-
-    padding: 9px;
-
-    background: #171c27;
-
-    color: #cfd4df;
-
-    text-align: center;
-
-    border:
-        1px solid rgba(255, 255, 255, 0.10);
-
-    border-radius: 9px;
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.35);
 
     z-index: 9999;
 
-    transition:
-        opacity 0.15s ease;
+    width: 220px;
+
+    padding: 9px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        rgba(13, 16, 24, 0.97);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.42);
 
     pointer-events: none;
 
-    will-change:
-        left,
-        top;
+    opacity: 0;
+
+    transition:
+        opacity 0.15s ease;
 }
 
-.thumb img {
+.tooltip .thumb {
+    width: 100%;
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+.tooltip .thumb img {
     display: block;
 
-    width: 180px;
-    height: 180px;
-
-    margin: 2px;
-
-    border-radius: 6px;
+    width: 100%;
+    height: 100%;
 
     object-fit: contain;
 }
@@ -1442,6 +1488,42 @@ body {
 
 
 /* =========================================================
+   Footer
+   ========================================================= */
+
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 62px;
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    color: #555e70;
+
+    font-size: 10px;
+
+    letter-spacing: 0.3px;
+}
+
+.site-footer a {
+    color: #687494;
+
+    text-decoration: none;
+
+    transition:
+        color 0.18s ease;
+}
+
+.site-footer a:hover {
+    color: #9aa7d7;
+}
+
+
+/* =========================================================
    Tablet
    ========================================================= */
 
@@ -1451,8 +1533,8 @@ body {
         grid-template-columns:
             42px
             minmax(150px, 1fr)
-            92px
-            68px
+            100px
+            100px
             40px
             40px
             72px
@@ -1465,8 +1547,8 @@ body {
         grid-template-columns:
             42px
             minmax(150px, 1fr)
-            92px
-            68px
+            100px
+            100px
             40px
             40px
             72px
@@ -1480,6 +1562,17 @@ body {
 
     #summary-table .archive-date {
         font-size: 10px;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    #summary-table .archive-difficulty svg {
+        width: 100px;
+        height: 20px;
     }
 
     .archive-sort-button {
@@ -1667,118 +1760,70 @@ body {
         letter-spacing: -8px;
     }
 
-    .latest-number {
-        top: 0;
-        right: 0;
-
-        font-size: 12px;
-    }
-
-    .latest-info {
-        padding-right: 0;
-    }
-
-    .latest-image {
-        width: min(100%, 210px);
-        height: 210px;
-
-        margin-top: 22px;
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .latest-image img {
-        width: 100%;
-        height: 100%;
-
-        object-fit: contain;
-    }
-
     .latest-title {
         font-size: 34px;
-
-        letter-spacing: -1.3px;
+        letter-spacing: -1.5px;
     }
 
     .latest-date {
-        font-size: 11px;
-    }
-
-    .latest-stars {
-        margin-bottom: 20px;
+        font-size: 12px;
     }
 
     .latest-meta {
         gap: 7px;
-
-        margin-bottom: 22px;
     }
 
     .meta-pill {
-        padding: 8px 10px;
-
-        font-size: 9px;
-    }
-
-    .meta-pill strong {
-        font-size: 11px;
+        padding:
+            8px 10px;
     }
 
     .latest-actions {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 8px;
+        flex-wrap: wrap;
     }
 
     .action-btn {
-        min-width: 0;
-
-        height: 42px;
+        min-width: 100px;
     }
 
-    .listing-section {
-        padding-top: 50px;
-    }
+
+    /* Mobile archive heading */
 
     .section-heading {
-        display: block;
+        align-items: flex-start;
+
+        gap: 14px;
 
         margin-bottom: 18px;
     }
 
     .section-heading h1 {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     .update-status {
-        margin-top: 12px;
+        font-size: 9px;
+    }
+
+    .update-text {
+        white-space: normal;
+
+        text-align: right;
     }
 
 
-    /* Search */
-
-    .archive-controls {
-        justify-content: flex-start;
-
-        margin-bottom: 14px;
-    }
+    /* Mobile archive controls */
 
     .archive-search {
         width: 100%;
-    }
-
-    .archive-search-input {
-        padding-top: 12px;
-        padding-bottom: 12px;
     }
 
 
     /* Mobile archive header */
 
     .archive-header {
+        display: grid;
+
         grid-template-columns:
             38px
             minmax(0, 1fr)
@@ -1786,22 +1831,19 @@ body {
             42px;
 
         grid-template-rows:
-            18px;
+            auto;
 
         gap: 7px;
 
-        height: 18px;
-
         margin:
-            0 8px 5px;
-
-        font-size: 7px;
-
-        letter-spacing: 0.55px;
+            0 8px 6px;
     }
 
     .archive-header-number,
-    .archive-header-title,
+    .archive-header-title {
+        display: block;
+    }
+
     .archive-header-date,
     .archive-header-difficulty {
         display: none;
@@ -1874,23 +1916,13 @@ body {
         text-align: left;
 
         font-size: 10px;
-
-        color: #8993a4;
-    }
-
-    #summary-table .archive-solves::before {
-        content: 'SOLVERS: ';
-
-        color: #687385;
-
-        font-size: 8px;
-
-        letter-spacing: 0.4px;
     }
 
     #summary-table .archive-rating {
-        grid-column: 3 / 5;
+        grid-column: 2;
         grid-row: 2;
+
+        justify-self: end;
 
         text-align: right;
 
@@ -1957,6 +1989,8 @@ body {
 
     .dashboard-card-label {
         margin-bottom: 0;
+
+        font-size: 8px;
     }
 
     .dashboard-card-value {
