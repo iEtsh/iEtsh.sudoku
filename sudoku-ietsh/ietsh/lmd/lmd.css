@@ -889,6 +889,7 @@ body {
         112px
         44px
         44px
+        76px
         88px
         76px;
 
@@ -925,6 +926,7 @@ body {
 .archive-header-date,
 .archive-header-difficulty,
 .archive-header-link,
+.archive-header-sudokupad-solves,
 .archive-header-solves,
 .archive-header-rating {
     min-width: 0;
@@ -937,6 +939,7 @@ body {
     white-space: nowrap;
 }
 
+.archive-header-sudokupad-solves,
 .archive-header-solves,
 .archive-header-rating {
     text-align: right;
@@ -1036,6 +1039,7 @@ body {
         112px
         44px
         44px
+        76px
         88px
         76px;
 
@@ -1231,6 +1235,23 @@ body {
 
 /* =========================================================
    Solves
+   ========================================================= */
+
+#summary-table .archive-sudokupad-solves {
+    color: #8d9bb8;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   LMD Solvers
    ========================================================= */
 
 #summary-table .archive-solves {
@@ -1530,6 +1551,7 @@ body {
             104px
             42px
             42px
+            68px
             78px
             68px;
 
@@ -1544,6 +1566,7 @@ body {
             104px
             42px
             42px
+            68px
             78px
             68px;
 
@@ -1663,6 +1686,7 @@ body {
         justify-content: center;
     }
 
+    .archive-header-sudokupad-solves,
     .archive-header-solves,
     .archive-header-rating {
         display: block;
@@ -1851,6 +1875,7 @@ body {
         justify-content: center;
     }
 
+    .archive-header-sudokupad-solves,
     .archive-header-solves,
     .archive-header-rating {
         display: none;
@@ -1872,6 +1897,7 @@ body {
 
         grid-template-rows:
             auto
+            auto
             auto;
 
         gap: 7px;
@@ -1882,7 +1908,7 @@ body {
 
     #summary-table .archive-number {
         grid-column: 1;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
 
         align-self: center;
     }
@@ -1904,7 +1930,7 @@ body {
         grid-row: 1;
     }
 
-    #summary-table .archive-solves {
+    #summary-table .archive-sudokupad-solves {
         grid-column: 2;
         grid-row: 2;
 
@@ -1913,9 +1939,28 @@ body {
         font-size: 10px;
     }
 
+    #summary-table .archive-sudokupad-solves::before {
+        content: 'SOLVERS: ';
+
+        color: #687385;
+
+        font-size: 8px;
+
+        letter-spacing: 0.4px;
+    }
+
+    #summary-table .archive-solves {
+        grid-column: 2;
+        grid-row: 3;
+
+        text-align: left;
+
+        font-size: 10px;
+    }
+
     #summary-table .archive-rating {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 3;
 
         justify-self: end;
 
