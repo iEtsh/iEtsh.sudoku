@@ -11,7 +11,8 @@
       "lmd": "000UVR",
       "solves": 118,
       "rating": "95%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UVR.jpg"
     },
     {
       "num": 24,
@@ -23,7 +24,8 @@
       "lmd": "000UR2",
       "solves": 65,
       "rating": "97%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UR2.jpg"
     },
     {
       "num": 23,
@@ -35,7 +37,8 @@
       "lmd": "000UNY",
       "solves": 91,
       "rating": "92%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UNY.jpg"
     },
     {
       "num": 22,
@@ -47,7 +50,8 @@
       "lmd": "000UM4",
       "solves": 99,
       "rating": "87%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UM4.jpg"
     },
     {
       "num": 21,
@@ -59,7 +63,8 @@
       "lmd": "000UFX",
       "solves": 173,
       "rating": "66%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UFX.jpg"
     },
     {
       "num": 20,
@@ -71,7 +76,8 @@
       "lmd": "000UFT",
       "solves": 188,
       "rating": "84%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UFT.png"
     },
     {
       "num": 19,
@@ -83,7 +89,8 @@
       "lmd": "000UDT",
       "solves": 135,
       "rating": "79%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UDT.png"
     },
     {
       "num": 18,
@@ -95,7 +102,8 @@
       "lmd": "000UCQ",
       "solves": 98,
       "rating": "87%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000UCQ.png"
     },
     {
       "num": 17,
@@ -107,7 +115,8 @@
       "lmd": "000U9Y",
       "solves": 50,
       "rating": "87%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000U9Y.png"
     },
     {
       "num": 16,
@@ -119,7 +128,8 @@
       "lmd": "000U86",
       "solves": 81,
       "rating": "90%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000U86.png"
     },
     {
       "num": 15,
@@ -131,7 +141,8 @@
       "lmd": "000U75",
       "solves": 151,
       "rating": "82%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000U75.png"
     },
     {
       "num": 14,
@@ -143,7 +154,8 @@
       "lmd": "000U4O",
       "solves": 81,
       "rating": "92%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000U4O.png"
     },
     {
       "num": 13,
@@ -155,7 +167,8 @@
       "lmd": "000U38",
       "solves": 104,
       "rating": "87%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000U38.png"
     },
     {
       "num": 12,
@@ -167,7 +180,8 @@
       "lmd": "000U2A",
       "solves": 74,
       "rating": "84%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000U2A.png"
     },
     {
       "num": 11,
@@ -179,7 +193,8 @@
       "lmd": "000TSS",
       "solves": 45,
       "rating": "84%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000TSS.png"
     },
     {
       "num": 10,
@@ -191,7 +206,8 @@
       "lmd": "000TSP",
       "solves": 88,
       "rating": "92%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000TSP.png"
     },
     {
       "num": 9,
@@ -203,7 +219,8 @@
       "lmd": "000STU",
       "solves": 55,
       "rating": "85%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000STU.png"
     },
     {
       "num": 8,
@@ -215,7 +232,8 @@
       "lmd": "000SR0",
       "solves": 56,
       "rating": "83%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SR0.png"
     },
     {
       "num": 7,
@@ -227,7 +245,8 @@
       "lmd": "000SJN",
       "solves": 71,
       "rating": "87%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SJN.png"
     },
     {
       "num": 6,
@@ -239,7 +258,8 @@
       "lmd": "000SG8",
       "solves": 75,
       "rating": "86%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SG8.png"
     },
     {
       "num": 5,
@@ -251,7 +271,8 @@
       "lmd": "000SFF",
       "solves": 38,
       "rating": "81%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SFF.png"
     },
     {
       "num": 4,
@@ -263,7 +284,8 @@
       "lmd": "000SDA",
       "solves": 54,
       "rating": "81%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SDA.png"
     },
     {
       "num": 3,
@@ -275,7 +297,8 @@
       "lmd": "000SCS",
       "solves": 5,
       "rating": "N/A",
-      "author_rated": true
+      "author_rated": true,
+      "image": "images/000SCS.png"
     },
     {
       "num": 2,
@@ -287,7 +310,8 @@
       "lmd": "000SC5",
       "solves": 105,
       "rating": "92%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SC5.png"
     },
     {
       "num": 1,
@@ -299,8 +323,9 @@
       "lmd": "000SBZ",
       "solves": 55,
       "rating": "83%",
-      "author_rated": false
+      "author_rated": false,
+      "image": "images/000SBZ.png"
     }
   ],
-  "last_check": "2026-09-18T00:05:14.675782Z"
+  "last_check": "2026-09-18T00:11:43.792455Z"
 }
