@@ -1665,6 +1665,41 @@ body {
         gap: 7px;
     }
 
+    /* Keep the header cells attached to the exact
+       columns used by the archive rows at tablet width. */
+    .archive-header > div {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .archive-header-number {
+        grid-column: 1;
+    }
+
+    .archive-header-title {
+        grid-column: 2;
+    }
+
+    .archive-header-date {
+        grid-column: 3;
+    }
+
+    .archive-header-difficulty {
+        grid-column: 4;
+    }
+
+    .archive-header-link {
+        grid-column: 5;
+    }
+
+    .archive-header-sudokupad-solves {
+        grid-column: 6;
+    }
+
+    .archive-header-solves {
+        grid-column: 7;
+    }
+
     #summary-table ul {
         grid-template-columns:
             40px
