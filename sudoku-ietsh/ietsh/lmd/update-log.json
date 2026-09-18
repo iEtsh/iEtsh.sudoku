@@ -223,5 +223,14 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "solves"
+  },
+  {
+    "id": "2026-09-18T20:37:15.588157Z-0",
+    "time": "2026-09-18T20:37:15.588157Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "sudokupad_solves"
   }
 ]
