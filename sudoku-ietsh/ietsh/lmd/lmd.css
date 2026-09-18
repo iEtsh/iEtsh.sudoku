@@ -1269,3 +1269,477 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* =========================================================
+   iEtsh Sudoku - Search / Sorting / Dashboard / Navigation
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Archive Controls
+   --------------------------------------------------------- */
+
+.archive-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 18px;
+  width: 100%;
+}
+
+.archive-search {
+  position: relative;
+  width: min(360px, 100%);
+}
+
+.archive-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.archive-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 14px 11px 42px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.035);
+  color: inherit;
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.archive-search-input::placeholder {
+  opacity: 0.5;
+}
+
+.archive-search-input:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.archive-search-input:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+
+/* ---------------------------------------------------------
+   Sort Buttons
+   --------------------------------------------------------- */
+
+.archive-sort-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  padding: 5px 7px;
+  margin: 0;
+
+  border: 0;
+  border-radius: 5px;
+
+  background: transparent;
+  color: inherit;
+
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  opacity: 0.7;
+
+  transition:
+    background 0.18s ease,
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.archive-sort-button:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.archive-sort-button:active {
+  transform: translateY(1px);
+}
+
+.archive-sort-button.active {
+  opacity: 1;
+}
+
+.archive-sort-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 12px;
+
+  font-size: 0.9rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+
+/* ---------------------------------------------------------
+   Archive Rows - Keyboard Focus
+   --------------------------------------------------------- */
+
+#summary-table .rec {
+  outline: none;
+}
+
+#summary-table .rec:focus {
+  outline: none;
+  box-shadow:
+    inset 3px 0 0 rgba(255, 255, 255, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+#summary-table .rec:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: -2px;
+}
+
+
+/* ---------------------------------------------------------
+   Empty Search Result
+   --------------------------------------------------------- */
+
+.archive-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 140px;
+  padding: 25px;
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.archive-empty strong {
+  margin-bottom: 7px;
+  font-size: 1rem;
+}
+
+.archive-empty span {
+  opacity: 0.55;
+  font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   Puzzle Dashboard
+   ========================================================= */
+
+.puzzle-dashboard {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-bottom: 22px;
+  padding: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.dashboard-heading {
+  margin-bottom: 14px;
+}
+
+.dashboard-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dashboard-card {
+  min-width: 0;
+  padding: 13px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 9px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.dashboard-card:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dashboard-card-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  opacity: 0.5;
+}
+
+.dashboard-card-value {
+  display: block;
+
+  font-size: 1.35rem;
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+
+/* ---------------------------------------------------------
+   Archive Header
+   --------------------------------------------------------- */
+
+.archive-header {
+  display: grid;
+
+  align-items: center;
+
+  /*
+   * Keep the same seven-column structure as
+   * the puzzle rows.
+   */
+  grid-template-columns:
+    55px
+    minmax(120px, 1fr)
+    minmax(90px, 120px)
+    minmax(90px, 120px)
+    70px
+    minmax(90px, 120px)
+    minmax(80px, 110px);
+
+  gap: 8px;
+
+  padding: 0 12px 9px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+  opacity: 0.55;
+}
+
+.archive-header > div {
+  min-width: 0;
+}
+
+.archive-header .archive-sort-button {
+  padding: 4px 5px;
+  font-size: inherit;
+}
+
+
+/* ---------------------------------------------------------
+   Latest Puzzle
+   --------------------------------------------------------- */
+
+.latest-card {
+  position: relative;
+}
+
+.latest-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.latest-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* ---------------------------------------------------------
+   Action Buttons
+   --------------------------------------------------------- */
+
+.archive-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.archive-action:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.archive-action .action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   Mobile Experience
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .archive-controls {
+    justify-content: stretch;
+  }
+
+  .archive-search {
+    width: 100%;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /*
+   * Keep the archive horizontally usable on tablets.
+   */
+  #summary-table {
+    overflow-x: auto;
+  }
+
+  .archive-header,
+  #summary-table .rec {
+    min-width: 680px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .puzzle-dashboard {
+    margin-bottom: 18px;
+    padding: 14px;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .dashboard-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .dashboard-card-label {
+    margin-bottom: 0;
+  }
+
+  .dashboard-card-value {
+    font-size: 1.15rem;
+  }
+
+  .archive-controls {
+    margin-bottom: 14px;
+  }
+
+  .archive-search-input {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  /*
+   * Smaller sorting controls for narrow screens.
+   */
+  .archive-sort-button {
+    padding: 4px 5px;
+    font-size: 0.7rem;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Very Small Screens
+   --------------------------------------------------------- */
+
+@media (max-width: 420px) {
+
+  .puzzle-dashboard {
+    border-radius: 9px;
+  }
+
+  .dashboard-card {
+    padding: 11px 12px;
+  }
+
+  .dashboard-card-label {
+    font-size: 0.62rem;
+  }
+
+  .dashboard-card-value {
+    font-size: 1.05rem;
+  }
+
+  .archive-search-input {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   Accessibility
+   --------------------------------------------------------- */
+
+.archive-sort-button:focus-visible,
+.archive-search-input:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   Reduced Motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .archive-sort-button,
+  .archive-search-input,
+  .dashboard-card,
+  .archive-action {
+    transition: none;
+  }
+}
