@@ -169,5 +169,14 @@
     "puzzleNum": 1,
     "title": "The \"It Should Work\" Framework",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-18T17:37:21.615277Z-0",
+    "time": "2026-09-18T17:37:21.615277Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
