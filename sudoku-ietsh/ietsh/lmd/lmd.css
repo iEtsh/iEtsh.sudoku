@@ -698,7 +698,7 @@ body {
 .listing-section .puzzle-dashboard {
     grid-area: dashboard;
 
-    margin: 0;
+    margin: 54px 0 0;
 
     width: 100%;
 }
@@ -728,6 +728,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
+
+    gap: 10px;
 
     width: 100%;
 
@@ -801,6 +804,50 @@ body {
 
     box-shadow:
         0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+.archive-clear-updates {
+    height: 40px;
+
+    padding: 0 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #7d8798;
+
+    font: inherit;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.archive-clear-updates:hover {
+    background:
+        rgba(114, 189, 148, 0.08);
+
+    border-color:
+        rgba(114, 189, 148, 0.2);
+
+    color: #9bc7ad;
+}
+
+.archive-clear-updates:active {
+    transform: translateY(1px);
 }
 
 .archive-sort-button {
@@ -1438,6 +1485,146 @@ body {
     font-variant-numeric: tabular-nums;
 
     text-align: left;
+}
+
+
+/* =========================================================
+   Update Monitor
+   ========================================================= */
+
+.update-monitor {
+    margin-top: 16px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.055);
+}
+
+.update-monitor-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+.update-monitor-label {
+    color: #737c8e;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.update-monitor-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-height: 430px;
+
+    overflow-y: auto;
+
+    padding-right: 2px;
+}
+
+.update-entry {
+    padding: 10px 11px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.045);
+
+    background:
+        rgba(255, 255, 255, 0.022);
+
+    box-shadow:
+        inset 2px 0 0 rgba(114, 189, 148, 0.5);
+}
+
+.update-entry-new {
+    animation:
+        updateEntryEnter 0.55s ease both;
+}
+
+@keyframes updateEntryEnter {
+    from {
+        opacity: 0;
+        transform: translateY(-12px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.update-entry-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 7px;
+
+    color: #9bc7ad;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.65px;
+
+    line-height: 1.35;
+
+    text-transform: uppercase;
+}
+
+.update-entry-puzzle {
+    flex: 0 0 auto;
+
+    color: #687385;
+
+    font-size: 8px;
+}
+
+.update-entry-title {
+    margin-top: 5px;
+
+    color: #d5dae3;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    overflow-wrap: anywhere;
+}
+
+.update-entry-time {
+    margin-top: 5px;
+
+    color: #697385;
+
+    font-size: 8px;
+
+    line-height: 1.3;
+
+    font-variant-numeric: tabular-nums;
+}
+
+.update-monitor-empty {
+    padding: 12px 4px;
+
+    color: #606a7b;
+
+    font-size: 9px;
+
+    line-height: 1.5;
 }
 
 
