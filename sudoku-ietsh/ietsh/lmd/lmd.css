@@ -1527,36 +1527,55 @@ body {
 
 .archive-header {
   display: grid;
-
   align-items: center;
 
-  /*
-   * Keep the same seven-column structure as
-   * the puzzle rows.
-   */
   grid-template-columns:
-    55px
-    minmax(120px, 1fr)
-    minmax(90px, 120px)
-    minmax(90px, 120px)
-    70px
-    minmax(90px, 120px)
-    minmax(80px, 110px);
+    58px
+    minmax(240px, 1fr)
+    175px
+    95px
+    48px
+    48px
+    92px
+    72px;
 
-  gap: 8px;
+  gap: 12px;
 
-  padding: 0 12px 9px;
+  height: 20px;
+  margin: 0 18px 6px;
+  padding: 0;
 
-  font-size: 0.7rem;
+  color: #535c6d;
+  font-size: 8px;
   font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
 
-  letter-spacing: 0.04em;
-
-  opacity: 0.55;
+  user-select: none;
 }
 
 .archive-header > div {
   min-width: 0;
+}
+
+.archive-header-number,
+.archive-header-title,
+.archive-header-date {
+  min-width: 0;
+}
+
+.archive-header-difficulty,
+.archive-header-link,
+.archive-header-solves,
+.archive-header-rating {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.archive-header-solves,
+.archive-header-rating {
+  text-align: right;
 }
 
 .archive-header .archive-sort-button {
