@@ -29,6 +29,428 @@
   };
 
   // ---------------------------------------------------------
+  // Update monitor
+  // ---------------------------------------------------------
+
+  const updateLogKey =
+    'ietsh-lmd-update-log';
+
+  let updateLog = [];
+
+  const loadUpdateLog = () => {
+    try {
+      const saved =
+        localStorage.getItem(
+          updateLogKey
+        );
+
+      const parsed =
+        saved
+          ? JSON.parse(saved)
+          : [];
+
+      updateLog =
+        Array.isArray(parsed)
+          ? parsed
+          : [];
+    } catch (error) {
+      updateLog = [];
+    }
+  };
+
+  const saveUpdateLog = () => {
+    try {
+      localStorage.setItem(
+        updateLogKey,
+        JSON.stringify(
+          updateLog
+        )
+      );
+    } catch (error) {
+      console.warn(
+        'Unable to save update log:',
+        error
+      );
+    }
+  };
+
+  const updateFieldLabels = {
+    title: 'Title Changed',
+    date: 'Date Changed',
+    stars: 'Difficulty Changed',
+    author_rated: 'Author Rating Changed',
+    puzz: 'SudokuPad Link Changed',
+    lmd: 'LMD Link Changed',
+    solves: 'LMD Solvers Changed',
+    sudokupad_solves:
+      'SudokuPad Solvers Changed',
+    rating: 'Rating Changed',
+    qs: 'Puzzle Settings Changed',
+    image: 'Puzzle Image Changed'
+  };
+
+  const puzzleStateFields = [
+    'title',
+    'date',
+    'stars',
+    'author_rated',
+    'puzz',
+    'lmd',
+    'solves',
+    'sudokupad_solves',
+    'rating',
+    'qs',
+    'image'
+  ];
+
+  const addUpdateLogEntry = (
+    type,
+    puzzle,
+    field
+  ) => {
+    const entry = {
+      id:
+        String(Date.now()) +
+        '-' +
+        String(Math.random()),
+      time:
+        new Date().toISOString(),
+      type,
+      puzzleId:
+        puzzle && puzzle.id,
+      puzzleNum:
+        puzzle && puzzle.num,
+      title:
+        puzzle && puzzle.title,
+      field: field || null
+    };
+
+    updateLog.unshift(entry);
+
+    return entry.id;
+  };
+
+  const recordDataChanges = (
+    previous,
+    current
+  ) => {
+    if (
+      !previous ||
+      !current
+    ) {
+      return [];
+    }
+
+    const previousItems =
+      previous.items || [];
+
+    const currentItems =
+      current.items || [];
+
+    const previousById = new Map(
+      previousItems
+        .map(
+          puzzle => [
+            String(puzzle.id),
+            puzzle
+          ]
+        )
+    );
+
+    const currentById = new Map(
+      currentItems
+        .map(
+          puzzle => [
+            String(puzzle.id),
+            puzzle
+          ]
+        )
+    );
+
+    const newEntryIds = [];
+
+    currentItems.forEach(
+      puzzle => {
+        const key =
+          String(puzzle.id);
+
+        if (
+          !previousById.has(key)
+        ) {
+          newEntryIds.push(
+            addUpdateLogEntry(
+              'Puzzle Added',
+              puzzle
+            )
+          );
+
+          return;
+        }
+
+        const oldPuzzle =
+          previousById.get(key);
+
+        puzzleStateFields.forEach(
+          field => {
+            const oldValue =
+              oldPuzzle[field];
+
+            const newValue =
+              puzzle[field];
+
+            if (
+              JSON.stringify(oldValue) !==
+              JSON.stringify(newValue)
+            ) {
+              newEntryIds.push(
+                addUpdateLogEntry(
+                  updateFieldLabels[field],
+                  puzzle,
+                  field
+                )
+              );
+            }
+          }
+        );
+      }
+    );
+
+    previousItems.forEach(
+      puzzle => {
+        const key =
+          String(puzzle.id);
+
+        if (
+          !currentById.has(key)
+        ) {
+          newEntryIds.push(
+            addUpdateLogEntry(
+              'Puzzle Removed',
+              puzzle
+            )
+          );
+        }
+      }
+    );
+
+    if (
+      newEntryIds.length
+    ) {
+      saveUpdateLog();
+    }
+
+    return newEntryIds;
+  };
+
+  const clearUpdateLog = () => {
+    updateLog = [];
+
+    try {
+      localStorage.removeItem(
+        updateLogKey
+      );
+    } catch (error) {
+      console.warn(
+        'Unable to clear update log:',
+        error
+      );
+    }
+
+    renderUpdateMonitor();
+  };
+
+  const formatUpdateTime = time => {
+    const date =
+      new Date(time);
+
+    if (
+      Number.isNaN(
+        date.getTime()
+      )
+    ) {
+      return '';
+    }
+
+    return date.toLocaleString(
+      undefined,
+      {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }
+    );
+  };
+
+  const renderUpdateMonitor = (
+    newEntryIds = []
+  ) => {
+    const dashboard =
+      d3.select(
+        '#puzzle-dashboard'
+      );
+
+    if (
+      dashboard.empty()
+    ) {
+      return;
+    }
+
+    const monitor =
+      dashboard
+        .select(
+          '.update-monitor'
+        );
+
+    if (
+      monitor.empty()
+    ) {
+      return;
+    }
+
+    monitor.html('');
+
+    const heading =
+      monitor
+        .append('div')
+        .attr(
+          'class',
+          'update-monitor-heading'
+        );
+
+    heading
+      .append('span')
+      .attr(
+        'class',
+        'update-monitor-label'
+      )
+      .text('UPDATES');
+
+    if (
+      updateLog.length
+    ) {
+      heading
+        .append('button')
+        .attr(
+          'type',
+          'button'
+        )
+        .attr(
+          'class',
+          'update-clear-button'
+        )
+        .attr(
+          'title',
+          'Clear update history'
+        )
+        .attr(
+          'aria-label',
+          'Clear update history'
+        )
+        .text('CLEAR')
+        .on(
+          'click',
+          clearUpdateLog
+        );
+    }
+
+    const list =
+      monitor
+        .append('div')
+        .attr(
+          'class',
+          'update-monitor-list'
+        );
+
+    if (
+      !updateLog.length
+    ) {
+      list
+        .append('div')
+        .attr(
+          'class',
+          'update-monitor-empty'
+        )
+        .text(
+          'No updates recorded yet.'
+        );
+
+      return;
+    }
+
+    updateLog.forEach(
+      entry => {
+        const item =
+          list
+            .append('div')
+            .attr(
+              'class',
+              newEntryIds.includes(
+                entry.id
+              )
+                ? 'update-entry update-entry-new'
+                : 'update-entry'
+            );
+
+        const type =
+          item
+            .append('div')
+            .attr(
+              'class',
+              'update-entry-type'
+            )
+            .text(
+              entry.type
+            );
+
+        if (
+          entry.puzzleNum !==
+          undefined &&
+          entry.puzzleNum !==
+          null
+        ) {
+          type
+            .append('span')
+            .attr(
+              'class',
+              'update-entry-puzzle'
+            )
+            .text(
+              '#' +
+              entry.puzzleNum
+            );
+        }
+
+        item
+          .append('div')
+          .attr(
+            'class',
+            'update-entry-title'
+          )
+          .text(
+            entry.title ||
+            'Puzzle'
+          );
+
+        item
+          .append('div')
+          .attr(
+            'class',
+            'update-entry-time'
+          )
+          .text(
+            formatUpdateTime(
+              entry.time
+            )
+          );
+      }
+    );
+  };
+
+  loadUpdateLog();
+
+  // ---------------------------------------------------------
   // Star rendering
   // ---------------------------------------------------------
 
@@ -965,6 +1387,30 @@
         }
       }
     );
+
+    controls
+      .append('button')
+      .attr(
+        'type',
+        'button'
+      )
+      .attr(
+        'class',
+        'archive-clear-updates'
+      )
+      .attr(
+        'title',
+        'Clear update history'
+      )
+      .attr(
+        'aria-label',
+        'Clear update history'
+      )
+      .text('CLEAR UPDATES')
+      .on(
+        'click',
+        clearUpdateLog
+      );
   };
 
   // ---------------------------------------------------------
@@ -1133,6 +1579,15 @@
       ),
       'dashboard-solves'
     );
+
+    dashboard
+      .append('div')
+      .attr(
+        'class',
+        'update-monitor'
+      );
+
+    renderUpdateMonitor();
   };
 
   // ---------------------------------------------------------
@@ -1857,7 +2312,10 @@
   // Render
   // ---------------------------------------------------------
 
-  function renderData(d) {
+  function renderData(
+    d,
+    newEntryIds = []
+  ) {
     recent.html('');
 
     cache.titles = {};
@@ -1875,6 +2333,10 @@
       getPuzzleState(d);
 
     genDashboard(d);
+
+    renderUpdateMonitor(
+      newEntryIds
+    );
 
     renderArchive();
   }
@@ -2000,14 +2462,32 @@
         updateTimer();
 
         if (dataChanged) {
-          renderData(d);
+          const newEntryIds =
+            recordDataChanges(
+              cache.data,
+              d
+            );
+
+          renderData(
+            d,
+            newEntryIds
+          );
         }
 
         return;
       }
 
       if (dataChanged) {
-        renderData(d);
+        const newEntryIds =
+          recordDataChanges(
+            cache.data,
+            d
+          );
+
+        renderData(
+          d,
+          newEntryIds
+        );
       }
 
     } catch (error) {
