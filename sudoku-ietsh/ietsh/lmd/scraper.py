@@ -230,17 +230,51 @@ def get_sudokupad_link(html):
         "html.parser"
     )
 
+    # The LMD puzzle page has a dedicated
+    # "Solve Puzzle" link. Always prefer that
+    # exact link so we never pick a SudokuPad
+    # link belonging to another puzzle or a
+    # hidden image/link elsewhere on the page.
     for a in soup.find_all(
         "a",
         href=True
     ):
 
-        if a.find("img"):
+        href = a.get(
+            "href",
+            ""
+        ).strip()
 
-            href = a["href"]
+        text = a.get_text(
+            " ",
+            strip=True
+        ).lower()
 
-            if "sudokupad" in href.lower():
-                return href
+        if (
+            "sudokupad" in href.lower()
+            and "solve puzzle" in text
+        ):
+            return href
+
+    # Fallback: accept a direct SudokuPad link
+    # only when it is not attached to an image.
+    # This avoids the old image-based selection
+    # that could associate the wrong puzzle.
+    for a in soup.find_all(
+        "a",
+        href=True
+    ):
+
+        href = a.get(
+            "href",
+            ""
+        ).strip()
+
+        if (
+            "sudokupad" in href.lower()
+            and not a.find("img")
+        ):
+            return href
 
     return ""
 
@@ -905,14 +939,41 @@ def update_config():
 
             for item in cfg["items"]:
 
-                update_sudokupad_solves(
-                    item,
-                    page
-                )
-
                 for p in all_puzzles:
 
                     if p["lmd"] == item["lmd"]:
+
+                        # Re-read the LMD puzzle page and bind
+                        # the SudokuPad link to this exact LMD
+                        # puzzle. This also repairs old config
+                        # entries whose link was associated with
+                        # another puzzle.
+                        puzzle_html = ""
+
+                        try:
+                            puzzle_html = fetch_puzzle(
+                                p["lmd"]
+                            )
+                        except Exception:
+                            pass
+
+                        if puzzle_html:
+
+                            correct_puzz = (
+                                get_sudokupad_link(
+                                    puzzle_html
+                                )
+                            )
+
+                            if correct_puzz:
+                                item["puzz"] = correct_puzz
+
+                        # The SudokuPad counter must always be
+                        # read from the corrected link above.
+                        update_sudokupad_solves(
+                            item,
+                            page
+                        )
 
                         item["stars"] = p[
                             "stars"
@@ -943,9 +1004,10 @@ def update_config():
 
                             try:
 
-                                puzzle_html = fetch_puzzle(
-                                    p["lmd"]
-                                )
+                                if not puzzle_html:
+                                    puzzle_html = fetch_puzzle(
+                                        p["lmd"]
+                                    )
 
                                 item["date"] = extract_date(
                                     puzzle_html
@@ -962,7 +1024,11 @@ def update_config():
                             f"{p['author_rated']}, "
                             f"{p['solved']} solves, "
                             f"{p['rating']} | "
-                            f"date: {item['date']}"
+                            f"date: {item['date']} | "
+                            f"SudokuPad: "
+                            f"{item.get('puzz', '')} | "
+                            f"counter: "
+                            f"{item.get('sudokupad_solves')}"
                         )
 
                         break
