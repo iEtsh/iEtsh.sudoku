@@ -916,15 +916,31 @@
         );
 
     input
-      .on(
-        'input',
-        function () {
-          archiveState.search =
-            this.value;
+  .on(
+    'input',
+    function () {
+      archiveState.search = this.value;
 
-          renderArchive();
-        }
-      );
+      renderArchive(false);
+
+      const newInput =
+        document.querySelector(
+          '#summary-table .archive-search-input'
+        );
+
+      if (newInput) {
+        newInput.focus();
+
+        const length =
+          newInput.value.length;
+
+        newInput.setSelectionRange(
+          length,
+          length
+        );
+      }
+    }
+  );
 
     input.on(
       'keydown',
