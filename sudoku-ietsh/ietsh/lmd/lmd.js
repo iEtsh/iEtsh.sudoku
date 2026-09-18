@@ -829,14 +829,6 @@
       )
       .text('PLAY');
 
-    const solvesHeader =
-      header
-        .append('div')
-        .attr(
-          'class',
-          'archive-header-solves'
-        );
-
     const sudokupadSolvesHeader =
       header
         .append('div')
@@ -1504,6 +1496,24 @@
         puzzle.puzz,
         puzzle.qs || ''
       );
+
+      // -----------------------------------------------------
+      // SudokuPad Solvers
+      // -----------------------------------------------------
+
+      ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-sudokupad-solves'
+        )
+        .text(
+          puzzle.sudokupad_solves === null ||
+          puzzle.sudokupad_solves === undefined ||
+          puzzle.sudokupad_solves === ''
+            ? '0'
+            : puzzle.sudokupad_solves
+        );
 
       // -----------------------------------------------------
       // LMD Solvers
