@@ -3,6 +3,7 @@
 
   const cache = {
     titles: {},
+    images: {},
     hovered: null,
     data: null,
     state: null
@@ -11,6 +12,7 @@
   const recent = d3.select('#most-recent');
   const summs = d3.select('#summary-table');
   const tooltip = d3.select('#tooltip');
+  const tooltipImage = tooltip.select('.thumb img');
 
   let lastCheckRaw = null;
   let lastCheckTime = null;
@@ -19,7 +21,12 @@
   // Star rendering
   // ---------------------------------------------------------
 
-  const drawStars = (node, stars, authorRated = false, size) => {
+  const drawStars = (
+    node,
+    stars,
+    authorRated = false,
+    size
+  ) => {
 
     const container = node
       .append('div')
@@ -41,66 +48,219 @@
   // Action buttons
   // ---------------------------------------------------------
 
-  const setLink = (node, url, qs) => {
+  const setLink = (
+    node,
+    url,
+    qs
+  ) => {
+
     if (!url) return;
 
-    const link = node.append('a')
-      .attr('href', url + (qs || ''))
-      .attr('target', '_blank')
-      .attr('rel', 'noopener noreferrer')
-      .attr('class', 'archive-action play-action')
-      .attr('title', 'Play this puzzle')
-      .attr('aria-label', 'Play this puzzle');
+    const link = node
+      .append('a')
+      .attr(
+        'href',
+        url + (qs || '')
+      )
+      .attr(
+        'target',
+        '_blank'
+      )
+      .attr(
+        'rel',
+        'noopener noreferrer'
+      )
+      .attr(
+        'class',
+        'archive-action play-action'
+      )
+      .attr(
+        'title',
+        'Play this puzzle'
+      )
+      .attr(
+        'aria-label',
+        'Play this puzzle'
+      );
 
-    link.append('span')
-      .attr('class', 'action-icon')
+    link
+      .append('span')
+      .attr(
+        'class',
+        'action-icon'
+      )
       .text('▶');
   };
+
 
   const lmdLink = code =>
     `https://logic-masters.de/Raetselportal/Raetsel/zeigen.php?id=${code}`;
 
-  const setLmd = (node, code) => {
+
+  const setLmd = (
+    node,
+    code
+  ) => {
+
     if (!code) return;
 
-    const link = node.append('a')
-      .attr('href', lmdLink(code))
-      .attr('target', '_blank')
-      .attr('rel', 'noopener noreferrer')
-      .attr('class', 'archive-action lmd-action')
-      .attr('title', 'View this puzzle on Logic Masters Germany')
-      .attr('aria-label', 'View this puzzle on Logic Masters Germany');
+    const link = node
+      .append('a')
+      .attr(
+        'href',
+        lmdLink(code)
+      )
+      .attr(
+        'target',
+        '_blank'
+      )
+      .attr(
+        'rel',
+        'noopener noreferrer'
+      )
+      .attr(
+        'class',
+        'archive-action lmd-action'
+      )
+      .attr(
+        'title',
+        'View this puzzle on Logic Masters Germany'
+      )
+      .attr(
+        'aria-label',
+        'View this puzzle on Logic Masters Germany'
+      );
 
-    link.append('span')
-      .attr('class', 'action-icon')
+    link
+      .append('span')
+      .attr(
+        'class',
+        'action-icon'
+      )
       .text('↗');
   };
+
 
   // ---------------------------------------------------------
   // Latest Puzzle
   // ---------------------------------------------------------
 
-  const recentStats = (info, i) => {
+  const recentStats = (
+    info,
+    i
+  ) => {
 
     const top = info
       .append('div')
-      .attr('class', 'latest-top');
+      .attr(
+        'class',
+        'latest-top'
+      );
 
-    top.append('span')
-      .attr('class', 'latest-badge')
+    top
+      .append('span')
+      .attr(
+        'class',
+        'latest-badge'
+      )
       .text('LATEST PUZZLE');
 
-    top.append('span')
-      .attr('class', 'latest-number')
+    top
+      .append('span')
+      .attr(
+        'class',
+        'latest-number'
+      )
       .text(`#${i.num}`);
 
-    info.append('h2')
-      .attr('class', 'latest-title')
+
+    // -------------------------------------------------------
+    // Latest image
+    // -------------------------------------------------------
+
+    if (i.image) {
+
+      const preview = info
+        .append('div')
+        .attr(
+          'class',
+          'latest-image-wrap'
+        );
+
+      preview
+        .append('img')
+        .attr(
+          'class',
+          'latest-image'
+        )
+        .attr(
+          'src',
+          i.image
+        )
+        .attr(
+          'alt',
+          i.title || 'Latest puzzle'
+        )
+        .attr(
+          'loading',
+          'eager'
+        )
+        .style(
+          'display',
+          'block'
+        )
+        .style(
+          'width',
+          'min(100%, 340px)'
+        )
+        .style(
+          'max-width',
+          '340px'
+        )
+        .style(
+          'max-height',
+          '340px'
+        )
+        .style(
+          'object-fit',
+          'contain'
+        )
+        .style(
+          'border-radius',
+          '12px'
+        )
+        .style(
+          'margin-bottom',
+          '22px'
+        )
+        .style(
+          'border',
+          '1px solid rgba(255,255,255,0.08)'
+        )
+        .style(
+          'background',
+          'rgba(0,0,0,0.18)'
+        );
+    }
+
+
+    info
+      .append('h2')
+      .attr(
+        'class',
+        'latest-title'
+      )
       .text(i.title);
 
-    info.append('p')
-      .attr('class', 'latest-date')
+
+    info
+      .append('p')
+      .attr(
+        'class',
+        'latest-date'
+      )
       .text(i.date);
+
 
     drawStars(
       info,
@@ -109,107 +269,209 @@
       30
     );
 
+
     const meta = info
       .append('div')
-      .attr('class', 'latest-meta');
+      .attr(
+        'class',
+        'latest-meta'
+      );
+
 
     const solves = meta
       .append('div')
-      .attr('class', 'meta-pill');
+      .attr(
+        'class',
+        'meta-pill'
+      );
 
-    solves.append('span')
+    solves
+      .append('span')
       .text('SOLVED');
 
-    solves.append('strong')
-      .text(`${i.solves || 0}`);
+    solves
+      .append('strong')
+      .text(
+        `${i.solves || 0}`
+      );
+
 
     const rating = meta
       .append('div')
-      .attr('class', 'meta-pill');
+      .attr(
+        'class',
+        'meta-pill'
+      );
 
-    rating.append('span')
+    rating
+      .append('span')
       .text('RATING');
 
-    rating.append('strong')
-      .text(i.rating || 'N/A');
+    rating
+      .append('strong')
+      .text(
+        i.rating || 'N/A'
+      );
+
 
     const actions = info
       .append('div')
-      .attr('class', 'latest-actions');
+      .attr(
+        'class',
+        'latest-actions'
+      );
+
 
     if (i.puzz) {
 
       const play = actions
         .append('a')
-        .attr('href', i.puzz + (i.qs || ''))
-        .attr('target', '_blank')
-        .attr('rel', 'noopener noreferrer')
-        .attr('class', 'action-btn play-btn')
-        .attr('title', 'Play this puzzle')
-        .attr('aria-label', 'Play this puzzle');
+        .attr(
+          'href',
+          i.puzz + (i.qs || '')
+        )
+        .attr(
+          'target',
+          '_blank'
+        )
+        .attr(
+          'rel',
+          'noopener noreferrer'
+        )
+        .attr(
+          'class',
+          'action-btn play-btn'
+        )
+        .attr(
+          'title',
+          'Play this puzzle'
+        )
+        .attr(
+          'aria-label',
+          'Play this puzzle'
+        );
 
-      play.append('span')
-        .attr('class', 'action-icon')
+      play
+        .append('span')
+        .attr(
+          'class',
+          'action-icon'
+        )
         .text('▶');
 
-      play.append('span')
-        .attr('class', 'action-label')
+      play
+        .append('span')
+        .attr(
+          'class',
+          'action-label'
+        )
         .text('PLAY');
     }
+
 
     if (i.lmd) {
 
       const lmd = actions
         .append('a')
-        .attr('href', lmdLink(i.lmd))
-        .attr('target', '_blank')
-        .attr('rel', 'noopener noreferrer')
-        .attr('class', 'action-btn lmd-btn')
-        .attr('title', 'View this puzzle on Logic Masters Germany')
-        .attr('aria-label', 'View this puzzle on Logic Masters Germany');
+        .attr(
+          'href',
+          lmdLink(i.lmd)
+        )
+        .attr(
+          'target',
+          '_blank'
+        )
+        .attr(
+          'rel',
+          'noopener noreferrer'
+        )
+        .attr(
+          'class',
+          'action-btn lmd-btn'
+        )
+        .attr(
+          'title',
+          'View this puzzle on Logic Masters Germany'
+        )
+        .attr(
+          'aria-label',
+          'View this puzzle on Logic Masters Germany'
+        );
 
-      lmd.append('span')
-        .attr('class', 'action-icon')
+      lmd
+        .append('span')
+        .attr(
+          'class',
+          'action-icon'
+        )
         .text('↗');
 
-      lmd.append('span')
-        .attr('class', 'action-label')
+      lmd
+        .append('span')
+        .attr(
+          'class',
+          'action-label'
+        )
         .text('LMD');
     }
   };
 
+
   const genMostRecent = d => {
 
-    const i = d.items && d.items[0];
+    const i =
+      d.items &&
+      d.items[0];
 
     if (!i) return;
 
     const card = recent
       .append('div')
-      .attr('class', 'latest-card');
+      .attr(
+        'class',
+        'latest-card'
+      );
+
 
     card
       .append('div')
-      .attr('class', 'latest-glow');
+      .attr(
+        'class',
+        'latest-glow'
+      );
+
 
     card
       .append('div')
-      .attr('class', 'latest-number-bg')
+      .attr(
+        'class',
+        'latest-number-bg'
+      )
       .text(`#${i.num}`);
+
 
     const inner = card
       .append('div')
-      .attr('class', 'latest-inner');
+      .attr(
+        'class',
+        'latest-inner'
+      );
+
 
     const info = inner
       .append('div')
-      .attr('class', 'latest-info');
+      .attr(
+        'class',
+        'latest-info'
+      );
+
 
     recentStats(
       info,
       i
     );
   };
+
 
   // ---------------------------------------------------------
   // Archive
@@ -219,107 +481,235 @@
 
     const header = summs
       .append('div')
-      .attr('class', 'archive-header');
+      .attr(
+        'class',
+        'archive-header'
+      );
 
-    header.append('div')
-      .attr('class', 'archive-header-number');
 
-    header.append('div')
-      .attr('class', 'archive-header-title');
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-number'
+      );
 
-    header.append('div')
-      .attr('class', 'archive-header-date');
 
-    header.append('div')
-      .attr('class', 'archive-header-difficulty')
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-title'
+      );
+
+
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-date'
+      );
+
+
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-difficulty'
+      )
       .text('DIFFICULTY');
 
-    header.append('div')
-      .attr('class', 'archive-header-link')
+
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-link'
+      )
       .text('LMD LINK');
 
-    header.append('div')
-      .attr('class', 'archive-header-link')
+
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-link'
+      )
       .text('PLAY');
 
-    header.append('div')
-      .attr('class', 'archive-header-solves')
+
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-solves'
+      )
       .text('LMD SOLVERS');
 
-    header.append('div')
-      .attr('class', 'archive-header-rating')
+
+    header
+      .append('div')
+      .attr(
+        'class',
+        'archive-header-rating'
+      )
       .text('RATING');
   };
+
 
   const genSummaryItems = d => {
 
     genSummaryHeader();
 
-    (d.items || []).forEach(i => {
 
-      const id = i.id;
+    (d.items || []).forEach(
+      i => {
 
-      const div = summs
-        .append('div')
-        .attr('id', `st-${id}`)
-        .attr('class', 'rec');
+        const id = i.id;
 
-      const ul = div.append('ul');
 
-      // Number
-      ul.append('li')
-        .attr('class', 'archive-number')
-        .text(`#${i.num}`);
+        const div = summs
+          .append('div')
+          .attr(
+            'id',
+            `st-${id}`
+          )
+          .attr(
+            'class',
+            'rec'
+          );
 
-      // Title
-      ul.append('li')
-        .attr('class', 'archive-title')
-        .text(i.title);
 
-      cache.titles[id] = i.title;
+        const ul = div
+          .append('ul');
 
-      // Date
-      ul.append('li')
-        .attr('class', 'archive-date')
-        .text(i.date);
 
-      // Difficulty
-      drawStars(
-        ul.append('li'),
-        i.stars,
-        i.author_rated === true
-      );
+        // ---------------------------------------------------
+        // Number
+        // ---------------------------------------------------
 
-      // LMD Link
-      const lmd = ul.append('li')
-        .attr('class', 'archive-link');
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-number'
+          )
+          .text(`#${i.num}`);
 
-      setLmd(
-        lmd,
-        i.lmd
-      );
 
-      // Play
-      const play = ul.append('li')
-        .attr('class', 'archive-link');
+        // ---------------------------------------------------
+        // Title
+        // ---------------------------------------------------
 
-      setLink(
-        play,
-        i.puzz,
-        i.qs || ''
-      );
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-title'
+          )
+          .text(i.title);
 
-      // LMD Solvers
-      ul.append('li')
-        .attr('class', 'archive-solves')
-        .text(`${i.solves || 0}`);
 
-      // Rating
-      ul.append('li')
-        .attr('class', 'archive-rating')
-        .text(i.rating || 'N/A');
-    });
+        cache.titles[id] =
+          i.title;
+
+        cache.images[id] =
+          i.image || '';
+
+
+        // ---------------------------------------------------
+        // Date
+        // ---------------------------------------------------
+
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-date'
+          )
+          .text(i.date);
+
+
+        // ---------------------------------------------------
+        // Difficulty
+        // ---------------------------------------------------
+
+        drawStars(
+          ul.append('li'),
+          i.stars,
+          i.author_rated === true
+        );
+
+
+        // ---------------------------------------------------
+        // LMD Link
+        // ---------------------------------------------------
+
+        const lmd = ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-link'
+          );
+
+
+        setLmd(
+          lmd,
+          i.lmd
+        );
+
+
+        // ---------------------------------------------------
+        // Play
+        // ---------------------------------------------------
+
+        const play = ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-link'
+          );
+
+
+        setLink(
+          play,
+          i.puzz,
+          i.qs || ''
+        );
+
+
+        // ---------------------------------------------------
+        // LMD Solvers
+        // ---------------------------------------------------
+
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-solves'
+          )
+          .text(
+            `${i.solves || 0}`
+          );
+
+
+        // ---------------------------------------------------
+        // Rating
+        // ---------------------------------------------------
+
+        ul
+          .append('li')
+          .attr(
+            'class',
+            'archive-rating'
+          )
+          .text(
+            i.rating || 'N/A'
+          );
+      }
+    );
   };
+
 
   // ---------------------------------------------------------
   // State
@@ -328,41 +718,58 @@
   function getPuzzleState(d) {
 
     return JSON.stringify(
-      (d.items || []).map(i => ({
-        num: i.num,
-        id: i.id,
-        title: i.title,
-        date: i.date,
-        stars: i.stars,
-        author_rated: i.author_rated === true,
-        puzz: i.puzz,
-        lmd: i.lmd,
-        solves: i.solves,
-        rating: i.rating,
-        qs: i.qs || ''
-      }))
+      (d.items || []).map(
+        i => ({
+          num: i.num,
+          id: i.id,
+          title: i.title,
+          date: i.date,
+          stars: i.stars,
+          author_rated:
+            i.author_rated === true,
+          puzz: i.puzz,
+          lmd: i.lmd,
+          solves: i.solves,
+          rating: i.rating,
+          qs: i.qs || '',
+          image: i.image || ''
+        })
+      )
     );
   }
+
 
   function renderData(d) {
 
     recent.html('');
     summs.html('');
 
+
     cache.titles = {};
+    cache.images = {};
     cache.hovered = null;
+
+
+    tooltip
+      .style(
+        'opacity',
+        0
+      );
+
 
     genMostRecent(d);
     genSummaryItems(d);
+
 
     cache.data = JSON.parse(
       JSON.stringify(d)
     );
 
-    cache.state = getPuzzleState(
-      d
-    );
+
+    cache.state =
+      getPuzzleState(d);
   }
+
 
   // ---------------------------------------------------------
   // Update timer
@@ -372,16 +779,25 @@
 
     if (!lastCheckTime) return;
 
-    const now = new Date();
 
-    const diffSec = Math.max(
-      0,
-      Math.floor(
-        (now - lastCheckTime) / 1000
-      )
-    );
+    const now =
+      new Date();
+
+
+    const diffSec =
+      Math.max(
+        0,
+        Math.floor(
+          (
+            now -
+            lastCheckTime
+          ) / 1000
+        )
+      );
+
 
     let text;
+
 
     if (diffSec < 60) {
 
@@ -391,7 +807,9 @@
     } else if (diffSec < 3600) {
 
       const min =
-        Math.floor(diffSec / 60);
+        Math.floor(
+          diffSec / 60
+        );
 
       const sec =
         diffSec % 60;
@@ -402,7 +820,9 @@
     } else {
 
       const hr =
-        Math.floor(diffSec / 3600);
+        Math.floor(
+          diffSec / 3600
+        );
 
       const min =
         Math.floor(
@@ -413,10 +833,13 @@
         `Last checked: ${hr} hr ${min} min ago`;
     }
 
-    d3.select('#since')
+
+    d3
+      .select('#since')
       .select('.update-text')
       .text(text);
   }
+
 
   // ---------------------------------------------------------
   // Fetch config
@@ -424,12 +847,16 @@
 
   async function fetchConfig() {
 
-    const response = await fetch(
-      confPath + '?t=' + Date.now(),
-      {
-        cache: 'no-store'
-      }
-    );
+    const response =
+      await fetch(
+        confPath +
+        '?t=' +
+        Date.now(),
+        {
+          cache: 'no-store'
+        }
+      );
+
 
     if (!response.ok) {
 
@@ -438,8 +865,10 @@
       );
     }
 
+
     return await response.json();
   }
+
 
   // ---------------------------------------------------------
   // Check for updates
@@ -452,35 +881,52 @@
       const d =
         await fetchConfig();
 
-      if (!d.last_check) return;
+
+      if (!d.last_check)
+        return;
+
 
       const newCheck =
-        d.last_check !== lastCheckRaw;
+        d.last_check !==
+        lastCheckRaw;
+
 
       const newState =
         getPuzzleState(d);
 
+
       const dataChanged =
-        newState !== cache.state;
+        newState !==
+        cache.state;
+
 
       if (newCheck) {
 
         lastCheckRaw =
           d.last_check;
 
+
         lastCheckTime =
-          new Date(d.last_check);
+          new Date(
+            d.last_check
+          );
+
 
         updateTimer();
 
+
         if (dataChanged) {
+
           renderData(d);
         }
+
 
         return;
       }
 
+
       if (dataChanged) {
+
         renderData(d);
       }
 
@@ -493,6 +939,7 @@
     }
   }
 
+
   // ---------------------------------------------------------
   // Initial load
   // ---------------------------------------------------------
@@ -504,6 +951,7 @@
       const d =
         await fetchConfig();
 
+
       if (!d.last_check) {
 
         renderData(d);
@@ -511,20 +959,28 @@
         return;
       }
 
+
       lastCheckRaw =
         d.last_check;
 
+
       lastCheckTime =
-        new Date(d.last_check);
+        new Date(
+          d.last_check
+        );
+
 
       renderData(d);
 
+
       updateTimer();
+
 
       setInterval(
         updateTimer,
         1000
       );
+
 
       setInterval(
         checkForUpdates,
@@ -540,25 +996,120 @@
     }
   }
 
+
   // ---------------------------------------------------------
   // Tooltip
   // ---------------------------------------------------------
+
+  const hideTooltip = () => {
+
+    tooltip
+      .style(
+        'opacity',
+        0
+      );
+
+    if (cache.hovered) {
+
+      cache.hovered.style(
+        'background-color',
+        null
+      );
+
+      cache.hovered = null;
+    }
+  };
+
+
+  const showPuzzleTooltip = (
+    t,
+    id,
+    mPos
+  ) => {
+
+    const title =
+      cache.titles[id] ||
+      '';
+
+
+    const image =
+      cache.images[id] ||
+      '';
+
+
+    tooltip
+      .select('.caption')
+      .text(title);
+
+
+    if (image) {
+
+      tooltipImage
+        .attr(
+          'src',
+          image
+        )
+        .attr(
+          'alt',
+          title
+        )
+        .style(
+          'display',
+          'block'
+        );
+
+    } else {
+
+      tooltipImage
+        .attr(
+          'src',
+          ''
+        )
+        .attr(
+          'alt',
+          ''
+        )
+        .style(
+          'display',
+          'none'
+        );
+    }
+
+
+    tooltip
+      .style(
+        'transform',
+        `translate(calc(-50% + ${mPos[0]}px), calc(-100% + ${mPos[1] - 15}px))`
+      )
+      .style(
+        'opacity',
+        1
+      );
+  };
+
 
   const onMouseMove = ev => {
 
     const mPos =
       d3.pointer(ev);
 
+
     let t =
-      d3.select(ev.target);
+      d3.select(
+        ev.target
+      );
+
 
     let node =
       t.node();
 
+
     if (!node) return;
+
 
     let p =
       node.parentNode;
+
 
     while (
       p &&
@@ -568,16 +1119,23 @@
       t =
         d3.select(p);
 
+
       const currentNode =
         t.node();
 
-      if (!currentNode) break;
+
+      if (!currentNode)
+        break;
+
 
       p =
         currentNode.parentNode;
     }
 
-    if (p) {
+
+    if (
+      t.classed('rec')
+    ) {
 
       if (cache.hovered) {
 
@@ -587,56 +1145,55 @@
         );
       }
 
-      cache.hovered = t;
+
+      cache.hovered =
+        t;
+
 
       t.style(
         'background-color',
         'rgba(255,255,255,0.04)'
       );
 
+
       const id =
-        t.attr('id').slice(3);
+        t.attr(
+          'id'
+        ).slice(3);
 
-      tooltip
-        .select('.caption')
-        .text(
-          cache.titles[id] || ''
-        );
 
-      tooltip
-        .style(
-          'transform',
-          `translate(calc(-50% + ${mPos[0]}px), calc(-100% + ${mPos[1] - 15}px))`
-        )
-        .style(
-          'opacity',
-          1
-        );
+      showPuzzleTooltip(
+        t,
+        id,
+        mPos
+      );
 
     } else {
 
-      if (cache.hovered) {
-
-        cache.hovered.style(
-          'background-color',
-          null
-        );
-
-        cache.hovered = null;
-      }
-
-      tooltip.style(
-        'opacity',
-        0
-      );
+      hideTooltip();
     }
   };
 
-  d3.select('#content')
+
+  // ---------------------------------------------------------
+  // Hide tooltip when mouse leaves content
+  // ---------------------------------------------------------
+
+  d3
+    .select('#content')
     .on(
       'mousemove',
       onMouseMove
+    )
+    .on(
+      'mouseleave',
+      hideTooltip
     );
+
+
+  // ---------------------------------------------------------
+  // Start
+  // ---------------------------------------------------------
 
   initialLoad();
 
