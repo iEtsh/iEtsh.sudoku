@@ -12,10 +12,12 @@
   const recent = d3.select('#most-recent');
   const summs = d3.select('#summary-table');
   const tooltip = d3.select('#tooltip');
+
   const tooltipImage = tooltip.select('.thumb img');
 
   let lastCheckRaw = null;
   let lastCheckTime = null;
+
 
   // ---------------------------------------------------------
   // Star rendering
@@ -43,6 +45,7 @@
       size
     );
   };
+
 
   // ---------------------------------------------------------
   // Action buttons
@@ -150,6 +153,88 @@
     i
   ) => {
 
+    // -------------------------------------------------------
+    // Latest image
+    // -------------------------------------------------------
+
+    if (i.image) {
+
+      const imageWrap = info
+        .append('div')
+        .attr(
+          'class',
+          'latest-image'
+        )
+        .style(
+          'width',
+          '100%'
+        )
+        .style(
+          'display',
+          'flex'
+        )
+        .style(
+          'justify-content',
+          'center'
+        )
+        .style(
+          'align-items',
+          'center'
+        )
+        .style(
+          'margin-bottom',
+          '20px'
+        );
+
+      imageWrap
+        .append('img')
+        .attr(
+          'src',
+          i.image
+        )
+        .attr(
+          'alt',
+          i.title || 'Puzzle'
+        )
+        .attr(
+          'loading',
+          'eager'
+        )
+        .style(
+          'display',
+          'block'
+        )
+        .style(
+          'width',
+          'min(100%, 340px)'
+        )
+        .style(
+          'max-width',
+          '340px'
+        )
+        .style(
+          'max-height',
+          '340px'
+        )
+        .style(
+          'height',
+          'auto'
+        )
+        .style(
+          'object-fit',
+          'contain'
+        )
+        .style(
+          'border-radius',
+          '12px'
+        );
+    }
+
+
+    // -------------------------------------------------------
+    // Top badge
+    // -------------------------------------------------------
+
     const top = info
       .append('div')
       .attr(
@@ -175,74 +260,8 @@
 
 
     // -------------------------------------------------------
-    // Latest image
+    // Title
     // -------------------------------------------------------
-
-    if (i.image) {
-
-      const preview = info
-        .append('div')
-        .attr(
-          'class',
-          'latest-image-wrap'
-        );
-
-      preview
-        .append('img')
-        .attr(
-          'class',
-          'latest-image'
-        )
-        .attr(
-          'src',
-          i.image
-        )
-        .attr(
-          'alt',
-          i.title || 'Latest puzzle'
-        )
-        .attr(
-          'loading',
-          'eager'
-        )
-        .style(
-          'display',
-          'block'
-        )
-        .style(
-          'width',
-          'min(100%, 340px)'
-        )
-        .style(
-          'max-width',
-          '340px'
-        )
-        .style(
-          'max-height',
-          '340px'
-        )
-        .style(
-          'object-fit',
-          'contain'
-        )
-        .style(
-          'border-radius',
-          '12px'
-        )
-        .style(
-          'margin-bottom',
-          '22px'
-        )
-        .style(
-          'border',
-          '1px solid rgba(255,255,255,0.08)'
-        )
-        .style(
-          'background',
-          'rgba(0,0,0,0.18)'
-        );
-    }
-
 
     info
       .append('h2')
@@ -253,6 +272,10 @@
       .text(i.title);
 
 
+    // -------------------------------------------------------
+    // Date
+    // -------------------------------------------------------
+
     info
       .append('p')
       .attr(
@@ -262,6 +285,10 @@
       .text(i.date);
 
 
+    // -------------------------------------------------------
+    // Stars
+    // -------------------------------------------------------
+
     drawStars(
       info,
       i.stars,
@@ -269,6 +296,10 @@
       30
     );
 
+
+    // -------------------------------------------------------
+    // Meta
+    // -------------------------------------------------------
 
     const meta = info
       .append('div')
@@ -313,6 +344,10 @@
         i.rating || 'N/A'
       );
 
+
+    // -------------------------------------------------------
+    // Actions
+    // -------------------------------------------------------
 
     const actions = info
       .append('div')
@@ -486,14 +521,12 @@
         'archive-header'
       );
 
-
     header
       .append('div')
       .attr(
         'class',
         'archive-header-number'
       );
-
 
     header
       .append('div')
@@ -502,14 +535,12 @@
         'archive-header-title'
       );
 
-
     header
       .append('div')
       .attr(
         'class',
         'archive-header-date'
       );
-
 
     header
       .append('div')
@@ -519,7 +550,6 @@
       )
       .text('DIFFICULTY');
 
-
     header
       .append('div')
       .attr(
@@ -527,7 +557,6 @@
         'archive-header-link'
       )
       .text('LMD LINK');
-
 
     header
       .append('div')
@@ -537,7 +566,6 @@
       )
       .text('PLAY');
 
-
     header
       .append('div')
       .attr(
@@ -545,7 +573,6 @@
         'archive-header-solves'
       )
       .text('LMD SOLVERS');
-
 
     header
       .append('div')
@@ -561,153 +588,149 @@
 
     genSummaryHeader();
 
+    (
+      d.items || []
+    ).forEach(i => {
 
-    (d.items || []).forEach(
-      i => {
+      const id = i.id;
 
-        const id = i.id;
-
-
-        const div = summs
-          .append('div')
-          .attr(
-            'id',
-            `st-${id}`
-          )
-          .attr(
-            'class',
-            'rec'
-          );
-
-
-        const ul = div
-          .append('ul');
-
-
-        // ---------------------------------------------------
-        // Number
-        // ---------------------------------------------------
-
-        ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-number'
-          )
-          .text(`#${i.num}`);
-
-
-        // ---------------------------------------------------
-        // Title
-        // ---------------------------------------------------
-
-        ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-title'
-          )
-          .text(i.title);
-
-
-        cache.titles[id] =
-          i.title;
-
-        cache.images[id] =
-          i.image || '';
-
-
-        // ---------------------------------------------------
-        // Date
-        // ---------------------------------------------------
-
-        ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-date'
-          )
-          .text(i.date);
-
-
-        // ---------------------------------------------------
-        // Difficulty
-        // ---------------------------------------------------
-
-        drawStars(
-          ul.append('li'),
-          i.stars,
-          i.author_rated === true
+      const div = summs
+        .append('div')
+        .attr(
+          'id',
+          `st-${id}`
+        )
+        .attr(
+          'class',
+          'rec'
         );
 
 
-        // ---------------------------------------------------
-        // LMD Link
-        // ---------------------------------------------------
-
-        const lmd = ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-link'
-          );
+      const ul = div
+        .append('ul');
 
 
-        setLmd(
-          lmd,
-          i.lmd
+      // -----------------------------------------------------
+      // Number
+      // -----------------------------------------------------
+
+      ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-number'
+        )
+        .text(`#${i.num}`);
+
+
+      // -----------------------------------------------------
+      // Title
+      // -----------------------------------------------------
+
+      ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-title'
+        )
+        .text(i.title);
+
+
+      cache.titles[id] =
+        i.title;
+
+      cache.images[id] =
+        i.image || '';
+
+
+      // -----------------------------------------------------
+      // Date
+      // -----------------------------------------------------
+
+      ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-date'
+        )
+        .text(i.date);
+
+
+      // -----------------------------------------------------
+      // Difficulty
+      // -----------------------------------------------------
+
+      drawStars(
+        ul.append('li'),
+        i.stars,
+        i.author_rated === true
+      );
+
+
+      // -----------------------------------------------------
+      // LMD Link
+      // -----------------------------------------------------
+
+      const lmd = ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-link'
+        );
+
+      setLmd(
+        lmd,
+        i.lmd
+      );
+
+
+      // -----------------------------------------------------
+      // Play
+      // -----------------------------------------------------
+
+      const play = ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-link'
+        );
+
+      setLink(
+        play,
+        i.puzz,
+        i.qs || ''
+      );
+
+
+      // -----------------------------------------------------
+      // LMD Solvers
+      // -----------------------------------------------------
+
+      ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-solves'
+        )
+        .text(
+          `${i.solves || 0}`
         );
 
 
-        // ---------------------------------------------------
-        // Play
-        // ---------------------------------------------------
+      // -----------------------------------------------------
+      // Rating
+      // -----------------------------------------------------
 
-        const play = ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-link'
-          );
-
-
-        setLink(
-          play,
-          i.puzz,
-          i.qs || ''
+      ul
+        .append('li')
+        .attr(
+          'class',
+          'archive-rating'
+        )
+        .text(
+          i.rating || 'N/A'
         );
-
-
-        // ---------------------------------------------------
-        // LMD Solvers
-        // ---------------------------------------------------
-
-        ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-solves'
-          )
-          .text(
-            `${i.solves || 0}`
-          );
-
-
-        // ---------------------------------------------------
-        // Rating
-        // ---------------------------------------------------
-
-        ul
-          .append('li')
-          .attr(
-            'class',
-            'archive-rating'
-          )
-          .text(
-            i.rating || 'N/A'
-          );
-      }
-    );
+    });
   };
 
 
@@ -739,32 +762,26 @@
   }
 
 
+  // ---------------------------------------------------------
+  // Render
+  // ---------------------------------------------------------
+
   function renderData(d) {
 
     recent.html('');
     summs.html('');
 
-
     cache.titles = {};
     cache.images = {};
     cache.hovered = null;
 
-
-    tooltip
-      .style(
-        'opacity',
-        0
-      );
-
-
     genMostRecent(d);
     genSummaryItems(d);
 
-
-    cache.data = JSON.parse(
-      JSON.stringify(d)
-    );
-
+    cache.data =
+      JSON.parse(
+        JSON.stringify(d)
+      );
 
     cache.state =
       getPuzzleState(d);
@@ -779,22 +796,16 @@
 
     if (!lastCheckTime) return;
 
-
     const now =
       new Date();
-
 
     const diffSec =
       Math.max(
         0,
         Math.floor(
-          (
-            now -
-            lastCheckTime
-          ) / 1000
+          (now - lastCheckTime) / 1000
         )
       );
-
 
     let text;
 
@@ -834,8 +845,7 @@
     }
 
 
-    d3
-      .select('#since')
+    d3.select('#since')
       .select('.update-text')
       .text(text);
   }
@@ -905,7 +915,6 @@
         lastCheckRaw =
           d.last_check;
 
-
         lastCheckTime =
           new Date(
             d.last_check
@@ -919,7 +928,6 @@
 
           renderData(d);
         }
-
 
         return;
       }
@@ -1009,6 +1017,7 @@
         0
       );
 
+
     if (cache.hovered) {
 
       cache.hovered.style(
@@ -1021,25 +1030,22 @@
   };
 
 
-  const showPuzzleTooltip = (
-    t,
+  const showTooltip = (
     id,
-    mPos
+    title,
+    x,
+    y
   ) => {
-
-    const title =
-      cache.titles[id] ||
-      '';
-
-
-    const image =
-      cache.images[id] ||
-      '';
-
 
     tooltip
       .select('.caption')
-      .text(title);
+      .text(
+        title || ''
+      );
+
+
+    const image =
+      cache.images[id] || '';
 
 
     if (image) {
@@ -1051,7 +1057,7 @@
         )
         .attr(
           'alt',
-          title
+          title || 'Puzzle'
         )
         .style(
           'display',
@@ -1079,7 +1085,7 @@
     tooltip
       .style(
         'transform',
-        `translate(calc(-50% + ${mPos[0]}px), calc(-100% + ${mPos[1] - 15}px))`
+        `translate(calc(-50% + ${x}px), calc(-100% + ${y - 15}px))`
       )
       .style(
         'opacity',
@@ -1134,6 +1140,7 @@
 
 
     if (
+      t &&
       t.classed('rec')
     ) {
 
@@ -1156,16 +1163,26 @@
       );
 
 
+      const rowId =
+        t.attr('id');
+
+
+      if (!rowId) {
+
+        hideTooltip();
+        return;
+      }
+
+
       const id =
-        t.attr(
-          'id'
-        ).slice(3);
+        rowId.slice(3);
 
 
-      showPuzzleTooltip(
-        t,
+      showTooltip(
         id,
-        mPos
+        cache.titles[id] || '',
+        mPos[0],
+        mPos[1]
       );
 
     } else {
@@ -1176,11 +1193,10 @@
 
 
   // ---------------------------------------------------------
-  // Hide tooltip when mouse leaves content
+  // Tooltip events
   // ---------------------------------------------------------
 
-  d3
-    .select('#content')
+  d3.select('#content')
     .on(
       'mousemove',
       onMouseMove
