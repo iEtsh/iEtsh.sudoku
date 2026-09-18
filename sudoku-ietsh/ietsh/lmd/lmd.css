@@ -1,4 +1,3 @@
-```css
 /* =========================================================
    iEtsh Puzzle Archive
    Premium Dark UI
@@ -22,6 +21,7 @@ body {
         );
 
     color: #d9dde7;
+
     font-family:
         "Segoe UI",
         Tahoma,
@@ -49,8 +49,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding-bottom: 28px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.065);
 }
 
 .brand {
@@ -62,16 +65,28 @@ body {
 .brand-mark {
     width: 46px;
     height: 46px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 13px;
-    background: linear-gradient(135deg, #6879bc, #4d5d96);
+
+    background:
+        linear-gradient(
+            135deg,
+            #6879bc,
+            #4d5d96
+        );
+
     color: #ffffff;
+
     font-size: 16px;
     font-weight: 700;
     letter-spacing: -0.5px;
-    box-shadow: 0 9px 28px rgba(72, 88, 147, 0.27);
+
+    box-shadow:
+        0 9px 28px rgba(72, 88, 147, 0.27);
 }
 
 .brand-title {
@@ -92,7 +107,9 @@ body {
     display: flex;
     align-items: center;
     gap: 9px;
+
     color: #737c8e;
+
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -101,9 +118,14 @@ body {
 .status-dot {
     width: 7px;
     height: 7px;
+
     border-radius: 50%;
+
     background: #72bd94;
-    box-shadow: 0 0 0 4px rgba(114, 189, 148, 0.08);
+
+    box-shadow:
+        0 0 0 4px rgba(114, 189, 148, 0.08);
+
     animation: livePulse 2.4s infinite;
 }
 
@@ -132,9 +154,12 @@ body {
 
 .section-label {
     color: #737c8e;
+
     font-size: 10px;
     font-weight: 700;
+
     letter-spacing: 1.9px;
+
     margin-bottom: 15px;
 }
 
@@ -150,18 +175,31 @@ body {
 
 .latest-card {
     position: relative;
+
     overflow: hidden;
+
     min-height: 305px;
+
     padding: 38px 40px;
+
     border-radius: 21px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(
-        135deg,
-        rgba(88, 104, 169, 0.14),
-        rgba(255, 255, 255, 0.025)
-    );
-    box-shadow: 0 28px 75px rgba(0, 0, 0, 0.28);
-    animation: cardEnter 0.6s ease both;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(88, 104, 169, 0.14),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 28px 75px rgba(0, 0, 0, 0.28);
+
+    animation:
+        cardEnter 0.6s ease both;
+
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
@@ -170,19 +208,30 @@ body {
 
 .latest-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(109, 126, 198, 0.25);
-    box-shadow: 0 34px 85px rgba(0, 0, 0, 0.34);
+
+    border-color:
+        rgba(109, 126, 198, 0.25);
+
+    box-shadow:
+        0 34px 85px rgba(0, 0, 0, 0.34);
 }
 
 .latest-glow {
     position: absolute;
+
     width: 430px;
     height: 430px;
+
     right: -170px;
     top: -240px;
+
     border-radius: 50%;
-    background: rgba(94, 111, 183, 0.10);
+
+    background:
+        rgba(94, 111, 183, 0.10);
+
     filter: blur(8px);
+
     pointer-events: none;
 }
 
@@ -193,13 +242,21 @@ body {
 
 .latest-number-bg {
     position: absolute;
+
     right: 22px;
     bottom: -46px;
-    color: rgba(255, 255, 255, 0.025);
+
+    color:
+        rgba(255, 255, 255, 0.025);
+
     font-size: 190px;
+
     line-height: 1;
+
     font-weight: 800;
+
     letter-spacing: -12px;
+
     pointer-events: none;
     user-select: none;
 }
@@ -212,14 +269,21 @@ body {
 .latest-inner {
     position: relative;
     z-index: 2;
+
     width: 100%;
 }
 
 .latest-info {
     position: relative;
+
     width: 100%;
     max-width: 100%;
+
     padding-right: 285px;
+}
+
+.latest-content {
+    position: relative;
 }
 
 
@@ -280,31 +344,43 @@ body {
 .latest-badge {
     display: inline-flex;
     align-items: center;
+
     padding: 7px 11px;
+
     border-radius: 999px;
-    border: 1px solid rgba(101, 118, 184, 0.22);
-    background: rgba(101, 118, 184, 0.11);
+
+    border:
+        1px solid rgba(101, 118, 184, 0.22);
+
+    background:
+        rgba(101, 118, 184, 0.11);
+
     color: #9aa7d7;
+
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.1px;
 }
 
 
-/* Small #number */
+/* =========================================================
+   Latest small number
+   ========================================================= */
 
 .latest-number {
     position: absolute;
 
-    top: -25px;
-    right: -285px;
+    top: 0;
+    right: 0;
 
     color: #687494;
+
     font-size: 13px;
     font-weight: 650;
+
     letter-spacing: 0.5px;
 
-    z-index: 5;
+    z-index: 6;
 }
 
 
@@ -314,11 +390,17 @@ body {
 
 .latest-title {
     color: #f5f6f8;
+
     font-size: clamp(34px, 5vw, 52px);
+
     line-height: 1.06;
+
     letter-spacing: -2px;
+
     margin: 0 0 10px;
+
     font-weight: 700;
+
     max-width: 100%;
 }
 
@@ -329,7 +411,9 @@ body {
 
 .latest-date {
     color: #80899a;
+
     font-size: 13px;
+
     margin: 0 0 23px;
 }
 
@@ -341,13 +425,16 @@ body {
 .puzzle-stars {
     display: flex;
     align-items: center;
+
     width: fit-content;
 }
 
 .puzzle-stars .star-bar {
     display: block;
+
     width: auto;
     height: auto;
+
     overflow: visible;
 }
 
@@ -383,25 +470,38 @@ body {
 .latest-meta {
     display: flex;
     flex-wrap: wrap;
+
     gap: 9px;
+
     margin-bottom: 27px;
 }
 
 .meta-pill {
     display: flex;
     align-items: center;
+
     gap: 7px;
+
     padding: 9px 13px;
+
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
     color: #7f899b;
+
     font-size: 10px;
+
     letter-spacing: 0.5px;
 }
 
 .meta-pill strong {
     color: #e2e5eb;
+
     font-size: 12px;
     font-weight: 650;
 }
@@ -414,6 +514,7 @@ body {
 .latest-actions {
     display: flex;
     align-items: center;
+
     gap: 9px;
 }
 
@@ -421,15 +522,23 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 9px;
+
     min-width: 112px;
     height: 43px;
+
     padding: 0 16px;
+
     border-radius: 10px;
+
     text-decoration: none;
+
     font-size: 10px;
     font-weight: 700;
+
     letter-spacing: 0.8px;
+
     transition:
         transform 0.2s ease,
         background 0.2s ease,
@@ -452,24 +561,36 @@ body {
 
 .play-btn {
     background: #6576b8;
+
     color: #ffffff;
-    box-shadow: 0 8px 22px rgba(74, 88, 145, 0.25);
+
+    box-shadow:
+        0 8px 22px rgba(74, 88, 145, 0.25);
 }
 
 .play-btn:hover {
     background: #7182c5;
-    box-shadow: 0 11px 27px rgba(74, 88, 145, 0.32);
+
+    box-shadow:
+        0 11px 27px rgba(74, 88, 145, 0.32);
 }
 
 .lmd-btn {
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.085);
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.085);
+
     color: #b1b8c6;
 }
 
 .lmd-btn:hover {
-    background: rgba(255, 255, 255, 0.065);
-    border-color: rgba(255, 255, 255, 0.15);
+    background:
+        rgba(255, 255, 255, 0.065);
+
+    border-color:
+        rgba(255, 255, 255, 0.15);
 }
 
 
@@ -498,35 +619,86 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+
     margin-bottom: 23px;
 }
 
 .section-heading h1 {
     margin: 0;
+
     color: #eef0f4;
+
     font-size: 29px;
     line-height: 1;
+
     letter-spacing: -0.9px;
 }
 
 .update-status {
     display: flex;
     align-items: center;
+
     gap: 9px;
+
     color: #70798b;
+
     font-size: 11px;
 }
 
 .update-dot {
     width: 6px;
     height: 6px;
+
     border-radius: 50%;
+
     background: #6878b8;
-    box-shadow: 0 0 0 3px rgba(104, 120, 184, 0.08);
+
+    box-shadow:
+        0 0 0 3px rgba(104, 120, 184, 0.08);
 }
 
 .update-text {
     white-space: nowrap;
+}
+
+
+/* =========================================================
+   Archive + Dashboard Layout
+   ========================================================= */
+
+.listing-section {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        280px;
+
+    grid-template-areas:
+        "heading heading"
+        "archive dashboard";
+
+    column-gap: 24px;
+
+    align-items: start;
+}
+
+.listing-section .section-heading {
+    grid-area: heading;
+}
+
+.listing-section #summary-table {
+    grid-area: archive;
+
+    min-width: 0;
+    width: 100%;
+}
+
+.listing-section .puzzle-dashboard {
+    grid-area: dashboard;
+
+    margin: 0;
+
+    width: 100%;
 }
 
 
@@ -537,279 +709,12 @@ body {
 #summary-table {
     margin: 0;
     padding: 0;
+
     background: transparent;
+
     cursor: default;
-}
 
-
-/* =========================================================
-   Archive Header
-   ========================================================= */
-
-.archive-header {
-    display: grid;
-    align-items: center;
-
-    grid-template-columns:
-        58px
-        minmax(240px, 1fr)
-        175px
-        95px
-        48px
-        48px
-        92px
-        72px;
-
-    gap: 12px;
-
-    height: 20px;
-    margin: 0 18px 6px;
-    padding: 0;
-
-    color: #535c6d;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    line-height: 1;
-    text-transform: uppercase;
-
-    /*
-     * The original archive header had pointer-events:none.
-     * Sorting buttons need to receive mouse/touch events.
-     */
-    pointer-events: auto;
-    user-select: none;
-}
-
-.archive-header > div {
     min-width: 0;
-}
-
-.archive-header-number,
-.archive-header-title,
-.archive-header-date {
-    min-width: 0;
-}
-
-.archive-header-difficulty,
-.archive-header-link,
-.archive-header-solves,
-.archive-header-rating {
-    text-align: center;
-    white-space: nowrap;
-}
-
-.archive-header-solves,
-.archive-header-rating {
-    text-align: right;
-}
-
-.archive-header .archive-sort-button {
-    pointer-events: auto;
-    padding: 4px 5px;
-    font-size: inherit;
-}
-
-
-/* =========================================================
-   Archive Rows
-   ========================================================= */
-
-#summary-table .rec {
-    margin-bottom: 8px;
-    overflow: hidden;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.055);
-    background: rgba(255, 255, 255, 0.018);
-    transition:
-        transform 0.22s ease,
-        background 0.22s ease,
-        border-color 0.22s ease;
-    animation: rowEnter 0.45s ease both;
-
-    outline: none;
-}
-
-#summary-table .rec:hover {
-    transform: translateX(4px);
-    background: rgba(94, 108, 169, 0.075);
-    border-color: rgba(108, 124, 193, 0.18);
-}
-
-#summary-table .rec:focus {
-    outline: none;
-    box-shadow:
-        inset 3px 0 0 rgba(255, 255, 255, 0.7),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.045);
-}
-
-#summary-table .rec:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.35);
-    outline-offset: -2px;
-}
-
-@keyframes rowEnter {
-    from {
-        opacity: 0;
-        transform: translateY(7px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-#summary-table ul {
-    display: grid;
-
-    grid-template-columns:
-        58px
-        minmax(240px, 1fr)
-        175px
-        95px
-        48px
-        48px
-        92px
-        72px;
-
-    align-items: center;
-    gap: 12px;
-    margin: 0;
-    padding: 15px 18px;
-    list-style: none;
-}
-
-#summary-table li {
-    display: block;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-}
-
-
-/* Number */
-
-#summary-table .archive-number {
-    color: #626c80;
-    font-size: 11px;
-    font-weight: 650;
-}
-
-
-/* Title */
-
-#summary-table .archive-title {
-    color: #e1e4ea;
-    font-size: 15px;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-/* Date */
-
-#summary-table .archive-date {
-    color: #7a8394;
-    font-size: 11px;
-    white-space: nowrap;
-}
-
-
-/* Stars */
-
-#summary-table .archive-stars {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#summary-table .archive-stars svg {
-    display: block;
-}
-
-
-/* Links */
-
-#summary-table .archive-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.archive-action {
-    width: 34px;
-    height: 34px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 9px;
-    text-decoration: none;
-
-    transition:
-        opacity 0.18s ease,
-        transform 0.18s ease,
-        background 0.18s ease,
-        border-color 0.18s ease;
-}
-
-.archive-action:hover {
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
-.archive-action .action-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-}
-
-.play-action {
-    background: rgba(101, 118, 184, 0.13);
-    border: 1px solid rgba(101, 118, 184, 0.18);
-    color: #9aa7d7;
-}
-
-.play-action:hover {
-    background: rgba(101, 118, 184, 0.22);
-}
-
-.lmd-action {
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    color: #929baa;
-}
-
-.lmd-action:hover {
-    background: rgba(255, 255, 255, 0.07);
-}
-
-
-/* Solves */
-
-#summary-table .archive-solves {
-    color: #9ca4b3;
-    font-size: 12px;
-    font-weight: 600;
-    text-align: right;
-}
-
-
-/* Rating */
-
-#summary-table .archive-rating {
-    color: #78a990;
-    font-size: 12px;
-    font-weight: 650;
-    text-align: right;
 }
 
 
@@ -820,37 +725,56 @@ body {
 .archive-controls {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin: 0 0 18px;
+    justify-content: flex-start;
+
     width: 100%;
+
+    margin: 0 0 15px;
 }
 
 .archive-search {
     position: relative;
+
     width: min(360px, 100%);
 }
 
 .archive-search-icon {
     position: absolute;
+
     left: 14px;
     top: 50%;
+
     transform: translateY(-50%);
+
     font-size: 20px;
+
     line-height: 1;
+
     opacity: 0.65;
+
     pointer-events: none;
 }
 
 .archive-search-input {
     width: 100%;
-    box-sizing: border-box;
-    padding: 11px 14px 11px 42px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    padding:
+        11px 14px 11px 42px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
     border-radius: 8px;
+
     outline: none;
-    background: rgba(255, 255, 255, 0.035);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
     color: inherit;
+
     font: inherit;
+
     transition:
         border-color 0.2s ease,
         background 0.2s ease,
@@ -862,31 +786,42 @@ body {
 }
 
 .archive-search-input:hover {
-    background: rgba(255, 255, 255, 0.055);
+    background:
+        rgba(255, 255, 255, 0.055);
 }
 
 .archive-search-input:focus {
-    border-color: rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.06);
 }
 
 .archive-sort-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 5px;
 
-    padding: 5px 7px;
+    padding: 5px 6px;
+
     margin: 0;
 
     border: 0;
+
     border-radius: 5px;
 
     background: transparent;
+
     color: inherit;
 
     font: inherit;
+
     font-size: 0.78rem;
     font-weight: 600;
 
@@ -902,7 +837,9 @@ body {
 
 .archive-sort-button:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(255, 255, 255, 0.07);
 }
 
 .archive-sort-button:active {
@@ -915,7 +852,9 @@ body {
 
 .archive-sort-button:focus-visible,
 .archive-search-input:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.4);
+    outline:
+        2px solid rgba(255, 255, 255, 0.4);
+
     outline-offset: 2px;
 }
 
@@ -927,8 +866,380 @@ body {
     min-width: 12px;
 
     font-size: 0.9rem;
+
     line-height: 1;
+
     opacity: 0.85;
+}
+
+
+/* =========================================================
+   Archive Header
+   ========================================================= */
+
+.archive-header {
+    display: grid;
+    align-items: center;
+
+    grid-template-columns:
+        48px
+        minmax(180px, 1fr)
+        105px
+        75px
+        42px
+        42px
+        78px
+        68px;
+
+    gap: 10px;
+
+    height: 24px;
+
+    margin: 0 10px 6px;
+
+    padding: 0;
+
+    color: #535c6d;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+
+    pointer-events: auto;
+
+    user-select: none;
+}
+
+.archive-header > div {
+    min-width: 0;
+}
+
+.archive-header-number,
+.archive-header-title,
+.archive-header-date,
+.archive-header-difficulty,
+.archive-header-link,
+.archive-header-solves,
+.archive-header-rating {
+    min-width: 0;
+}
+
+.archive-header-difficulty,
+.archive-header-link {
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+.archive-header-solves,
+.archive-header-rating {
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+.archive-header .archive-sort-button {
+    width: 100%;
+
+    pointer-events: auto;
+
+    padding:
+        4px 3px;
+
+    font-size: inherit;
+}
+
+
+/* =========================================================
+   Archive Rows
+   ========================================================= */
+
+#summary-table .rec {
+    width: 100%;
+
+    margin-bottom: 8px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease;
+
+    animation:
+        rowEnter 0.45s ease both;
+
+    outline: none;
+}
+
+#summary-table .rec:hover {
+    transform: translateX(4px);
+
+    background:
+        rgba(94, 108, 169, 0.075);
+
+    border-color:
+        rgba(108, 124, 193, 0.18);
+}
+
+#summary-table .rec:focus {
+    outline: none;
+
+    box-shadow:
+        inset 3px 0 0 rgba(255, 255, 255, 0.7),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+#summary-table .rec:focus-visible {
+    outline:
+        2px solid rgba(255, 255, 255, 0.35);
+
+    outline-offset: -2px;
+}
+
+@keyframes rowEnter {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#summary-table ul {
+    display: grid;
+
+    grid-template-columns:
+        48px
+        minmax(180px, 1fr)
+        105px
+        75px
+        42px
+        42px
+        78px
+        68px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+        13px 10px;
+
+    list-style: none;
+}
+
+#summary-table li {
+    display: block;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   Number
+   ========================================================= */
+
+#summary-table .archive-number {
+    color: #626c80;
+
+    font-size: 11px;
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   Title
+   ========================================================= */
+
+#summary-table .archive-title {
+    color: #e1e4ea;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Date
+   ========================================================= */
+
+#summary-table .archive-date {
+    color: #7a8394;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   Difficulty
+   ========================================================= */
+
+#summary-table .archive-difficulty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+#summary-table .archive-difficulty .puzzle-stars {
+    max-width: 100%;
+}
+
+#summary-table .archive-difficulty svg {
+    display: block;
+
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   Links
+   ========================================================= */
+
+#summary-table .archive-link {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.archive-action {
+    width: 32px;
+    height: 32px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.archive-action:hover {
+    opacity: 1;
+
+    transform: translateY(-1px);
+}
+
+.archive-action .action-icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+}
+
+.play-action {
+    background:
+        rgba(101, 118, 184, 0.13);
+
+    border:
+        1px solid rgba(101, 118, 184, 0.18);
+
+    color: #9aa7d7;
+}
+
+.play-action:hover {
+    background:
+        rgba(101, 118, 184, 0.22);
+}
+
+.lmd-action {
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    color: #929baa;
+}
+
+.lmd-action:hover {
+    background:
+        rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   LMD Solvers
+   ========================================================= */
+
+#summary-table .archive-solves {
+    color: #9ca4b3;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   Rating
+   ========================================================= */
+
+#summary-table .archive-rating {
+    color: #78a990;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    text-align: right;
+
+    white-space: nowrap;
 }
 
 
@@ -938,28 +1249,36 @@ body {
 
 .archive-empty {
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
     min-height: 140px;
+
     padding: 25px;
 
     text-align: center;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
     border-radius: 10px;
 
-    background: rgba(255, 255, 255, 0.025);
+    background:
+        rgba(255, 255, 255, 0.025);
 }
 
 .archive-empty strong {
     margin-bottom: 7px;
+
     font-size: 1rem;
 }
 
 .archive-empty span {
     opacity: 0.55;
+
     font-size: 0.9rem;
 }
 
@@ -970,15 +1289,20 @@ body {
 
 .puzzle-dashboard {
     width: 100%;
+
     box-sizing: border-box;
 
-    margin-bottom: 22px;
+    margin: 0;
+
     padding: 18px;
 
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
     border-radius: 12px;
 
-    background: rgba(255, 255, 255, 0.025);
+    background:
+        rgba(255, 255, 255, 0.025);
 }
 
 .dashboard-heading {
@@ -987,25 +1311,34 @@ body {
 
 .dashboard-label {
     font-size: 0.78rem;
+
     font-weight: 700;
+
     letter-spacing: 0.12em;
+
     opacity: 0.6;
 }
 
 .dashboard-cards {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    grid-template-columns: 1fr;
+
     gap: 10px;
 }
 
 .dashboard-card {
     min-width: 0;
-    padding: 13px 14px;
 
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 15px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
     border-radius: 9px;
 
-    background: rgba(255, 255, 255, 0.025);
+    background:
+        rgba(255, 255, 255, 0.025);
 
     transition:
         background 0.2s ease,
@@ -1013,8 +1346,11 @@ body {
 }
 
 .dashboard-card:hover {
-    background: rgba(255, 255, 255, 0.045);
-    border-color: rgba(255, 255, 255, 0.12);
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border-color:
+        rgba(255, 255, 255, 0.12);
 }
 
 .dashboard-card-label {
@@ -1023,7 +1359,9 @@ body {
     margin-bottom: 6px;
 
     font-size: 0.68rem;
+
     font-weight: 600;
+
     letter-spacing: 0.08em;
 
     opacity: 0.5;
@@ -1032,83 +1370,11 @@ body {
 .dashboard-card-value {
     display: block;
 
-    font-size: 1.35rem;
+    font-size: 1.5rem;
+
     font-weight: 700;
 
     line-height: 1.1;
-}
-
-
-/* =========================================================
-   Dashboard Side Panel
-   ========================================================= */
-
-.listing-section {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        280px;
-
-    grid-template-areas:
-        "heading heading"
-        "archive dashboard";
-
-    column-gap: 24px;
-    align-items: start;
-}
-
-.listing-section .section-heading {
-    grid-area: heading;
-}
-
-.listing-section #summary-table {
-    grid-area: archive;
-    min-width: 0;
-}
-
-.listing-section .puzzle-dashboard {
-    grid-area: dashboard;
-    margin: 0;
-    width: 100%;
-}
-
-.listing-section .dashboard-cards {
-    grid-template-columns: 1fr;
-}
-
-.listing-section .dashboard-card {
-    padding: 15px;
-}
-
-.listing-section .dashboard-card-value {
-    font-size: 1.5rem;
-}
-
-
-/* =========================================================
-   Footer
-   ========================================================= */
-
-.site-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 58px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(255, 255, 255, 0.055);
-    color: #596274;
-    font-size: 10px;
-}
-
-.site-footer a {
-    color: #7180b8;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.site-footer a:hover {
-    color: #a1aedb;
 }
 
 
@@ -1118,34 +1384,60 @@ body {
 
 #tooltip {
     opacity: 0;
-    position: absolute;
-    top: -12px;
+
+    position: fixed;
+
+    top: 0;
     left: 0;
+
     padding: 9px;
+
     background: #171c27;
+
     color: #cfd4df;
+
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
     border-radius: 9px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-    z-index: 10;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+
+    z-index: 9999;
+
     transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+        opacity 0.15s ease;
+
     pointer-events: none;
+
+    will-change:
+        left,
+        top;
 }
 
 .thumb img {
+    display: block;
+
     width: 180px;
     height: 180px;
+
     margin: 2px;
+
     border-radius: 6px;
+
+    object-fit: contain;
 }
 
 .caption {
     color: #dfe3eb;
+
     font-size: 10px;
-    padding: 5px 2px 1px;
+
+    padding:
+        5px 2px 1px;
 }
 
 
@@ -1157,34 +1449,42 @@ body {
 
     .archive-header {
         grid-template-columns:
-            48px
-            minmax(180px, 1fr)
-            135px
-            80px
-            44px
-            44px
-            105px
-            65px;
+            42px
+            minmax(150px, 1fr)
+            92px
+            68px
+            40px
+            40px
+            72px
+            62px;
 
-        gap: 8px;
+        gap: 7px;
     }
 
     #summary-table ul {
         grid-template-columns:
-            48px
-            minmax(180px, 1fr)
-            135px
-            80px
-            44px
-            44px
-            105px
-            65px;
+            42px
+            minmax(150px, 1fr)
+            92px
+            68px
+            40px
+            40px
+            72px
+            62px;
 
-        gap: 8px;
+        gap: 7px;
+
+        padding-left: 9px;
+        padding-right: 9px;
     }
 
     #summary-table .archive-date {
         font-size: 10px;
+    }
+
+    .archive-sort-button {
+        padding-left: 2px;
+        padding-right: 2px;
     }
 }
 
@@ -1216,43 +1516,50 @@ body {
         width: min(100%, 245px);
         height: 245px;
 
-        margin: 24px auto 0;
+        margin:
+            24px auto 0;
     }
 
     .latest-image img {
         width: 100%;
         height: 100%;
+
         object-fit: contain;
     }
 
     .latest-number {
-        top: -25px;
+        top: 0;
         right: 0;
     }
 
+    /* Archive becomes compact */
 
-    /*
-     * Mobile/tablet archive:
-     * The desktop date and difficulty columns disappear.
-     */
+    .archive-header {
+        grid-template-columns:
+            40px
+            minmax(120px, 1fr)
+            40px
+            40px
+            72px
+            62px;
+
+        gap: 7px;
+    }
 
     #summary-table ul {
         grid-template-columns:
-            45px
-            minmax(150px, 1fr)
-            44px
-            44px
-            105px
-            65px;
+            40px
+            minmax(120px, 1fr)
+            40px
+            40px
+            72px
+            62px;
 
-        gap: 8px;
+        gap: 7px;
     }
 
-    #summary-table .archive-date {
-        display: none;
-    }
-
-    #summary-table .archive-stars {
+    #summary-table .archive-date,
+    #summary-table .archive-difficulty {
         display: none;
     }
 
@@ -1261,16 +1568,43 @@ body {
         display: none;
     }
 
-    .archive-header {
-        grid-template-columns:
-            45px
-            minmax(150px, 1fr)
-            44px
-            44px
-            105px
-            65px;
+    .archive-header-link {
+        display: flex;
 
-        gap: 8px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .archive-header-solves,
+    .archive-header-rating {
+        display: block;
+    }
+}
+
+
+/* =========================================================
+   Mobile Dashboard / Layout
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .listing-section {
+        display: block;
+    }
+
+    .listing-section .puzzle-dashboard {
+        margin-bottom: 22px;
+    }
+
+    #summary-table {
+        width: 100%;
+
+        overflow: visible;
+    }
+
+    .archive-header,
+    #summary-table .rec {
+        min-width: 0;
     }
 }
 
@@ -1283,6 +1617,7 @@ body {
 
     #content {
         width: calc(100% - 24px);
+
         padding-top: 24px;
     }
 
@@ -1293,7 +1628,9 @@ body {
     .brand-mark {
         width: 39px;
         height: 39px;
+
         border-radius: 11px;
+
         font-size: 14px;
     }
 
@@ -1315,20 +1652,25 @@ body {
 
     .latest-card {
         min-height: 0;
+
         padding: 24px;
+
         border-radius: 17px;
     }
 
     .latest-number-bg {
         right: -5px;
         bottom: -25px;
+
         font-size: 120px;
+
         letter-spacing: -8px;
     }
 
     .latest-number {
-        top: -4px;
+        top: 0;
         right: 0;
+
         font-size: 12px;
     }
 
@@ -1341,6 +1683,7 @@ body {
         height: 210px;
 
         margin-top: 22px;
+
         margin-left: auto;
         margin-right: auto;
     }
@@ -1348,11 +1691,13 @@ body {
     .latest-image img {
         width: 100%;
         height: 100%;
+
         object-fit: contain;
     }
 
     .latest-title {
         font-size: 34px;
+
         letter-spacing: -1.3px;
     }
 
@@ -1366,11 +1711,13 @@ body {
 
     .latest-meta {
         gap: 7px;
+
         margin-bottom: 22px;
     }
 
     .meta-pill {
         padding: 8px 10px;
+
         font-size: 9px;
     }
 
@@ -1380,12 +1727,15 @@ body {
 
     .latest-actions {
         display: grid;
+
         grid-template-columns: 1fr 1fr;
+
         gap: 8px;
     }
 
     .action-btn {
         min-width: 0;
+
         height: 42px;
     }
 
@@ -1395,6 +1745,7 @@ body {
 
     .section-heading {
         display: block;
+
         margin-bottom: 18px;
     }
 
@@ -1407,11 +1758,29 @@ body {
     }
 
 
+    /* Search */
+
+    .archive-controls {
+        justify-content: flex-start;
+
+        margin-bottom: 14px;
+    }
+
+    .archive-search {
+        width: 100%;
+    }
+
+    .archive-search-input {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+
     /* Mobile archive header */
 
     .archive-header {
         grid-template-columns:
-            40px
+            38px
             minmax(0, 1fr)
             42px
             42px;
@@ -1419,28 +1788,28 @@ body {
         grid-template-rows:
             18px;
 
-        gap: 8px;
+        gap: 7px;
 
         height: 18px;
-        margin: 0 12px 5px;
+
+        margin:
+            0 8px 5px;
 
         font-size: 7px;
-        letter-spacing: 0.7px;
+
+        letter-spacing: 0.55px;
     }
 
     .archive-header-number,
-    .archive-header-title {
-        display: none;
-    }
-
+    .archive-header-title,
     .archive-header-date,
     .archive-header-difficulty {
         display: none;
     }
 
-    .archive-header-link:nth-of-type(5),
-    .archive-header-link:nth-of-type(6) {
+    .archive-header-link {
         display: flex;
+
         align-items: center;
         justify-content: center;
     }
@@ -1459,7 +1828,7 @@ body {
 
     #summary-table ul {
         grid-template-columns:
-            40px
+            38px
             minmax(0, 1fr)
             42px
             42px;
@@ -1468,19 +1837,23 @@ body {
             auto
             auto;
 
-        gap: 8px;
-        padding: 13px 12px;
+        gap: 7px;
+
+        padding:
+            12px 10px;
     }
 
     #summary-table .archive-number {
         grid-column: 1;
         grid-row: 1 / 3;
+
         align-self: center;
     }
 
     #summary-table .archive-title {
         grid-column: 2;
         grid-row: 1;
+
         font-size: 13px;
     }
 
@@ -1497,110 +1870,88 @@ body {
     #summary-table .archive-solves {
         grid-column: 2;
         grid-row: 2;
+
         text-align: left;
+
         font-size: 10px;
+
         color: #8993a4;
+    }
+
+    #summary-table .archive-solves::before {
+        content: 'SOLVERS: ';
+
+        color: #687385;
+
+        font-size: 8px;
+
+        letter-spacing: 0.4px;
     }
 
     #summary-table .archive-rating {
         grid-column: 3 / 5;
         grid-row: 2;
+
         text-align: right;
+
         font-size: 10px;
     }
 
+    #summary-table .archive-rating::before {
+        content: 'RATING: ';
+
+        color: #687385;
+
+        font-size: 8px;
+
+        letter-spacing: 0.4px;
+    }
+
     #summary-table .archive-date,
-    #summary-table .archive-stars {
+    #summary-table .archive-difficulty {
         display: none;
     }
 
     .archive-action {
-        width: 32px;
-        height: 32px;
+        width: 31px;
+        height: 31px;
+
         border-radius: 8px;
     }
 
     .site-footer {
         display: block;
+
         line-height: 1.8;
     }
 
     .site-footer a {
         display: block;
+
         margin-top: 5px;
     }
-}
 
 
-/* =========================================================
-   Search / Dashboard Mobile
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    .archive-controls {
-        justify-content: stretch;
-    }
-
-    .archive-search {
-        width: 100%;
-    }
-
-    /*
-     * Dashboard becomes full-width above the archive.
-     */
-
-    .listing-section {
-        display: block;
-    }
-
-    .listing-section .puzzle-dashboard {
-        margin-bottom: 22px;
-    }
-
-    .listing-section .dashboard-cards {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    /*
-     * Do NOT force a desktop minimum width here.
-     * The archive must remain responsive on mobile.
-     */
-    #summary-table {
-        overflow-x: visible;
-    }
-
-    .archive-header,
-    #summary-table .rec {
-        min-width: 0;
-    }
-}
-
-
-@media (max-width: 650px) {
+    /* Mobile dashboard */
 
     .puzzle-dashboard {
         margin-bottom: 18px;
+
         padding: 14px;
-    }
-
-    .listing-section .puzzle-dashboard {
-        margin-bottom: 18px;
-    }
-
-    .listing-section .dashboard-cards {
-        grid-template-columns: 1fr;
     }
 
     .dashboard-cards {
         grid-template-columns: 1fr;
+
         gap: 8px;
     }
 
     .dashboard-card {
         display: flex;
+
         align-items: center;
         justify-content: space-between;
+
         gap: 12px;
     }
 
@@ -1610,20 +1961,6 @@ body {
 
     .dashboard-card-value {
         font-size: 1.15rem;
-    }
-
-    .archive-controls {
-        margin-bottom: 14px;
-    }
-
-    .archive-search-input {
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-
-    .archive-sort-button {
-        padding: 4px 5px;
-        font-size: 0.7rem;
     }
 }
 
@@ -1639,7 +1976,8 @@ body {
     }
 
     .dashboard-card {
-        padding: 11px 12px;
+        padding:
+            11px 12px;
     }
 
     .dashboard-card-label {
@@ -1665,9 +2003,14 @@ body {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
     }
 
     .archive-sort-button,
@@ -1677,4 +2020,3 @@ body {
         transition: none;
     }
 }
-```
