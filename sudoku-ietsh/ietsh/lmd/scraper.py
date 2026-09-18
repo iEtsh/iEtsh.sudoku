@@ -21,6 +21,8 @@ import re
 import time
 import requests
 
+from playwright.sync_api import sync_playwright
+
 from datetime import datetime
 from urllib.parse import urljoin
 
@@ -145,37 +147,52 @@ def extract_date(text):
 # SudokuPad
 # ---------------------------------------------------------
 
-def get_sudokupad_solve_counter(puzzle_url):
+def get_sudokupad_solve_counter(
+    page,
+    puzzle_url
+):
     if not puzzle_url:
         return None
 
     try:
-        response = requests.get(
+        print(
+            f"Reading SudokuPad solve counter: "
+            f"{puzzle_url}"
+        )
+
+        page.goto(
             puzzle_url,
-            headers=HEADERS,
-            timeout=30
+            wait_until="domcontentloaded",
+            timeout=60000
         )
 
-        response.raise_for_status()
+        time.sleep(3)
 
-        soup = BeautifulSoup(
-            response.text,
-            "html.parser"
+        counter = page.locator(
+            "#solvedcounter_val"
         )
 
-        text = soup.get_text(
-            " ",
-            strip=True
+        value = counter.text_content(
+            timeout=10000
         )
 
-        match = re.search(
-            r"\bSolve Counter\s*:\s*(\d+)\b",
-            text,
-            re.IGNORECASE
-        )
+        if value:
+            match = re.search(
+                r"\d+",
+                value
+            )
 
-        if match:
-            return int(match.group(1))
+            if match:
+                solves = int(
+                    match.group(0)
+                )
+
+                print(
+                    f"SudokuPad solve counter: "
+                    f"{solves}"
+                )
+
+                return solves
 
     except Exception as e:
         print(
@@ -186,7 +203,10 @@ def get_sudokupad_solve_counter(puzzle_url):
     return None
 
 
-def update_sudokupad_solves(item):
+def update_sudokupad_solves(
+    item,
+    page
+):
     puzzle_url = item.get(
         "puzz",
         ""
@@ -196,12 +216,12 @@ def update_sudokupad_solves(item):
         return
 
     solves = get_sudokupad_solve_counter(
+        page,
         puzzle_url
     )
 
     if solves is not None:
         item["sudokupad_solves"] = solves
-
 
 def get_sudokupad_link(html):
 
@@ -868,11 +888,29 @@ def update_config():
     # Update existing puzzle data
     # ---------------------------------------------------------
 
-    for item in cfg["items"]:
+    with sync_playwright() as playwright:
 
-        update_sudokupad_solves(item)
+        browser = playwright.chromium.launch(
+            headless=True
+        )
 
-        for p in all_puzzles:
+        page = browser.new_page(
+            viewport={
+                "width": 1280,
+                "height": 900
+            }
+        )
+
+        try:
+
+            for item in cfg["items"]:
+
+                update_sudokupad_solves(
+                    item,
+                    page
+                )
+
+                for p in all_puzzles:
 
             if p["lmd"] == item["lmd"]:
 
@@ -927,7 +965,11 @@ def update_config():
                     f"date: {item['date']}"
                 )
 
-                break
+                    break
+
+        finally:
+
+            browser.close()
 
     # ---------------------------------------------------------
     # Sort by date
