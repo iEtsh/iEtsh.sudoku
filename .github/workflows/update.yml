@@ -22,7 +22,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4 htmldate
+        run: pip install requests beautifulsoup4 htmldate playwright==1.63.0
+
+      - name: Install Chromium
+        run: python -m playwright install --with-deps chromium
 
       - name: Run scraper
         run: python sudoku-ietsh/ietsh/lmd/scraper.py
