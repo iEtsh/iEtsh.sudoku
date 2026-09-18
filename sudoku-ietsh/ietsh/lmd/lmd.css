@@ -21,7 +21,6 @@ body {
         );
 
     color: #d9dde7;
-
     font-family:
         "Segoe UI",
         Tahoma,
@@ -40,7 +39,11 @@ body {
     padding: 42px 0 32px;
 }
 
-/* Header */
+
+/* =========================================================
+   Header
+   ========================================================= */
+
 .site-header {
     display: flex;
     align-items: center;
@@ -113,7 +116,11 @@ body {
     }
 }
 
-/* Sections */
+
+/* =========================================================
+   Sections
+   ========================================================= */
+
 .latest-section {
     padding-top: 48px;
 }
@@ -135,7 +142,11 @@ body {
     margin-right: 9px;
 }
 
-/* Latest Puzzle Hero */
+
+/* =========================================================
+   Latest Puzzle Hero
+   ========================================================= */
+
 .latest-card {
     position: relative;
     overflow: hidden;
@@ -174,6 +185,12 @@ body {
     pointer-events: none;
 }
 
+
+/* =========================================================
+   IMPORTANT:
+   Large translucent number remains unchanged.
+   ========================================================= */
+
 .latest-number-bg {
     position: absolute;
     right: 22px;
@@ -187,6 +204,11 @@ body {
     user-select: none;
 }
 
+
+/* =========================================================
+   Latest inner layout
+   ========================================================= */
+
 .latest-inner {
     position: relative;
     z-index: 2;
@@ -194,14 +216,70 @@ body {
 }
 
 .latest-info {
+    position: relative;
+    width: 100%;
     max-width: 100%;
+
+    /*
+     * Reserve space on the right for the puzzle image.
+     * This keeps the original card height.
+     */
+    padding-right: 285px;
 }
 
-.latest-top {
+
+/* =========================================================
+   Latest image
+   ========================================================= */
+
+.latest-image {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 245px;
+    height: 245px;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    z-index: 3;
+}
+
+.latest-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================================
+   Latest top
+   ========================================================= */
+
+.latest-top {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
     margin-bottom: 17px;
+
+    min-height: 30px;
 }
 
 .latest-badge {
@@ -217,12 +295,32 @@ body {
     letter-spacing: 1.1px;
 }
 
+
+/*
+ * Small #number:
+ * top-right corner of the Latest card.
+ *
+ * This is NOT the large translucent number.
+ */
+
 .latest-number {
+    position: absolute;
+
+    top: -25px;
+    right: 0;
+
     color: #687494;
     font-size: 13px;
     font-weight: 650;
     letter-spacing: 0.5px;
+
+    z-index: 5;
 }
+
+
+/* =========================================================
+   Latest title
+   ========================================================= */
 
 .latest-title {
     color: #f5f6f8;
@@ -231,14 +329,20 @@ body {
     letter-spacing: -2px;
     margin: 0 0 10px;
     font-weight: 700;
-    max-width: 820px;
+    max-width: 100%;
 }
+
+
+/* =========================================================
+   Latest date
+   ========================================================= */
 
 .latest-date {
     color: #80899a;
     font-size: 13px;
     margin: 0 0 23px;
 }
+
 
 /* =========================================================
    Stars
@@ -261,7 +365,9 @@ body {
     display: block;
 }
 
+
 /* Normal LMD difficulty */
+
 .puzzle-stars .star-1 {
     fill: #d8b85d !important;
 }
@@ -270,7 +376,9 @@ body {
     fill: #303746 !important;
 }
 
+
 /* Author-estimated difficulty */
+
 .puzzle-stars.author-stars .star-1 {
     fill: #5d9fe3 !important;
 }
@@ -282,6 +390,11 @@ body {
 .latest-stars svg {
     display: block;
 }
+
+
+/* =========================================================
+   Latest meta
+   ========================================================= */
 
 .latest-meta {
     display: flex;
@@ -309,7 +422,11 @@ body {
     font-weight: 650;
 }
 
-/* Latest Action Buttons */
+
+/* =========================================================
+   Latest Action Buttons
+   ========================================================= */
+
 .latest-actions {
     display: flex;
     align-items: center;
@@ -371,7 +488,11 @@ body {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Animations */
+
+/* =========================================================
+   Animations
+   ========================================================= */
+
 @keyframes cardEnter {
     from {
         opacity: 0;
@@ -384,7 +505,11 @@ body {
     }
 }
 
-/* Archive Heading */
+
+/* =========================================================
+   Archive Heading
+   ========================================================= */
+
 .section-heading {
     display: flex;
     align-items: flex-end;
@@ -420,6 +545,7 @@ body {
     white-space: nowrap;
 }
 
+
 /* =========================================================
    Archive
    ========================================================= */
@@ -431,7 +557,9 @@ body {
     cursor: default;
 }
 
+
 /* Thin column header */
+
 .archive-header {
     display: grid;
 
@@ -482,6 +610,7 @@ body {
     text-align: right;
 }
 
+
 #summary-table .rec {
     margin-bottom: 8px;
     overflow: hidden;
@@ -513,6 +642,7 @@ body {
     }
 }
 
+
 #summary-table ul {
     display: grid;
 
@@ -541,14 +671,18 @@ body {
     font-size: 12px;
 }
 
+
 /* Number */
+
 #summary-table .archive-number {
     color: #626c80;
     font-size: 11px;
     font-weight: 650;
 }
 
+
 /* Title */
+
 #summary-table .archive-title {
     color: #e1e4ea;
     font-size: 15px;
@@ -558,14 +692,18 @@ body {
     text-overflow: ellipsis;
 }
 
+
 /* Date */
+
 #summary-table .archive-date {
     color: #7a8394;
     font-size: 11px;
     white-space: nowrap;
 }
 
+
 /* Stars */
+
 #summary-table .archive-stars {
     display: flex;
     align-items: center;
@@ -576,7 +714,9 @@ body {
     display: block;
 }
 
+
 /* Links */
+
 #summary-table .archive-link {
     display: flex;
     align-items: center;
@@ -628,7 +768,9 @@ body {
     background: rgba(255, 255, 255, 0.07);
 }
 
+
 /* Solves */
+
 #summary-table .archive-solves {
     color: #9ca4b3;
     font-size: 12px;
@@ -636,7 +778,9 @@ body {
     text-align: right;
 }
 
+
 /* Rating */
+
 #summary-table .archive-rating {
     color: #78a990;
     font-size: 12px;
@@ -644,7 +788,11 @@ body {
     text-align: right;
 }
 
-/* Footer */
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
 .site-footer {
     display: flex;
     align-items: center;
@@ -666,7 +814,11 @@ body {
     color: #a1aedb;
 }
 
-/* Tooltip */
+
+/* =========================================================
+   Tooltip
+   ========================================================= */
+
 #tooltip {
     opacity: 0;
     position: absolute;
@@ -698,6 +850,7 @@ body {
     font-size: 10px;
     padding: 5px 2px 1px;
 }
+
 
 /* =========================================================
    Tablet
@@ -738,6 +891,7 @@ body {
     }
 }
 
+
 /* =========================================================
    Small Tablet
    ========================================================= */
@@ -748,9 +902,45 @@ body {
         width: calc(100% - 32px);
     }
 
+
+    /*
+     * Keep the card size behavior,
+     * but remove the reserved image space.
+     * The image becomes part of the vertical flow.
+     */
+
     .latest-card {
         padding: 30px;
     }
+
+    .latest-info {
+        padding-right: 0;
+    }
+
+    .latest-image {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: min(100%, 245px);
+        height: 245px;
+
+        margin: 24px auto 0;
+    }
+
+    .latest-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+
+    .latest-number {
+        top: -25px;
+        right: 0;
+    }
+
 
     #summary-table ul {
         grid-template-columns:
@@ -787,6 +977,7 @@ body {
             65px;
     }
 }
+
 
 /* =========================================================
    Mobile
@@ -832,12 +1023,56 @@ body {
         border-radius: 17px;
     }
 
+
+    /*
+     * Large translucent number:
+     * unchanged from the original mobile layout.
+     */
+
     .latest-number-bg {
         right: -5px;
         bottom: -25px;
         font-size: 120px;
         letter-spacing: -8px;
     }
+
+
+    /*
+     * Small number stays in the top-right.
+     */
+
+    .latest-number {
+        top: -4px;
+        right: 0;
+        font-size: 12px;
+    }
+
+
+    .latest-info {
+        padding-right: 0;
+    }
+
+
+    /*
+     * Mobile image:
+     * no overflow and centered below the text.
+     */
+
+    .latest-image {
+        width: min(100%, 210px);
+        height: 210px;
+
+        margin-top: 22px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .latest-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
 
     .latest-title {
         font-size: 34px;
@@ -894,7 +1129,9 @@ body {
         margin-top: 12px;
     }
 
+
     /* Mobile archive header */
+
     .archive-header {
         grid-template-columns:
             40px
@@ -936,7 +1173,9 @@ body {
         display: none;
     }
 
+
     /* Mobile archive cards */
+
     #summary-table .rec {
         margin-bottom: 7px;
     }
@@ -1015,7 +1254,11 @@ body {
     }
 }
 
-/* Reduced Motion */
+
+/* =========================================================
+   Reduced Motion
+   ========================================================= */
+
 @media (prefers-reduced-motion: reduce) {
 
     *,
