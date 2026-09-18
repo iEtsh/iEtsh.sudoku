@@ -294,7 +294,7 @@ body {
 .latest-image {
     position: absolute;
 
-    top: 0;
+    top: 20px;
     right: 0;
 
     width: 245px;
@@ -1354,6 +1354,11 @@ body {
 }
 
 .dashboard-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 72px;
+    align-items: center;
+    gap: 14px;
+
     padding:
         12px 13px;
 
@@ -1403,6 +1408,8 @@ body {
     line-height: 1.1;
 
     font-variant-numeric: tabular-nums;
+
+    text-align: left;
 }
 
 
@@ -1967,11 +1974,9 @@ body {
     }
 
     .dashboard-card {
-        display: flex;
-
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 72px;
         align-items: center;
-        justify-content: space-between;
-
         gap: 12px;
     }
 
