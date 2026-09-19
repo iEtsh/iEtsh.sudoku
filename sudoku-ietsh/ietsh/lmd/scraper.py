@@ -147,6 +147,52 @@ def extract_date(text):
     return ""
 
 
+def extract_published_date(html):
+
+    soup = BeautifulSoup(
+        html,
+        "html.parser"
+    )
+
+    text = soup.get_text(
+        " ",
+        strip=True
+    )
+
+    # The puzzle detail page contains the authoritative
+    # publication timestamp in the "Eingestellt am" /
+    # "Published on" line. Only extract a date when it is
+    # explicitly attached to that label.
+    patterns = [
+        r'(?:Eingestellt am|Published on)\s+'
+        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+        r'(?:Eingestellt am|Published on)\s+'
+        r'(\d{1,2}\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+    ]
+
+    for pattern in patterns:
+
+        match = re.search(
+            pattern,
+            text,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            result = match.group(1)
+
+            for de, en in MONTH_MAP.items():
+                result = result.replace(
+                    de,
+                    en
+                )
+
+            return result
+
+    return ""
+
+
 # ---------------------------------------------------------
 # SudokuPad
 # ---------------------------------------------------------
@@ -573,33 +619,11 @@ def parse_puzzles(html):
         # Date
         # -------------------------------------------------
 
+        # The listing date is only a fallback. The authoritative
+        # date is read later from this exact puzzle's detail page.
         date = extract_date(
             str(row)
         )
-
-        if not date:
-
-            date = extract_date(
-                cells[1].get_text(
-                    " ",
-                    strip=True
-                )
-            )
-
-        if not date:
-
-            for sibling in row.find_all(
-                "span"
-            ):
-
-                date = extract_date(
-                    sibling.get_text(
-                        strip=True
-                    )
-                )
-
-                if date:
-                    break
 
         # -------------------------------------------------
         # Solves
@@ -975,11 +999,12 @@ def update_config():
                     p["lmd"]
                 )
 
-            if not p["date"]:
+            published_date = extract_published_date(
+                puzzle_html
+            )
 
-                p["date"] = extract_date(
-                    puzzle_html
-                )
+            if published_date:
+                p["date"] = published_date
 
         except Exception as e:
 
@@ -1141,30 +1166,21 @@ def update_config():
                             "rating"
                         ]
 
-                        if p["date"]:
+                        published_date = ""
 
-                            item["date"] = p[
-                                "date"
-                            ]
+                        if puzzle_html:
+                            published_date = extract_published_date(
+                                puzzle_html
+                            )
 
-                        elif (
-                            not item.get("date")
-                            or item["date"] == ""
-                        ):
+                        if published_date:
+                            item["date"] = published_date
 
-                            try:
-
-                                if not puzzle_html:
-                                    puzzle_html = fetch_puzzle(
-                                        p["lmd"]
-                                    )
-
-                                item["date"] = extract_date(
-                                    puzzle_html
-                                )
-
-                            except Exception:
-                                pass
+                        elif not item.get("date"):
+                            # Keep the existing value only when the
+                            # exact puzzle page could not provide a
+                            # publication timestamp.
+                            item["date"] = p.get("date", "")
 
                         print(
                             f"Updated: "
