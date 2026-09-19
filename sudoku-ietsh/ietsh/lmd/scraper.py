@@ -238,7 +238,8 @@ def _parse_relative_publication(value, now=None):
     normalized = _normalize_published_text(value).lower()
 
     match = re.fullmatch(
-        r"(today|heute|yesterday|gestern)\s+"
+        r"(today|heute|yesterday|gestern)"
+        r"\s*,?\s+"
         r"(\d{1,2}):(\d{2})",
         normalized
     )
