@@ -6,13 +6,13 @@
       "id": "ietsh-origami",
       "title": "Origami",
       "date": "19. September 2026, 12:32",
-      "stars": 1,
+      "stars": 2,
       "author_rated": false,
       "puzz": "https://sudokupad.app/tmj363gk27",
       "lmd": "000V0C",
-      "solves": 34,
-      "sudokupad_solves": 109,
-      "rating": "90%",
+      "solves": 35,
+      "sudokupad_solves": 110,
+      "rating": "87%",
       "image": "images/000V0C.jpg"
     },
     {
@@ -366,5 +366,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-19T21:22:13.816483Z"
+  "last_check": "2026-09-19T21:27:19.944314Z"
 }
