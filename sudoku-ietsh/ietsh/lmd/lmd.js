@@ -657,7 +657,7 @@
     solves
       .append('strong')
       .text(
-        `${i.solves || 0}`
+        `${i.sudokupad_solves || 0}`
       );
 
     const rating = meta
