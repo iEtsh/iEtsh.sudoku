@@ -1177,5 +1177,14 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "rating"
+  },
+  {
+    "id": "2026-09-19T17:37:16.596715Z-0",
+    "time": "2026-09-19T17:37:16.596715Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves"
   }
 ]
