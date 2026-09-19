@@ -2032,5 +2032,14 @@
     "puzzleNum": 10,
     "title": "Crosscurrents",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T23:12:05.953537Z-0",
+    "time": "2026-09-19T23:12:05.953537Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
