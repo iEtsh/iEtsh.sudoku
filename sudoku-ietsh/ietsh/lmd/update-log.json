@@ -1411,5 +1411,14 @@
     "puzzleNum": 21,
     "title": "Blink V",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T19:07:17.987233Z-0",
+    "time": "2026-09-19T19:07:17.987233Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
