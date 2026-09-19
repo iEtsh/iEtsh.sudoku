@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/tmj363gk27",
       "lmd": "000V0C",
       "solves": 12,
-      "sudokupad_solves": 35,
+      "sudokupad_solves": 37,
       "rating": "N/A",
       "image": "images/000V0C.jpg"
     },
@@ -27,7 +27,7 @@
       "rating": "95%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1448
+      "sudokupad_solves": 1449
     },
     {
       "num": 24,
@@ -366,5 +366,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-19T13:31:54.991554Z"
+  "last_check": "2026-09-19T13:37:14.706376Z"
 }
