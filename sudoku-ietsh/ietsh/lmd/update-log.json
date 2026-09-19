@@ -385,5 +385,23 @@
     "puzzleNum": 16,
     "title": "Vibrant Spots III",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T04:52:09.001855Z-0",
+    "time": "2026-09-19T04:52:09.001855Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T04:52:09.001855Z-1",
+    "time": "2026-09-19T04:52:09.001855Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves"
   }
 ]
