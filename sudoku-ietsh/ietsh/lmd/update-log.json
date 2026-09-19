@@ -511,5 +511,23 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T10:37:21.397848Z-0",
+    "time": "2026-09-19T10:37:21.397848Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": null
+  },
+  {
+    "id": "2026-09-19T10:37:21.397848Z-1",
+    "time": "2026-09-19T10:37:21.397848Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 25,
+    "title": "Origami",
+    "field": null
   }
 ]

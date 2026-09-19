@@ -2,7 +2,7 @@
   "opts": {},
   "items": [
     {
-      "num": 25,
+      "num": 27,
       "id": "ietsh-coin",
       "title": "Coin",
       "date": "14. September 2026, 09:14",
@@ -14,6 +14,34 @@
       "author_rated": false,
       "image": "images/000UVR.jpg",
       "sudokupad_solves": 1445
+    },
+    {
+      "num": 26,
+      "id": "ietsh-origami",
+      "title": "Origami",
+      "date": "14. September 2026, 09:14",
+      "stars": 1,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/tmj363gk27",
+      "lmd": "000V0C",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V0C.jpg"
+    },
+    {
+      "num": 25,
+      "id": "ietsh-origami",
+      "title": "Origami",
+      "date": "14. September 2026, 09:14",
+      "stars": 1,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/tmj363gk27",
+      "lmd": "000V0C",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V0C.jpg"
     },
     {
       "num": 24,
@@ -352,5 +380,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-19T10:32:19.852339Z"
+  "last_check": "2026-09-19T10:37:21.397155Z"
 }
