@@ -38,6 +38,9 @@
   const updateClearKey =
     'ietsh-lmd-update-cleared-at';
 
+  const updateUndoKey =
+    'ietsh-lmd-update-clear-undo-at';
+
   let updateLog = [];
   let updateClearAt = 0;
 
@@ -127,10 +130,18 @@
   };
 
   const clearUpdateLog = () => {
+    const previousClearAt =
+      updateClearAt;
+
     updateClearAt =
       Date.now();
 
     try {
+      localStorage.setItem(
+        updateUndoKey,
+        String(previousClearAt)
+      );
+
       localStorage.setItem(
         updateClearKey,
         String(updateClearAt)
@@ -145,6 +156,48 @@
     updateLog = [];
 
     renderUpdateMonitor();
+  };
+
+  const undoClearUpdateLog = () => {
+    let previousClearAt = 0;
+
+    try {
+      previousClearAt =
+        Number(
+          localStorage.getItem(
+            updateUndoKey
+          )
+        ) || 0;
+    } catch (error) {
+      previousClearAt = 0;
+    }
+
+    if (!previousClearAt) {
+      return;
+    }
+
+    updateClearAt =
+      previousClearAt;
+
+    try {
+      localStorage.setItem(
+        updateClearKey,
+        String(updateClearAt)
+      );
+
+      localStorage.removeItem(
+        updateUndoKey
+      );
+    } catch (error) {
+      console.warn(
+        'Unable to restore update monitor state:',
+        error
+      );
+    }
+
+    fetchUpdateLog().then(
+      () => renderUpdateMonitor()
+    );
   };
 
   const formatUpdateTime = time => {
@@ -1270,6 +1323,49 @@
       .on(
         'click',
         clearUpdateLog
+      );
+
+    let hasUndo = false;
+
+    try {
+      hasUndo =
+        Boolean(
+          Number(
+            localStorage.getItem(
+              updateUndoKey
+            )
+          )
+        );
+    } catch (error) {
+      hasUndo = false;
+    }
+
+    controls
+      .append('button')
+      .attr(
+        'type',
+        'button'
+      )
+      .attr(
+        'class',
+        'archive-undo-updates'
+      )
+      .attr(
+        'title',
+        'Undo last clear'
+      )
+      .attr(
+        'aria-label',
+        'Undo last clear'
+      )
+      .property(
+        'disabled',
+        !hasUndo
+      )
+      .text('UNDO')
+      .on(
+        'click',
+        undoClearUpdateLog
       );
   };
 
