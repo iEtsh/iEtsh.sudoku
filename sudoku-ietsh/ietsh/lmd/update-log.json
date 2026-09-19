@@ -1312,5 +1312,14 @@
     "puzzleNum": 16,
     "title": "Vibrant Spots III",
     "field": "solves"
+  },
+  {
+    "id": "2026-09-19T18:22:32.508589Z-0",
+    "time": "2026-09-19T18:22:32.508589Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
