@@ -836,7 +836,7 @@ body {
         transform 0.18s ease;
 }
 
-.archive-clear-updates:hover {
+.archive-clear-updates:hover:not(:disabled) {
     background:
         rgba(114, 189, 148, 0.08);
 
@@ -846,8 +846,14 @@ body {
     color: #9bc7ad;
 }
 
-.archive-clear-updates:active {
+.archive-clear-updates:active:not(:disabled) {
     transform: translateY(1px);
+}
+
+.archive-clear-updates:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
 }
 
 .archive-undo-updates {
@@ -2396,3 +2402,4 @@ body {
         transition: none;
     }
 }
+
