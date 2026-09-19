@@ -41,6 +41,9 @@
   const updateUndoKey =
     'ietsh-lmd-update-clear-undo-at';
 
+  const updateUndoSnapshotKey =
+    'ietsh-lmd-update-clear-undo-snapshot';
+
   let updateLog = [];
   let updateClearAt = 0;
 
@@ -133,6 +136,9 @@
     const previousClearAt =
       updateClearAt;
 
+    const previousLog =
+      [...updateLog];
+
     updateClearAt =
       Date.now();
 
@@ -140,6 +146,11 @@
       localStorage.setItem(
         updateUndoKey,
         String(previousClearAt)
+      );
+
+      localStorage.setItem(
+        updateUndoSnapshotKey,
+        JSON.stringify(previousLog)
       );
 
       localStorage.setItem(
@@ -160,6 +171,7 @@
 
   const undoClearUpdateLog = () => {
     let previousClearAt = 0;
+    let previousLog = null;
 
     try {
       previousClearAt =
@@ -168,16 +180,32 @@
             updateUndoKey
           )
         ) || 0;
+
+      const snapshot =
+        localStorage.getItem(
+          updateUndoSnapshotKey
+        );
+
+      previousLog =
+        snapshot
+          ? JSON.parse(snapshot)
+          : null;
     } catch (error) {
       previousClearAt = 0;
+      previousLog = null;
     }
 
-    if (!previousClearAt) {
+    if (
+      !Array.isArray(previousLog)
+    ) {
       return;
     }
 
     updateClearAt =
       previousClearAt;
+
+    updateLog =
+      previousLog;
 
     try {
       localStorage.setItem(
@@ -188,6 +216,10 @@
       localStorage.removeItem(
         updateUndoKey
       );
+
+      localStorage.removeItem(
+        updateUndoSnapshotKey
+      );
     } catch (error) {
       console.warn(
         'Unable to restore update monitor state:',
@@ -195,9 +227,7 @@
       );
     }
 
-    fetchUpdateLog().then(
-      () => renderUpdateMonitor()
-    );
+    renderUpdateMonitor();
   };
 
   const formatUpdateTime = time => {
@@ -1330,10 +1360,8 @@
     try {
       hasUndo =
         Boolean(
-          Number(
-            localStorage.getItem(
-              updateUndoKey
-            )
+          localStorage.getItem(
+            updateUndoSnapshotKey
           )
         );
     } catch (error) {
