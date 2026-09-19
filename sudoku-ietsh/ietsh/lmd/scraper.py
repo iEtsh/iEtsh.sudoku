@@ -925,15 +925,19 @@ def update_config():
         for item in cfg["items"]
     }
 
+    # Keep only one occurrence of each LMD puzzle.
+    # This prevents the same new puzzle from being added twice
+    # if it appears more than once across the paginated results.
+    seen_lmd = set(existing_lmd)
     new_puzzles = []
 
     for p in all_puzzles:
 
-        if p["lmd"] not in existing_lmd:
+        if p["lmd"] in seen_lmd:
+            continue
 
-            new_puzzles.append(
-                p
-            )
+        new_puzzles.append(p)
+        seen_lmd.add(p["lmd"])
 
     print(
         f"New puzzles: {len(new_puzzles)}"
@@ -942,6 +946,8 @@ def update_config():
     # -----------------------------------------------------
     # Add new puzzles
     # -----------------------------------------------------
+
+    newly_added_lmd = set()
 
     for p in new_puzzles:
 
@@ -1010,6 +1016,7 @@ def update_config():
         cfg["items"].append(
             new_item
         )
+        newly_added_lmd.add(p["lmd"])
 
         print(
             f"Added: {p['title']}"
@@ -1197,8 +1204,15 @@ def update_config():
 
             return datetime.min
 
+    # New puzzles are sorted into the normal date order.
+    # If two puzzles have the exact same timestamp, the puzzle
+    # added in this run comes first, so the Latest Puzzle section
+    # immediately shows the newly added puzzle.
     cfg["items"].sort(
-        key=parse_date,
+        key=lambda item: (
+            parse_date(item),
+            item.get("lmd") in newly_added_lmd
+        ),
         reverse=True
     )
 
