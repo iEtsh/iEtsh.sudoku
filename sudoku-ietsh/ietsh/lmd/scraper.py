@@ -326,9 +326,13 @@ def extract_published_date(html):
     Extract the authoritative publication timestamp from the exact
     puzzle detail page.
 
-    LMD uses relative labels for recent puzzles and switches to a
-    full calendar date later. Both English and German forms are
-    supported.
+    LMD displays the publication text inside .rp_eingestellt, for
+    example:
+      (Published today, 12:32 by iEtsh)
+      (Published yesterday, 12:32 by iEtsh)
+      (Published 14. September 2026, 12:32 by iEtsh)
+
+    German versions are also supported.
 
     Returned format is always:
       DD. Month YYYY, HH:MM
@@ -339,19 +343,28 @@ def extract_published_date(html):
         "html.parser"
     )
 
-    text = soup.get_text(
-        " ",
-        strip=True
+    publication_node = soup.select_one(
+        ".rp_eingestellt"
     )
 
-    # Read only the value immediately attached to the publication
-    # label. Never fall back to an unrelated date elsewhere on the
-    # page, because that can associate another puzzle's date.
+    if not publication_node:
+        return ""
+
+    publication_text = _normalize_published_text(
+        publication_node.get_text(
+            " ",
+            strip=True
+        )
+    )
+
     publication_pattern = (
-        r"(?:Eingestellt\s+am|Published\s+on)"
-        r"\s*[:\-]?\s*"
+        r"(?:Published|Eingestellt)"
+        r"\s+"
+        r"(?:on|am)?"
+        r"\s*"
         r"("
-        r"(?:today|heute|yesterday|gestern)\s+\d{1,2}:\d{2}"
+        r"(?:today|heute|yesterday|gestern)"
+        r"\s*,?\s*\d{1,2}:\d{2}"
         r"|"
         r"\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2}"
         r"|"
@@ -361,7 +374,7 @@ def extract_published_date(html):
 
     match = re.search(
         publication_pattern,
-        text,
+        publication_text,
         re.IGNORECASE
     )
 
