@@ -24,9 +24,12 @@
 
   const archiveState = {
     search: '',
+    pendingSearch: '',
     sortKey: 'date',
     sortDirection: 'desc'
   };
+
+  const searchPassword = '1907';
 
   // ---------------------------------------------------------
   // Update monitor
@@ -172,7 +175,8 @@
     button
       .property(
         'disabled',
-        !hasUndo
+        !hasUndo ||
+        !isSearchPasswordValid()
       );
   };
 
@@ -1085,6 +1089,76 @@
     );
   };
 
+  const isSearchPasswordValid = () => {
+    const input =
+      d3.select(
+        '.archive-password-input'
+      );
+
+    return (
+      !input.empty() &&
+      input.property('value') ===
+        searchPassword
+    );
+  };
+
+  const updateSearchButton = () => {
+    const button =
+      d3.select(
+        '.archive-search-button'
+      );
+
+    if (button.empty()) {
+      return;
+    }
+
+    button.property(
+      'disabled',
+      !isSearchPasswordValid()
+    );
+  };
+
+  const updateUndoButton = () => {
+    const button =
+      d3.select(
+        '.archive-undo-updates'
+      );
+
+    if (button.empty()) {
+      return;
+    }
+
+    let hasUndo = false;
+
+    try {
+      hasUndo =
+        localStorage.getItem(
+          updateUndoKey
+        ) !== null;
+    } catch (error) {
+      hasUndo = false;
+    }
+
+    button.property(
+      'disabled',
+      !hasUndo ||
+      !isSearchPasswordValid()
+    );
+  };
+
+  const applySearch = () => {
+    if (!isSearchPasswordValid()) {
+      updateSearchButton();
+      return;
+    }
+
+    archiveState.search =
+      archiveState.pendingSearch;
+
+    renderArchive(true);
+    updateSearchButton();
+  };
+
   // ---------------------------------------------------------
   // Sort button
   // ---------------------------------------------------------
@@ -1332,10 +1406,10 @@
     input.on(
       'input',
       function () {
-        archiveState.search =
+        archiveState.pendingSearch =
           this.value;
 
-        renderArchive(true);
+        updateSearchButton();
       }
     );
 
@@ -1357,12 +1431,96 @@
         ) {
           ev.preventDefault();
 
+          archiveState.pendingSearch = '';
           archiveState.search = '';
 
-          renderArchive(true);
+          input.property(
+            'value',
+            ''
+          );
+
+          updateSearchButton();
         }
       }
     );
+
+    const passwordWrap =
+      controls
+        .append('div')
+        .attr(
+          'class',
+          'archive-password'
+        );
+
+    passwordWrap
+      .append('input')
+      .attr(
+        'type',
+        'password'
+      )
+      .attr(
+        'class',
+        'archive-password-input'
+      )
+      .attr(
+        'placeholder',
+        'Password'
+      )
+      .attr(
+        'aria-label',
+        'Search and undo password'
+      )
+      .attr(
+        'autocomplete',
+        'off'
+      );
+
+    passwordWrap
+      .select('input')
+      .on(
+        'input',
+        () => {
+          updateSearchButton();
+          updateUndoButton();
+        }
+      )
+      .on(
+        'keydown',
+        ev => {
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            applySearch();
+          }
+        }
+      );
+
+    controls
+      .append('button')
+      .attr(
+        'type',
+        'button'
+      )
+      .attr(
+        'class',
+        'archive-search-button'
+      )
+      .attr(
+        'title',
+        'Search puzzles'
+      )
+      .attr(
+        'aria-label',
+        'Search puzzles'
+      )
+      .property(
+        'disabled',
+        true
+      )
+      .text('SEARCH')
+      .on(
+        'click',
+        applySearch
+      );
 
     controls
       .append('button')
@@ -1423,7 +1581,8 @@
       )
       .property(
         'disabled',
-        !hasUndo
+        !hasUndo ||
+        !isSearchPasswordValid()
       )
       .text('UNDO')
       .on(
