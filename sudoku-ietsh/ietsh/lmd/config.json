@@ -3,20 +3,6 @@
   "items": [
     {
       "num": 26,
-      "id": "ietsh-coin",
-      "title": "Coin",
-      "date": "14. September 2026, 09:14",
-      "stars": 1,
-      "puzz": "https://sudokupad.app/iapen15ls1",
-      "lmd": "000UVR",
-      "solves": 126,
-      "rating": "95%",
-      "author_rated": false,
-      "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1445
-    },
-    {
-      "num": 25,
       "id": "ietsh-origami",
       "title": "Origami",
       "date": "14. September 2026, 09:14",
@@ -28,6 +14,20 @@
       "sudokupad_solves": null,
       "rating": "N/A",
       "image": "images/000V0C.jpg"
+    },
+    {
+      "num": 25,
+      "id": "ietsh-coin",
+      "title": "Coin",
+      "date": "14. September 2026, 09:14",
+      "stars": 1,
+      "puzz": "https://sudokupad.app/iapen15ls1",
+      "lmd": "000UVR",
+      "solves": 126,
+      "rating": "95%",
+      "author_rated": false,
+      "image": "images/000UVR.jpg",
+      "sudokupad_solves": 1445
     },
     {
       "num": 24,
