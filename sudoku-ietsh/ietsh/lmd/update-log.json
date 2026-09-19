@@ -988,5 +988,23 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T15:12:16.388212Z-0",
+    "time": "2026-09-19T15:12:16.388212Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T15:12:16.388212Z-1",
+    "time": "2026-09-19T15:12:16.388212Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
