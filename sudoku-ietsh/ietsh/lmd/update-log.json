@@ -1276,5 +1276,32 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T18:12:15.857038Z-0",
+    "time": "2026-09-19T18:12:15.857038Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T18:12:15.857038Z-1",
+    "time": "2026-09-19T18:12:15.857038Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T18:12:15.857038Z-2",
+    "time": "2026-09-19T18:12:15.857038Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves"
   }
 ]
