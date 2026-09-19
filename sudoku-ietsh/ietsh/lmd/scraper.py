@@ -344,23 +344,33 @@ def extract_published_date(html):
         strip=True
     )
 
-    # Prefer the value immediately following the publication label.
-    publication_value = _extract_labeled_publication_value(
-        text
+    # Read only the value immediately attached to the publication
+    # label. Never fall back to an unrelated date elsewhere on the
+    # page, because that can associate another puzzle's date.
+    publication_pattern = (
+        r"(?:Eingestellt\\s+am|Published\\s+on)"
+        r"\\s*[:\\-]?\\s*"
+        r"("
+        r"(?:today|heute|yesterday|gestern)\\s+\\d{1,2}:\\d{2}"
+        r"|"
+        r"\\d{1,2}\\.\\s+\\w+\\s+\\d{4},\\s+\\d{1,2}:\\d{2}"
+        r"|"
+        r"\\d{1,2}\\s+\\w+\\s+\\d{4},\\s+\\d{1,2}:\\d{2}"
+        r")"
     )
 
-    if publication_value:
-        resolved = _resolve_date_value(
-            publication_value
-        )
+    match = re.search(
+        publication_pattern,
+        text,
+        re.IGNORECASE
+    )
 
-        if resolved:
-            return resolved
+    if not match:
+        return ""
 
-    # Some LMD layouts expose the publication value without the
-    # label in the same text fragment. Resolve it directly as a
-    # fallback.
-    return _resolve_date_value(text)
+    return _resolve_date_value(
+        match.group(1)
+    )
 
 
 # ---------------------------------------------------------
