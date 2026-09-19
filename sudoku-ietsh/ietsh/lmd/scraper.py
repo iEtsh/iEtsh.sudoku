@@ -275,6 +275,52 @@ def _parse_relative_publication(value, now=None):
     )
 
 
+def _resolve_date_value(value):
+    """
+    Convert any LMD date representation into the canonical
+    DD. Month YYYY, HH:MM format.
+
+    This accepts both the relative labels used for recent
+    puzzles and the full date used for older puzzles.
+    """
+
+    normalized = _normalize_published_text(value)
+
+    relative_date = _parse_relative_publication(
+        normalized
+    )
+
+    if relative_date:
+        return relative_date
+
+    patterns = [
+        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+        r'(\d{1,2}\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
+    ]
+
+    for pattern in patterns:
+
+        match = re.search(
+            pattern,
+            normalized,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            result = match.group(1)
+
+            for de, en in MONTH_MAP.items():
+                result = result.replace(
+                    de,
+                    en
+                )
+
+            return result
+
+    return ""
+
+
 def extract_published_date(html):
     """
     Extract the authoritative publication timestamp from the exact
@@ -298,50 +344,23 @@ def extract_published_date(html):
         strip=True
     )
 
+    # Prefer the value immediately following the publication label.
     publication_value = _extract_labeled_publication_value(
         text
     )
 
-    if not publication_value:
-        return ""
-
-    # First handle relative labels such as "today 09:14" and
-    # "gestern 09:14".
-    relative_date = _parse_relative_publication(
-        publication_value
-    )
-
-    if relative_date:
-        return relative_date
-
-    # Then handle the normal absolute date shown after the
-    # relative-date period has passed.
-    patterns = [
-        r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
-        r'(\d{1,2}\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
-    ]
-
-    for pattern in patterns:
-
-        match = re.search(
-            pattern,
-            publication_value,
-            re.IGNORECASE
+    if publication_value:
+        resolved = _resolve_date_value(
+            publication_value
         )
 
-        if match:
+        if resolved:
+            return resolved
 
-            result = match.group(1)
-
-            for de, en in MONTH_MAP.items():
-                result = result.replace(
-                    de,
-                    en
-                )
-
-            return result
-
-    return ""
+    # Some LMD layouts expose the publication value without the
+    # label in the same text fragment. Resolve it directly as a
+    # fallback.
+    return _resolve_date_value(text)
 
 
 # ---------------------------------------------------------
@@ -770,11 +789,23 @@ def parse_puzzles(html):
         # Date
         # -------------------------------------------------
 
-        # The listing date is only a fallback. The authoritative
-        # date is read later from this exact puzzle's detail page.
-        date = extract_date(
-            str(row)
+        # LMD may show recent publication dates in the listing as
+        # "today HH:MM" / "yesterday HH:MM" (or German equivalents).
+        # Resolve that value immediately so every puzzle has a real
+        # sortable calendar timestamp before it reaches config.json.
+        row_text = row.get_text(
+            " ",
+            strip=True
         )
+
+        date = _resolve_date_value(
+            row_text
+        )
+
+        if not date:
+            date = extract_date(
+                str(row)
+            )
 
         # -------------------------------------------------
         # Solves
@@ -1327,11 +1358,15 @@ def update_config():
                         if published_date:
                             item["date"] = published_date
 
-                        elif not item.get("date"):
-                            # Keep the existing value only when the
-                            # exact puzzle page could not provide a
-                            # publication timestamp.
-                            item["date"] = p.get("date", "")
+                        else:
+                            # The listing parser already resolved the
+                            # real date, including today/yesterday.
+                            # Always use that value when the exact
+                            # detail page did not expose a date.
+                            listing_date = p.get("date", "")
+
+                            if listing_date:
+                                item["date"] = listing_date
 
                         print(
                             f"Updated: "
@@ -1371,15 +1406,10 @@ def update_config():
 
             return datetime.min
 
-    # New puzzles are sorted into the normal date order.
-    # If two puzzles have the exact same timestamp, the puzzle
-    # added in this run comes first, so the Latest Puzzle section
-    # immediately shows the newly added puzzle.
+    # The config is always kept in exact publication-date order.
+    # There is no manual "latest" ordering.
     cfg["items"].sort(
-        key=lambda item: (
-            parse_date(item),
-            item.get("lmd") in newly_added_lmd
-        ),
+        key=parse_date,
         reverse=True
     )
 
