@@ -1807,5 +1807,14 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "rating"
+  },
+  {
+    "id": "2026-09-19T21:32:33.921406Z-0",
+    "time": "2026-09-19T21:32:33.921406Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
   }
 ]
