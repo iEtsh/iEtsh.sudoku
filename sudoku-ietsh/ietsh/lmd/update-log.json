@@ -880,5 +880,32 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T14:07:09.792761Z-0",
+    "time": "2026-09-19T14:07:09.792761Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T14:07:09.792761Z-1",
+    "time": "2026-09-19T14:07:09.792761Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T14:07:09.792761Z-2",
+    "time": "2026-09-19T14:07:09.792761Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
