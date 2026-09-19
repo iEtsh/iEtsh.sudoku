@@ -1051,5 +1051,50 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T17:02:14.702087Z-0",
+    "time": "2026-09-19T17:02:14.702087Z",
+    "type": "Author Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "author_rated"
+  },
+  {
+    "id": "2026-09-19T17:02:14.702087Z-1",
+    "time": "2026-09-19T17:02:14.702087Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T17:02:14.702087Z-2",
+    "time": "2026-09-19T17:02:14.702087Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T17:02:14.702087Z-3",
+    "time": "2026-09-19T17:02:14.702087Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "rating"
+  },
+  {
+    "id": "2026-09-19T17:02:14.702087Z-4",
+    "time": "2026-09-19T17:02:14.702087Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "sudokupad_solves"
   }
 ]

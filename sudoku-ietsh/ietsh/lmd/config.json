@@ -7,12 +7,12 @@
       "title": "Origami",
       "date": "19. September 2026, 12:32",
       "stars": 1,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/tmj363gk27",
       "lmd": "000V0C",
-      "solves": 17,
-      "sudokupad_solves": 56,
-      "rating": "N/A",
+      "solves": 18,
+      "sudokupad_solves": 57,
+      "rating": "93%",
       "image": "images/000V0C.jpg"
     },
     {
@@ -167,7 +167,7 @@
       "rating": "82%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 274
+      "sudokupad_solves": 275
     },
     {
       "num": 14,
@@ -366,5 +366,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-19T16:57:28.455148Z"
+  "last_check": "2026-09-19T17:02:14.701345Z"
 }
