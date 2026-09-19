@@ -1554,6 +1554,8 @@
         'click',
         undoClearUpdateLog
       );
+
+    updateClearUndoButtons();
   };
 
   // ---------------------------------------------------------
