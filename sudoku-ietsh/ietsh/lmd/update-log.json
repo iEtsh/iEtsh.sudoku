@@ -2050,5 +2050,41 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T23:32:28.743473Z-0",
+    "time": "2026-09-19T23:32:28.743473Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T23:32:28.743473Z-1",
+    "time": "2026-09-19T23:32:28.743473Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T23:32:28.743473Z-2",
+    "time": "2026-09-19T23:32:28.743473Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "rating"
+  },
+  {
+    "id": "2026-09-19T23:32:28.743473Z-3",
+    "time": "2026-09-19T23:32:28.743473Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves"
   }
 ]
