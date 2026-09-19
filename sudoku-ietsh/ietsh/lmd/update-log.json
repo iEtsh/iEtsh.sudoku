@@ -1114,5 +1114,32 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T17:22:11.958906Z-0",
+    "time": "2026-09-19T17:22:11.958906Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T17:22:11.958906Z-1",
+    "time": "2026-09-19T17:22:11.958906Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "rating"
+  },
+  {
+    "id": "2026-09-19T17:22:11.958906Z-2",
+    "time": "2026-09-19T17:22:11.958906Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
