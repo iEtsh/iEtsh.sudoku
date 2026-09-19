@@ -129,6 +129,34 @@
     }
   };
 
+  const updateUndoButton = () => {
+    const button =
+      d3.select(
+        '.archive-undo-updates'
+      );
+
+    if (button.empty()) {
+      return;
+    }
+
+    let hasUndo = false;
+
+    try {
+      hasUndo =
+        localStorage.getItem(
+          updateUndoKey
+        ) !== null;
+    } catch (error) {
+      hasUndo = false;
+    }
+
+    button
+      .property(
+        'disabled',
+        !hasUndo
+      );
+  };
+
   const clearUpdateLog = () => {
     const previousClearAt =
       updateClearAt;
@@ -156,12 +184,19 @@
     updateLog = [];
 
     renderUpdateMonitor();
+    updateUndoButton();
   };
 
   const undoClearUpdateLog = () => {
     let previousClearAt = 0;
+    let hasUndo = false;
 
     try {
+      hasUndo =
+        localStorage.getItem(
+          updateUndoKey
+        ) !== null;
+
       previousClearAt =
         Number(
           localStorage.getItem(
@@ -169,10 +204,12 @@
           )
         ) || 0;
     } catch (error) {
+      hasUndo = false;
       previousClearAt = 0;
     }
 
-    if (!previousClearAt) {
+    if (!hasUndo) {
+      updateUndoButton();
       return;
     }
 
@@ -194,6 +231,8 @@
         error
       );
     }
+
+    updateUndoButton();
 
     fetchUpdateLog().then(
       () => renderUpdateMonitor()
@@ -1329,13 +1368,9 @@
 
     try {
       hasUndo =
-        Boolean(
-          Number(
-            localStorage.getItem(
-              updateUndoKey
-            )
-          )
-        );
+        localStorage.getItem(
+          updateUndoKey
+        ) !== null;
     } catch (error) {
       hasUndo = false;
     }
