@@ -997,8 +997,7 @@
           typeof bv === 'string'
         ) {
           return (
-            compareText(av, bv) *            direction
-          );
+            compareText(av, bv) *            direction          );
         }
 
         if (av < bv) {
@@ -1997,8 +1996,7 @@
       // -----------------------------------------------------
       // Play
       // -----------------------------------------------------
-      const play =
-        ul
+      const play =        ul
           .append('li')
           .attr(
             'class',
