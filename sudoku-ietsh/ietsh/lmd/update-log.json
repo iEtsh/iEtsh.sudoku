@@ -1222,5 +1222,23 @@
     "puzzleNum": 22,
     "title": "Vibrant Spots V",
     "field": "rating"
+  },
+  {
+    "id": "2026-09-19T17:52:26.502499Z-0",
+    "time": "2026-09-19T17:52:26.502499Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T17:52:26.502499Z-1",
+    "time": "2026-09-19T17:52:26.502499Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
