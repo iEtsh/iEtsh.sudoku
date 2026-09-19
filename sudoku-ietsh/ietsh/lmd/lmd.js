@@ -167,6 +167,15 @@
     updateLog = [];
 
     renderUpdateMonitor();
+
+    const undoButton =
+      document.querySelector(
+        '.archive-undo-updates'
+      );
+
+    if (undoButton) {
+      undoButton.disabled = false;
+    }
   };
 
   const undoClearUpdateLog = () => {
@@ -228,6 +237,15 @@
     }
 
     renderUpdateMonitor();
+
+    const undoButton =
+      document.querySelector(
+        '.archive-undo-updates'
+      );
+
+    if (undoButton) {
+      undoButton.disabled = true;
+    }
   };
 
   const formatUpdateTime = time => {
