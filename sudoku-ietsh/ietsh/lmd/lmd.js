@@ -1118,34 +1118,6 @@
     );
   };
 
-  const updateUndoButton = () => {
-    const button =
-      d3.select(
-        '.archive-undo-updates'
-      );
-
-    if (button.empty()) {
-      return;
-    }
-
-    let hasUndo = false;
-
-    try {
-      hasUndo =
-        localStorage.getItem(
-          updateUndoKey
-        ) !== null;
-    } catch (error) {
-      hasUndo = false;
-    }
-
-    button.property(
-      'disabled',
-      !hasUndo ||
-      !isSearchPasswordValid()
-    );
-  };
-
   const applySearch = () => {
     if (!isSearchPasswordValid()) {
       updateSearchButton();
@@ -1439,6 +1411,7 @@
             ''
           );
 
+          renderArchive(true);
           updateSearchButton();
         }
       }
