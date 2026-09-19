@@ -108,6 +108,8 @@
               )
           : [];
 
+      updateClearButton();
+
       return updateLog
         .filter(
           entry =>
@@ -127,6 +129,23 @@
 
       return [];
     }
+  };
+
+  const updateClearButton = () => {
+    const button =
+      d3.select(
+        '.archive-clear-updates'
+      );
+
+    if (button.empty()) {
+      return;
+    }
+
+    button
+      .property(
+        'disabled',
+        !updateLog.length
+      );
   };
 
   const updateUndoButton = () => {
@@ -184,6 +203,7 @@
     updateLog = [];
 
     renderUpdateMonitor();
+    updateClearButton();
     updateUndoButton();
   };
 
@@ -233,9 +253,13 @@
     }
 
     updateUndoButton();
+    updateClearButton();
 
     fetchUpdateLog().then(
-      () => renderUpdateMonitor()
+      () => {
+        renderUpdateMonitor();
+        updateClearButton();
+      }
     );
   };
 
@@ -1357,6 +1381,10 @@
       .attr(
         'aria-label',
         'Clear update history'
+      )
+      .property(
+        'disabled',
+        !updateLog.length
       )
       .text('CLEAR UPDATES')
       .on(
