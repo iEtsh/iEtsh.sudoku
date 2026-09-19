@@ -2014,5 +2014,23 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T23:07:15.350094Z-0",
+    "time": "2026-09-19T23:07:15.350094Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T23:07:15.350094Z-1",
+    "time": "2026-09-19T23:07:15.350094Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves"
   }
 ]
