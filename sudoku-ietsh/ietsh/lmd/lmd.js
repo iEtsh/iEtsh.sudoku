@@ -180,6 +180,11 @@
   };
 
   const clearUpdateLog = () => {
+    if (!isClearUndoPasswordValid()) {
+      updateClearUndoButtons();
+      return;
+    }
+
     const previousClearAt =
       updateClearAt;
 
@@ -211,6 +216,11 @@
   };
 
   const undoClearUpdateLog = () => {
+    if (!isClearUndoPasswordValid()) {
+      updateClearUndoButtons();
+      return;
+    }
+
     let previousClearAt = 0;
     let hasUndo = false;
 
@@ -1143,10 +1153,6 @@
     }
   };
 
-  const applySearch = () => {
-    renderArchive(true);
-  };
-
   // ---------------------------------------------------------
   // Sort button
   // ---------------------------------------------------------
@@ -1456,7 +1462,7 @@
       )
       .attr(
         'aria-label',
-        'Search and undo password'
+        'Password for CLEAR / UNDO'
       )
       .attr(
         'autocomplete',
@@ -1479,34 +1485,6 @@
             updateClearUndoButtons();
           }
         }
-      );
-
-    controls
-      .append('button')
-      .attr(
-        'type',
-        'button'
-      )
-      .attr(
-        'class',
-        'archive-search-button'
-      )
-      .attr(
-        'title',
-        'Search puzzles'
-      )
-      .attr(
-        'aria-label',
-        'Search puzzles'
-      )
-      .property(
-        'disabled',
-        false
-      )
-      .text('SEARCH')
-      .on(
-        'click',
-        () => {}
       );
 
     controls
