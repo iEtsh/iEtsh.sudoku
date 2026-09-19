@@ -24,12 +24,11 @@
 
   const archiveState = {
     search: '',
-    pendingSearch: '',
     sortKey: 'date',
     sortDirection: 'desc'
   };
 
-  const searchPassword = '1907';
+  const clearUndoPassword = '1907';
 
   // ---------------------------------------------------------
   // Update monitor
@@ -176,7 +175,7 @@
       .property(
         'disabled',
         !hasUndo ||
-        !isSearchPasswordValid()
+        !isClearUndoPasswordValid()
       );
   };
 
@@ -233,7 +232,7 @@
     }
 
     if (!hasUndo) {
-      updateUndoButton();
+      updateClearUndoButtons();
       return;
     }
 
@@ -1089,7 +1088,7 @@
     );
   };
 
-  const isSearchPasswordValid = () => {
+  const isClearUndoPasswordValid = () => {
     const input =
       d3.select(
         '.archive-password-input'
@@ -1098,14 +1097,14 @@
     return (
       !input.empty() &&
       input.property('value') ===
-        searchPassword
+        clearUndoPassword
     );
   };
 
-  const updateSearchButton = () => {
+  const updateClearUndoButtons = () => {
     const button =
       d3.select(
-        '.archive-search-button'
+        '.archive-clear-updates'
       );
 
     if (button.empty()) {
@@ -1120,15 +1119,13 @@
 
   const applySearch = () => {
     if (!isSearchPasswordValid()) {
-      updateSearchButton();
       return;
     }
 
     archiveState.search =
-      archiveState.pendingSearch;
+      archiveState.search;
 
     renderArchive(true);
-    updateSearchButton();
   };
 
   // ---------------------------------------------------------
@@ -1378,10 +1375,10 @@
     input.on(
       'input',
       function () {
-        archiveState.pendingSearch =
+        archiveState.search =
           this.value;
 
-        updateSearchButton();
+        renderArchive(true);
       }
     );
 
@@ -1403,7 +1400,6 @@
         ) {
           ev.preventDefault();
 
-          archiveState.pendingSearch = '';
           archiveState.search = '';
 
           input.property(
@@ -1412,7 +1408,7 @@
           );
 
           renderArchive(true);
-          updateSearchButton();
+
         }
       }
     );
@@ -1453,8 +1449,7 @@
       .on(
         'input',
         () => {
-          updateSearchButton();
-          updateUndoButton();
+          updateClearUndoButtons();
         }
       )
       .on(
@@ -1462,7 +1457,7 @@
         ev => {
           if (ev.key === 'Enter') {
             ev.preventDefault();
-            applySearch();
+            updateClearUndoButtons();
           }
         }
       );
@@ -1487,12 +1482,12 @@
       )
       .property(
         'disabled',
-        true
+        false
       )
       .text('SEARCH')
       .on(
         'click',
-        applySearch
+        () => {}
       );
 
     controls
@@ -1555,7 +1550,7 @@
       .property(
         'disabled',
         !hasUndo ||
-        !isSearchPasswordValid()
+        !isClearUndoPasswordValid()
       )
       .text('UNDO')
       .on(
