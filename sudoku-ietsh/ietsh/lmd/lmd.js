@@ -1102,29 +1102,48 @@
   };
 
   const updateClearUndoButtons = () => {
-    const button =
+    const clearButton =
       d3.select(
         '.archive-clear-updates'
       );
 
-    if (button.empty()) {
-      return;
+    const undoButton =
+      d3.select(
+        '.archive-undo-updates'
+      );
+
+    const passwordValid =
+      isClearUndoPasswordValid();
+
+    if (!clearButton.empty()) {
+      clearButton.property(
+        'disabled',
+        !updateLog.length ||
+        !passwordValid
+      );
     }
 
-    button.property(
-      'disabled',
-      !isSearchPasswordValid()
-    );
+    if (!undoButton.empty()) {
+      let hasUndo = false;
+
+      try {
+        hasUndo =
+          localStorage.getItem(
+            updateUndoKey
+          ) !== null;
+      } catch (error) {
+        hasUndo = false;
+      }
+
+      undoButton.property(
+        'disabled',
+        !hasUndo ||
+        !passwordValid
+      );
+    }
   };
 
   const applySearch = () => {
-    if (!isSearchPasswordValid()) {
-      return;
-    }
-
-    archiveState.search =
-      archiveState.search;
-
     renderArchive(true);
   };
 
