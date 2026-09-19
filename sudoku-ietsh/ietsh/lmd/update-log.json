@@ -1186,5 +1186,41 @@
     "puzzleNum": 22,
     "title": "Vibrant Spots V",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T17:42:28.702065Z-0",
+    "time": "2026-09-19T17:42:28.702065Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T17:42:28.702065Z-1",
+    "time": "2026-09-19T17:42:28.702065Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T17:42:28.702065Z-2",
+    "time": "2026-09-19T17:42:28.702065Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-19T17:42:28.702065Z-3",
+    "time": "2026-09-19T17:42:28.702065Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "rating"
   }
 ]
