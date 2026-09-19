@@ -850,6 +850,56 @@ body {
     transform: translateY(1px);
 }
 
+.archive-undo-updates {
+    height: 40px;
+
+    padding: 0 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #7d8798;
+
+    font: inherit;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.archive-undo-updates:hover:not(:disabled) {
+    background:
+        rgba(101, 118, 184, 0.08);
+
+    border-color:
+        rgba(101, 118, 184, 0.2);
+
+    color: #aeb9df;
+}
+
+.archive-undo-updates:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.archive-undo-updates:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
 .archive-sort-button {
     display: inline-flex;
     align-items: center;
