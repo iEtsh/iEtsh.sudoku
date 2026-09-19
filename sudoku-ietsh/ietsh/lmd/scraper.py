@@ -23,7 +23,8 @@ import requests
 
 from playwright.sync_api import sync_playwright
 
-from datetime import datetime
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
@@ -60,6 +61,13 @@ HEADERS = {
     "Accept-Language":
         "en-US,en;q=0.9",
 }
+
+
+# LMD displays publication times using its German/European local
+# timezone. Relative labels such as "today"/"yesterday" must be
+# resolved against the same timezone, not the GitHub runner's UTC
+# clock.
+LMD_TIMEZONE = ZoneInfo("Europe/Berlin")
 
 
 MONTH_MAP = {
@@ -147,7 +155,138 @@ def extract_date(text):
     return ""
 
 
+def _format_lmd_datetime(value):
+    """
+    Convert a timezone-aware datetime to the canonical date format
+    stored in config.json.
+    """
+
+    return value.strftime(
+        "%d. %B %Y, %H:%M"
+    )
+
+
+def _normalize_published_text(text):
+    """
+    Normalize whitespace while preserving the actual words/time.
+    """
+
+    return re.sub(
+        r"\s+",
+        " ",
+        text
+    ).strip()
+
+
+def _extract_labeled_publication_value(text):
+    """
+    Return only the value belonging to the publication-date label.
+
+    The detail page may show:
+      Published on today 09:14
+      Published on yesterday 09:14
+      Eingestellt am heute 09:14
+      Eingestellt am gestern 09:14
+      Published on 14. September 2026, 09:14
+
+    Limiting extraction to the text immediately following the
+    publication label prevents a date belonging to another piece
+    of page content from being selected.
+    """
+
+    normalized = _normalize_published_text(text)
+
+    label_pattern = (
+        r"(?:Eingestellt\s+am|Published\s+on)"
+        r"\s*[:\-]?\s*"
+        r"([^|]+?)"
+        r"(?=\s+(?:Bewertung|Rating|Schwierigkeit|Difficulty|"
+        r"Autor|Author|Lösung|Solution|Kommentare|Comments)\b|$)"
+    )
+
+    match = re.search(
+        label_pattern,
+        normalized,
+        re.IGNORECASE
+    )
+
+    if match:
+        return match.group(1).strip()
+
+    return ""
+
+
+def _parse_relative_publication(value, now=None):
+    """
+    Parse LMD relative publication labels.
+
+    Supported English:
+      today HH:MM
+      yesterday HH:MM
+
+    Supported German:
+      heute HH:MM
+      gestern HH:MM
+
+    The calendar date comes from the LMD timezone and the displayed
+    clock time is preserved exactly.
+    """
+
+    if now is None:
+        now = datetime.now(LMD_TIMEZONE)
+
+    normalized = _normalize_published_text(value).lower()
+
+    match = re.fullmatch(
+        r"(today|heute|yesterday|gestern)\s+"
+        r"(\d{1,2}):(\d{2})",
+        normalized
+    )
+
+    if not match:
+        return ""
+
+    relative_day = match.group(1)
+    hour = int(match.group(2))
+    minute = int(match.group(3))
+
+    if hour > 23 or minute > 59:
+        return ""
+
+    if relative_day in ("yesterday", "gestern"):
+        publication_date = (
+            now.date()
+            - timedelta(days=1)
+        )
+    else:
+        publication_date = now.date()
+
+    resolved = datetime(
+        publication_date.year,
+        publication_date.month,
+        publication_date.day,
+        hour,
+        minute,
+        tzinfo=LMD_TIMEZONE
+    )
+
+    return _format_lmd_datetime(
+        resolved
+    )
+
+
 def extract_published_date(html):
+    """
+    Extract the authoritative publication timestamp from the exact
+    puzzle detail page.
+
+    LMD uses relative labels for recent puzzles and switches to a
+    full calendar date later. Both English and German forms are
+    supported.
+
+    Returned format is always:
+      DD. Month YYYY, HH:MM
+    """
 
     soup = BeautifulSoup(
         html,
@@ -159,14 +298,26 @@ def extract_published_date(html):
         strip=True
     )
 
-    # The puzzle detail page contains the authoritative
-    # publication timestamp in the "Eingestellt am" /
-    # "Published on" line. Only extract a date when it is
-    # explicitly attached to that label.
+    publication_value = _extract_labeled_publication_value(
+        text
+    )
+
+    if not publication_value:
+        return ""
+
+    # First handle relative labels such as "today 09:14" and
+    # "gestern 09:14".
+    relative_date = _parse_relative_publication(
+        publication_value
+    )
+
+    if relative_date:
+        return relative_date
+
+    # Then handle the normal absolute date shown after the
+    # relative-date period has passed.
     patterns = [
-        r'(?:Eingestellt am|Published on)\s+'
         r'(\d{1,2}\.\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
-        r'(?:Eingestellt am|Published on)\s+'
         r'(\d{1,2}\s+\w+\s+\d{4},\s+\d{1,2}:\d{2})',
     ]
 
@@ -174,7 +325,7 @@ def extract_published_date(html):
 
         match = re.search(
             pattern,
-            text,
+            publication_value,
             re.IGNORECASE
         )
 
