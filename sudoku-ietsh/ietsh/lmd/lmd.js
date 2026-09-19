@@ -41,13 +41,8 @@
   const updateUndoKey =
     'ietsh-lmd-update-clear-undo-at';
 
-  const updateUndoSnapshotKey =
-    'ietsh-lmd-update-clear-undo-snapshot';
-
   let updateLog = [];
   let updateClearAt = 0;
-  let clearUnlocked = false;
-  const clearPassword = '1907';
 
   const loadUpdateClearAt = () => {
     try {
@@ -138,9 +133,6 @@
     const previousClearAt =
       updateClearAt;
 
-    const previousLog =
-      [...updateLog];
-
     updateClearAt =
       Date.now();
 
@@ -148,11 +140,6 @@
       localStorage.setItem(
         updateUndoKey,
         String(previousClearAt)
-      );
-
-      localStorage.setItem(
-        updateUndoSnapshotKey,
-        JSON.stringify(previousLog)
       );
 
       localStorage.setItem(
@@ -169,20 +156,10 @@
     updateLog = [];
 
     renderUpdateMonitor();
-
-    const undoButton =
-      document.querySelector(
-        '.archive-undo-updates'
-      );
-
-    if (undoButton) {
-      undoButton.disabled = false;
-    }
   };
 
   const undoClearUpdateLog = () => {
     let previousClearAt = 0;
-    let previousLog = null;
 
     try {
       previousClearAt =
@@ -191,32 +168,16 @@
             updateUndoKey
           )
         ) || 0;
-
-      const snapshot =
-        localStorage.getItem(
-          updateUndoSnapshotKey
-        );
-
-      previousLog =
-        snapshot
-          ? JSON.parse(snapshot)
-          : null;
     } catch (error) {
       previousClearAt = 0;
-      previousLog = null;
     }
 
-    if (
-      !Array.isArray(previousLog)
-    ) {
+    if (!previousClearAt) {
       return;
     }
 
     updateClearAt =
       previousClearAt;
-
-    updateLog =
-      previousLog;
 
     try {
       localStorage.setItem(
@@ -227,10 +188,6 @@
       localStorage.removeItem(
         updateUndoKey
       );
-
-      localStorage.removeItem(
-        updateUndoSnapshotKey
-      );
     } catch (error) {
       console.warn(
         'Unable to restore update monitor state:',
@@ -238,16 +195,9 @@
       );
     }
 
-    renderUpdateMonitor();
-
-    const undoButton =
-      document.querySelector(
-        '.archive-undo-updates'
-      );
-
-    if (undoButton) {
-      undoButton.disabled = true;
-    }
+    fetchUpdateLog().then(
+      () => renderUpdateMonitor()
+    );
   };
 
   const formatUpdateTime = time => {
@@ -399,7 +349,8 @@
         item
           .append('div')
           .attr(
-            'class',            'update-entry-time'
+            'class',
+            'update-entry-time'
           )
           .text(
             formatUpdateTime(
@@ -798,7 +749,8 @@
     const card = recent
       .append('div')
       .attr(
-        'class',        'latest-card'
+        'class',
+        'latest-card'
       );
 
     card
@@ -997,7 +949,9 @@
           typeof bv === 'string'
         ) {
           return (
-            compareText(av, bv) *            direction          );
+            compareText(av, bv) *
+            direction
+          );
         }
 
         if (av < bv) {
@@ -1195,7 +1149,8 @@
         );
 
     appendSortButton(
-      difficultyHeader,      'DIFFICULTY',
+      difficultyHeader,
+      'DIFFICULTY',
       'difficulty'
     );
 
@@ -1346,85 +1301,39 @@
       }
     );
 
-    const passwordInput =
-      controls
-        .append('input')
-        .attr(
-          'type',
-          'password'
-        )
-        .attr(
-          'class',
-          'archive-clear-password'
-        )
-        .attr(
-          'placeholder',
-          'Password'
-        )
-        .attr(
-          'aria-label',
-          'Password required to clear update history'
-        )
-        .attr(
-          'autocomplete',
-          'off'
-        );
-
-    const clearButton =
-      controls
-        .append('button')
-        .attr(
-          'type',
-          'button'
-        )
-        .attr(
-          'class',
-          'archive-clear-updates'
-        )
-        .attr(
-          'title',
-          'Enter the password to clear update history'
-        )
-        .attr(
-          'aria-label',
-          'Clear update history'
-        )
-        .property(
-          'disabled',
-          !clearUnlocked
-        )
-        .text('CLEAR UPDATES')
-        .on(
-          'click',
-          () => {
-            if (!clearUnlocked) {
-              return;
-            }
-
-            clearUpdateLog();
-          }
-        );
-
-    passwordInput.on(
-      'input',
-      function () {
-        clearUnlocked =
-          this.value === clearPassword;
-
-        clearButton.property(
-          'disabled',
-          !clearUnlocked
-        );
-      }
-    );
+    controls
+      .append('button')
+      .attr(
+        'type',
+        'button'
+      )
+      .attr(
+        'class',
+        'archive-clear-updates'
+      )
+      .attr(
+        'title',
+        'Clear update history'
+      )
+      .attr(
+        'aria-label',
+        'Clear update history'
+      )
+      .text('CLEAR UPDATES')
+      .on(
+        'click',
+        clearUpdateLog
+      );
 
     let hasUndo = false;
 
     try {
       hasUndo =
         Boolean(
-          localStorage.getItem(
-            updateUndoSnapshotKey
+          Number(
+            localStorage.getItem(
+              updateUndoKey
+            )
           )
         );
     } catch (error) {
@@ -1642,7 +1551,8 @@
   // ---------------------------------------------------------
 
   const hideTooltip = () => {
-    tooltip      .style(
+    tooltip
+      .style(
         'opacity',
         0
       );
@@ -1996,7 +1906,9 @@
       // -----------------------------------------------------
       // Play
       // -----------------------------------------------------
-      const play =        ul
+
+      const play =
+        ul
           .append('li')
           .attr(
             'class',
@@ -2193,3 +2105,450 @@
     'keydown',
     handleArchiveKeyboard
   );
+
+  // ---------------------------------------------------------
+  // Archive rendering
+  // ---------------------------------------------------------
+
+  const renderArchive = (
+    preserveSearchFocus = false
+  ) => {
+    if (
+      !cache.data
+    ) {
+      return;
+    }
+
+    const activeElement =
+      document.activeElement;
+
+    const searchWasFocused =
+      preserveSearchFocus &&
+      activeElement &&
+      activeElement.classList.contains(
+        'archive-search-input'
+      );
+
+    let selectionStart = null;
+    let selectionEnd = null;
+
+    if (searchWasFocused) {
+      selectionStart =
+        activeElement.selectionStart;
+
+      selectionEnd =
+        activeElement.selectionEnd;
+    }
+
+    hideTooltip();
+
+    const items =
+      cache.data.items || [];
+
+    const filtered =
+      filteredPuzzles(
+        items
+      );
+
+    const sorted =
+      sortPuzzles(
+        filtered
+      );
+
+    summs.html('');
+
+    genArchiveControls();
+
+    genSummaryHeader();
+
+    if (
+      !sorted.length
+    ) {
+      const empty =
+        summs
+          .append('div')
+          .attr(
+            'class',
+            'archive-empty'
+          );
+
+      empty
+        .append('strong')
+        .text(
+          'No puzzles found'
+        );
+
+      empty
+        .append('span')
+        .text(
+          archiveState.search
+            ? `No puzzle matches "${archiveState.search}".`
+            : 'There are no puzzles to display.'
+        );
+
+      if (searchWasFocused) {
+        const newInput =
+          document.querySelector(
+            '#summary-table .archive-search-input'
+          );
+
+        if (newInput) {
+          newInput.focus();
+
+          if (
+            selectionStart !== null &&
+            selectionEnd !== null
+          ) {
+            newInput.setSelectionRange(
+              selectionStart,
+              selectionEnd
+            );
+          }
+        }
+      }
+
+      return;
+    }
+
+    sorted.forEach(
+      createArchiveRow
+    );
+
+    if (searchWasFocused) {
+      const newInput =
+        document.querySelector(
+          '#summary-table .archive-search-input'
+        );
+
+      if (newInput) {
+        newInput.focus();
+
+        if (
+          selectionStart !== null &&
+          selectionEnd !== null
+        ) {
+          newInput.setSelectionRange(
+            selectionStart,
+            selectionEnd
+          );
+        }
+      }
+    }
+  };
+
+  // ---------------------------------------------------------
+  // State
+  // ---------------------------------------------------------
+
+  function getPuzzleState(d) {
+    return JSON.stringify(
+      (d.items || []).map(
+        i => ({
+          num: i.num,
+          id: i.id,
+          title: i.title,
+          date: i.date,
+          stars: i.stars,
+          author_rated:
+            i.author_rated === true,
+          puzz: i.puzz,
+          lmd: i.lmd,
+          solves: i.solves,
+          sudokupad_solves:
+            i.sudokupad_solves,
+          rating: i.rating,
+          qs: i.qs || '',
+          image: i.image || ''
+        })
+      )
+    );
+  }
+
+  // ---------------------------------------------------------
+  // Render
+  // ---------------------------------------------------------
+
+  function renderData(
+    d,
+    newEntryIds = []
+  ) {
+    recent.html('');
+
+    cache.titles = {};
+    cache.images = {};
+    cache.hovered = null;
+
+    genMostRecent(d);
+
+    cache.data =
+      JSON.parse(
+        JSON.stringify(d)
+      );
+
+    cache.state =
+      getPuzzleState(d);
+
+    genDashboard(d);
+
+    renderUpdateMonitor(
+      newEntryIds
+    );
+
+    renderArchive();
+  }
+
+  // ---------------------------------------------------------
+  // Update timer
+  // ---------------------------------------------------------
+
+  function updateTimer() {
+    if (!lastCheckTime) {
+      return;
+    }
+
+    const now =
+      new Date();
+
+    const diffSec =
+      Math.max(
+        0,
+        Math.floor(
+          (now - lastCheckTime) /
+            1000
+        )
+      );
+
+    let text;
+
+    if (
+      diffSec < 60
+    ) {
+      text =
+        `Last checked: ${diffSec} seconds ago`;
+    } else if (
+      diffSec < 3600
+    ) {
+      const min =
+        Math.floor(
+          diffSec / 60
+        );
+
+      const sec =
+        diffSec % 60;
+
+      text =
+        `Last checked: ${min} min ${sec} sec ago`;
+    } else {
+      const hr =
+        Math.floor(
+          diffSec / 3600
+        );
+
+      const min =
+        Math.floor(
+          (diffSec % 3600) / 60
+        );
+
+      text =
+        `Last checked: ${hr} hr ${min} min ago`;
+    }
+
+    d3.select('#since')
+      .select('.update-text')
+      .text(text);
+  }
+
+  // ---------------------------------------------------------
+  // Fetch config
+  // ---------------------------------------------------------
+
+  async function fetchConfig() {
+    const response =
+      await fetch(
+        confPath +
+          '?t=' +
+          Date.now(),
+        {
+          cache: 'no-store'
+        }
+      );
+
+    if (!response.ok) {
+      throw new Error(
+        `HTTP ${response.status}`
+      );
+    }
+
+    return await response.json();
+  }
+
+  // ---------------------------------------------------------
+  // Check for updates
+  // ---------------------------------------------------------
+
+  async function checkForUpdates() {
+    try {
+      const d =
+        await fetchConfig();
+
+      if (!d.last_check) {
+        return;
+      }
+
+      const newCheck =
+        d.last_check !==
+        lastCheckRaw;
+
+      const newState =
+        getPuzzleState(d);
+
+      const dataChanged =
+        newState !==
+        cache.state;
+
+      if (newCheck) {
+        lastCheckRaw =
+          d.last_check;
+
+        lastCheckTime =
+          new Date(
+            d.last_check
+          );
+
+        updateTimer();
+
+        if (dataChanged) {
+          renderData(d);
+        }
+
+        const newEntryIds =
+          await fetchUpdateLog();
+
+        if (newEntryIds.length) {
+          renderUpdateMonitor(
+            newEntryIds
+          );
+        }
+
+        return;
+      }
+
+      if (dataChanged) {
+        renderData(d);
+      }
+
+      const newEntryIds =
+        await fetchUpdateLog();
+
+      if (newEntryIds.length) {
+        renderUpdateMonitor(
+          newEntryIds
+        );
+      }
+
+    } catch (error) {
+      console.warn(
+        'Unable to check puzzle data:',
+        error
+      );
+    }
+  }
+
+  // ---------------------------------------------------------
+  // Initial load
+  // ---------------------------------------------------------
+
+  async function initialLoad() {
+    try {
+      const d =
+        await fetchConfig();
+
+      if (!d.last_check) {
+        renderData(d);
+        return;
+      }
+
+      lastCheckRaw =
+        d.last_check;
+
+      lastCheckTime =
+        new Date(
+          d.last_check
+        );
+
+      await fetchUpdateLog();
+
+      renderData(d);
+
+      updateTimer();
+
+      setInterval(
+        updateTimer,
+        1000
+      );
+
+      setInterval(
+        checkForUpdates,
+        30000
+      );
+
+    } catch (error) {
+      console.error(
+        'Failed to load puzzle data:',
+        error
+      );
+    }
+  }
+
+  // ---------------------------------------------------------
+  // Dashboard container
+  // ---------------------------------------------------------
+
+  const createDashboardContainer = () => {
+    if (
+      !d3.select(
+        '#puzzle-dashboard'
+      ).empty()
+    ) {
+      return;
+    }
+
+    const listing =
+      d3.select(
+        '.listing-section'
+      );
+
+    if (
+      listing.empty()
+    ) {
+      return;
+    }
+
+    listing
+      .insert(
+        'aside',
+        '#summary-table'
+      )
+      .attr(
+        'id',
+        'puzzle-dashboard'
+      )
+      .attr(
+        'class',
+        'puzzle-dashboard'
+      )
+      .attr(
+        'aria-label',
+        'Puzzle dashboard'
+      );
+  };
+
+  createDashboardContainer();
+
+  // ---------------------------------------------------------
+  // Start
+  // ---------------------------------------------------------
+
+  initialLoad();
+
+})();
