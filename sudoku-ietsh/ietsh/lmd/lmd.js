@@ -816,9 +816,13 @@
   };
 
   const genMostRecent = d => {
+    // Latest Puzzle must always be the first puzzle in the
+    // default archive order (newest publication date first).
+    // Never rely on the physical order of config.json alone.
     const i =
-      d.items &&
-      d.items[0];
+      sortPuzzles(
+        d.items || []
+      )[0];
 
     if (!i) return;
 
