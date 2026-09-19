@@ -430,5 +430,14 @@
     "puzzleNum": 11,
     "title": "Lucifer's Fall",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-19T06:57:09.795365Z-0",
+    "time": "2026-09-19T06:57:09.795365Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
