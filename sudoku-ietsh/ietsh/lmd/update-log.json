@@ -2626,5 +2626,23 @@
     "puzzleNum": 19,
     "title": "Blink III",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T12:02:35.370998Z-0",
+    "time": "2026-09-20T12:02:35.370998Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-20T12:02:35.370998Z-1",
+    "time": "2026-09-20T12:02:35.370998Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
