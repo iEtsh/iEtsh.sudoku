@@ -3058,5 +3058,14 @@
     "puzzleNum": 11,
     "title": "Lucifer's Fall",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T20:37:16.918839Z-0",
+    "time": "2026-09-20T20:37:16.918839Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
