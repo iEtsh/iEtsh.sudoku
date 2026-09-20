@@ -2725,5 +2725,23 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T14:22:27.529178Z-0",
+    "time": "2026-09-20T14:22:27.529178Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T14:22:27.529178Z-1",
+    "time": "2026-09-20T14:22:27.529178Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents2",
+    "puzzleNum": 12,
+    "title": "Crosscurrents II",
+    "field": "solves"
   }
 ]

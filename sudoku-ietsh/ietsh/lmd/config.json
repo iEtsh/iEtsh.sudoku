@@ -27,7 +27,7 @@
       "rating": "95%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1474
+      "sudokupad_solves": 1475
     },
     {
       "num": 24,
@@ -205,7 +205,7 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/z1jja1angl",
       "lmd": "000U2A",
-      "solves": 74,
+      "solves": 75,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000U2A.png",
@@ -366,5 +366,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-20T14:17:16.077474Z"
+  "last_check": "2026-09-20T14:22:27.528071Z"
 }
