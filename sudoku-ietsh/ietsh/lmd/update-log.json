@@ -3040,5 +3040,23 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T20:29:25.913105Z-0",
+    "time": "2026-09-20T20:29:25.913105Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-20T20:29:25.913105Z-1",
+    "time": "2026-09-20T20:29:25.913105Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "sudokupad_solves"
   }
 ]
