@@ -2253,7 +2253,7 @@ body {
 
         grid-template-columns:
             18px
-            minmax(52px, 1fr)
+            minmax(20px, 1fr)
             36px
             46px
             40px
@@ -2287,10 +2287,12 @@ body {
 
     .archive-header-date {
         grid-column: 3;
+        display: block;
     }
 
     .archive-header-difficulty {
         grid-column: 4;
+        display: block;
     }
 
     .archive-header-link:nth-of-type(5) {
