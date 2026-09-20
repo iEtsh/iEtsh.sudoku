@@ -2689,5 +2689,14 @@
     "puzzleNum": 14,
     "title": "Vibrant Spots II",
     "field": "rating"
+  },
+  {
+    "id": "2026-09-20T13:37:10.865687Z-0",
+    "time": "2026-09-20T13:37:10.865687Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
