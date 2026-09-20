@@ -2281,7 +2281,7 @@ body {
     .archive-header > div {
         min-width: 0;
         overflow: visible;
-        padding: 0 6px;
+        padding: 0 4px;
     }
 
     .archive-header-number {
@@ -2346,36 +2346,35 @@ body {
     /* Mobile archive cards */
 
     #summary-table {
-        overflow-x: auto;
+        overflow-x: hidden;
         overflow-y: visible;
 
         width: 100%;
         max-width: 100%;
 
         padding-bottom: 4px;
-
-        -webkit-overflow-scrolling: touch;
     }
 
     #summary-table .rec {
         margin-bottom: 7px;
 
-        min-width: 881px;
+        width: 100%;
+        min-width: 0;
 
         overflow: hidden;
     }
 
     #summary-table ul {
         grid-template-columns:
-            24px
-            190px
-            140px
-            100px
-            55px
-            55px
-            80px
-            100px
-            75px;
+            20px
+            minmax(0, 1.9fr)
+            minmax(0, 1.35fr)
+            minmax(0, 1.05fr)
+            minmax(0, 0.55fr)
+            minmax(0, 0.55fr)
+            minmax(0, 0.9fr)
+            minmax(0, 1.05fr)
+            minmax(0, 0.8fr);
 
         grid-template-rows:
             auto
@@ -2383,12 +2382,13 @@ body {
             auto
             auto;
 
-        gap: 8px;
+        gap: 5px;
 
-        min-width: 881px;
+        width: 100%;
+        min-width: 0;
 
         padding:
-            12px 8px;
+            12px 5px;
 
         direction: ltr;
     }
@@ -2404,14 +2404,15 @@ body {
         grid-column: 2;
         grid-row: 1;
 
-        width: 190px;
+        width: 100%;
 
         font-size: 13px;
 
         min-width: 0;
-        overflow: visible;
+        overflow: hidden;
         overflow-wrap: normal;
         white-space: nowrap;
+        text-overflow: clip;
     }
 
     #summary-table .archive-link:nth-of-type(1) {
