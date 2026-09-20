@@ -2366,13 +2366,13 @@ body {
         overflow-x: hidden;
         overflow-y: visible;
 
-        width: 100vw;
-        max-width: 100vw;
+        width: calc(100% + 24px);
+        max-width: none;
 
-        margin-left:
-            calc((100vw - 100%) / -2);
+        margin-left: -12px;
 
-        padding-bottom: 4px;
+        padding:
+            0 12px 4px;
     }
 
     #summary-table .rec {
