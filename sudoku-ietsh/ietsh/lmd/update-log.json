@@ -2662,5 +2662,32 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T13:32:12.395758Z-0",
+    "time": "2026-09-20T13:32:12.395758Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-20T13:32:12.395758Z-1",
+    "time": "2026-09-20T13:32:12.395758Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T13:32:12.395758Z-2",
+    "time": "2026-09-20T13:32:12.395758Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "rating"
   }
 ]
