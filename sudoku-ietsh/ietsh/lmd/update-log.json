@@ -3121,5 +3121,14 @@
     "puzzleNum": 22,
     "title": "Vibrant Spots V",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T21:12:18.564372Z-0",
+    "time": "2026-09-20T21:12:18.564372Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
