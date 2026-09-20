@@ -2743,5 +2743,14 @@
     "puzzleNum": 12,
     "title": "Crosscurrents II",
     "field": "solves"
+  },
+  {
+    "id": "2026-09-20T14:27:20.088900Z-0",
+    "time": "2026-09-20T14:27:20.088900Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
