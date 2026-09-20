@@ -2959,5 +2959,14 @@
     "puzzleNum": 18,
     "title": "Blink II",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T19:17:18.638282Z-0",
+    "time": "2026-09-20T19:17:18.638282Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
