@@ -2212,5 +2212,14 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "solves"
+  },
+  {
+    "id": "2026-09-20T01:27:25.712596Z-0",
+    "time": "2026-09-20T01:27:25.712596Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
