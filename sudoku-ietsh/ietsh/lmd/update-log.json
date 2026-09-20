@@ -2581,5 +2581,14 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T10:12:37.990874Z-0",
+    "time": "2026-09-20T10:12:37.990874Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
