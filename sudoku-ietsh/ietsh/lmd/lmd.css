@@ -2252,18 +2252,18 @@ body {
         display: grid;
 
         grid-template-columns:
-            25px
+            20px
             minmax(0, 1fr)
-            30px
-            30px
-            45px
-            42px
-            50px;
+            35px
+            35px
+            52px
+            52px
+            60px;
 
         gap: 2px;
 
         margin:
-            0 4px 6px;
+            0 2px 6px;
 
         align-items: center;
     }
@@ -2322,8 +2322,8 @@ body {
         padding:
             4px 1px;
 
-        font-size: 7px;
-        letter-spacing: 0.2px;
+        font-size: 7.5px;
+        letter-spacing: 0.15px;
         white-space: normal;
         line-height: 1.1;
     }
@@ -2344,13 +2344,13 @@ body {
 
     #summary-table ul {
         grid-template-columns:
-            25px
+            20px
             minmax(0, 1fr)
-            30px
-            30px
-            45px
-            42px
-            50px;
+            35px
+            35px
+            52px
+            52px
+            60px;
 
         grid-template-rows:
             auto
