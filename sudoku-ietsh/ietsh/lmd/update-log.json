@@ -2509,5 +2509,14 @@
     "puzzleNum": 23,
     "title": "Vibrant Spots VI - Special Edition",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T07:28:53.513651Z-0",
+    "time": "2026-09-20T07:28:53.513651Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves"
   }
 ]
