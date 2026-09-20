@@ -2617,5 +2617,14 @@
     "puzzleNum": 20,
     "title": "Blink IV",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T11:12:15.238876Z-0",
+    "time": "2026-09-20T11:12:15.238876Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves"
   }
 ]
