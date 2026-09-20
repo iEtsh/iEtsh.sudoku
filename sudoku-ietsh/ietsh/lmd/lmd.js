@@ -906,63 +906,16 @@
       return 0;
     }
 
-    const match =
-      String(puzzle.date)
-        .trim()
-        .match(
-          /^(\\d{1,2})\\.\\s+([A-Za-z]+)\\s+(\\d{4}),\\s+(\\d{1,2}):(\\d{2})$/
-        );
-
-    if (!match) {
-      return 0;
-    }
-
-    const day = Number(match[1]);
-    const monthName = match[2];
-    const year = Number(match[3]);
-    const hour = Number(match[4]);
-    const minute = Number(match[5]);
-
-    const months = {
-      January: 0,
-      February: 1,
-      March: 2,
-      April: 3,
-      May: 4,
-      June: 5,
-      July: 6,
-      August: 7,
-      September: 8,
-      October: 9,
-      November: 10,
-      December: 11
-    };
-
-    const month = months[monthName];
+    const timestamp =
+      Date.parse(puzzle.date);
 
     if (
-      month === undefined ||
-      !Number.isInteger(day) ||
-      !Number.isInteger(year) ||
-      !Number.isInteger(hour) ||
-      !Number.isInteger(minute) ||
-      day < 1 ||
-      day > 31 ||
-      hour < 0 ||
-      hour > 23 ||
-      minute < 0 ||
-      minute > 59
+      Number.isFinite(timestamp)
     ) {
-      return 0;
+      return timestamp;
     }
 
-    return Date.UTC(
-      year,
-      month,
-      day,
-      hour,
-      minute
-    );
+    return 0;
   };
 
   const puzzleRating = puzzle => {
