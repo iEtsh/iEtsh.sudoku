@@ -2252,15 +2252,17 @@ body {
         display: grid;
 
         grid-template-columns:
-            20px
+            18px
             minmax(0, 1fr)
-            35px
-            35px
+            30px
+            30px
+            48px
             52px
-            52px
-            60px;
+            52px;
 
         gap: 2px;
+
+        height: 34px;
 
         margin:
             0 2px 6px;
@@ -2322,10 +2324,10 @@ body {
         padding:
             4px 1px;
 
-        font-size: 7.5px;
-        letter-spacing: 0.15px;
+        font-size: 7px;
+        letter-spacing: 0;
         white-space: normal;
-        line-height: 1.1;
+        line-height: 1.15;
     }
 
     .archive-header-link {
@@ -2344,13 +2346,13 @@ body {
 
     #summary-table ul {
         grid-template-columns:
-            20px
+            18px
             minmax(0, 1fr)
-            35px
-            35px
+            30px
+            30px
+            48px
             52px
-            52px
-            60px;
+            52px;
 
         grid-template-rows:
             auto
@@ -2494,8 +2496,8 @@ body {
     }
 
     .archive-action {
-        width: 31px;
-        height: 31px;
+        width: 29px;
+        height: 29px;
 
         border-radius: 8px;
     }
