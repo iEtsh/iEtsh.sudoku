@@ -2149,5 +2149,32 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T00:42:13.298732Z-0",
+    "time": "2026-09-20T00:42:13.298732Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T00:42:13.298732Z-1",
+    "time": "2026-09-20T00:42:13.298732Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-20T00:42:13.298732Z-2",
+    "time": "2026-09-20T00:42:13.298732Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves"
   }
 ]
