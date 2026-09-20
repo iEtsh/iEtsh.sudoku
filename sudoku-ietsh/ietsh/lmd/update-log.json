@@ -2374,5 +2374,14 @@
     "puzzleNum": 13,
     "title": "Vibrant Spots",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T05:12:23.049667Z-0",
+    "time": "2026-09-20T05:12:23.049667Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves"
   }
 ]
