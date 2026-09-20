@@ -906,70 +906,16 @@
       return 0;
     }
 
-    // Stored dates use "DD. Month YYYY, HH:MM".
-    // Parse explicitly so sorting is identical on desktop and mobile.
-    const match =
-      String(puzzle.date)
-        .trim()
-        .match(
-          /^(\\d{1,2})\\.\\s+([A-Za-z]+)\\s+(\\d{4}),\\s+(\\d{1,2}):(\\d{2})$/
-        );
-
-    if (!match) {
-      return 0;
-    }
-
-    const months = {
-      january: 0,
-      february: 1,
-      march: 2,
-      april: 3,
-      may: 4,
-      june: 5,
-      july: 6,
-      august: 7,
-      september: 8,
-      october: 9,
-      november: 10,
-      december: 11
-    };
-
-    const day = Number(match[1]);
-    const month = months[match[2].toLowerCase()];
-    const year = Number(match[3]);
-    const hour = Number(match[4]);
-    const minute = Number(match[5]);
+    const timestamp =
+      Date.parse(puzzle.date);
 
     if (
-      month === undefined ||
-      !Number.isInteger(day) ||
-      !Number.isInteger(year) ||
-      !Number.isInteger(hour) ||
-      !Number.isInteger(minute)
+      Number.isFinite(timestamp)
     ) {
-      return 0;
+      return timestamp;
     }
 
-    const date =
-      new Date(
-        year,
-        month,
-        day,
-        hour,
-        minute
-      );
-
-    if (
-      date.getFullYear() !== year ||
-      date.getMonth() !== month ||
-      date.getDate() !== day ||
-      date.getHours() !== hour ||
-      date.getMinutes() !== minute
-    ) {
-      return 0;
-    }
-
-    return date.getTime();
+    return 0;
   };
 
   const puzzleRating = puzzle => {
