@@ -2383,5 +2383,14 @@
     "puzzleNum": 7,
     "title": "Entropy Dominion",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T05:17:14.111811Z-0",
+    "time": "2026-09-20T05:17:14.111811Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
