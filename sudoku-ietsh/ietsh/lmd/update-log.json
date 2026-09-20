@@ -2599,5 +2599,23 @@
     "puzzleNum": 22,
     "title": "Vibrant Spots V",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T11:07:23.705877Z-0",
+    "time": "2026-09-20T11:07:23.705877Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-20T11:07:23.705877Z-1",
+    "time": "2026-09-20T11:07:23.705877Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves"
   }
 ]
