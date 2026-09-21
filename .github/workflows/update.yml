@@ -31,8 +31,57 @@ jobs:
       - name: Install Chromium
         run: python -m playwright install --with-deps chromium
 
+      - name: Save previous puzzle data
+        run: cp sudoku-ietsh/ietsh/lmd/config.json /tmp/config-before-update.json
+
       - name: Run scraper
         run: python sudoku-ietsh/ietsh/lmd/scraper.py
+
+      - name: Enrich update log with previous and current values
+        run: |
+          python - <<'PY'
+          import json
+
+          config_path = 'sudoku-ietsh/ietsh/lmd/config.json'
+          log_path = 'sudoku-ietsh/ietsh/lmd/update-log.json'
+          previous_path = '/tmp/config-before-update.json'
+
+          with open(previous_path, 'r', encoding='utf-8') as f:
+              previous = json.load(f)
+
+          with open(config_path, 'r', encoding='utf-8') as f:
+              current = json.load(f)
+
+          try:
+              with open(log_path, 'r', encoding='utf-8') as f:
+                  log = json.load(f)
+          except (FileNotFoundError, json.JSONDecodeError):
+              log = []
+
+          previous_by_id = {str(item.get('id')): item for item in previous.get('items', [])}
+          current_by_id = {str(item.get('id')): item for item in current.get('items', [])}
+
+          for entry in log:
+              field = entry.get('field')
+              puzzle_id = str(entry.get('puzzleId'))
+
+              if not field:
+                  if entry.get('type') == 'Puzzle Added':
+                      entry['previous'] = None
+                      entry['current'] = current_by_id.get(puzzle_id)
+                  elif entry.get('type') == 'Puzzle Removed':
+                      entry['previous'] = previous_by_id.get(puzzle_id)
+                      entry['current'] = None
+                  continue
+
+              old_item = previous_by_id.get(puzzle_id, {})
+              new_item = current_by_id.get(puzzle_id, {})
+              entry['previous'] = old_item.get(field)
+              entry['current'] = new_item.get(field)
+
+          with open(log_path, 'w', encoding='utf-8') as f:
+              json.dump(log, f, ensure_ascii=False, indent=2)
+          PY
 
       - name: Commit and push changes
         run: |
