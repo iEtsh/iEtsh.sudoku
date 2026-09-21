@@ -153,14 +153,15 @@ body {
 }
 
 .section-label {
-    color: #737c8e;
+    color: #8998d2;
 
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 700;
 
-    letter-spacing: 1.9px;
+    letter-spacing: 2.4px;
 
     margin-bottom: 15px;
+    text-shadow: 0 0 22px rgba(104, 120, 184, 0.16);
 }
 
 .section-label span {
@@ -2960,7 +2961,22 @@ body {
 
  .about-section {
     position: relative;
-    padding-top: 86px;
+    margin-top: 86px;
+    padding: 34px 34px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 20px;
+    background:
+        radial-gradient(
+            circle at 82% 18%,
+            rgba(101, 118, 184, 0.09),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+    box-shadow: none;
 }
 
 .about-section-top {
@@ -2998,8 +3014,8 @@ body {
     grid-template-columns: minmax(0, 1fr) 250px;
     min-height: 330px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.075);
-    border-radius: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 0;
     background:
         radial-gradient(
             circle at 82% 45%,
@@ -3252,6 +3268,7 @@ body {
 
 .about-bottom {
     display: grid;
+    margin-top: 2px;
     grid-template-columns: minmax(0, 1fr) 390px;
     gap: 54px;
     align-items: start;
@@ -3520,5 +3537,41 @@ body {
     .contact-card-icon,
     .contact-card-arrow {
         transition: none;
+    }
+}
+
+/* About / Contact refinements */
+.contact-card-icon svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+    fill: currentColor;
+}
+
+.contact-discord {
+    color: #8f9ed6;
+}
+
+.contact-gmail {
+    color: #aeb7ca;
+}
+
+.contact-card:hover .contact-discord,
+.contact-card:hover .contact-gmail {
+    color: #c2cbed;
+}
+
+@media (max-width: 760px) {
+    .about-section {
+        margin-top: 64px;
+        padding: 26px 20px 24px;
+    }
+}
+
+@media (max-width: 420px) {
+    .about-section {
+        margin-top: 54px;
+        padding: 22px 14px 20px;
+        border-radius: 16px;
     }
 }
