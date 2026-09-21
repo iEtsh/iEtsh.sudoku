@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/21edcgjbyj",
       "lmd": "000V1L",
       "solves": 1,
-      "sudokupad_solves": 5,
+      "sudokupad_solves": 6,
       "rating": "N/A",
       "image": "images/000V1L.jpg"
     },
@@ -41,7 +41,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1502
+      "sudokupad_solves": 1503
     },
     {
       "num": 24,
@@ -380,5 +380,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-21T10:12:33.657307Z"
+  "last_check": "2026-09-21T10:17:17.124991Z"
 }
