@@ -1068,7 +1068,9 @@ def record_update_log(
                     "puzzleId": puzzle.get("id"),
                     "puzzleNum": puzzle.get("num"),
                     "title": puzzle.get("title"),
-                    "field": field
+                    "field": field,
+                    "previous": old_value,
+                    "current": new_value
                 })
 
     for puzzle in previous_items:
