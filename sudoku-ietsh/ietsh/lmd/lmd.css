@@ -3103,7 +3103,7 @@ body {
 
 .identity-title {
     margin: 0 0 14px;
-    color: #8998d2;
+    color: #f0f2f6;
     font-size: clamp(44px, 6vw, 70px);
     line-height: 0.98;
     font-weight: 750;
