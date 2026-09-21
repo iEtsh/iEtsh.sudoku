@@ -3238,5 +3238,14 @@
     "puzzleNum": 23,
     "title": "Vibrant Spots VI - Special Edition",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-21T00:57:25.382686Z-0",
+    "time": "2026-09-21T00:57:25.382686Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
