@@ -4049,5 +4049,27 @@
     "field": "rating",
     "previous": "88%",
     "current": "87%"
+  },
+  {
+    "id": "2026-09-21T22:22:21.813672Z-0",
+    "time": "2026-09-21T22:22:21.813672Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 30,
+    "current": 31
+  },
+  {
+    "id": "2026-09-21T22:22:21.813672Z-1",
+    "time": "2026-09-21T22:22:21.813672Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "rating",
+    "previous": "89%",
+    "current": "90%"
   }
 ]
