@@ -382,6 +382,12 @@
                 : 'update-entry'
             );
 
+        item
+          .attr(
+            'data-update-id',
+            entry.id
+          );
+
         const type =
           item
             .append('div')
