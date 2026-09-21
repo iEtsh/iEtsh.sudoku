@@ -3598,5 +3598,181 @@
     "puzzleNum": 27,
     "title": "Divergent",
     "field": "solves"
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-0",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "Author Rating Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "author_rated",
+    "previous": true,
+    "current": false
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-1",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 3,
+    "current": 27
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-2",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 7,
+    "current": 50
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-3",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "rating",
+    "previous": "N/A",
+    "current": "87%"
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-4",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 62,
+    "current": 66
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-5",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 197,
+    "current": 207
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-6",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1504,
+    "current": 1514
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-7",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 139,
+    "current": 140
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-8",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves",
+    "previous": 315,
+    "current": 316
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-9",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 539,
+    "current": 540
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-10",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 83,
+    "current": 84
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-11",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 223,
+    "current": 225
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-12",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "solves",
+    "previous": 88,
+    "current": 89
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-13",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 222,
+    "current": 223
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-14",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "sudokupad_solves",
+    "previous": 337,
+    "current": 338
+  },
+  {
+    "id": "2026-09-21T20:07:25.747371Z-15",
+    "time": "2026-09-21T20:07:25.747371Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 141,
+    "current": 142
   }
 ]

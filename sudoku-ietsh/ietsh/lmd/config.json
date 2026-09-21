@@ -7,12 +7,12 @@
       "title": "Divergent",
       "date": "21. September 2026, 11:00",
       "stars": 2,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/21edcgjbyj",
       "lmd": "000V1L",
-      "solves": 3,
-      "sudokupad_solves": 7,
-      "rating": "N/A",
+      "solves": 27,
+      "sudokupad_solves": 50,
+      "rating": "87%",
       "image": "images/000V1L.jpg"
     },
     {
@@ -24,8 +24,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/tmj363gk27",
       "lmd": "000V0C",
-      "solves": 62,
-      "sudokupad_solves": 197,
+      "solves": 66,
+      "sudokupad_solves": 207,
       "rating": "87%",
       "image": "images/000V0C.jpg"
     },
@@ -41,7 +41,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1504
+      "sudokupad_solves": 1514
     },
     {
       "num": 24,
@@ -55,7 +55,7 @@
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 139
+      "sudokupad_solves": 140
     },
     {
       "num": 23,
@@ -83,7 +83,7 @@
       "rating": "88%",
       "author_rated": false,
       "image": "images/000UM4.jpg",
-      "sudokupad_solves": 315
+      "sudokupad_solves": 316
     },
     {
       "num": 21,
@@ -111,7 +111,7 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 539
+      "sudokupad_solves": 540
     },
     {
       "num": 19,
@@ -163,11 +163,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/evh9tt2q0i",
       "lmd": "000U86",
-      "solves": 83,
+      "solves": 84,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000U86.png",
-      "sudokupad_solves": 223
+      "sudokupad_solves": 225
     },
     {
       "num": 15,
@@ -247,11 +247,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/ltry6ibgck",
       "lmd": "000TSP",
-      "solves": 88,
+      "solves": 89,
       "rating": "92%",
       "author_rated": false,
       "image": "images/000TSP.png",
-      "sudokupad_solves": 222
+      "sudokupad_solves": 223
     },
     {
       "num": 9,
@@ -363,7 +363,7 @@
       "rating": "92%",
       "author_rated": false,
       "image": "images/000SC5.png",
-      "sudokupad_solves": 337
+      "sudokupad_solves": 338
     },
     {
       "num": 1,
@@ -377,8 +377,8 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000SBZ.png",
-      "sudokupad_solves": 141
+      "sudokupad_solves": 142
     }
   ],
-  "last_check": "2026-09-21T10:57:16.723044Z"
+  "last_check": "2026-09-21T20:07:25.746489Z"
 }
