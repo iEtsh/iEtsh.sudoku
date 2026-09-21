@@ -1055,6 +1055,11 @@ body {
 
 .archive-sort-button.active {
     opacity: 1;
+
+    color: #aeb9df;
+
+    background:
+        rgba(101, 118, 184, 0.08);
 }
 
 .archive-sort-button:focus-visible,
@@ -1191,12 +1196,12 @@ body {
         rgba(255, 255, 255, 0.018);
 
     transition:
-        transform 0.22s ease,
+        transform 0.20s ease,
+        opacity 0.16s ease,
         background 0.22s ease,
         border-color 0.22s ease;
 
-    animation:
-        rowEnter 0.45s ease both;
+    animation: none;
 
     outline: none;
 }
