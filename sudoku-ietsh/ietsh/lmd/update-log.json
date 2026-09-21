@@ -3553,5 +3553,41 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-21T10:42:18.373196Z-0",
+    "time": "2026-09-21T10:42:18.373196Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-21T10:42:18.373196Z-1",
+    "time": "2026-09-21T10:42:18.373196Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-21T10:42:18.373196Z-2",
+    "time": "2026-09-21T10:42:18.373196Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-21T10:42:18.373196Z-3",
+    "time": "2026-09-21T10:42:18.373196Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
