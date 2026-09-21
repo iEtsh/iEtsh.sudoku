@@ -84,58 +84,169 @@
     <!-- About / Contact -->
     <section class="about-section">
 
-        <div class="about-heading">
-            <span class="about-index">03</span>
-            <span class="about-kicker">ABOUT</span>
+        <div class="about-section-top">
+            <div class="section-label">
+                <span>03</span>
+                ABOUT
+            </div>
+
+            <div class="about-section-code">
+                <span>PROFILE</span>
+                <span class="about-code-line"></span>
+                <span>ETSH / 01</span>
+            </div>
         </div>
 
-        <div class="about-layout">
+        <div class="about-stage">
 
-            <div class="about-intro">
-                <div class="about-name">
-                    HES<br>HAM
-                </div>
+            <div class="about-identity">
 
-                <div class="about-copy">
-                    <p class="about-role">
+                <div class="identity-index">01</div>
+
+                <div class="identity-main">
+                    <div class="identity-eyebrow">
+                        <span class="identity-pulse"></span>
+                        SOFTWARE ENGINEER / PUZZLE ENTHUSIAST
+                    </div>
+
+                    <h2 class="identity-title">
+                        Hi, I'm <em>Hesham.</em>
+                    </h2>
+
+                    <p class="identity-lead">
                         I'm Hesham, a software engineer who is a puzzle enthusiast.
                     </p>
 
-                    <p class="about-description">
+                    <p class="identity-description">
                         I build things, solve puzzles, and create my own Sudoku variations.
                         This archive is where I keep the puzzles I've made and published.
                     </p>
                 </div>
+
             </div>
 
-            <div class="about-contact">
-                <div class="contact-heading">
+            <div class="about-visual" aria-hidden="true">
+                <div class="visual-frame">
+                    <div class="visual-corner visual-corner-tl"></div>
+                    <div class="visual-corner visual-corner-tr"></div>
+                    <div class="visual-corner visual-corner-bl"></div>
+                    <div class="visual-corner visual-corner-br"></div>
+
+                    <div class="visual-grid" id="about-puzzle-grid"></div>
+
+                    <div class="visual-mark">iE</div>
+                    <div class="visual-caption">LOGIC / CODE / DESIGN</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="about-bottom">
+
+            <div class="about-note">
+                <span class="about-note-number">02</span>
+                <span class="about-note-text">
+                    The archive is the public record of the puzzles I've made and published.
+                </span>
+            </div>
+
+            <div class="about-contact-panel">
+
+                <div class="contact-panel-head">
                     <span>GET IN TOUCH</span>
-                    <span>↘</span>
+                    <span>AVAILABLE ONLINE</span>
                 </div>
 
                 <a
-                    class="contact-item"
+                    class="contact-card"
                     href="https://discord.com/users/700343157690466366"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span class="contact-type">DISCORD</span>
-                    <span class="contact-value">@etsh1 <span class="contact-arrow">↗</span></span>
+                    <span class="contact-card-icon">D</span>
+                    <span class="contact-card-body">
+                        <span class="contact-card-type">DISCORD</span>
+                        <span class="contact-card-value">@etsh1</span>
+                    </span>
+                    <span class="contact-card-arrow">↗</span>
                 </a>
 
                 <a
-                    class="contact-item"
+                    class="contact-card"
                     href="mailto:ihesham.abdallah@gmail.com"
                 >
-                    <span class="contact-type">EMAIL</span>
-                    <span class="contact-value">ihesham.abdallah@gmail.com <span class="contact-arrow">↗</span></span>
+                    <span class="contact-card-icon">@</span>
+                    <span class="contact-card-body">
+                        <span class="contact-card-type">EMAIL</span>
+                        <span class="contact-card-value">ihesham.abdallah@gmail.com</span>
+                    </span>
+                    <span class="contact-card-arrow">↗</span>
                 </a>
+
             </div>
 
         </div>
 
     </section>
+
+    <script>
+        (() => {
+            const grid = document.getElementById('about-puzzle-grid');
+            if (!grid) return;
+
+            const base = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            const pattern = (row, col) =>
+                base[(row * 3 + Math.floor(row / 3) + col) % 9];
+
+            const cells = [];
+
+            for (let row = 0; row < 9; row += 1) {
+                for (let col = 0; col < 9; col += 1) {
+                    const cell = document.createElement('span');
+                    cell.className = 'visual-cell';
+                    cell.textContent = pattern(row, col);
+                    cell.style.setProperty('--row', row);
+                    cell.style.setProperty('--col', col);
+                    grid.appendChild(cell);
+                    cells.push(cell);
+                }
+            }
+
+            let timer;
+
+            const pulse = (centerRow, centerCol) => {
+                cells.forEach((cell) => {
+                    const row = Number(cell.style.getPropertyValue('--row'));
+                    const col = Number(cell.style.getPropertyValue('--col'));
+                    const distance = Math.abs(row - centerRow) + Math.abs(col - centerCol);
+
+                    cell.classList.toggle(
+                        'is-lit',
+                        distance <= 1
+                    );
+                });
+            };
+
+            grid.addEventListener('pointermove', (event) => {
+                const rect = grid.getBoundingClientRect();
+                const col = Math.max(
+                    0,
+                    Math.min(8, Math.floor(((event.clientX - rect.left) / rect.width) * 9))
+                );
+                const row = Math.max(
+                    0,
+                    Math.min(8, Math.floor(((event.clientY - rect.top) / rect.height) * 9))
+                );
+
+                pulse(row, col);
+            });
+
+            grid.addEventListener('pointerleave', () => {
+                clearTimeout(timer);
+                timer = setTimeout(() => pulse(-10, -10), 80);
+            });
+        })();
+    </script>
 
 
     <!-- Footer -->
