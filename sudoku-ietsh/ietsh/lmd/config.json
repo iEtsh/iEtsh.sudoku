@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 27,
+      "id": "ietsh-divergent",
+      "title": "Divergent",
+      "date": "21. September 2026, 11:00",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/21edcgjbyj",
+      "lmd": "000V1L",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V1L.jpg"
+    },
+    {
       "num": 26,
       "id": "ietsh-origami",
       "title": "Origami",
@@ -366,5 +380,5 @@
       "sudokupad_solves": 141
     }
   ],
-  "last_check": "2026-09-21T08:57:22.502180Z"
+  "last_check": "2026-09-21T09:02:21.929755Z"
 }

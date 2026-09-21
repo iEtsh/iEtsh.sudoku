@@ -3427,5 +3427,14 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-21T09:02:21.945688Z-0",
+    "time": "2026-09-21T09:02:21.945688Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": null
   }
 ]
