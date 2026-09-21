@@ -3490,5 +3490,14 @@
     "puzzleNum": 27,
     "title": "Divergent",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-21T10:02:53.731947Z-0",
+    "time": "2026-09-21T10:02:53.731947Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves"
   }
 ]
