@@ -3220,5 +3220,23 @@
     "puzzleNum": 26,
     "title": "Origami",
     "field": "sudokupad_solves"
+  },
+  {
+    "id": "2026-09-21T00:07:17.657117Z-0",
+    "time": "2026-09-21T00:07:17.657117Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves"
+  },
+  {
+    "id": "2026-09-21T00:07:17.657117Z-1",
+    "time": "2026-09-21T00:07:17.657117Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves"
   }
 ]
