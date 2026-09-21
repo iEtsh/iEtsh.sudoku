@@ -1129,7 +1129,7 @@
       archiveState.sortDirection = 'desc';
     }
 
-    renderArchive();
+    renderArchive(false, true);
   };
 
   // ---------------------------------------------------------
@@ -1461,7 +1461,7 @@
         archiveState.search =
           this.value;
 
-        renderArchive(true);
+        renderArchive(true, true);
       }
     );
 
@@ -1490,7 +1490,7 @@
             ''
           );
 
-          renderArchive(true);
+          renderArchive(true, true);
 
         }
       }
@@ -2358,13 +2358,30 @@
   // ---------------------------------------------------------
 
   const renderArchive = (
-    preserveSearchFocus = false
+    preserveSearchFocus = false,
+    animate = false
   ) => {
     if (
       !cache.data
     ) {
       return;
     }
+
+    const previousRows =
+      animate
+        ? new Map(
+            Array.from(
+              document.querySelectorAll(
+                '#summary-table .rec'
+              )
+            ).map(
+              row => [
+                row.id,
+                row.getBoundingClientRect().top
+              ]
+            )
+          )
+        : null;
 
     const activeElement =
       document.activeElement;
@@ -2460,6 +2477,55 @@
     sorted.forEach(
       createArchiveRow
     );
+
+    if (animate) {
+      const rows =
+        Array.from(
+          document.querySelectorAll(
+            '#summary-table .rec'
+          )
+        );
+
+      requestAnimationFrame(() => {
+        rows.forEach(
+          row => {
+            const previousTop =
+              previousRows &&
+              previousRows.get(row.id);
+
+            if (
+              previousTop !== undefined
+            ) {
+              const currentTop =
+                row.getBoundingClientRect().top;
+
+              const delta =
+                previousTop - currentTop;
+
+              if (
+                Math.abs(delta) > 1
+              ) {
+                row.style.transform =
+                  `translateY(${delta}px)`;
+              }
+            } else {
+              row.style.opacity = '0';
+              row.style.transform =
+                'translateY(6px)';
+            }
+          }
+        );
+
+        requestAnimationFrame(() => {
+          rows.forEach(
+            row => {
+              row.style.transform = '';
+              row.style.opacity = '';
+            }
+          );
+        });
+      });
+    }
 
     if (searchWasFocused) {
       const newInput =
