@@ -3328,5 +3328,14 @@
     "puzzleNum": 25,
     "title": "Coin",
     "field": "rating"
+  },
+  {
+    "id": "2026-09-21T06:22:14.801035Z-0",
+    "time": "2026-09-21T06:22:14.801035Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves"
   }
 ]
