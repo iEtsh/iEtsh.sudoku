@@ -3774,5 +3774,27 @@
     "field": "sudokupad_solves",
     "previous": 141,
     "current": 142
+  },
+  {
+    "id": "2026-09-21T20:11:12.082958Z-0",
+    "time": "2026-09-21T20:11:12.082958Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 27,
+    "current": 28
+  },
+  {
+    "id": "2026-09-21T20:11:12.082958Z-1",
+    "time": "2026-09-21T20:11:12.082958Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "rating",
+    "previous": "87%",
+    "current": "88%"
   }
 ]
