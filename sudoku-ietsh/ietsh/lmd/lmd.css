@@ -3012,7 +3012,7 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 250px;
-    min-height: 330px;
+    min-height: 0;
     overflow: hidden;
     border-top: 1px solid rgba(255, 255, 255, 0.055);
     border-radius: 0;
@@ -3052,10 +3052,10 @@ body {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 28px;
-    align-items: center;
-    padding: 52px 48px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    align-items: start;
+    padding: 34px 42px;
 }
 
 .identity-index {
@@ -3071,11 +3071,12 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
     color: #8998d2;
-    font-size: 16px;
-    font-weight: 750;
-    letter-spacing: 1.8px;
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 650;
+    letter-spacing: 0;
 }
 
 .identity-pulse {
@@ -3101,12 +3102,12 @@ body {
 }
 
 .identity-title {
-    margin: 0 0 14px;
+    margin: 0 0 10px;
     color: #8998d2;
-    font-size: clamp(46px, 6vw, 72px);
-    line-height: 0.95;
-    font-weight: 750;
-    letter-spacing: -3.8px;
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 650;
+    letter-spacing: 0;
 }
 
 .identity-title em {
@@ -3115,20 +3116,21 @@ body {
 }
 
 .identity-lead {
-    max-width: 540px;
-    margin: 0 0 15px;
+    max-width: 650px;
+    margin: 0 0 10px;
     color: #8998d2;
-    font-size: 16px;
-    line-height: 1.55;
-    font-weight: 520;
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 650;
 }
 
 .identity-description {
     max-width: 650px;
     margin: 0;
     color: #8998d2;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 650;
 }
 
 .about-visual {
@@ -3422,12 +3424,19 @@ body {
     }
 
     .about-identity {
-        padding: 36px 28px 20px;
+        padding: 28px 24px 18px;
     }
 
     .identity-title {
-        font-size: clamp(42px, 13vw, 62px);
-        letter-spacing: -3px;
+        font-size: 16px;
+        letter-spacing: 0;
+    }
+
+    .identity-eyebrow,
+    .identity-lead,
+    .identity-description {
+        font-size: 16px;
+        line-height: 1.45;
     }
 
     .about-visual {
@@ -3589,13 +3598,12 @@ body {
 }
 
 @media (max-width: 420px) {
-    .identity-eyebrow {
-        font-size: 11px;
-        letter-spacing: 1.1px;
-    }
-
+    .identity-eyebrow,
+    .identity-title,
     .identity-lead,
     .identity-description {
         font-size: 14px;
+        line-height: 1.45;
+        letter-spacing: 0;
     }
 }
