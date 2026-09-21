@@ -3070,13 +3070,13 @@ body {
 .identity-eyebrow {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 9px;
     margin-bottom: 14px;
-    color: #8998d2;
+    color: #70798b;
     font-size: 11px;
     line-height: 1.3;
-    font-weight: 750;
-    letter-spacing: 1.4px;
+    font-weight: 400;
+    letter-spacing: 0;
 }
 
 .identity-pulse {
