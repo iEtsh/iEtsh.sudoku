@@ -3862,5 +3862,27 @@
     "field": "rating",
     "previous": "87%",
     "current": "88%"
+  },
+  {
+    "id": "2026-09-21T20:57:28.601410Z-0",
+    "time": "2026-09-21T20:57:28.601410Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 51,
+    "current": 52
+  },
+  {
+    "id": "2026-09-21T20:57:28.601410Z-1",
+    "time": "2026-09-21T20:57:28.601410Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 142,
+    "current": 143
   }
 ]
