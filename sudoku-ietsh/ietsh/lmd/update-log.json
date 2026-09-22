@@ -4445,5 +4445,27 @@
     "field": "sudokupad_solves",
     "previous": 273,
     "current": 274
+  },
+  {
+    "id": "2026-09-22T05:22:20.125862Z-0",
+    "time": "2026-09-22T05:22:20.125862Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 77,
+    "current": 78
+  },
+  {
+    "id": "2026-09-22T05:22:20.125862Z-1",
+    "time": "2026-09-22T05:22:20.125862Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 213,
+    "current": 214
   }
 ]
