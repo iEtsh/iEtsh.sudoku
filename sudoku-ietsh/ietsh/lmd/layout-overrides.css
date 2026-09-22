@@ -30,9 +30,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* The original renderer keeps a live monitor inside the dashboard.
-   It is used as the rendering source, while the visible monitor is
-   placed beside the archive by the bridge in index.html. */
 .latest-section #puzzle-dashboard > .update-monitor {
     display: none !important;
 }
@@ -45,14 +42,15 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) 300px;
     grid-template-areas:
-        "heading heading"
+        "archive-heading updates"
         "archive updates";
     column-gap: 22px;
     align-items: start;
 }
 
 .listing-section .section-heading {
-    grid-area: heading;
+    grid-area: archive-heading;
+    min-width: 0;
 }
 
 .listing-section #summary-table {
@@ -65,7 +63,7 @@
     grid-area: updates;
     width: 100%;
     min-width: 0;
-    margin-top: 54px;
+    margin-top: 0;
 }
 
 #updates-monitor-host .update-monitor-list {
@@ -97,7 +95,7 @@
     .listing-section {
         grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
-            "heading"
+            "archive-heading"
             "archive"
             "updates";
         row-gap: 24px;
