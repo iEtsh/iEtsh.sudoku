@@ -410,6 +410,17 @@
             this.value;
 
           renderUpdateMonitor();
+
+          const newFilter =
+            document.querySelector(
+              '.update-monitor-filter-select'
+            );
+
+          if (newFilter) {
+            requestAnimationFrame(() => {
+              newFilter.focus();
+            });
+          }
         }
       );
 
