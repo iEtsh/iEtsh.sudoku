@@ -1,11 +1,11 @@
 /* =========================================================
-   Latest + Statistics layout
+   Latest Puzzle + Statistics Dashboard
    ========================================================= */
 
 .latest-section {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.72fr);
+    gap: 22px;
     align-items: start;
 }
 
@@ -30,18 +30,51 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+/* The original renderer keeps a live monitor inside the dashboard.
+   It is used as the rendering source, while the visible monitor is
+   placed beside the archive by the bridge in index.html. */
+.latest-section #puzzle-dashboard > .update-monitor {
+    display: none !important;
+}
+
+/* =========================================================
+   Archive + Updates
+   ========================================================= */
+
 .listing-section {
-    display: block;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-areas:
+        "heading heading"
+        "archive updates";
+    column-gap: 22px;
+    align-items: start;
+}
+
+.listing-section .section-heading {
+    grid-area: heading;
 }
 
 .listing-section #summary-table {
+    grid-area: archive;
     width: 100%;
     min-width: 0;
 }
 
-.latest-section #puzzle-dashboard .update-monitor-list {
+#updates-monitor-host {
+    grid-area: updates;
+    width: 100%;
+    min-width: 0;
+    margin-top: 54px;
+}
+
+#updates-monitor-host .update-monitor-list {
     max-height: 520px;
 }
+
+/* =========================================================
+   Responsive layout
+   ========================================================= */
 
 @media (max-width: 1100px) {
     .latest-section {
@@ -58,6 +91,19 @@
     }
 
     .latest-section #puzzle-dashboard {
+        margin-top: 0;
+    }
+
+    .listing-section {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "heading"
+            "archive"
+            "updates";
+        row-gap: 24px;
+    }
+
+    #updates-monitor-host {
         margin-top: 0;
     }
 }
