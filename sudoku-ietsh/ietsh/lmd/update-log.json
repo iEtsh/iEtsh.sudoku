@@ -5446,5 +5446,27 @@
     "field": "sudokupad_solves",
     "previous": 105,
     "current": 106
+  },
+  {
+    "id": "2026-09-22T20:37:15.552176Z-0",
+    "time": "2026-09-22T20:37:15.552176Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 224,
+    "current": 225
+  },
+  {
+    "id": "2026-09-22T20:37:15.552176Z-1",
+    "time": "2026-09-22T20:37:15.552176Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "sudokupad_solves",
+    "previous": 276,
+    "current": 277
   }
 ]
