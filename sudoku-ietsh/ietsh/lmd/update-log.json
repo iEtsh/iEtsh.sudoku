@@ -4170,5 +4170,16 @@
     "field": "sudokupad_solves",
     "previous": 1517,
     "current": 1518
+  },
+  {
+    "id": "2026-09-22T00:12:21.852877Z-0",
+    "time": "2026-09-22T00:12:21.852877Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 66,
+    "current": 67
   }
 ]
