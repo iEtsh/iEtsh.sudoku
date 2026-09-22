@@ -4,8 +4,8 @@
 
 .latest-section {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.72fr);
-    gap: 22px;
+    grid-template-columns: minmax(0, 1.55fr) minmax(270px, 0.45fr);
+    gap: 24px;
     align-items: start;
 }
 
@@ -27,7 +27,22 @@
 }
 
 .latest-section #puzzle-dashboard .dashboard-cards {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.latest-section #puzzle-dashboard .dashboard-card {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 13px 14px;
+}
+
+.latest-section #puzzle-dashboard .dashboard-card-label {
+    margin-bottom: 0;
+}
+
+.latest-section #puzzle-dashboard .dashboard-card-value {
+    margin-top: 2px;
 }
 
 .latest-section #puzzle-dashboard > .update-monitor {
@@ -42,14 +57,14 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) 300px;
     grid-template-areas:
-        "archive-heading updates"
+        "heading heading"
         "archive updates";
     column-gap: 22px;
     align-items: start;
 }
 
 .listing-section .section-heading {
-    grid-area: archive-heading;
+    grid-area: heading;
     min-width: 0;
 }
 
@@ -63,7 +78,7 @@
     grid-area: updates;
     width: 100%;
     min-width: 0;
-    margin-top: 0;
+    margin-top: 54px;
 }
 
 #updates-monitor-host .update-monitor-list {
@@ -95,7 +110,7 @@
     .listing-section {
         grid-template-columns: minmax(0, 1fr);
         grid-template-areas:
-            "archive-heading"
+            "heading"
             "archive"
             "updates";
         row-gap: 24px;
