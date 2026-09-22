@@ -439,6 +439,61 @@
               entry.time
             )
           );
+
+        if (
+          entry.previous !== undefined &&
+          entry.current !== undefined &&
+          (
+            entry.type === 'Title Changed' ||
+            entry.type === 'Date Changed' ||
+            entry.type === 'Difficulty Changed' ||
+            entry.type === 'SudokuPad Link Changed' ||
+            entry.type === 'LMD Link Changed' ||
+            entry.type === 'LMD Solvers Changed' ||
+            entry.type === 'SudokuPad Solvers Changed' ||
+            entry.type === 'Rating Changed'
+          )
+        ) {
+          const change = item.append('div')
+            .attr('class', 'update-entry-change');
+
+          const from = change.append('div')
+            .attr('class', 'update-entry-side');
+
+          from.append('span')
+            .attr('class', 'update-entry-side-label')
+            .text('FROM');
+
+          from.append('div')
+            .attr('class', 'update-entry-value previous')
+            .text(String(entry.previous));
+
+          change.append('div')
+            .attr('class', 'update-entry-arrow')
+            .attr('aria-hidden', 'true')
+            .text('→');
+
+          const to = change.append('div')
+            .attr('class', 'update-entry-side');
+
+          to.append('span')
+            .attr('class', 'update-entry-side-label')
+            .text('TO');
+
+          to.append('div')
+            .attr('class', 'update-entry-value current')
+            .text(String(entry.current));
+        } else if (
+          entry.type === 'Author Rating Changed'
+        ) {
+          item.append('div')
+            .attr('class', 'update-entry-note')
+            .text(
+              entry.current === false
+                ? "Rating is now based on solvers' ratings."
+                : "Rating is now based on the author's rating."
+            );
+        }
       }
     );
   };
@@ -822,13 +877,20 @@
   };
 
   const genMostRecent = d => {
-    // Latest Puzzle must always be the first puzzle in the
-    // default archive order (newest publication date first).
-    // Never rely on the physical order of config.json alone.
+    const items = d.items || [];
+
     const i =
-      sortPuzzles(
-        d.items || []
-      )[0];
+      items.reduce(
+        (latest, puzzle) => {
+          if (!latest) return puzzle;
+
+          return puzzleDate(puzzle) >
+            puzzleDate(latest)
+            ? puzzle
+            : latest;
+        },
+        null
+      );
 
     if (!i) return;
 
