@@ -82,6 +82,15 @@
 
         <div id="summary-table"></div>
 
+        <!-- Visible Updates Monitor. lmd.js renders into its dashboard host;
+             the bridge below moves the rendered children here so the monitor
+             stays beside the archive while its live controls remain functional. -->
+        <div
+            id="updates-monitor-host"
+            class="update-monitor"
+            aria-label="Updates monitor"
+        ></div>
+
     </section>
 
 
@@ -238,6 +247,34 @@
                 clearTimeout(timer);
                 timer = setTimeout(() => pulse(-10, -10), 80);
             });
+        })();
+
+        // Keep the live Updates Monitor visually beside the archive while
+        // preserving the original lmd.js rendering and event handlers.
+        (() => {
+            const dashboard = document.getElementById('puzzle-dashboard');
+            const host = document.getElementById('updates-monitor-host');
+            if (!dashboard || !host || !window.MutationObserver) return;
+
+            const moveRenderedMonitorContent = () => {
+                const source = dashboard.querySelector('.update-monitor');
+                if (!source || !source.childNodes.length) return;
+
+                while (source.firstChild) {
+                    host.appendChild(source.firstChild);
+                }
+            };
+
+            const observer = new MutationObserver(() => {
+                moveRenderedMonitorContent();
+            });
+
+            observer.observe(dashboard, {
+                childList: true,
+                subtree: true
+            });
+
+            moveRenderedMonitorContent();
         })();
     </script>
 
