@@ -96,14 +96,15 @@
 #summary-table ul {
     grid-template-columns:
         42px
-        minmax(190px, 1fr)
-        130px
-        116px
-        46px
-        46px
-        80px
-        92px
-        86px;
+        minmax(220px, 1fr)
+        138px
+        122px
+        52px
+        52px
+        86px
+        100px
+        94px;
+    min-width: 980px;
 }
 
 /* =========================================================
