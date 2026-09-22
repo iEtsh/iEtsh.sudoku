@@ -122,19 +122,7 @@
             });
         })();
 
-        (() => {
-            const dashboard=document.getElementById('puzzle-dashboard');
-            const host=document.getElementById('updates-monitor-host');
-            if (!dashboard || !host || !window.MutationObserver) return;
-            const moveRenderedMonitorContent=()=>{
-                const source=dashboard.querySelector('.update-monitor');
-                if (!source || !source.childNodes.length) return;
-                while (source.firstChild) host.appendChild(source.firstChild);
-            };
-            const observer=new MutationObserver(moveRenderedMonitorContent);
-            observer.observe(dashboard,{childList:true,subtree:true});
-            moveRenderedMonitorContent();
-        })();
+;
     </script>
 
     <footer class="site-footer">
