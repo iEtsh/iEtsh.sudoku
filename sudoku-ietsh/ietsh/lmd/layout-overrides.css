@@ -60,7 +60,7 @@
 
 .listing-section {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-columns: minmax(980px, 1fr) 320px;
     grid-template-areas:
         "heading heading"
         "archive updates";
