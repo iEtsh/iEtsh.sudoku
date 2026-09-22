@@ -60,11 +60,12 @@
 
 .listing-section {
     display: grid;
-    grid-template-columns: minmax(980px, 1fr) 320px;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
-        "heading heading"
-        "archive updates";
-    column-gap: 22px;
+        "heading"
+        "archive"
+        "updates";
+    row-gap: 24px;
     align-items: start;
 }
 
@@ -103,8 +104,9 @@
         52px
         86px
         100px
-        94px;
-    min-width: 980px;
+        94px
+        2ch;
+    min-width: 1026px;
 }
 
 /* =========================================================
