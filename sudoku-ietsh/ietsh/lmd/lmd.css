@@ -2956,6 +2956,57 @@ body {
 
 
 /* =========================================================
+   Update monitor filter
+   ========================================================= */
+
+.update-monitor-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.update-monitor-filter {
+    flex: 0 0 auto;
+}
+
+.update-monitor-filter-select {
+    min-height: 30px;
+    padding: 5px 28px 5px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.025);
+    color: #aeb7ca;
+    font: inherit;
+    font-size: 9px;
+    line-height: 1.2;
+    outline: none;
+    cursor: pointer;
+}
+
+.update-monitor-filter-select:focus {
+    border-color: rgba(104, 120, 184, 0.45);
+}
+
+.update-monitor-filter-select option {
+    background: #0b0e15;
+    color: #d7dbe4;
+}
+
+@media (max-width: 600px) {
+    .update-monitor-heading {
+        gap: 8px;
+    }
+
+    .update-monitor-filter-select {
+        max-width: 150px;
+        min-height: 28px;
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================================
    About / Contact
    ========================================================= */
 
