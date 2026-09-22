@@ -4907,5 +4907,49 @@
     "field": "sudokupad_solves",
     "previous": 90,
     "current": 91
+  },
+  {
+    "id": "2026-09-22T13:37:22.747181Z-0",
+    "time": "2026-09-22T13:37:22.747181Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 91,
+    "current": 92
+  },
+  {
+    "id": "2026-09-22T13:37:22.747181Z-1",
+    "time": "2026-09-22T13:37:22.747181Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1527,
+    "current": 1529
+  },
+  {
+    "id": "2026-09-22T13:37:22.747181Z-2",
+    "time": "2026-09-22T13:37:22.747181Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 85,
+    "current": 86
+  },
+  {
+    "id": "2026-09-22T13:37:22.747181Z-3",
+    "time": "2026-09-22T13:37:22.747181Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 226,
+    "current": 227
   }
 ]
