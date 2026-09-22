@@ -1,10 +1,15 @@
+/* Give the desktop layout enough room for the full archive. */
+#content {
+    max-width: 1400px;
+}
+
 /* =========================================================
    Latest Puzzle + Statistics Dashboard
    ========================================================= */
 
 .latest-section {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(270px, 0.45fr);
+    grid-template-columns: minmax(0, 1fr) 300px;
     gap: 24px;
     align-items: start;
 }
@@ -55,7 +60,7 @@
 
 .listing-section {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-columns: minmax(0, 1fr) 320px;
     grid-template-areas:
         "heading heading"
         "archive updates";
@@ -78,7 +83,7 @@
     grid-area: updates;
     width: 100%;
     min-width: 0;
-    margin-top: 54px;
+    margin-top: 0;
 }
 
 #updates-monitor-host .update-monitor-list {
@@ -106,6 +111,9 @@
    ========================================================= */
 
 @media (max-width: 1100px) {
+    #content {
+        max-width: 1100px;
+    }
     .latest-section {
         grid-template-columns: minmax(0, 1fr);
     }
