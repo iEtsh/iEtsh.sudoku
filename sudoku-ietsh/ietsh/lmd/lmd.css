@@ -674,7 +674,7 @@ body {
 
     grid-template-columns:
         minmax(0, 1fr)
-        190px;
+        230px;
 
     grid-template-areas:
         "heading heading"
