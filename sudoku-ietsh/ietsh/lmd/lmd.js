@@ -45,6 +45,24 @@
 
   let updateLog = [];
   let updateClearAt = 0;
+  let updateFilterType = 'ALL';
+
+  const updateFilterTypes = [
+    'ALL',
+    'Puzzle Added',
+    'Puzzle Removed',
+    'Title Changed',
+    'Date Changed',
+    'Difficulty Changed',
+    'Author Rating Changed',
+    'SudokuPad Link Changed',
+    'LMD Link Changed',
+    'LMD Solvers Changed',
+    'SudokuPad Solvers Changed',
+    'Rating Changed',
+    'Puzzle Settings Changed',
+    'Puzzle Image Changed'
+  ];
 
   const loadUpdateClearAt = () => {
     try {
@@ -344,6 +362,64 @@
       )
       .text('UPDATES');
 
+    const filterWrap =
+      heading
+        .append('div')
+        .attr(
+          'class',
+          'update-monitor-filter'
+        );
+
+    const filter =
+      filterWrap
+        .append('select')
+        .attr(
+          'class',
+          'update-monitor-filter-select'
+        )
+        .attr(
+          'aria-label',
+          'Filter updates by type'
+        );
+
+    updateFilterTypes.forEach(
+      type => {
+        filter
+          .append('option')
+          .attr(
+            'value',
+            type
+          )
+          .text(
+            type === 'ALL'
+              ? 'ALL'
+              : type
+          );
+      }
+    );
+
+    filter
+      .property(
+        'value',
+        updateFilterType
+      )
+      .on(
+        'change',
+        function () {
+          updateFilterType =
+            this.value;
+
+          renderUpdateMonitor();
+        }
+      );
+
+    const visibleUpdates =
+      updateLog.filter(
+        entry =>
+          updateFilterType === 'ALL' ||
+          entry.type === updateFilterType
+      );
+
     const list =
       monitor
         .append('div')
@@ -353,7 +429,7 @@
         );
 
     if (
-      !updateLog.length
+      !visibleUpdates.length
     ) {
       list
         .append('div')
@@ -368,7 +444,7 @@
       return;
     }
 
-    updateLog.forEach(
+    visibleUpdates.forEach(
       entry => {
         const item =
           list
