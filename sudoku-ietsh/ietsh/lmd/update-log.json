@@ -5303,5 +5303,16 @@
     "field": "sudokupad_solves",
     "previous": 221,
     "current": 222
+  },
+  {
+    "id": "2026-09-22T18:52:40.847243Z-0",
+    "time": "2026-09-22T18:52:40.847243Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 70,
+    "current": 71
   }
 ]
