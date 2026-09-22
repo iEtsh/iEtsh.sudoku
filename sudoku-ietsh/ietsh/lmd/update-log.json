@@ -4203,5 +4203,27 @@
     "field": "sudokupad_solves",
     "previous": 68,
     "current": 69
+  },
+  {
+    "id": "2026-09-22T00:59:05.075797Z-0",
+    "time": "2026-09-22T00:59:05.075797Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 32,
+    "current": 33
+  },
+  {
+    "id": "2026-09-22T00:59:05.075797Z-1",
+    "time": "2026-09-22T00:59:05.075797Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 69,
+    "current": 70
   }
 ]
