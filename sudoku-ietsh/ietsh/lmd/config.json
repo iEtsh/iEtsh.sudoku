@@ -93,7 +93,7 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 174,
+      "solves": 175,
       "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
@@ -380,5 +380,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-22T20:42:25.814227Z"
+  "last_check": "2026-09-22T20:47:22.336648Z"
 }

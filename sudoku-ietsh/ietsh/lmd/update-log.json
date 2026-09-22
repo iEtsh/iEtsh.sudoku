@@ -5490,5 +5490,16 @@
     "field": "sudokupad_solves",
     "previous": 277,
     "current": 278
+  },
+  {
+    "id": "2026-09-22T20:47:22.338073Z-0",
+    "time": "2026-09-22T20:47:22.338073Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 174,
+    "current": 175
   }
 ]
