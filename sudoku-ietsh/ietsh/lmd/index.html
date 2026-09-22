@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>iEtsh's Puzzles</title>
-
     <link href="../../../lib/base.css" rel="stylesheet">
     <link href="./lmd.css" rel="stylesheet">
     <link href="./layout-overrides.css" rel="stylesheet">
-
     <script src="../../../lib/d3-v7.8.4.js"></script>
     <script defer src="../../../lib/common.js"></script>
     <script defer src="../../../lib/logo.js"></script>
     <script defer src="./lmd.js"></script>
 </head>
-
 <body>
-
 <div id="content">
-
     <header class="site-header">
         <div class="brand">
             <div class="brand-mark">iH</div>
@@ -51,30 +45,21 @@
                 <span class="update-text">Checking...</span>
             </div>
         </div>
-
         <div id="summary-table"></div>
-
         <div id="updates-monitor-host" aria-label="Updates monitor"></div>
     </section>
 
     <section class="about-section">
-        <div class="about-section-top">
-            <div class="section-label">ABOUT</div>
-        </div>
-
+        <div class="about-section-top"><div class="section-label">ABOUT</div></div>
         <div class="about-stage">
             <div class="about-identity">
                 <div class="identity-main">
-                    <div class="identity-eyebrow">
-                        <span class="identity-pulse"></span>
-                        SOFTWARE ENGINEER / PUZZLE ENTHUSIAST
-                    </div>
+                    <div class="identity-eyebrow"><span class="identity-pulse"></span>SOFTWARE ENGINEER / PUZZLE ENTHUSIAST</div>
                     <h2 class="identity-title">Hi, I'm <em>Hesham.</em></h2>
                     <p class="identity-lead">I'm Hesham, a software engineer who is a puzzle enthusiast.</p>
                     <p class="identity-description">I build things, solve puzzles, and create my own Sudoku variations. This archive is where I keep the puzzles I've made and published.</p>
                 </div>
             </div>
-
             <div class="about-visual" aria-hidden="true">
                 <div class="visual-frame">
                     <div class="visual-corner visual-corner-tl"></div>
@@ -85,28 +70,16 @@
                 </div>
             </div>
         </div>
-
         <div class="about-bottom">
             <div class="about-contact-panel">
-                <div class="contact-panel-head">
-                    <span>GET IN TOUCH</span>
-                    <span>AVAILABLE ONLINE</span>
-                </div>
-
+                <div class="contact-panel-head"><span>GET IN TOUCH</span><span>AVAILABLE ONLINE</span></div>
                 <a class="contact-card" href="https://discord.com/users/700343157690466366" target="_blank" rel="noopener noreferrer">
-                    <span class="contact-card-icon contact-discord" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img"><path d="M19.54 5.32A16.4 16.4 0 0 0 15.62 4l-.48.98a14.2 14.2 0 0 0-4.28 0L10.38 4a16.4 16.4 0 0 0-3.92 1.32C3.98 9.3 3.3 13.2 3.64 17.05a16.55 16.55 0 0 0 4.8 2.43l1.17-1.58a9.7 9.7 0 0 1-1.85-.9l.45-.34c3.57 1.67 7.44 1.67 10.97 0l.45.34c-.59.35-1.2.65-1.85.9l1.17 1.58a16.55 16.55 0 0 0 4.8-2.43c.4-4.46-.68-8.32-4.21-11.73ZM9.5 15.18c-1.04 0-1.9-.95-1.9-2.12s.84-2.12 1.9-2.12 1.9.95 1.9 2.12-.84 2.12-1.9 2.12Zm5 0c-1.04 0-1.9-.95-1.9-2.12s.84-2.12 1.9-2.12 1.9.95 1.9 2.12-.84 2.12-1.9 2.12Z"></path></svg>
-                    </span>
-                    <span class="contact-card-body"><span class="contact-card-type">DISCORD</span><span class="contact-card-value">@etsh1</span></span>
-                    <span class="contact-card-arrow">↗</span>
+                    <span class="contact-card-icon contact-discord" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M19.54 5.32A16.4 16.4 0 0 0 15.62 4l-.48.98a14.2 14.2 0 0 0-4.28 0L10.38 4a16.4 16.4 0 0 0-3.92 1.32C3.98 9.3 3.3 13.2 3.64 17.05a16.55 16.55 0 0 0 4.8 2.43l1.17-1.58a9.7 9.7 0 0 1-1.85-.9l.45-.34c3.57 1.67 7.44 1.67 10.97 0l.45.34c-.59.35-1.2.65-1.85.9l1.17 1.58a16.55 16.55 0 0 0 4.8-2.43c.4-4.46-.68-8.32-4.21-11.73ZM9.5 15.18c-1.04 0-1.9-.95-1.9-2.12s.84-2.12 1.9-2.12 1.9.95 1.9 2.12-.84 2.12-1.9 2.12Zm5 0c-1.04 0-1.9-.95-1.9-2.12s.84-2.12 1.9-2.12 1.9.95 1.9 2.12-.84 2.12-1.9 2.12Z"></path></svg></span>
+                    <span class="contact-card-body"><span class="contact-card-type">DISCORD</span><span class="contact-card-value">@etsh1</span></span><span class="contact-card-arrow">↗</span>
                 </a>
-
                 <a class="contact-card" href="mailto:ihesham.abdallah@gmail.com">
-                    <span class="contact-card-icon contact-gmail" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" role="img"><path d="M3 6.6v10.8c0 .88.72 1.6 1.6 1.6h2.1V10.7L12 14.8l5.3-4.1V19h2.1c.88 0 1.6-.72 1.6-1.6V6.6l-2.1 1.62L12 12.25 5.1 8.22 3 6.6Z"></path></svg>
-                    </span>
-                    <span class="contact-card-body"><span class="contact-card-type">EMAIL</span><span class="contact-card-value">ihesham.abdallah@gmail.com</span></span>
-                    <span class="contact-card-arrow">↗</span>
+                    <span class="contact-card-icon contact-gmail" aria-hidden="true"><svg viewBox="0 0 24 24" role="img"><path d="M3 6.6v10.8c0 .88.72 1.6 1.6 1.6h2.1V10.7L12 14.8l5.3-4.1V19h2.1c.88 0 1.6-.72 1.6-1.6V6.6l-2.1 1.62L12 12.25 5.1 8.22 3 6.6Z"></path></svg></span>
+                    <span class="contact-card-body"><span class="contact-card-type">EMAIL</span><span class="contact-card-value">ihesham.abdallah@gmail.com</span></span><span class="contact-card-arrow">↗</span>
                 </a>
             </div>
         </div>
@@ -116,39 +89,51 @@
         (() => {
             const grid = document.getElementById('about-puzzle-grid');
             if (!grid) return;
-            const base = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-            const pattern = (row, col) => base[(row * 3 + Math.floor(row / 3) + col) % 9];
+            const base = [1,2,3,4,5,6,7,8,9];
+            const pattern = (row,col) => base[(row*3 + Math.floor(row/3) + col) % 9];
             const cells = [];
-            for (let row = 0; row < 9; row += 1) {
-                for (let col = 0; col < 9; col += 1) {
-                    const cell = document.createElement('span');
-                    cell.className = 'visual-cell';
-                    cell.textContent = pattern(row, col);
-                    cell.style.setProperty('--row', row);
-                    cell.style.setProperty('--col', col);
+            for (let row=0; row<9; row+=1) {
+                for (let col=0; col<9; col+=1) {
+                    const cell=document.createElement('span');
+                    cell.className='visual-cell';
+                    cell.textContent=pattern(row,col);
+                    cell.style.setProperty('--row',row);
+                    cell.style.setProperty('--col',col);
                     grid.appendChild(cell);
                     cells.push(cell);
                 }
             }
             let timer;
-            const pulse = (centerRow, centerCol) => {
-                cells.forEach((cell) => {
-                    const row = Number(cell.style.getPropertyValue('--row'));
-                    const col = Number(cell.style.getPropertyValue('--col'));
-                    const distance = Math.abs(row - centerRow) + Math.abs(col - centerCol);
-                    cell.classList.toggle('is-lit', distance <= 1);
-                });
-            };
-            grid.addEventListener('pointermove', (event) => {
-                const rect = grid.getBoundingClientRect();
-                const col = Math.max(0, Math.min(8, Math.floor(((event.clientX - rect.left) / rect.width) * 9)));
-                const row = Math.max(0, Math.min(8, Math.floor(((event.clientY - rect.top) / rect.height) * 9)));
-                pulse(row, col);
+            const pulse=(centerRow,centerCol)=>cells.forEach(cell=>{
+                const row=Number(cell.style.getPropertyValue('--row'));
+                const col=Number(cell.style.getPropertyValue('--col'));
+                const distance=Math.abs(row-centerRow)+Math.abs(col-centerCol);
+                cell.classList.toggle('is-lit',distance<=1);
             });
-            grid.addEventListener('pointerleave', () => {
+            grid.addEventListener('pointermove',event=>{
+                const rect=grid.getBoundingClientRect();
+                const col=Math.max(0,Math.min(8,Math.floor(((event.clientX-rect.left)/rect.width)*9)));
+                const row=Math.max(0,Math.min(8,Math.floor(((event.clientY-rect.top)/rect.height)*9)));
+                pulse(row,col);
+            });
+            grid.addEventListener('pointerleave',()=>{
                 clearTimeout(timer);
-                timer = setTimeout(() => pulse(-10, -10), 80);
+                timer=setTimeout(()=>pulse(-10,-10),80);
             });
+        })();
+
+        (() => {
+            const dashboard=document.getElementById('puzzle-dashboard');
+            const host=document.getElementById('updates-monitor-host');
+            if (!dashboard || !host || !window.MutationObserver) return;
+            const moveRenderedMonitorContent=()=>{
+                const source=dashboard.querySelector('.update-monitor');
+                if (!source || !source.childNodes.length) return;
+                while (source.firstChild) host.appendChild(source.firstChild);
+            };
+            const observer=new MutationObserver(moveRenderedMonitorContent);
+            observer.observe(dashboard,{childList:true,subtree:true});
+            moveRenderedMonitorContent();
         })();
     </script>
 
@@ -157,12 +142,7 @@
         <a href="https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh" target="_blank" rel="noopener noreferrer">Logic Masters Germany ↗</a>
     </footer>
 
-    <div id="tooltip" class="tooltip">
-        <div class="thumb"><img src="" alt=""></div>
-        <div class="caption"></div>
-    </div>
-
+    <div id="tooltip" class="tooltip"><div class="thumb"><img src="" alt=""></div><div class="caption"></div></div>
 </div>
-
 </body>
 </html>
