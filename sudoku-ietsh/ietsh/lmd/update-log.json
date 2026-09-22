@@ -4962,5 +4962,49 @@
     "field": "sudokupad_solves",
     "previous": 131,
     "current": 132
+  },
+  {
+    "id": "2026-09-22T14:07:42.162575Z-0",
+    "time": "2026-09-22T14:07:42.162575Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 39,
+    "current": 40
+  },
+  {
+    "id": "2026-09-22T14:07:42.162575Z-1",
+    "time": "2026-09-22T14:07:42.162575Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 92,
+    "current": 93
+  },
+  {
+    "id": "2026-09-22T14:07:42.162575Z-2",
+    "time": "2026-09-22T14:07:42.162575Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "solves",
+    "previous": 76,
+    "current": 77
+  },
+  {
+    "id": "2026-09-22T14:07:42.162575Z-3",
+    "time": "2026-09-22T14:07:42.162575Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 180,
+    "current": 181
   }
 ]
