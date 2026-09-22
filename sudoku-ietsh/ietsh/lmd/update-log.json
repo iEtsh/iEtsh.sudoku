@@ -5380,5 +5380,27 @@
     "field": "sudokupad_solves",
     "previous": 102,
     "current": 103
+  },
+  {
+    "id": "2026-09-22T19:42:18.847468Z-0",
+    "time": "2026-09-22T19:42:18.847468Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 103,
+    "current": 104
+  },
+  {
+    "id": "2026-09-22T19:42:18.847468Z-1",
+    "time": "2026-09-22T19:42:18.847468Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1533,
+    "current": 1534
   }
 ]
