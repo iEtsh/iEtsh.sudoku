@@ -55,7 +55,7 @@
 
 .listing-section {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     grid-template-areas:
         "heading heading"
         "archive updates";
@@ -83,6 +83,22 @@
 
 #updates-monitor-host .update-monitor-list {
     max-height: 520px;
+}
+
+
+/* Keep the archive header and rows aligned while giving Rating enough room. */
+#summary-table .archive-header,
+#summary-table ul {
+    grid-template-columns:
+        42px
+        minmax(190px, 1fr)
+        130px
+        116px
+        46px
+        46px
+        80px
+        92px
+        86px;
 }
 
 /* =========================================================
