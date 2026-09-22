@@ -321,30 +321,26 @@
   const renderUpdateMonitor = (
     newEntryIds = []
   ) => {
-    const dashboard =
+    const host =
       d3.select(
-        '#puzzle-dashboard'
+        '#updates-monitor-host'
       );
 
     if (
-      dashboard.empty()
+      host.empty()
     ) {
       return;
     }
+
+    host.html('');
 
     const monitor =
-      dashboard
-        .select(
-          '.update-monitor'
+      host
+        .append('div')
+        .attr(
+          'class',
+          'update-monitor'
         );
-
-    if (
-      monitor.empty()
-    ) {
-      return;
-    }
-
-    monitor.html('');
 
     const heading =
       monitor
@@ -1937,13 +1933,6 @@
       ),
       'dashboard-solves'
     );
-
-    dashboard
-      .append('div')
-      .attr(
-        'class',
-        'update-monitor'
-      );
 
     renderUpdateMonitor();
   };
