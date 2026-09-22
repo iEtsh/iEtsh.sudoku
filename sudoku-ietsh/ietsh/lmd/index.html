@@ -8,6 +8,7 @@
 
     <link href="../../../lib/base.css" rel="stylesheet">
     <link href="./lmd.css" rel="stylesheet">
+    <link href="./layout-overrides.css" rel="stylesheet">
 
     <script src="../../../lib/d3-v7.8.4.js"></script>
     <script defer src="../../../lib/common.js"></script>
@@ -41,7 +42,7 @@
     </header>
 
 
-    <!-- Latest Puzzle -->
+    <!-- Latest Puzzle + Statistics Dashboard -->
     <section class="latest-section">
 
         <div class="section-label">
@@ -49,6 +50,12 @@
         </div>
 
         <div id="most-recent"></div>
+
+        <aside
+            id="puzzle-dashboard"
+            class="puzzle-dashboard"
+            aria-label="Puzzle dashboard"
+        ></aside>
 
     </section>
 
