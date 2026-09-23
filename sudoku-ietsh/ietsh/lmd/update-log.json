@@ -5886,5 +5886,16 @@
     "field": "sudokupad_solves",
     "previous": 1541,
     "current": 1542
+  },
+  {
+    "id": "2026-09-23T13:27:25.937526Z-0",
+    "time": "2026-09-23T13:27:25.937526Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "sudokupad_solves",
+    "previous": 230,
+    "current": 231
   }
 ]
