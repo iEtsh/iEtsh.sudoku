@@ -5699,5 +5699,49 @@
     "field": "sudokupad_solves",
     "previous": 226,
     "current": 227
+  },
+  {
+    "id": "2026-09-23T04:52:23.209752Z-0",
+    "time": "2026-09-23T04:52:23.209752Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves",
+    "previous": 94,
+    "current": 95
+  },
+  {
+    "id": "2026-09-23T04:52:23.209752Z-1",
+    "time": "2026-09-23T04:52:23.209752Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 278,
+    "current": 279
+  },
+  {
+    "id": "2026-09-23T04:52:23.209752Z-2",
+    "time": "2026-09-23T04:52:23.209752Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 175,
+    "current": 176
+  },
+  {
+    "id": "2026-09-23T04:52:23.209752Z-3",
+    "time": "2026-09-23T04:52:23.209752Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 404,
+    "current": 405
   }
 ]
