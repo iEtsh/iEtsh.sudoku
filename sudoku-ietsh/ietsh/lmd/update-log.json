@@ -5919,5 +5919,27 @@
     "field": "sudokupad_solves",
     "previous": 239,
     "current": 240
+  },
+  {
+    "id": "2026-09-23T15:02:46.855190Z-0",
+    "time": "2026-09-23T15:02:46.855190Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1542,
+    "current": 1543
+  },
+  {
+    "id": "2026-09-23T15:02:46.855190Z-1",
+    "time": "2026-09-23T15:02:46.855190Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 181,
+    "current": 182
   }
 ]
