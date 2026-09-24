@@ -6724,5 +6724,38 @@
     "field": "sudokupad_solves",
     "previous": 17,
     "current": 18
+  },
+  {
+    "id": "2026-09-24T21:52:36.791047Z-0",
+    "time": "2026-09-24T21:52:36.791047Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 18,
+    "current": 19
+  },
+  {
+    "id": "2026-09-24T21:52:36.791047Z-1",
+    "time": "2026-09-24T21:52:36.791047Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "solves",
+    "previous": 106,
+    "current": 107
+  },
+  {
+    "id": "2026-09-24T21:52:36.791047Z-2",
+    "time": "2026-09-24T21:52:36.791047Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves",
+    "previous": 320,
+    "current": 321
   }
 ]
