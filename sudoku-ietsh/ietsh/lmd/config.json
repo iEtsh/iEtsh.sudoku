@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 28,
+      "id": "ietsh-27svs28s",
+      "title": "27s vs 28s",
+      "date": "24. September 2026, 20:03",
+      "stars": 4,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/134eka3x8y",
+      "lmd": "000V48",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V48.png"
+    },
+    {
       "num": 27,
       "id": "ietsh-divergent",
       "title": "Divergent",
@@ -205,7 +219,7 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/hswdlhrpuo",
       "lmd": "000U38",
-      "solves": 105,
+      "solves": 106,
       "rating": "87%",
       "author_rated": false,
       "image": "images/000U38.png",
@@ -380,5 +394,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-24T18:01:12.753300Z"
+  "last_check": "2026-09-24T18:07:52.431516Z"
 }

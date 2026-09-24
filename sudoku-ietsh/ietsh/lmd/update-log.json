@@ -6348,5 +6348,40 @@
     "field": "sudokupad_solves",
     "previous": 241,
     "current": 242
+  },
+  {
+    "id": "2026-09-24T18:07:52.432972Z-0",
+    "time": "2026-09-24T18:07:52.432972Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 28,
+      "id": "ietsh-27svs28s",
+      "title": "27s vs 28s",
+      "date": "24. September 2026, 20:03",
+      "stars": 4,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/134eka3x8y",
+      "lmd": "000V48",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V48.png"
+    }
+  },
+  {
+    "id": "2026-09-24T18:07:52.432972Z-1",
+    "time": "2026-09-24T18:07:52.432972Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "solves",
+    "previous": 105,
+    "current": 106
   }
 ]
