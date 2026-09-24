@@ -6603,5 +6603,27 @@
     "field": "sudokupad_solves",
     "previous": 12,
     "current": 13
+  },
+  {
+    "id": "2026-09-24T20:13:29.091458Z-0",
+    "time": "2026-09-24T20:13:29.091458Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 13,
+    "current": 14
+  },
+  {
+    "id": "2026-09-24T20:13:29.091458Z-1",
+    "time": "2026-09-24T20:13:29.091458Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents2",
+    "puzzleNum": 12,
+    "title": "Crosscurrents II",
+    "field": "sudokupad_solves",
+    "previous": 210,
+    "current": 211
   }
 ]
