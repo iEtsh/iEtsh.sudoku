@@ -7296,5 +7296,38 @@
     "field": "sudokupad_solves",
     "previous": 34,
     "current": 35
+  },
+  {
+    "id": "2026-09-25T13:32:26.771505Z-0",
+    "time": "2026-09-25T13:32:26.771505Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 73,
+    "current": 74
+  },
+  {
+    "id": "2026-09-25T13:32:26.771505Z-1",
+    "time": "2026-09-25T13:32:26.771505Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 233,
+    "current": 234
+  },
+  {
+    "id": "2026-09-25T13:32:26.771505Z-2",
+    "time": "2026-09-25T13:32:26.771505Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "rating",
+    "previous": "88%",
+    "current": "87%"
   }
 ]
