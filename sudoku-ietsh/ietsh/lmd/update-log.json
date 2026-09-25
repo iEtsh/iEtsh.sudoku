@@ -7087,5 +7087,16 @@
     "field": "sudokupad_solves",
     "previous": 132,
     "current": 133
+  },
+  {
+    "id": "2026-09-25T06:27:22.861199Z-0",
+    "time": "2026-09-25T06:27:22.861199Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 7,
+    "current": 8
   }
 ]
