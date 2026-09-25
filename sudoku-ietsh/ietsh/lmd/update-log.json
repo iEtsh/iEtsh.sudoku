@@ -7340,5 +7340,49 @@
     "field": "sudokupad_solves",
     "previous": 1558,
     "current": 1559
+  },
+  {
+    "id": "2026-09-25T13:52:37.891766Z-0",
+    "time": "2026-09-25T13:52:37.891766Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "stars",
+    "previous": 4,
+    "current": 3
+  },
+  {
+    "id": "2026-09-25T13:52:37.891766Z-1",
+    "time": "2026-09-25T13:52:37.891766Z",
+    "type": "Author Rating Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "author_rated",
+    "previous": true,
+    "current": false
+  },
+  {
+    "id": "2026-09-25T13:52:37.891766Z-2",
+    "time": "2026-09-25T13:52:37.891766Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 11,
+    "current": 12
+  },
+  {
+    "id": "2026-09-25T13:52:37.891766Z-3",
+    "time": "2026-09-25T13:52:37.891766Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "rating",
+    "previous": "N/A",
+    "current": "80%"
   }
 ]
