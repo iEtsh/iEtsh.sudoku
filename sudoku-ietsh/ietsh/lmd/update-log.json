@@ -7131,5 +7131,16 @@
     "field": "sudokupad_solves",
     "previous": 27,
     "current": 29
+  },
+  {
+    "id": "2026-09-25T09:02:58.963194Z-0",
+    "time": "2026-09-25T09:02:58.963194Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lonelyhouse",
+    "puzzleNum": 9,
+    "title": "Lonely House",
+    "field": "sudokupad_solves",
+    "previous": 139,
+    "current": 140
   }
 ]
