@@ -7219,5 +7219,27 @@
     "field": "sudokupad_solves",
     "previous": 1557,
     "current": 1558
+  },
+  {
+    "id": "2026-09-25T12:32:24.128018Z-0",
+    "time": "2026-09-25T12:32:24.128018Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 32,
+    "current": 33
+  },
+  {
+    "id": "2026-09-25T12:32:24.128018Z-1",
+    "time": "2026-09-25T12:32:24.128018Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 232,
+    "current": 233
   }
 ]
