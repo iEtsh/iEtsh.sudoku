@@ -7505,5 +7505,16 @@
     "field": "sudokupad_solves",
     "previous": 1559,
     "current": 1560
+  },
+  {
+    "id": "2026-09-25T19:37:53.822097Z-0",
+    "time": "2026-09-25T19:37:53.822097Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-16s",
+    "puzzleNum": 8,
+    "title": "16s",
+    "field": "sudokupad_solves",
+    "previous": 133,
+    "current": 134
   }
 ]
