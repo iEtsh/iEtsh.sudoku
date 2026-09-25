@@ -7120,5 +7120,16 @@
     "field": "sudokupad_solves",
     "previous": 223,
     "current": 224
+  },
+  {
+    "id": "2026-09-25T08:27:29.778349Z-0",
+    "time": "2026-09-25T08:27:29.778349Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 27,
+    "current": 29
   }
 ]
