@@ -7197,5 +7197,27 @@
     "field": "sudokupad_solves",
     "previous": 30,
     "current": 31
+  },
+  {
+    "id": "2026-09-25T11:37:35.883713Z-0",
+    "time": "2026-09-25T11:37:35.883713Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 31,
+    "current": 32
+  },
+  {
+    "id": "2026-09-25T11:37:35.883713Z-1",
+    "time": "2026-09-25T11:37:35.883713Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1557,
+    "current": 1558
   }
 ]
