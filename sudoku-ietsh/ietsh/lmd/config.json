@@ -163,11 +163,11 @@
       "stars": 5,
       "puzz": "https://sudokupad.app/402m41n7ya",
       "lmd": "000U9Y",
-      "solves": 51,
-      "rating": "87%",
+      "solves": 52,
+      "rating": "88%",
       "author_rated": false,
       "image": "images/000U9Y.png",
-      "sudokupad_solves": 102
+      "sudokupad_solves": 103
     },
     {
       "num": 16,
@@ -394,5 +394,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-26T19:17:31.484011Z"
+  "last_check": "2026-09-26T19:22:33.582882Z"
 }
