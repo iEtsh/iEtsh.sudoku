@@ -7626,5 +7626,16 @@
     "field": "sudokupad_solves",
     "previous": 42,
     "current": 43
+  },
+  {
+    "id": "2026-09-26T00:17:37.724291Z-0",
+    "time": "2026-09-26T00:17:37.724291Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 182,
+    "current": 183
   }
 ]
