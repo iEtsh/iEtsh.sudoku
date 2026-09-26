@@ -7934,5 +7934,27 @@
     "field": "sudokupad_solves",
     "previous": 1566,
     "current": 1567
+  },
+  {
+    "id": "2026-09-26T08:47:26.916854Z-0",
+    "time": "2026-09-26T08:47:26.916854Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1567,
+    "current": 1568
+  },
+  {
+    "id": "2026-09-26T08:47:26.916854Z-1",
+    "time": "2026-09-26T08:47:26.916854Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 148,
+    "current": 149
   }
 ]
