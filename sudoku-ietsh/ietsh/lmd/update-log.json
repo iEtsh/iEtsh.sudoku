@@ -7714,5 +7714,16 @@
     "field": "rating",
     "previous": "83%",
     "current": "85%"
+  },
+  {
+    "id": "2026-09-26T02:42:32.200801Z-0",
+    "time": "2026-09-26T02:42:32.200801Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arabesque",
+    "puzzleNum": 5,
+    "title": "Arabesque",
+    "field": "sudokupad_solves",
+    "previous": 92,
+    "current": 93
   }
 ]
