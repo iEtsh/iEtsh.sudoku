@@ -7835,5 +7835,38 @@
     "field": "rating",
     "previous": "87%",
     "current": "88%"
+  },
+  {
+    "id": "2026-09-26T04:42:20.159868Z-0",
+    "time": "2026-09-26T04:42:20.159868Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1564,
+    "current": 1565
+  },
+  {
+    "id": "2026-09-26T04:42:20.159868Z-1",
+    "time": "2026-09-26T04:42:20.159868Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "solves",
+    "previous": 82,
+    "current": 83
+  },
+  {
+    "id": "2026-09-26T04:42:20.159868Z-2",
+    "time": "2026-09-26T04:42:20.159868Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 206,
+    "current": 207
   }
 ]
