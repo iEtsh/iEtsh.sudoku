@@ -8077,5 +8077,27 @@
     "field": "sudokupad_solves",
     "previous": 48,
     "current": 49
+  },
+  {
+    "id": "2026-09-26T16:17:25.373066Z-0",
+    "time": "2026-09-26T16:17:25.373066Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 74,
+    "current": 75
+  },
+  {
+    "id": "2026-09-26T16:17:25.373066Z-1",
+    "time": "2026-09-26T16:17:25.373066Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "rating",
+    "previous": "87%",
+    "current": "88%"
   }
 ]
