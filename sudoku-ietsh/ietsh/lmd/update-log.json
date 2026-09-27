@@ -8286,5 +8286,27 @@
     "field": "solves",
     "previous": 17,
     "current": 18
+  },
+  {
+    "id": "2026-09-27T04:57:22.099887Z-0",
+    "time": "2026-09-27T04:57:22.099887Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 236,
+    "current": 237
+  },
+  {
+    "id": "2026-09-27T04:57:22.099887Z-1",
+    "time": "2026-09-27T04:57:22.099887Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 184,
+    "current": 185
   }
 ]
