@@ -8616,5 +8616,16 @@
     "field": "sudokupad_solves",
     "previous": 279,
     "current": 280
+  },
+  {
+    "id": "2026-09-27T20:27:22.706333Z-0",
+    "time": "2026-09-27T20:27:22.706333Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 224,
+    "current": 225
   }
 ]
