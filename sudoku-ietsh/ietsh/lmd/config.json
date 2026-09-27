@@ -121,11 +121,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/l0vo4o13rd",
       "lmd": "000UFT",
-      "solves": 192,
+      "solves": 193,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 544
+      "sudokupad_solves": 545
     },
     {
       "num": 19,
@@ -394,5 +394,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-27T07:07:27.114879Z"
+  "last_check": "2026-09-27T07:12:45.742447Z"
 }
