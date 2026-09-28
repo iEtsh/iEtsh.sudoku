@@ -8937,5 +8937,27 @@
     "field": "sudokupad_solves",
     "previous": 328,
     "current": 329
+  },
+  {
+    "id": "2026-09-28T11:37:36.642793Z-0",
+    "time": "2026-09-28T11:37:36.642793Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 132,
+    "current": 133
+  },
+  {
+    "id": "2026-09-28T11:37:36.642793Z-1",
+    "time": "2026-09-28T11:37:36.642793Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "solves",
+    "previous": 110,
+    "current": 111
   }
 ]
