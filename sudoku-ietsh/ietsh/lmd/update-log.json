@@ -10070,5 +10070,27 @@
     "field": "sudokupad_solves",
     "previous": 1590,
     "current": 1591
+  },
+  {
+    "id": "2026-09-28T23:17:31.252167Z-0",
+    "time": "2026-09-28T23:17:31.252167Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 59,
+    "current": 60
+  },
+  {
+    "id": "2026-09-28T23:17:31.252167Z-1",
+    "time": "2026-09-28T23:17:31.252167Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 238,
+    "current": 239
   }
 ]
