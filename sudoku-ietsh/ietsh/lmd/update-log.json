@@ -10026,5 +10026,49 @@
     "field": "sudokupad_solves",
     "previous": 1589,
     "current": 1590
+  },
+  {
+    "id": "2026-09-28T22:27:25.568980Z-0",
+    "time": "2026-09-28T22:27:25.568980Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 15,
+    "current": 16
+  },
+  {
+    "id": "2026-09-28T22:27:25.568980Z-1",
+    "time": "2026-09-28T22:27:25.568980Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 58,
+    "current": 59
+  },
+  {
+    "id": "2026-09-28T22:27:25.568980Z-2",
+    "time": "2026-09-28T22:27:25.568980Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "rating",
+    "previous": "89%",
+    "current": "88%"
+  },
+  {
+    "id": "2026-09-28T22:27:25.568980Z-3",
+    "time": "2026-09-28T22:27:25.568980Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1590,
+    "current": 1591
   }
 ]
