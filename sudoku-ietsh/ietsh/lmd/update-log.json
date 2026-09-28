@@ -9102,5 +9102,27 @@
     "field": "sudokupad_solves",
     "previous": 11,
     "current": 12
+  },
+  {
+    "id": "2026-09-28T13:12:25.803607Z-0",
+    "time": "2026-09-28T13:12:25.803607Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 1,
+    "current": 2
+  },
+  {
+    "id": "2026-09-28T13:12:25.803607Z-1",
+    "time": "2026-09-28T13:12:25.803607Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "sudokupad_solves",
+    "previous": 243,
+    "current": 244
   }
 ]
