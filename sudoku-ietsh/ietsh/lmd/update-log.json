@@ -9630,5 +9630,16 @@
     "field": "sudokupad_solves",
     "previous": 39,
     "current": 40
+  },
+  {
+    "id": "2026-09-28T17:42:40.104268Z-0",
+    "time": "2026-09-28T17:42:40.104268Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "solves",
+    "previous": 139,
+    "current": 140
   }
 ]
