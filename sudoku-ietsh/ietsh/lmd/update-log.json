@@ -9762,5 +9762,27 @@
     "field": "sudokupad_solves",
     "previous": 237,
     "current": 238
+  },
+  {
+    "id": "2026-09-28T19:42:56.388424Z-0",
+    "time": "2026-09-28T19:42:56.388424Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 11,
+    "current": 12
+  },
+  {
+    "id": "2026-09-28T19:42:56.388424Z-1",
+    "time": "2026-09-28T19:42:56.388424Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 48,
+    "current": 49
   }
 ]
