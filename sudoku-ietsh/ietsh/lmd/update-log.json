@@ -9322,5 +9322,82 @@
     "field": "sudokupad_solves",
     "previous": 25,
     "current": 27
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-0",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 6,
+    "current": 7
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-1",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 27,
+    "current": 29
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-2",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 22,
+    "current": 23
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-3",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 62,
+    "current": 63
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-4",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 90,
+    "current": 91
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-5",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 233,
+    "current": 234
+  },
+  {
+    "id": "2026-09-28T14:32:34.003510Z-6",
+    "time": "2026-09-28T14:32:34.003510Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "rating",
+    "previous": "90%",
+    "current": "89%"
   }
 ]
