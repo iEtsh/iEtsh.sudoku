@@ -9245,5 +9245,38 @@
     "field": "sudokupad_solves",
     "previous": 133,
     "current": 134
+  },
+  {
+    "id": "2026-09-28T14:02:48.110286Z-0",
+    "time": "2026-09-28T14:02:48.110286Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 22,
+    "current": 23
+  },
+  {
+    "id": "2026-09-28T14:02:48.110286Z-1",
+    "time": "2026-09-28T14:02:48.110286Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "solves",
+    "previous": 83,
+    "current": 84
+  },
+  {
+    "id": "2026-09-28T14:02:48.110286Z-2",
+    "time": "2026-09-28T14:02:48.110286Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 207,
+    "current": 208
   }
 ]
