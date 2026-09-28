@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 29,
+      "id": "ietsh-breadcrumbs",
+      "title": "Breadcrumbs",
+      "date": "28. September 2026, 13:15",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/nr491f32z2",
+      "lmd": "000V73",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V73.png"
+    },
+    {
       "num": 28,
       "id": "ietsh-27svs28s",
       "title": "27s vs 28s",
@@ -394,5 +408,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-28T11:17:24.875389Z"
+  "last_check": "2026-09-28T11:22:41.310173Z"
 }

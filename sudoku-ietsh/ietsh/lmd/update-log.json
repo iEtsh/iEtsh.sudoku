@@ -8869,5 +8869,29 @@
     "field": "sudokupad_solves",
     "previous": 61,
     "current": 62
+  },
+  {
+    "id": "2026-09-28T11:22:41.312240Z-0",
+    "time": "2026-09-28T11:22:41.312240Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 29,
+      "id": "ietsh-breadcrumbs",
+      "title": "Breadcrumbs",
+      "date": "28. September 2026, 13:15",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/nr491f32z2",
+      "lmd": "000V73",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V73.png"
+    }
   }
 ]
