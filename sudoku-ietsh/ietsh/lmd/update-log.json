@@ -9047,5 +9047,38 @@
     "field": "sudokupad_solves",
     "previous": 1584,
     "current": 1585
+  },
+  {
+    "id": "2026-09-28T12:47:28.181778Z-0",
+    "time": "2026-09-28T12:47:28.181778Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 8,
+    "current": 10
+  },
+  {
+    "id": "2026-09-28T12:47:28.181778Z-1",
+    "time": "2026-09-28T12:47:28.181778Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "solves",
+    "previous": 193,
+    "current": 194
+  },
+  {
+    "id": "2026-09-28T12:47:28.181778Z-2",
+    "time": "2026-09-28T12:47:28.181778Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 545,
+    "current": 546
   }
 ]
