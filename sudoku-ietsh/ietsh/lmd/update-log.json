@@ -9080,5 +9080,16 @@
     "field": "sudokupad_solves",
     "previous": 545,
     "current": 546
+  },
+  {
+    "id": "2026-09-28T13:02:30.785405Z-0",
+    "time": "2026-09-28T13:02:30.785405Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 10,
+    "current": 11
   }
 ]
