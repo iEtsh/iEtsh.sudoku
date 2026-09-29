@@ -93,11 +93,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/5jowj6dgs8",
       "lmd": "000UNY",
-      "solves": 103,
+      "solves": 104,
       "rating": "92%",
       "author_rated": false,
       "image": "images/000UNY.jpg",
-      "sudokupad_solves": 291
+      "sudokupad_solves": 292
     },
     {
       "num": 22,
@@ -408,5 +408,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-29T05:02:41.234676Z"
+  "last_check": "2026-09-29T05:07:23.151220Z"
 }
