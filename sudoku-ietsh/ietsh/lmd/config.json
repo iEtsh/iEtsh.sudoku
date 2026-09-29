@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 30,
+      "id": "ietsh-asterism",
+      "title": "Asterism",
+      "date": "30. September 2026, 01:03",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/1uhtix28xl",
+      "lmd": "000V8J",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000V8J.png"
+    },
+    {
       "num": 29,
       "id": "ietsh-breadcrumbs",
       "title": "Breadcrumbs",
@@ -219,11 +233,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/ctp85b8w6b",
       "lmd": "000U4O",
-      "solves": 84,
+      "solves": 85,
       "rating": "91%",
       "author_rated": false,
       "image": "images/000U4O.png",
-      "sudokupad_solves": 208
+      "sudokupad_solves": 209
     },
     {
       "num": 13,
@@ -408,5 +422,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-29T23:02:39.083700Z"
+  "last_check": "2026-09-29T23:07:42.321395Z"
 }
