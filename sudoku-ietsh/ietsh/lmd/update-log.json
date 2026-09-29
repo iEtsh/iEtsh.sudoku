@@ -10389,5 +10389,38 @@
     "field": "sudokupad_solves",
     "previous": 79,
     "current": 80
+  },
+  {
+    "id": "2026-09-29T11:07:25.170631Z-0",
+    "time": "2026-09-29T11:07:25.170631Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 23,
+    "current": 24
+  },
+  {
+    "id": "2026-09-29T11:07:25.170631Z-1",
+    "time": "2026-09-29T11:07:25.170631Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves",
+    "previous": 104,
+    "current": 105
+  },
+  {
+    "id": "2026-09-29T11:07:25.170631Z-2",
+    "time": "2026-09-29T11:07:25.170631Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 293,
+    "current": 294
   }
 ]
