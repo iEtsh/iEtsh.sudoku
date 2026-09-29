@@ -10,8 +10,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/nr491f32z2",
       "lmd": "000V73",
-      "solves": 21,
-      "sudokupad_solves": 82,
+      "solves": 22,
+      "sudokupad_solves": 84,
       "rating": "88%",
       "image": "images/000V73.png"
     },
@@ -408,5 +408,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-29T13:58:08.366773Z"
+  "last_check": "2026-09-29T14:02:51.023840Z"
 }
