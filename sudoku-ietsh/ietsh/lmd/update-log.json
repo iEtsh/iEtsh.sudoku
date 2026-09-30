@@ -12879,5 +12879,27 @@
     "field": "solves",
     "previous": 47,
     "current": 48
+  },
+  {
+    "id": "2026-09-30T21:47:42.567258Z-0",
+    "time": "2026-09-30T21:47:42.567258Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 33,
+    "current": 34
+  },
+  {
+    "id": "2026-09-30T21:47:42.567258Z-1",
+    "time": "2026-09-30T21:47:42.567258Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "rating",
+    "previous": "85%",
+    "current": "86%"
   }
 ]
