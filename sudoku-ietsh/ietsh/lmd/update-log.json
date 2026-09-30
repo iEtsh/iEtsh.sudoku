@@ -13000,5 +13000,16 @@
     "field": "rating",
     "previous": "85%",
     "current": "86%"
+  },
+  {
+    "id": "2026-09-30T22:37:44.744526Z-0",
+    "time": "2026-09-30T22:37:44.744526Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 114,
+    "current": 115
   }
 ]
