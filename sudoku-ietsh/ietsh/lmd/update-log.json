@@ -11546,5 +11546,84 @@
     "field": "rating",
     "previous": "87%",
     "current": "85%"
+  },
+  {
+    "id": "2026-09-30T12:22:35.972796Z-0",
+    "time": "2026-09-30T12:22:35.972796Z",
+    "type": "Date Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "date",
+    "previous": "30. September 2026, 01:03",
+    "current": "30. September 2026, 13:58"
+  },
+  {
+    "id": "2026-09-30T12:22:35.972796Z-1",
+    "time": "2026-09-30T12:22:35.972796Z",
+    "type": "LMD Link Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "lmd",
+    "previous": "000V8J",
+    "current": "000V8X"
+  },
+  {
+    "id": "2026-09-30T12:22:35.972796Z-2",
+    "time": "2026-09-30T12:22:35.972796Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 5,
+    "current": 0
+  },
+  {
+    "id": "2026-09-30T12:22:35.972796Z-3",
+    "time": "2026-09-30T12:22:35.972796Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "image",
+    "previous": "images/000V8J.png",
+    "current": "images/000V8X.png"
+  },
+  {
+    "id": "2026-09-30T12:22:35.972796Z-4",
+    "time": "2026-09-30T12:22:35.972796Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1600,
+    "current": 1601
+  },
+  {
+    "id": "2026-09-30T12:22:36.931236Z-0",
+    "time": "2026-09-30T12:22:36.931236Z",
+    "type": "Puzzle Removed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": null,
+    "previous": {
+      "num": 30,
+      "id": "ietsh-asterism",
+      "title": "Asterism",
+      "date": "30. September 2026, 01:03",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/69wareo01v",
+      "lmd": "000V8J",
+      "solves": 5,
+      "sudokupad_solves": 7,
+      "rating": "N/A",
+      "image": "images/000V8J.png"
+    },
+    "current": null
   }
 ]
