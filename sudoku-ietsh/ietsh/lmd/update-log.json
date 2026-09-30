@@ -11315,5 +11315,16 @@
     "field": "rating",
     "previous": "93%",
     "current": "92%"
+  },
+  {
+    "id": "2026-09-30T09:07:43.559101Z-0",
+    "time": "2026-09-30T09:07:43.559101Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 4,
+    "current": 5
   }
 ]
