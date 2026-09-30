@@ -12846,5 +12846,38 @@
     "field": "sudokupad_solves",
     "previous": 134,
     "current": 135
+  },
+  {
+    "id": "2026-09-30T21:42:30.688072Z-0",
+    "time": "2026-09-30T21:42:30.688072Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 32,
+    "current": 33
+  },
+  {
+    "id": "2026-09-30T21:42:30.688072Z-1",
+    "time": "2026-09-30T21:42:30.688072Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 74,
+    "current": 76
+  },
+  {
+    "id": "2026-09-30T21:42:30.688072Z-2",
+    "time": "2026-09-30T21:42:30.688072Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "solves",
+    "previous": 47,
+    "current": 48
   }
 ]
