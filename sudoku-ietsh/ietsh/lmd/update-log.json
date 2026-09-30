@@ -11625,5 +11625,49 @@
       "image": "images/000V8J.png"
     },
     "current": null
+  },
+  {
+    "id": "2026-09-30T12:37:39.407135Z-0",
+    "time": "2026-09-30T12:37:39.407135Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 7,
+    "current": 8
+  },
+  {
+    "id": "2026-09-30T12:37:39.407135Z-1",
+    "time": "2026-09-30T12:37:39.407135Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 27,
+    "current": 28
+  },
+  {
+    "id": "2026-09-30T12:37:39.407135Z-2",
+    "time": "2026-09-30T12:37:39.407135Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 104,
+    "current": 105
+  },
+  {
+    "id": "2026-09-30T12:37:39.407135Z-3",
+    "time": "2026-09-30T12:37:39.407135Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "rating",
+    "previous": "89%",
+    "current": "90%"
   }
 ]
