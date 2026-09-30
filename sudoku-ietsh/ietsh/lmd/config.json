@@ -6,13 +6,13 @@
       "id": "ietsh-asterism",
       "title": "Asterism",
       "date": "30. September 2026, 13:58",
-      "stars": 1,
+      "stars": 2,
       "author_rated": false,
       "puzz": "https://sudokupad.app/69wareo01v",
       "lmd": "000V8X",
-      "solves": 18,
+      "solves": 19,
       "sudokupad_solves": 50,
-      "rating": "87%",
+      "rating": "80%",
       "image": "images/000V8X.png"
     },
     {
@@ -422,5 +422,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-30T17:57:45.724680Z"
+  "last_check": "2026-09-30T18:03:01.795511Z"
 }
