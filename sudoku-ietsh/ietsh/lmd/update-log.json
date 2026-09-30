@@ -11062,5 +11062,16 @@
     "field": "sudokupad_solves",
     "previous": 244,
     "current": 245
+  },
+  {
+    "id": "2026-09-30T02:02:46.593803Z-0",
+    "time": "2026-09-30T02:02:46.593803Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 2,
+    "current": 3
   }
 ]
