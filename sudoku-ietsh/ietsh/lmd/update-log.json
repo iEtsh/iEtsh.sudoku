@@ -12395,5 +12395,27 @@
     "field": "solves",
     "previous": 31,
     "current": 32
+  },
+  {
+    "id": "2026-09-30T18:17:33.040232Z-0",
+    "time": "2026-09-30T18:17:33.040232Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 32,
+    "current": 33
+  },
+  {
+    "id": "2026-09-30T18:17:33.040232Z-1",
+    "time": "2026-09-30T18:17:33.040232Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "rating",
+    "previous": "88%",
+    "current": "89%"
   }
 ]
