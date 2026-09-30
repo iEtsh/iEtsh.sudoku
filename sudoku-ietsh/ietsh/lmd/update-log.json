@@ -12901,5 +12901,27 @@
     "field": "rating",
     "previous": "85%",
     "current": "86%"
+  },
+  {
+    "id": "2026-09-30T21:57:47.171926Z-0",
+    "time": "2026-09-30T21:57:47.171926Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 49,
+    "current": 50
+  },
+  {
+    "id": "2026-09-30T21:57:47.171926Z-1",
+    "time": "2026-09-30T21:57:47.171926Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 135,
+    "current": 136
   }
 ]
