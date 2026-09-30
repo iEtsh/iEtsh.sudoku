@@ -10,9 +10,9 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/69wareo01v",
       "lmd": "000V8X",
-      "solves": 24,
-      "sudokupad_solves": 55,
-      "rating": "83%",
+      "solves": 25,
+      "sudokupad_solves": 57,
+      "rating": "82%",
       "image": "images/000V8X.png"
     },
     {
@@ -422,5 +422,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-30T18:46:17.408905Z"
+  "last_check": "2026-09-30T18:53:01.807089Z"
 }
