@@ -11436,5 +11436,49 @@
     "field": "image",
     "previous": "images/000V8J.png",
     "current": "images/000V8J.png"
+  },
+  {
+    "id": "2026-09-30T12:07:30.635361Z-0",
+    "time": "2026-09-30T12:07:30.635361Z",
+    "type": "Date Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "date",
+    "previous": "30. September 2026, 01:03",
+    "current": "30. September 2026, 01:03"
+  },
+  {
+    "id": "2026-09-30T12:07:30.635361Z-1",
+    "time": "2026-09-30T12:07:30.635361Z",
+    "type": "LMD Link Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "lmd",
+    "previous": "000V8J",
+    "current": "000V8J"
+  },
+  {
+    "id": "2026-09-30T12:07:30.635361Z-2",
+    "time": "2026-09-30T12:07:30.635361Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 5,
+    "current": 5
+  },
+  {
+    "id": "2026-09-30T12:07:30.635361Z-3",
+    "time": "2026-09-30T12:07:30.635361Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 31,
+    "title": "Asterism",
+    "field": "image",
+    "previous": "images/000V8J.png",
+    "current": "images/000V8J.png"
   }
 ]
