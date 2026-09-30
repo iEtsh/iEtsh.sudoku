@@ -13044,5 +13044,38 @@
     "field": "sudokupad_solves",
     "previous": 84,
     "current": 85
+  },
+  {
+    "id": "2026-09-30T23:07:43.263726Z-0",
+    "time": "2026-09-30T23:07:43.263726Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 37,
+    "current": 38
+  },
+  {
+    "id": "2026-09-30T23:07:43.263726Z-1",
+    "time": "2026-09-30T23:07:43.263726Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 85,
+    "current": 86
+  },
+  {
+    "id": "2026-09-30T23:07:43.263726Z-2",
+    "time": "2026-09-30T23:07:43.263726Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 136,
+    "current": 137
   }
 ]
