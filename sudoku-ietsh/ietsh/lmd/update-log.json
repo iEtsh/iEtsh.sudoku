@@ -11172,5 +11172,27 @@
     "field": "sudokupad_solves",
     "previous": 298,
     "current": 299
+  },
+  {
+    "id": "2026-09-30T07:07:47.268364Z-0",
+    "time": "2026-09-30T07:07:47.268364Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 100,
+    "current": 101
+  },
+  {
+    "id": "2026-09-30T07:07:47.268364Z-1",
+    "time": "2026-09-30T07:07:47.268364Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lonelyhouse",
+    "puzzleNum": 9,
+    "title": "Lonely House",
+    "field": "sudokupad_solves",
+    "previous": 140,
+    "current": 141
   }
 ]
