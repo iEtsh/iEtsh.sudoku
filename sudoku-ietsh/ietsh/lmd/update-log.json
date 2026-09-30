@@ -10930,5 +10930,60 @@
     "field": "sudokupad_solves",
     "previous": 331,
     "current": 332
+  },
+  {
+    "id": "2026-09-30T00:17:36.904115Z-0",
+    "time": "2026-09-30T00:17:36.904115Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 0,
+    "current": 1
+  },
+  {
+    "id": "2026-09-30T00:17:36.904115Z-1",
+    "time": "2026-09-30T00:17:36.904115Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": null,
+    "current": 1
+  },
+  {
+    "id": "2026-09-30T00:17:36.904115Z-2",
+    "time": "2026-09-30T00:17:36.904115Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "solves",
+    "previous": 73,
+    "current": 74
+  },
+  {
+    "id": "2026-09-30T00:17:36.904115Z-3",
+    "time": "2026-09-30T00:17:36.904115Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 154,
+    "current": 155
+  },
+  {
+    "id": "2026-09-30T00:17:36.904115Z-4",
+    "time": "2026-09-30T00:17:36.904115Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 235,
+    "current": 236
   }
 ]
