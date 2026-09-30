@@ -45,6 +45,118 @@ jobs:
       - name: Run scraper
         run: python sudoku-ietsh/ietsh/lmd/scraper.py
 
+      - name: Remove puzzles no longer present on LMD
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          import requests
+          from bs4 import BeautifulSoup
+
+          BASE_URL = 'https://logic-masters.de/Raetselportal/Benutzer/eingestellt.php?name=iEtsh'
+          config_path = 'sudoku-ietsh/ietsh/lmd/config.json'
+          log_path = 'sudoku-ietsh/ietsh/lmd/update-log.json'
+          headers = {
+              'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+              'Accept-Language': 'en-US,en;q=0.9',
+          }
+
+          def fetch_page(start):
+              response = requests.get(
+                  f'{BASE_URL}&start={start}',
+                  headers=headers,
+                  timeout=30,
+              )
+              response.raise_for_status()
+              return response.text
+
+          def parse_lmd_codes(html):
+              soup = BeautifulSoup(html, 'html.parser')
+              table = soup.find('table', class_='rp_raetselliste')
+              if not table:
+                  return []
+
+              codes = []
+              for row in table.find_all('tr'):
+                  cells = row.find_all('td')
+                  if len(cells) < 2:
+                      continue
+                  link = cells[1].find('a')
+                  if not link:
+                      continue
+                  match = re.search(r'id=([A-Z0-9]+)', link.get('href', ''))
+                  if match:
+                      codes.append(match.group(1))
+              return codes
+
+          live_codes = set()
+          start = 0
+
+          while True:
+              html = fetch_page(start)
+              page_codes = parse_lmd_codes(html)
+              if not page_codes:
+                  break
+              live_codes.update(page_codes)
+              if len(page_codes) < 20:
+                  break
+              start += 20
+
+          with open(config_path, 'r', encoding='utf-8') as f:
+              config = json.load(f)
+
+          items = config.get('items', [])
+          removed = [item for item in items if item.get('lmd') not in live_codes]
+
+          if removed:
+              config['items'] = [item for item in items if item.get('lmd') in live_codes]
+
+              def parse_date(item):
+                  from datetime import datetime
+                  try:
+                      return datetime.strptime(item.get('date', ''), '%d. %B %Y, %H:%M')
+                  except Exception:
+                      return datetime.min
+
+              config['items'].sort(key=parse_date, reverse=True)
+
+              for index, item in enumerate(config['items']):
+                  item['num'] = len(config['items']) - index
+
+              with open(config_path, 'w', encoding='utf-8') as f:
+                  json.dump(config, f, ensure_ascii=False, indent=2)
+
+              try:
+                  with open(log_path, 'r', encoding='utf-8') as f:
+                      log = json.load(f)
+              except (FileNotFoundError, json.JSONDecodeError):
+                  log = []
+
+              from datetime import datetime, timezone
+              update_time = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
+              for offset, item in enumerate(removed):
+                  log.append({
+                      'id': f'{update_time}-{offset}',
+                      'time': update_time,
+                      'type': 'Puzzle Removed',
+                      'puzzleId': item.get('id'),
+                      'puzzleNum': item.get('num'),
+                      'title': item.get('title'),
+                      'field': None,
+                      'previous': item,
+                      'current': None,
+                  })
+
+              with open(log_path, 'w', encoding='utf-8') as f:
+                  json.dump(log, f, ensure_ascii=False, indent=2)
+
+              print(f'Removed {len(removed)} puzzle(s) no longer present on LMD.')
+              for item in removed:
+                  print(f"Removed: {item.get('title')} ({item.get('lmd')})")
+          else:
+              print('No removed puzzles detected.')
+          PY
+
       - name: Enrich new update events with previous and current values
         run: |
           python - <<'PY'
@@ -108,6 +220,6 @@ jobs:
           git add sudoku-ietsh/ietsh/lmd/update-log.json
           git add sudoku-ietsh/ietsh/lmd/images/
 
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update puzzle data"
+          git diff --quiet && git diff --staged --quiet || git commit -m 'Auto-update puzzle data'
 
           git push
