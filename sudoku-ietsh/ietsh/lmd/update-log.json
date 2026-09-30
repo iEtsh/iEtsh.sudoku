@@ -12648,5 +12648,16 @@
     "field": "sudokupad_solves",
     "previous": 65,
     "current": 66
+  },
+  {
+    "id": "2026-09-30T20:07:44.730801Z-0",
+    "time": "2026-09-30T20:07:44.730801Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 33,
+    "current": 34
   }
 ]
