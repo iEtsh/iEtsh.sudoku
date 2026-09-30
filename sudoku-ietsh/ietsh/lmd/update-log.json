@@ -12516,5 +12516,38 @@
     "field": "rating",
     "previous": "83%",
     "current": "82%"
+  },
+  {
+    "id": "2026-09-30T18:57:32.148852Z-0",
+    "time": "2026-09-30T18:57:32.148852Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 25,
+    "current": 26
+  },
+  {
+    "id": "2026-09-30T18:57:32.148852Z-1",
+    "time": "2026-09-30T18:57:32.148852Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 57,
+    "current": 60
+  },
+  {
+    "id": "2026-09-30T18:57:32.148852Z-2",
+    "time": "2026-09-30T18:57:32.148852Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1601,
+    "current": 1602
   }
 ]
