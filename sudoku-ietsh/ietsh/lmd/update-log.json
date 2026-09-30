@@ -11724,5 +11724,27 @@
     "field": "sudokupad_solves",
     "previous": 10,
     "current": 11
+  },
+  {
+    "id": "2026-09-30T13:02:53.390664Z-0",
+    "time": "2026-09-30T13:02:53.390664Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 11,
+    "current": 12
+  },
+  {
+    "id": "2026-09-30T13:02:53.390664Z-1",
+    "time": "2026-09-30T13:02:53.390664Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 547,
+    "current": 548
   }
 ]
