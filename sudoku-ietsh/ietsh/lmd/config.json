@@ -135,11 +135,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 176,
+      "solves": 177,
       "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 406
+      "sudokupad_solves": 407
     },
     {
       "num": 20,
@@ -223,7 +223,7 @@
       "rating": "82%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 283
+      "sudokupad_solves": 284
     },
     {
       "num": 14,
@@ -422,5 +422,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-09-30T08:17:30.861207Z"
+  "last_check": "2026-09-30T08:22:38.235065Z"
 }
