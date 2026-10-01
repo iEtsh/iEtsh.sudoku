@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 31,
+      "id": "ietsh-vibrantspotsviii",
+      "title": "Vibrant Spots VIII",
+      "date": "01. October 2026, 22:30",
+      "stars": 5,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/syuuh239xm",
+      "lmd": "000VA7",
+      "solves": 0,
+      "sudokupad_solves": 3,
+      "rating": "N/A",
+      "image": "images/000VA7.png"
+    },
+    {
       "num": 30,
       "id": "ietsh-asterism",
       "title": "Asterism",
@@ -10,9 +24,9 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/69wareo01v",
       "lmd": "000V8X",
-      "solves": 41,
-      "sudokupad_solves": 106,
-      "rating": "86%",
+      "solves": 42,
+      "sudokupad_solves": 111,
+      "rating": "87%",
       "image": "images/000V8X.png"
     },
     {
@@ -24,8 +38,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/nr491f32z2",
       "lmd": "000V73",
-      "solves": 35,
-      "sudokupad_solves": 121,
+      "solves": 36,
+      "sudokupad_solves": 122,
       "rating": "88%",
       "image": "images/000V73.png"
     },
@@ -93,11 +107,11 @@
       "stars": 4,
       "puzz": "https://sudokupad.app/pnkh0wymgo",
       "lmd": "000UR2",
-      "solves": 76,
+      "solves": 77,
       "rating": "98%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 157
+      "sudokupad_solves": 158
     },
     {
       "num": 23,
@@ -111,7 +125,7 @@
       "rating": "92%",
       "author_rated": false,
       "image": "images/000UNY.jpg",
-      "sudokupad_solves": 298
+      "sudokupad_solves": 299
     },
     {
       "num": 22,
@@ -419,8 +433,8 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000SBZ.png",
-      "sudokupad_solves": 143
+      "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-01T16:03:28.846018Z"
+  "last_check": "2026-10-01T21:39:01.693954Z"
 }
