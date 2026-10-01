@@ -13396,5 +13396,27 @@
     "field": "sudokupad_solves",
     "previous": 97,
     "current": 98
+  },
+  {
+    "id": "2026-10-01T08:32:35.329710Z-0",
+    "time": "2026-10-01T08:32:35.329710Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 27,
+    "current": 28
+  },
+  {
+    "id": "2026-10-01T08:32:35.329710Z-1",
+    "time": "2026-10-01T08:32:35.329710Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 70,
+    "current": 71
   }
 ]
