@@ -13495,5 +13495,27 @@
     "field": "sudokupad_solves",
     "previous": 101,
     "current": 102
+  },
+  {
+    "id": "2026-10-01T13:07:56.881620Z-0",
+    "time": "2026-10-01T13:07:56.881620Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 102,
+    "current": 103
+  },
+  {
+    "id": "2026-10-01T13:07:56.881620Z-1",
+    "time": "2026-10-01T13:07:56.881620Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1605,
+    "current": 1606
   }
 ]
