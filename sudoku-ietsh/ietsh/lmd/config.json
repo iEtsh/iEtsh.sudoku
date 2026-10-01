@@ -25,7 +25,7 @@
       "puzz": "https://sudokupad.app/nr491f32z2",
       "lmd": "000V73",
       "solves": 35,
-      "sudokupad_solves": 120,
+      "sudokupad_solves": 121,
       "rating": "88%",
       "image": "images/000V73.png"
     },
@@ -83,7 +83,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1606
+      "sudokupad_solves": 1607
     },
     {
       "num": 24,
@@ -422,5 +422,5 @@
       "sudokupad_solves": 143
     }
   ],
-  "last_check": "2026-10-01T13:12:43.612728Z"
+  "last_check": "2026-10-01T13:17:37.995585Z"
 }
