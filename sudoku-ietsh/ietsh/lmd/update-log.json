@@ -13638,5 +13638,16 @@
     "field": "sudokupad_solves",
     "previous": 135,
     "current": 136
+  },
+  {
+    "id": "2026-10-01T15:53:08.981376Z-0",
+    "time": "2026-10-01T15:53:08.981376Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves",
+    "previous": 332,
+    "current": 333
   }
 ]
