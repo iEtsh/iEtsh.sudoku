@@ -15323,5 +15323,27 @@
     "field": "sudokupad_solves",
     "previous": 124,
     "current": 125
+  },
+  {
+    "id": "2026-10-02T19:07:43.733313Z-0",
+    "time": "2026-10-02T19:07:43.733313Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-16s",
+    "puzzleNum": 8,
+    "title": "16s",
+    "field": "solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-10-02T19:07:43.733313Z-1",
+    "time": "2026-10-02T19:07:43.733313Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-16s",
+    "puzzleNum": 8,
+    "title": "16s",
+    "field": "sudokupad_solves",
+    "previous": 135,
+    "current": 136
   }
 ]

@@ -331,11 +331,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/cn1x8tx9xy",
       "lmd": "000SR0",
-      "solves": 56,
+      "solves": 57,
       "rating": "83%",
       "author_rated": false,
       "image": "images/000SR0.png",
-      "sudokupad_solves": 135
+      "sudokupad_solves": 136
     },
     {
       "num": 7,
@@ -436,5 +436,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-02T19:02:41.091995Z"
+  "last_check": "2026-10-02T19:07:43.730449Z"
 }
