@@ -15015,5 +15015,60 @@
     "field": "solves",
     "previous": 77,
     "current": 79
+  },
+  {
+    "id": "2026-10-02T16:22:37.775756Z-0",
+    "time": "2026-10-02T16:22:37.775756Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves",
+    "previous": 109,
+    "current": 111
+  },
+  {
+    "id": "2026-10-02T16:22:37.775756Z-1",
+    "time": "2026-10-02T16:22:37.775756Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "rating",
+    "previous": "92%",
+    "current": "93%"
+  },
+  {
+    "id": "2026-10-02T16:22:37.775756Z-2",
+    "time": "2026-10-02T16:22:37.775756Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots4",
+    "puzzleNum": 17,
+    "title": "Vibrant Spots IV",
+    "field": "solves",
+    "previous": 54,
+    "current": 56
+  },
+  {
+    "id": "2026-10-02T16:22:37.775756Z-3",
+    "time": "2026-10-02T16:22:37.775756Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots4",
+    "puzzleNum": 17,
+    "title": "Vibrant Spots IV",
+    "field": "rating",
+    "previous": "88%",
+    "current": "89%"
+  },
+  {
+    "id": "2026-10-02T16:22:37.775756Z-4",
+    "time": "2026-10-02T16:22:37.775756Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 239,
+    "current": 240
   }
 ]
