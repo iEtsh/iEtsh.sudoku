@@ -247,11 +247,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/ctp85b8w6b",
       "lmd": "000U4O",
-      "solves": 85,
+      "solves": 86,
       "rating": "91%",
       "author_rated": false,
       "image": "images/000U4O.png",
-      "sudokupad_solves": 210
+      "sudokupad_solves": 211
     },
     {
       "num": 13,
@@ -436,5 +436,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-02T11:57:37.139726Z"
+  "last_check": "2026-10-02T12:02:45.625325Z"
 }
