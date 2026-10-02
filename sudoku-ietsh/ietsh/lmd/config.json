@@ -153,7 +153,7 @@
       "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 408
+      "sudokupad_solves": 409
     },
     {
       "num": 20,
@@ -163,11 +163,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/l0vo4o13rd",
       "lmd": "000UFT",
-      "solves": 194,
+      "solves": 195,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 549
+      "sudokupad_solves": 550
     },
     {
       "num": 19,
@@ -177,7 +177,7 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/505e2zbaw0",
       "lmd": "000UDT",
-      "solves": 137,
+      "solves": 138,
       "rating": "79%",
       "author_rated": false,
       "image": "images/000UDT.png",
@@ -436,5 +436,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-02T12:52:49.220079Z"
+  "last_check": "2026-10-02T12:57:36.282247Z"
 }
