@@ -15279,5 +15279,27 @@
     "field": "sudokupad_solves",
     "previous": 36,
     "current": 38
+  },
+  {
+    "id": "2026-10-02T18:32:56.470910Z-0",
+    "time": "2026-10-02T18:32:56.470910Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "solves",
+    "previous": 119,
+    "current": 120
+  },
+  {
+    "id": "2026-10-02T18:32:56.470910Z-1",
+    "time": "2026-10-02T18:32:56.470910Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves",
+    "previous": 337,
+    "current": 338
   }
 ]
