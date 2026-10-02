@@ -97,7 +97,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1608
+      "sudokupad_solves": 1609
     },
     {
       "num": 24,
@@ -436,5 +436,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-02T02:02:50.584627Z"
+  "last_check": "2026-10-02T02:07:33.479366Z"
 }
