@@ -14245,5 +14245,49 @@
     "field": "sudokupad_solves",
     "previous": 17,
     "current": 18
+  },
+  {
+    "id": "2026-10-02T07:52:34.479638Z-0",
+    "time": "2026-10-02T07:52:34.479638Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 28,
+    "current": 29
+  },
+  {
+    "id": "2026-10-02T07:52:34.479638Z-1",
+    "time": "2026-10-02T07:52:34.479638Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 71,
+    "current": 72
+  },
+  {
+    "id": "2026-10-02T07:52:34.479638Z-2",
+    "time": "2026-10-02T07:52:34.479638Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "solves",
+    "previous": 89,
+    "current": 90
+  },
+  {
+    "id": "2026-10-02T07:52:34.479638Z-3",
+    "time": "2026-10-02T07:52:34.479638Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 225,
+    "current": 226
   }
 ]
