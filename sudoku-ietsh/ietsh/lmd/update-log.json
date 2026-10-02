@@ -14135,5 +14135,38 @@
     "field": "sudokupad_solves",
     "previous": 13,
     "current": 14
+  },
+  {
+    "id": "2026-10-02T03:17:34.633025Z-0",
+    "time": "2026-10-02T03:17:34.633025Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 111,
+    "current": 112
+  },
+  {
+    "id": "2026-10-02T03:17:34.633025Z-1",
+    "time": "2026-10-02T03:17:34.633025Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 77,
+    "current": 78
+  },
+  {
+    "id": "2026-10-02T03:17:34.633025Z-2",
+    "time": "2026-10-02T03:17:34.633025Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 243,
+    "current": 244
   }
 ]
