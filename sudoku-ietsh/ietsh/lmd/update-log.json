@@ -13981,5 +13981,27 @@
     "field": "sudokupad_solves",
     "previous": 548,
     "current": 549
+  },
+  {
+    "id": "2026-10-02T00:43:05.643333Z-0",
+    "time": "2026-10-02T00:43:05.643333Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "solves",
+    "previous": 5,
+    "current": 6
+  },
+  {
+    "id": "2026-10-02T00:43:05.643333Z-1",
+    "time": "2026-10-02T00:43:05.643333Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 299,
+    "current": 300
   }
 ]
