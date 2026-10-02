@@ -15070,5 +15070,93 @@
     "field": "sudokupad_solves",
     "previous": 239,
     "current": 240
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-0",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 31,
+    "current": 32
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-1",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "solves",
+    "previous": 118,
+    "current": 119
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-2",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 94,
+    "current": 96
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-3",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "rating",
+    "previous": "89%",
+    "current": "90%"
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-4",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "solves",
+    "previous": 86,
+    "current": 88
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-5",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 212,
+    "current": 213
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-6",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "rating",
+    "previous": "91%",
+    "current": "92%"
+  },
+  {
+    "id": "2026-10-02T16:27:36.081392Z-7",
+    "time": "2026-10-02T16:27:36.081392Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "sudokupad_solves",
+    "previous": 248,
+    "current": 249
   }
 ]
