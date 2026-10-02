@@ -15301,5 +15301,27 @@
     "field": "sudokupad_solves",
     "previous": 337,
     "current": 338
+  },
+  {
+    "id": "2026-10-02T19:02:41.094694Z-0",
+    "time": "2026-10-02T19:02:41.094694Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 117,
+    "current": 118
+  },
+  {
+    "id": "2026-10-02T19:02:41.094694Z-1",
+    "time": "2026-10-02T19:02:41.094694Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 124,
+    "current": 125
   }
 ]
