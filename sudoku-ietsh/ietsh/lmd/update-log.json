@@ -15433,5 +15433,16 @@
     "field": "date",
     "previous": "01. October 2026, 22:30",
     "current": "1. October 2026, 22:30"
+  },
+  {
+    "id": "2026-10-02T22:22:48.483052Z-0",
+    "time": "2026-10-02T22:22:48.483052Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 42,
+    "current": 43
   }
 ]
