@@ -14971,5 +14971,49 @@
     "field": "solves",
     "previous": 50,
     "current": 52
+  },
+  {
+    "id": "2026-10-02T16:17:49.026849Z-0",
+    "time": "2026-10-02T16:17:49.026849Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 78,
+    "current": 80
+  },
+  {
+    "id": "2026-10-02T16:17:49.026849Z-1",
+    "time": "2026-10-02T16:17:49.026849Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "rating",
+    "previous": "87%",
+    "current": "88%"
+  },
+  {
+    "id": "2026-10-02T16:17:49.026849Z-2",
+    "time": "2026-10-02T16:17:49.026849Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "solves",
+    "previous": 143,
+    "current": 145
+  },
+  {
+    "id": "2026-10-02T16:17:49.026849Z-3",
+    "time": "2026-10-02T16:17:49.026849Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "solves",
+    "previous": 77,
+    "current": 79
   }
 ]
