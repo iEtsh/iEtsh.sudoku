@@ -14960,5 +14960,16 @@
     "field": "rating",
     "previous": "88%",
     "current": "89%"
+  },
+  {
+    "id": "2026-10-02T16:12:47.513858Z-0",
+    "time": "2026-10-02T16:12:47.513858Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 50,
+    "current": 52
   }
 ]
