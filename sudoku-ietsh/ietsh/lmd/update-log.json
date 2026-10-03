@@ -16007,5 +16007,16 @@
       "rating": "N/A",
       "image": "images/000VBP.png"
     }
+  },
+  {
+    "id": "2026-10-03T21:17:50.288887Z-0",
+    "time": "2026-10-03T21:17:50.288887Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "stars",
+    "previous": 4,
+    "current": 3
   }
 ]

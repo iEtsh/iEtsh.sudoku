@@ -6,7 +6,7 @@
       "id": "ietsh-heartstring",
       "title": "Heartstring",
       "date": "03. October 2026, 22:48",
-      "stars": 4,
+      "stars": 3,
       "author_rated": true,
       "puzz": "https://sudokupad.app/t3u0kbnbru",
       "lmd": "000VBP",
@@ -450,5 +450,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-03T21:12:40.170006Z"
+  "last_check": "2026-10-03T21:17:50.286221Z"
 }
