@@ -15587,5 +15587,16 @@
     "field": "sudokupad_solves",
     "previous": 44,
     "current": 45
+  },
+  {
+    "id": "2026-10-03T02:57:37.825107Z-0",
+    "time": "2026-10-03T02:57:37.825107Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "sudokupad_solves",
+    "previous": 340,
+    "current": 341
   }
 ]
