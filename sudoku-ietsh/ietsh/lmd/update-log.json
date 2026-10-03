@@ -15532,5 +15532,27 @@
     "field": "sudokupad_solves",
     "previous": 338,
     "current": 339
+  },
+  {
+    "id": "2026-10-03T02:12:37.296286Z-0",
+    "time": "2026-10-03T02:12:37.296286Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "sudokupad_solves",
+    "previous": 249,
+    "current": 250
+  },
+  {
+    "id": "2026-10-03T02:12:37.296286Z-1",
+    "time": "2026-10-03T02:12:37.296286Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 184,
+    "current": 185
   }
 ]
