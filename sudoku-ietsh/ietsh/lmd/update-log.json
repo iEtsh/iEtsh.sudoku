@@ -15983,5 +15983,29 @@
     "field": "sudokupad_solves",
     "previous": 105,
     "current": 106
+  },
+  {
+    "id": "2026-10-03T20:52:43.050094Z-0",
+    "time": "2026-10-03T20:52:43.050094Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 32,
+      "id": "ietsh-heartstring",
+      "title": "Heartstring",
+      "date": "03. October 2026, 22:48",
+      "stars": 4,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/t3u0kbnbru",
+      "lmd": "000VBP",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000VBP.png"
+    }
   }
 ]
