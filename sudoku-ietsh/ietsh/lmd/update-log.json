@@ -16700,5 +16700,27 @@
     "field": "solves",
     "previous": 11,
     "current": 12
+  },
+  {
+    "id": "2026-10-04T19:42:39.607397Z-0",
+    "time": "2026-10-04T19:42:39.607397Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 12,
+    "current": 13
+  },
+  {
+    "id": "2026-10-04T19:42:39.607397Z-1",
+    "time": "2026-10-04T19:42:39.607397Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 16,
+    "current": 17
   }
 ]
