@@ -16810,5 +16810,27 @@
     "field": "sudokupad_solves",
     "previous": 286,
     "current": 287
+  },
+  {
+    "id": "2026-10-04T22:02:39.753840Z-0",
+    "time": "2026-10-04T22:02:39.753840Z",
+    "type": "Date Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "date",
+    "previous": "03. October 2026, 22:48",
+    "current": "3. October 2026, 22:48"
+  },
+  {
+    "id": "2026-10-04T22:02:39.753840Z-1",
+    "time": "2026-10-04T22:02:39.753840Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/t3u0kbnbru",
+    "current": "https://sudokupad.app/uxydsoqbxp"
   }
 ]
