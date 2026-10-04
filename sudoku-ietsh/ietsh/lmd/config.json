@@ -25,7 +25,7 @@
       "puzz": "https://sudokupad.app/syuuh239xm",
       "lmd": "000VA7",
       "solves": 23,
-      "sudokupad_solves": 57,
+      "sudokupad_solves": 58,
       "rating": "87%",
       "image": "images/000VA7.png"
     },
@@ -450,5 +450,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-04T12:37:49.692953Z"
+  "last_check": "2026-10-04T12:42:39.111905Z"
 }
