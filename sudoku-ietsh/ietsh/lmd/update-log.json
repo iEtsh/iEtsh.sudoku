@@ -16128,5 +16128,38 @@
     "field": "sudokupad_solves",
     "previous": 3,
     "current": 4
+  },
+  {
+    "id": "2026-10-04T02:22:49.849549Z-0",
+    "time": "2026-10-04T02:22:49.849549Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "solves",
+    "previous": 21,
+    "current": 22
+  },
+  {
+    "id": "2026-10-04T02:22:49.849549Z-1",
+    "time": "2026-10-04T02:22:49.849549Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 54,
+    "current": 55
+  },
+  {
+    "id": "2026-10-04T02:22:49.849549Z-2",
+    "time": "2026-10-04T02:22:49.849549Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "rating",
+    "previous": "87%",
+    "current": "86%"
   }
 ]
