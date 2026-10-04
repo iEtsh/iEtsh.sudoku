@@ -16854,5 +16854,60 @@
     "field": "sudokupad_solves",
     "previous": 302,
     "current": 303
+  },
+  {
+    "id": "2026-10-04T22:32:45.612047Z-0",
+    "time": "2026-10-04T22:32:45.612047Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "stars",
+    "previous": 3,
+    "current": 4
+  },
+  {
+    "id": "2026-10-04T22:32:45.612047Z-1",
+    "time": "2026-10-04T22:32:45.612047Z",
+    "type": "Author Rating Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "author_rated",
+    "previous": true,
+    "current": false
+  },
+  {
+    "id": "2026-10-04T22:32:45.612047Z-2",
+    "time": "2026-10-04T22:32:45.612047Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 13,
+    "current": 14
+  },
+  {
+    "id": "2026-10-04T22:32:45.612047Z-3",
+    "time": "2026-10-04T22:32:45.612047Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "rating",
+    "previous": "N/A",
+    "current": "95%"
+  },
+  {
+    "id": "2026-10-04T22:32:45.612047Z-4",
+    "time": "2026-10-04T22:32:45.612047Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 552,
+    "current": 553
   }
 ]
