@@ -16293,5 +16293,16 @@
     "field": "sudokupad_solves",
     "previous": 214,
     "current": 215
+  },
+  {
+    "id": "2026-10-04T06:03:14.204451Z-0",
+    "time": "2026-10-04T06:03:14.204451Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 8,
+    "current": 9
   }
 ]
