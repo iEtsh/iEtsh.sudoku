@@ -17536,5 +17536,49 @@
     "field": "sudokupad_solves",
     "previous": 44,
     "current": 45
+  },
+  {
+    "id": "2026-10-05T18:47:50.232104Z-0",
+    "time": "2026-10-05T18:47:50.232104Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 22,
+    "current": 23
+  },
+  {
+    "id": "2026-10-05T18:47:50.232104Z-1",
+    "time": "2026-10-05T18:47:50.232104Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 45,
+    "current": 47
+  },
+  {
+    "id": "2026-10-05T18:47:50.232104Z-2",
+    "time": "2026-10-05T18:47:50.232104Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "solves",
+    "previous": 25,
+    "current": 26
+  },
+  {
+    "id": "2026-10-05T18:47:50.232104Z-3",
+    "time": "2026-10-05T18:47:50.232104Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 64,
+    "current": 65
   }
 ]
