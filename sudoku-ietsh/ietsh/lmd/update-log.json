@@ -17448,5 +17448,38 @@
     "field": "sudokupad_solves",
     "previous": 63,
     "current": 64
+  },
+  {
+    "id": "2026-10-05T16:22:51.292920Z-0",
+    "time": "2026-10-05T16:22:51.292920Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "solves",
+    "previous": 37,
+    "current": 38
+  },
+  {
+    "id": "2026-10-05T16:22:51.292920Z-1",
+    "time": "2026-10-05T16:22:51.292920Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "sudokupad_solves",
+    "previous": 130,
+    "current": 131
+  },
+  {
+    "id": "2026-10-05T16:22:51.292920Z-2",
+    "time": "2026-10-05T16:22:51.292920Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-breadcrumbs",
+    "puzzleNum": 29,
+    "title": "Breadcrumbs",
+    "field": "rating",
+    "previous": "88%",
+    "current": "89%"
   }
 ]
