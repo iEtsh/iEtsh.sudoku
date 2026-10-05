@@ -17591,5 +17591,16 @@
     "field": "sudokupad_solves",
     "previous": 47,
     "current": 48
+  },
+  {
+    "id": "2026-10-05T18:57:49.416932Z-0",
+    "time": "2026-10-05T18:57:49.416932Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 23,
+    "current": 24
   }
 ]
