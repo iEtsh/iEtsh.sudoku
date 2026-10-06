@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/uxydsoqbxp",
       "lmd": "000VBP",
       "solves": 28,
-      "sudokupad_solves": 60,
+      "sudokupad_solves": 61,
       "rating": "97%",
       "image": "images/000VBP.png"
     },
@@ -450,5 +450,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-06T08:27:48.118553Z"
+  "last_check": "2026-10-06T08:32:48.777606Z"
 }
