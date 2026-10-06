@@ -17767,5 +17767,16 @@
     "field": "rating",
     "previous": "87%",
     "current": "86%"
+  },
+  {
+    "id": "2026-10-06T01:17:48.638405Z-0",
+    "time": "2026-10-06T01:17:48.638405Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 246,
+    "current": 247
   }
 ]
