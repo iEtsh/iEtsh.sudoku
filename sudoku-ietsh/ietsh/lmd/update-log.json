@@ -17833,5 +17833,27 @@
     "field": "sudokupad_solves",
     "previous": 253,
     "current": 254
+  },
+  {
+    "id": "2026-10-06T02:12:53.017737Z-0",
+    "time": "2026-10-06T02:12:53.017737Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 54,
+    "current": 55
+  },
+  {
+    "id": "2026-10-06T02:12:53.017737Z-1",
+    "time": "2026-10-06T02:12:53.017737Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "solves",
+    "previous": 111,
+    "current": 112
   }
 ]
