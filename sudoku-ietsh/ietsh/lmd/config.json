@@ -7,12 +7,12 @@
       "title": "Renban Zipper",
       "date": "06. October 2026, 14:21",
       "stars": 2,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
-      "solves": 7,
-      "sudokupad_solves": 19,
-      "rating": "N/A",
+      "solves": 10,
+      "sudokupad_solves": 21,
+      "rating": "93%",
       "image": "images/000VCF.png"
     },
     {
@@ -464,5 +464,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-06T14:27:55.665093Z"
+  "last_check": "2026-10-06T14:33:15.751477Z"
 }
