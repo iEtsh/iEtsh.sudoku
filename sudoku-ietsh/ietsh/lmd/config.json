@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 33,
+      "id": "ietsh-renbanzipper",
+      "title": "Renban Zipper",
+      "date": "06. October 2026, 14:21",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/qm58t9iymm",
+      "lmd": "000VCF",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VCF.png"
+    },
+    {
       "num": 32,
       "id": "ietsh-heartstring",
       "title": "Heartstring",
@@ -450,5 +464,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-06T12:22:48.405961Z"
+  "last_check": "2026-10-06T12:27:48.979688Z"
 }
