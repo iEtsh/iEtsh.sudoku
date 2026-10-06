@@ -17734,5 +17734,38 @@
     "field": "sudokupad_solves",
     "previous": 51,
     "current": 52
+  },
+  {
+    "id": "2026-10-06T00:22:49.442788Z-0",
+    "time": "2026-10-06T00:22:49.442788Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "solves",
+    "previous": 71,
+    "current": 72
+  },
+  {
+    "id": "2026-10-06T00:22:49.442788Z-1",
+    "time": "2026-10-06T00:22:49.442788Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 187,
+    "current": 188
+  },
+  {
+    "id": "2026-10-06T00:22:49.442788Z-2",
+    "time": "2026-10-06T00:22:49.442788Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "rating",
+    "previous": "87%",
+    "current": "86%"
   }
 ]

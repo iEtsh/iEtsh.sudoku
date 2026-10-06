@@ -359,11 +359,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/z5vf5kram0",
       "lmd": "000SJN",
-      "solves": 71,
-      "rating": "87%",
+      "solves": 72,
+      "rating": "86%",
       "author_rated": false,
       "image": "images/000SJN.png",
-      "sudokupad_solves": 187
+      "sudokupad_solves": 188
     },
     {
       "num": 6,
@@ -450,5 +450,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-06T00:17:46.797947Z"
+  "last_check": "2026-10-06T00:22:49.439269Z"
 }
