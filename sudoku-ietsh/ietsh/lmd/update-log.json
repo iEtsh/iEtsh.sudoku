@@ -18792,5 +18792,60 @@
     "field": "rating",
     "previous": "94%",
     "current": "95%"
+  },
+  {
+    "id": "2026-10-06T17:03:33.926287Z-0",
+    "time": "2026-10-06T17:03:33.926287Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 21,
+    "current": 24
+  },
+  {
+    "id": "2026-10-06T17:03:33.926287Z-1",
+    "time": "2026-10-06T17:03:33.926287Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 66,
+    "current": 68
+  },
+  {
+    "id": "2026-10-06T17:03:33.926287Z-2",
+    "time": "2026-10-06T17:03:33.926287Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "rating",
+    "previous": "95%",
+    "current": "94%"
+  },
+  {
+    "id": "2026-10-06T17:03:33.926287Z-3",
+    "time": "2026-10-06T17:03:33.926287Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 30,
+    "current": 31
+  },
+  {
+    "id": "2026-10-06T17:03:33.926287Z-4",
+    "time": "2026-10-06T17:03:33.926287Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "solves",
+    "previous": 26,
+    "current": 27
   }
 ]
