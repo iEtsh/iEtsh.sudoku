@@ -67,7 +67,7 @@
       "puzz": "https://sudokupad.app/134eka3x8y",
       "lmd": "000V48",
       "solves": 32,
-      "sudokupad_solves": 74,
+      "sudokupad_solves": 75,
       "rating": "90%",
       "image": "images/000V48.png"
     },
@@ -450,5 +450,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-06T06:07:38.602305Z"
+  "last_check": "2026-10-06T06:12:49.065036Z"
 }
