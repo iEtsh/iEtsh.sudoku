@@ -10,8 +10,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
-      "solves": 84,
-      "sudokupad_solves": 223,
+      "solves": 85,
+      "sudokupad_solves": 224,
       "rating": "96%",
       "image": "images/000VCF.png"
     },
@@ -464,5 +464,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-07T13:37:48.586832Z"
+  "last_check": "2026-10-07T13:42:47.332611Z"
 }
