@@ -20629,5 +20629,27 @@
     "field": "sudokupad_solves",
     "previous": 177,
     "current": 178
+  },
+  {
+    "id": "2026-10-07T05:37:56.054387Z-0",
+    "time": "2026-10-07T05:37:56.054387Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 178,
+    "current": 179
+  },
+  {
+    "id": "2026-10-07T05:37:56.054387Z-1",
+    "time": "2026-10-07T05:37:56.054387Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 143,
+    "current": 144
   }
 ]
