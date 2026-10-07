@@ -261,7 +261,7 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/cfrqw6red1",
       "lmd": "000U75",
-      "solves": 153,
+      "solves": 154,
       "rating": "82%",
       "author_rated": false,
       "image": "images/000U75.png",
@@ -464,5 +464,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-07T03:23:07.552930Z"
+  "last_check": "2026-10-07T03:27:56.954882Z"
 }
