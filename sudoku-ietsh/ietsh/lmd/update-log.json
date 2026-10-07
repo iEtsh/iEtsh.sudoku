@@ -21630,5 +21630,16 @@
     "field": "solves",
     "previous": 90,
     "current": 91
+  },
+  {
+    "id": "2026-10-07T17:27:47.669197Z-0",
+    "time": "2026-10-07T17:27:47.669197Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "rating",
+    "previous": "96%",
+    "current": "97%"
   }
 ]

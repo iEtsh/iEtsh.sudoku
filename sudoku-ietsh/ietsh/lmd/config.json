@@ -26,7 +26,7 @@
       "lmd": "000VBP",
       "solves": 40,
       "sudokupad_solves": 81,
-      "rating": "96%",
+      "rating": "97%",
       "image": "images/000VBP.png"
     },
     {
@@ -464,5 +464,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-07T17:23:03.232976Z"
+  "last_check": "2026-10-07T17:27:47.665557Z"
 }
