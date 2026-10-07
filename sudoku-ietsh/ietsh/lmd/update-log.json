@@ -21377,5 +21377,38 @@
     "field": "sudokupad_solves",
     "previous": 228,
     "current": 229
+  },
+  {
+    "id": "2026-10-07T14:57:54.711657Z-0",
+    "time": "2026-10-07T14:57:54.711657Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 85,
+    "current": 86
+  },
+  {
+    "id": "2026-10-07T14:57:54.711657Z-1",
+    "time": "2026-10-07T14:57:54.711657Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 229,
+    "current": 230
+  },
+  {
+    "id": "2026-10-07T14:57:54.711657Z-2",
+    "time": "2026-10-07T14:57:54.711657Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 77,
+    "current": 78
   }
 ]
