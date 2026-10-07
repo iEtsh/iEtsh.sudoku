@@ -303,11 +303,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/z1jja1angl",
       "lmd": "000U2A",
-      "solves": 75,
+      "solves": 76,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000U2A.png",
-      "sudokupad_solves": 215
+      "sudokupad_solves": 216
     },
     {
       "num": 11,
@@ -464,5 +464,5 @@
       "sudokupad_solves": 144
     }
   ],
-  "last_check": "2026-10-07T13:57:45.864706Z"
+  "last_check": "2026-10-07T14:02:47.826543Z"
 }
