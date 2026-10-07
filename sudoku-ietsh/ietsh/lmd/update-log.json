@@ -21663,5 +21663,38 @@
     "field": "sudokupad_solves",
     "previous": 246,
     "current": 247
+  },
+  {
+    "id": "2026-10-07T18:05:11.263145Z-0",
+    "time": "2026-10-07T18:05:11.263145Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 91,
+    "current": 92
+  },
+  {
+    "id": "2026-10-07T18:05:11.263145Z-1",
+    "time": "2026-10-07T18:05:11.263145Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 247,
+    "current": 248
+  },
+  {
+    "id": "2026-10-07T18:05:11.263145Z-2",
+    "time": "2026-10-07T18:05:11.263145Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 144,
+    "current": 145
   }
 ]
