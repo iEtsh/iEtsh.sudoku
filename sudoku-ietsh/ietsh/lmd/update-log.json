@@ -23183,5 +23183,16 @@
     "field": "sudokupad_solves",
     "previous": 255,
     "current": 256
+  },
+  {
+    "id": "2026-10-08T15:38:05.477926Z-0",
+    "time": "2026-10-08T15:38:05.477926Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "rating",
+    "previous": "88%",
+    "current": "89%"
   }
 ]
