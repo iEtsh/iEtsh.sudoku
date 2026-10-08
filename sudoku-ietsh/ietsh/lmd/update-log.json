@@ -22534,5 +22534,49 @@
     "field": "solves",
     "previous": 33,
     "current": 34
+  },
+  {
+    "id": "2026-10-08T12:12:56.417555Z-0",
+    "time": "2026-10-08T12:12:56.417555Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 103,
+    "current": 104
+  },
+  {
+    "id": "2026-10-08T12:12:56.417555Z-1",
+    "time": "2026-10-08T12:12:56.417555Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 302,
+    "current": 303
+  },
+  {
+    "id": "2026-10-08T12:12:56.417555Z-2",
+    "time": "2026-10-08T12:12:56.417555Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 144,
+    "current": 145
+  },
+  {
+    "id": "2026-10-08T12:12:56.417555Z-3",
+    "time": "2026-10-08T12:12:56.417555Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 247,
+    "current": 248
   }
 ]
