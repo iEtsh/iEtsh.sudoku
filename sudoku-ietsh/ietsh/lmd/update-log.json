@@ -22996,5 +22996,49 @@
     "field": "sudokupad_solves",
     "previous": 87,
     "current": 88
+  },
+  {
+    "id": "2026-10-08T14:38:18.640712Z-0",
+    "time": "2026-10-08T14:38:18.640712Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "solves",
+    "previous": 141,
+    "current": 142
+  },
+  {
+    "id": "2026-10-08T14:38:18.640712Z-1",
+    "time": "2026-10-08T14:38:18.640712Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 306,
+    "current": 307
+  },
+  {
+    "id": "2026-10-08T14:38:18.640712Z-2",
+    "time": "2026-10-08T14:38:18.640712Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "solves",
+    "previous": 88,
+    "current": 89
+  },
+  {
+    "id": "2026-10-08T14:38:18.640712Z-3",
+    "time": "2026-10-08T14:38:18.640712Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 216,
+    "current": 217
   }
 ]
