@@ -23117,5 +23117,71 @@
     "field": "sudokupad_solves",
     "previous": 343,
     "current": 344
+  },
+  {
+    "id": "2026-10-08T15:34:07.225772Z-0",
+    "time": "2026-10-08T15:34:07.225772Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 12,
+    "current": 13
+  },
+  {
+    "id": "2026-10-08T15:34:07.225772Z-1",
+    "time": "2026-10-08T15:34:07.225772Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 21,
+    "current": 22
+  },
+  {
+    "id": "2026-10-08T15:34:07.225772Z-2",
+    "time": "2026-10-08T15:34:07.225772Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 107,
+    "current": 108
+  },
+  {
+    "id": "2026-10-08T15:34:07.225772Z-3",
+    "time": "2026-10-08T15:34:07.225772Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 311,
+    "current": 312
+  },
+  {
+    "id": "2026-10-08T15:34:07.225772Z-4",
+    "time": "2026-10-08T15:34:07.225772Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "solves",
+    "previous": 113,
+    "current": 114
+  },
+  {
+    "id": "2026-10-08T15:34:07.225772Z-5",
+    "time": "2026-10-08T15:34:07.225772Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "sudokupad_solves",
+    "previous": 255,
+    "current": 256
   }
 ]
