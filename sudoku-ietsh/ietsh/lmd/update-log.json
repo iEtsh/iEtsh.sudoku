@@ -23810,5 +23810,27 @@
     "field": "sudokupad_solves",
     "previous": 342,
     "current": 343
+  },
+  {
+    "id": "2026-10-08T20:08:07.937075Z-0",
+    "time": "2026-10-08T20:08:07.937075Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 30,
+    "current": 31
+  },
+  {
+    "id": "2026-10-08T20:08:07.937075Z-1",
+    "time": "2026-10-08T20:08:07.937075Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 130,
+    "current": 131
   }
 ]
