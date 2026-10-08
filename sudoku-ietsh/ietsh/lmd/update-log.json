@@ -23546,5 +23546,16 @@
     "field": "rating",
     "previous": "96%",
     "current": "97%"
+  },
+  {
+    "id": "2026-10-08T18:27:44.626287Z-0",
+    "time": "2026-10-08T18:27:44.626287Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 25,
+    "current": 26
   }
 ]
