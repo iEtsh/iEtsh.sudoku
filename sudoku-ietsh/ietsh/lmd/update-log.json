@@ -22512,5 +22512,27 @@
     "field": "solves",
     "previous": 39,
     "current": 40
+  },
+  {
+    "id": "2026-10-08T12:07:52.522605Z-0",
+    "time": "2026-10-08T12:07:52.522605Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 10,
+    "current": 11
+  },
+  {
+    "id": "2026-10-08T12:07:52.522605Z-1",
+    "time": "2026-10-08T12:07:52.522605Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 33,
+    "current": 34
   }
 ]
