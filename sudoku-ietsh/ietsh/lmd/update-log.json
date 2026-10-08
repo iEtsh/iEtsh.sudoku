@@ -22070,5 +22070,29 @@
     "field": "sudokupad_solves",
     "previous": 286,
     "current": 287
+  },
+  {
+    "id": "2026-10-08T07:07:46.755115Z-0",
+    "time": "2026-10-08T07:07:46.755115Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 34,
+      "id": "ietsh-uncharted9",
+      "title": "Uncharted 9",
+      "date": "08. October 2026, 09:04",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/0mk5exo41a",
+      "lmd": "000VE4",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VE4.png"
+    }
   }
 ]
