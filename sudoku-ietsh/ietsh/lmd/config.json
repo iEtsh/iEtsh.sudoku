@@ -7,12 +7,12 @@
       "title": "Uncharted 9",
       "date": "08. October 2026, 09:04",
       "stars": 3,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/7t90zlfvf3",
       "lmd": "000VE4",
-      "solves": 10,
-      "sudokupad_solves": 18,
-      "rating": "N/A",
+      "solves": 12,
+      "sudokupad_solves": 20,
+      "rating": "93%",
       "image": "images/000VE4.png"
     },
     {
@@ -478,5 +478,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-08T14:22:55.548476Z"
+  "last_check": "2026-10-08T14:27:46.710337Z"
 }
