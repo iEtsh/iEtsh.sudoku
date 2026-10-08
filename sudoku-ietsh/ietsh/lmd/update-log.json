@@ -22336,5 +22336,16 @@
     "field": "solves",
     "previous": 38,
     "current": 39
+  },
+  {
+    "id": "2026-10-08T09:42:44.691842Z-0",
+    "time": "2026-10-08T09:42:44.691842Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arabesque",
+    "puzzleNum": 5,
+    "title": "Arabesque",
+    "field": "sudokupad_solves",
+    "previous": 93,
+    "current": 94
   }
 ]
