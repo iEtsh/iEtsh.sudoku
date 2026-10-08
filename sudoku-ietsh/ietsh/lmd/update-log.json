@@ -23370,5 +23370,16 @@
     "field": "sudokupad_solves",
     "previous": 314,
     "current": 315
+  },
+  {
+    "id": "2026-10-08T17:17:53.157957Z-0",
+    "time": "2026-10-08T17:17:53.157957Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 189,
+    "current": 190
   }
 ]
