@@ -22820,5 +22820,82 @@
     "field": "sudokupad_solves",
     "previous": 249,
     "current": 250
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-0",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 9,
+    "current": 10
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-1",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 16,
+    "current": 17
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-2",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 44,
+    "current": 45
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-3",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 86,
+    "current": 87
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-4",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 182,
+    "current": 183
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-5",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "rating",
+    "previous": "66%",
+    "current": "67%"
+  },
+  {
+    "id": "2026-10-08T14:12:45.435286Z-6",
+    "time": "2026-10-08T14:12:45.435286Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 98,
+    "current": 99
   }
 ]
