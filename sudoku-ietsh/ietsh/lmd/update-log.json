@@ -22105,5 +22105,16 @@
     "field": "puzz",
     "previous": "https://sudokupad.app/0mk5exo41a",
     "current": "https://sudokupad.app/8wpbw2ijuh"
+  },
+  {
+    "id": "2026-10-08T07:32:52.481653Z-0",
+    "time": "2026-10-08T07:32:52.481653Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/8wpbw2ijuh",
+    "current": "https://sudokupad.app/7t90zlfvf3"
   }
 ]
