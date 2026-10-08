@@ -22182,5 +22182,27 @@
     "field": "solves",
     "previous": 1,
     "current": 2
+  },
+  {
+    "id": "2026-10-08T08:17:58.865434Z-0",
+    "time": "2026-10-08T08:17:58.865434Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 290,
+    "current": 291
+  },
+  {
+    "id": "2026-10-08T08:17:58.865434Z-1",
+    "time": "2026-10-08T08:17:58.865434Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 246,
+    "current": 247
   }
 ]
