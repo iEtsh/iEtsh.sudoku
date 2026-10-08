@@ -23678,5 +23678,27 @@
     "field": "sudokupad_solves",
     "previous": 43,
     "current": 44
+  },
+  {
+    "id": "2026-10-08T19:37:40.310766Z-0",
+    "time": "2026-10-08T19:37:40.310766Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 44,
+    "current": 45
+  },
+  {
+    "id": "2026-10-08T19:37:40.310766Z-1",
+    "time": "2026-10-08T19:37:40.310766Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 554,
+    "current": 555
   }
 ]
