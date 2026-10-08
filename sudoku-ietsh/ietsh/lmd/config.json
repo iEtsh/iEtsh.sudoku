@@ -5,13 +5,13 @@
       "num": 33,
       "id": "ietsh-renbanzipper",
       "title": "Renban Zipper",
-      "date": "06. October 2026, 14:21",
+      "date": "6. October 2026, 14:21",
       "stars": 2,
       "author_rated": false,
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
-      "solves": 92,
-      "sudokupad_solves": 250,
+      "solves": 98,
+      "sudokupad_solves": 277,
       "rating": "96%",
       "image": "images/000VCF.png"
     },
@@ -25,7 +25,7 @@
       "puzz": "https://sudokupad.app/uxydsoqbxp",
       "lmd": "000VBP",
       "solves": 40,
-      "sudokupad_solves": 81,
+      "sudokupad_solves": 82,
       "rating": "97%",
       "image": "images/000VBP.png"
     },
@@ -39,7 +39,7 @@
       "puzz": "https://sudokupad.app/syuuh239xm",
       "lmd": "000VA7",
       "solves": 28,
-      "sudokupad_solves": 67,
+      "sudokupad_solves": 68,
       "rating": "89%",
       "image": "images/000VA7.png"
     },
@@ -53,7 +53,7 @@
       "puzz": "https://sudokupad.app/69wareo01v",
       "lmd": "000V8X",
       "solves": 47,
-      "sudokupad_solves": 129,
+      "sudokupad_solves": 130,
       "rating": "86%",
       "image": "images/000V8X.png"
     },
@@ -125,7 +125,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1631
+      "sudokupad_solves": 1633
     },
     {
       "num": 24,
@@ -247,11 +247,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/evh9tt2q0i",
       "lmd": "000U86",
-      "solves": 97,
+      "solves": 98,
       "rating": "90%",
       "author_rated": false,
       "image": "images/000U86.png",
-      "sudokupad_solves": 248
+      "sudokupad_solves": 249
     },
     {
       "num": 15,
@@ -377,7 +377,7 @@
       "rating": "86%",
       "author_rated": false,
       "image": "images/000SJN.png",
-      "sudokupad_solves": 188
+      "sudokupad_solves": 189
     },
     {
       "num": 6,
@@ -419,7 +419,7 @@
       "rating": "81%",
       "author_rated": false,
       "image": "images/000SDA.png",
-      "sudokupad_solves": 164
+      "sudokupad_solves": 165
     },
     {
       "num": 3,
@@ -447,7 +447,7 @@
       "rating": "92%",
       "author_rated": false,
       "image": "images/000SC5.png",
-      "sudokupad_solves": 341
+      "sudokupad_solves": 342
     },
     {
       "num": 1,
@@ -464,5 +464,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-07T18:24:15.815855Z"
+  "last_check": "2026-10-08T00:28:34.755071Z"
 }

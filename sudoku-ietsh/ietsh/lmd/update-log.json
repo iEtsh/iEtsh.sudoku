@@ -21729,5 +21729,137 @@
     "field": "sudokupad_solves",
     "previous": 249,
     "current": 250
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-0",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "Date Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "date",
+    "previous": "06. October 2026, 14:21",
+    "current": "6. October 2026, 14:21"
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-1",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 92,
+    "current": 98
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-2",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 250,
+    "current": 277
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-3",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 81,
+    "current": 82
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-4",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 67,
+    "current": 68
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-5",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 129,
+    "current": 130
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-6",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1631,
+    "current": 1633
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-7",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 97,
+    "current": 98
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-8",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 248,
+    "current": 249
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-9",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 188,
+    "current": 189
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-10",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "sudokupad_solves",
+    "previous": 164,
+    "current": 165
+  },
+  {
+    "id": "2026-10-08T00:28:34.759421Z-11",
+    "time": "2026-10-08T00:28:34.759421Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "sudokupad_solves",
+    "previous": 341,
+    "current": 342
   }
 ]
