@@ -25878,5 +25878,38 @@
     "field": "sudokupad_solves",
     "previous": 130,
     "current": 131
+  },
+  {
+    "id": "2026-10-09T19:42:57.322786Z-0",
+    "time": "2026-10-09T19:42:57.322786Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 67,
+    "current": 68
+  },
+  {
+    "id": "2026-10-09T19:42:57.322786Z-1",
+    "time": "2026-10-09T19:42:57.322786Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 131,
+    "current": 134
+  },
+  {
+    "id": "2026-10-09T19:42:57.322786Z-2",
+    "time": "2026-10-09T19:42:57.322786Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 93,
+    "current": 94
   }
 ]
