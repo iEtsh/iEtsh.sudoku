@@ -24646,5 +24646,38 @@
     "field": "sudokupad_solves",
     "previous": 338,
     "current": 339
+  },
+  {
+    "id": "2026-10-09T06:12:50.538646Z-0",
+    "time": "2026-10-09T06:12:50.538646Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 339,
+    "current": 340
+  },
+  {
+    "id": "2026-10-09T06:12:50.538646Z-1",
+    "time": "2026-10-09T06:12:50.538646Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "solves",
+    "previous": 29,
+    "current": 30
+  },
+  {
+    "id": "2026-10-09T06:12:50.538646Z-2",
+    "time": "2026-10-09T06:12:50.538646Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 70,
+    "current": 71
   }
 ]
