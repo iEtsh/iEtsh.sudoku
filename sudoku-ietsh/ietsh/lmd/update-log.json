@@ -24316,5 +24316,27 @@
     "field": "sudokupad_solves",
     "previous": 329,
     "current": 330
+  },
+  {
+    "id": "2026-10-09T01:12:49.753661Z-0",
+    "time": "2026-10-09T01:12:49.753661Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 68,
+    "current": 69
+  },
+  {
+    "id": "2026-10-09T01:12:49.753661Z-1",
+    "time": "2026-10-09T01:12:49.753661Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 330,
+    "current": 332
   }
 ]
