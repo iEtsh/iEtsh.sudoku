@@ -26065,5 +26065,27 @@
     "field": "sudokupad_solves",
     "previous": 290,
     "current": 291
+  },
+  {
+    "id": "2026-10-09T22:52:55.779865Z-0",
+    "time": "2026-10-09T22:52:55.779865Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "sudokupad_solves",
+    "previous": 235,
+    "current": 236
+  },
+  {
+    "id": "2026-10-09T22:52:55.779865Z-1",
+    "time": "2026-10-09T22:52:55.779865Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 187,
+    "current": 188
   }
 ]
