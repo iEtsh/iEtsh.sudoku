@@ -27134,5 +27134,27 @@
     "field": "rating",
     "previous": "92%",
     "current": "91%"
+  },
+  {
+    "id": "2026-10-10T12:22:59.540349Z-0",
+    "time": "2026-10-10T12:22:59.540349Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 51,
+    "current": 53
+  },
+  {
+    "id": "2026-10-10T12:22:59.540349Z-1",
+    "time": "2026-10-10T12:22:59.540349Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 78,
+    "current": 79
   }
 ]
