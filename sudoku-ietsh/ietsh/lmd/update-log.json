@@ -27981,5 +27981,82 @@
     "field": "sudokupad_solves",
     "previous": 313,
     "current": 314
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-0",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "Date Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "date",
+    "previous": "10. October 2026, 05:31",
+    "current": "8. October 2026, 09:04"
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-1",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "solves",
+    "previous": 36,
+    "current": 37
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-2",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 116,
+    "current": 122
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-3",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 75,
+    "current": 76
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-4",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 153,
+    "current": 154
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-5",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 124,
+    "current": 125
+  },
+  {
+    "id": "2026-10-10T21:23:09.370576Z-6",
+    "time": "2026-10-10T21:23:09.370576Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 367,
+    "current": 369
   }
 ]
