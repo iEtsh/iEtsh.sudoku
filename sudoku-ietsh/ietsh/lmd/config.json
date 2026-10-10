@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
       "solves": 20,
-      "sudokupad_solves": 40,
+      "sudokupad_solves": 42,
       "rating": "91%",
       "image": "images/000VCU.png"
     },
@@ -492,5 +492,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-10T10:12:47.909126Z"
+  "last_check": "2026-10-10T10:22:47.890073Z"
 }
