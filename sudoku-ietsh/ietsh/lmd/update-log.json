@@ -26452,5 +26452,27 @@
     "field": "sudokupad_solves",
     "previous": 141,
     "current": 143
+  },
+  {
+    "id": "2026-10-10T06:12:49.880889Z-0",
+    "time": "2026-10-10T06:12:49.880889Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "solves",
+    "previous": 7,
+    "current": 8
+  },
+  {
+    "id": "2026-10-10T06:12:49.880889Z-1",
+    "time": "2026-10-10T06:12:49.880889Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 8,
+    "current": 10
   }
 ]
