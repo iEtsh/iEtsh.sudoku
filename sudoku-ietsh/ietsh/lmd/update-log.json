@@ -26848,5 +26848,27 @@
     "field": "rating",
     "previous": "91%",
     "current": "92%"
+  },
+  {
+    "id": "2026-10-10T09:33:02.553608Z-0",
+    "time": "2026-10-10T09:33:02.553608Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 33,
+    "current": 34
+  },
+  {
+    "id": "2026-10-10T09:33:02.553608Z-1",
+    "time": "2026-10-10T09:33:02.553608Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lonelyhouse",
+    "puzzleNum": 9,
+    "title": "Lonely House",
+    "field": "sudokupad_solves",
+    "previous": 141,
+    "current": 142
   }
 ]
