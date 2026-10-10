@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 35,
+      "id": "ietsh-renbanzipperii",
+      "title": "Renban Zipper II",
+      "date": "10. October 2026, 05:31",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/fv3z1s15iy",
+      "lmd": "000VCU",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000VCU.png"
+    },
+    {
       "num": 34,
       "id": "ietsh-uncharted9",
       "title": "Uncharted 9",
@@ -11,7 +25,7 @@
       "puzz": "https://sudokupad.app/7t90zlfvf3",
       "lmd": "000VE4",
       "solves": 71,
-      "sudokupad_solves": 139,
+      "sudokupad_solves": 140,
       "rating": "97%",
       "image": "images/000VE4.png"
     },
@@ -25,7 +39,7 @@
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
       "solves": 121,
-      "sudokupad_solves": 359,
+      "sudokupad_solves": 360,
       "rating": "97%",
       "image": "images/000VCF.png"
     },
@@ -478,5 +492,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-10T03:32:58.508051Z"
+  "last_check": "2026-10-10T03:42:48.971631Z"
 }
