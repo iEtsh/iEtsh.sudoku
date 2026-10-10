@@ -139,7 +139,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1638
+      "sudokupad_solves": 1639
     },
     {
       "num": 24,
@@ -275,11 +275,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/cfrqw6red1",
       "lmd": "000U75",
-      "solves": 154,
+      "solves": 155,
       "rating": "82%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 291
+      "sudokupad_solves": 292
     },
     {
       "num": 14,
@@ -478,5 +478,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-10T00:42:56.174580Z"
+  "last_check": "2026-10-10T00:52:40.771974Z"
 }
