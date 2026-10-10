@@ -26595,5 +26595,16 @@
     "field": "sudokupad_solves",
     "previous": 360,
     "current": 361
+  },
+  {
+    "id": "2026-10-10T07:22:49.257476Z-0",
+    "time": "2026-10-10T07:22:49.257476Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 14,
+    "current": 15
   }
 ]
