@@ -28146,5 +28146,60 @@
     "field": "sudokupad_solves",
     "previous": 155,
     "current": 156
+  },
+  {
+    "id": "2026-10-10T22:32:46.252475Z-0",
+    "time": "2026-10-10T22:32:46.252475Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "stars",
+    "previous": 1,
+    "current": 2
+  },
+  {
+    "id": "2026-10-10T22:32:46.252475Z-1",
+    "time": "2026-10-10T22:32:46.252475Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "solves",
+    "previous": 37,
+    "current": 39
+  },
+  {
+    "id": "2026-10-10T22:32:46.252475Z-2",
+    "time": "2026-10-10T22:32:46.252475Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 125,
+    "current": 127
+  },
+  {
+    "id": "2026-10-10T22:32:46.252475Z-3",
+    "time": "2026-10-10T22:32:46.252475Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "rating",
+    "previous": "88%",
+    "current": "87%"
+  },
+  {
+    "id": "2026-10-10T22:32:46.252475Z-4",
+    "time": "2026-10-10T22:32:46.252475Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 173,
+    "current": 174
   }
 ]

@@ -6,13 +6,13 @@
       "id": "ietsh-renbanzipperii",
       "title": "Renban Zipper II",
       "date": "10. October 2026, 05:31",
-      "stars": 1,
+      "stars": 2,
       "author_rated": false,
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
-      "solves": 37,
-      "sudokupad_solves": 125,
-      "rating": "88%",
+      "solves": 39,
+      "sudokupad_solves": 127,
+      "rating": "87%",
       "image": "images/000VCU.png"
     },
     {
@@ -167,7 +167,7 @@
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 173
+      "sudokupad_solves": 174
     },
     {
       "num": 23,
@@ -492,5 +492,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-10T22:22:51.812143Z"
+  "last_check": "2026-10-10T22:32:46.247997Z"
 }
