@@ -10,8 +10,8 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
-      "solves": 0,
-      "sudokupad_solves": null,
+      "solves": 1,
+      "sudokupad_solves": 1,
       "rating": "N/A",
       "image": "images/000VCU.png"
     },
@@ -492,5 +492,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-10T03:42:48.971631Z"
+  "last_check": "2026-10-10T03:52:59.113211Z"
 }
