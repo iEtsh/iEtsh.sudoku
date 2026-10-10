@@ -26175,5 +26175,27 @@
     "field": "sudokupad_solves",
     "previous": 291,
     "current": 292
+  },
+  {
+    "id": "2026-10-10T01:03:01.529143Z-0",
+    "time": "2026-10-10T01:03:01.529143Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 138,
+    "current": 139
+  },
+  {
+    "id": "2026-10-10T01:03:01.529143Z-1",
+    "time": "2026-10-10T01:03:01.529143Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 251,
+    "current": 252
   }
 ]
