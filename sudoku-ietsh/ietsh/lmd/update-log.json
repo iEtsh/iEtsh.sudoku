@@ -29534,5 +29534,38 @@
     "field": "sudokupad_solves",
     "previous": 159,
     "current": 160
+  },
+  {
+    "id": "2026-10-11T20:53:01.872703Z-0",
+    "time": "2026-10-11T20:53:01.872703Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "stars",
+    "previous": 5,
+    "current": 4
+  },
+  {
+    "id": "2026-10-11T20:53:01.872703Z-1",
+    "time": "2026-10-11T20:53:01.872703Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 10,
+    "current": 11
+  },
+  {
+    "id": "2026-10-11T20:53:01.872703Z-2",
+    "time": "2026-10-11T20:53:01.872703Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "rating",
+    "previous": "90%",
+    "current": "91%"
   }
 ]

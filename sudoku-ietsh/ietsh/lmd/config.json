@@ -6,13 +6,13 @@
       "id": "ietsh-uncharted12",
       "title": "Uncharted 12",
       "date": "11. October 2026, 05:51",
-      "stars": 5,
+      "stars": 4,
       "author_rated": false,
       "puzz": "https://sudokupad.app/7w4ofyxjy8",
       "lmd": "000VFT",
-      "solves": 10,
+      "solves": 11,
       "sudokupad_solves": 11,
-      "rating": "90%",
+      "rating": "91%",
       "image": "images/000VFT.png"
     },
     {
@@ -506,5 +506,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-11T20:43:13.781034Z"
+  "last_check": "2026-10-11T20:53:01.867030Z"
 }
