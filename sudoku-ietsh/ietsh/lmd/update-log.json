@@ -29127,5 +29127,38 @@
     "field": "puzz",
     "previous": "https://sudokupad.app/aofk9cusrk",
     "current": "https://sudokupad.app/7w4ofyxjy8"
+  },
+  {
+    "id": "2026-10-11T16:12:58.286045Z-0",
+    "time": "2026-10-11T16:12:58.286045Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 3,
+    "current": 5
+  },
+  {
+    "id": "2026-10-11T16:12:58.286045Z-1",
+    "time": "2026-10-11T16:12:58.286045Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "solves",
+    "previous": 45,
+    "current": 46
+  },
+  {
+    "id": "2026-10-11T16:12:58.286045Z-2",
+    "time": "2026-10-11T16:12:58.286045Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 165,
+    "current": 166
   }
 ]
