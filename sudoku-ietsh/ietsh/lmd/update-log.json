@@ -28511,5 +28511,27 @@
       "rating": "N/A",
       "image": "images/000VFT.png"
     }
+  },
+  {
+    "id": "2026-10-11T04:23:14.747350Z-0",
+    "time": "2026-10-11T04:23:14.747350Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 135,
+    "current": 136
+  },
+  {
+    "id": "2026-10-11T04:23:14.747350Z-1",
+    "time": "2026-10-11T04:23:14.747350Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 373,
+    "current": 374
   }
 ]
