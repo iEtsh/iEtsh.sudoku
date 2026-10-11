@@ -28344,5 +28344,38 @@
     "field": "solves",
     "previous": 49,
     "current": 50
+  },
+  {
+    "id": "2026-10-11T02:12:55.120998Z-0",
+    "time": "2026-10-11T02:12:55.120998Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 49,
+    "current": 50
+  },
+  {
+    "id": "2026-10-11T02:12:55.120998Z-1",
+    "time": "2026-10-11T02:12:55.120998Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 135,
+    "current": 136
+  },
+  {
+    "id": "2026-10-11T02:12:55.120998Z-2",
+    "time": "2026-10-11T02:12:55.120998Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "rating",
+    "previous": "86%",
+    "current": "87%"
   }
 ]
