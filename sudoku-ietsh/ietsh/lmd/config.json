@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 36,
+      "id": "ietsh-uncharted12",
+      "title": "Uncharted 12",
+      "date": "11. October 2026, 05:51",
+      "stars": 5,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/aofk9cusrk",
+      "lmd": "000VFT",
+      "solves": 0,
+      "sudokupad_solves": 2,
+      "rating": "N/A",
+      "image": "images/000VFT.png"
+    },
+    {
       "num": 35,
       "id": "ietsh-renbanzipperii",
       "title": "Renban Zipper II",
@@ -492,5 +506,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-11T03:52:48.999106Z"
+  "last_check": "2026-10-11T04:02:56.404937Z"
 }

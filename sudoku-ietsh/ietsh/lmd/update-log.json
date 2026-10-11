@@ -28487,5 +28487,29 @@
     "field": "sudokupad_solves",
     "previous": 158,
     "current": 159
+  },
+  {
+    "id": "2026-10-11T04:02:56.409110Z-0",
+    "time": "2026-10-11T04:02:56.409110Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 36,
+      "id": "ietsh-uncharted12",
+      "title": "Uncharted 12",
+      "date": "11. October 2026, 05:51",
+      "stars": 5,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/aofk9cusrk",
+      "lmd": "000VFT",
+      "solves": 0,
+      "sudokupad_solves": 2,
+      "rating": "N/A",
+      "image": "images/000VFT.png"
+    }
   }
 ]
