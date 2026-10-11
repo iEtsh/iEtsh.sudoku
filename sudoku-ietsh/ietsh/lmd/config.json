@@ -373,7 +373,7 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/ltry6ibgck",
       "lmd": "000TSP",
-      "solves": 90,
+      "solves": 91,
       "rating": "92%",
       "author_rated": false,
       "image": "images/000TSP.png",
@@ -506,5 +506,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-11T19:43:02.094090Z"
+  "last_check": "2026-10-11T19:52:50.874985Z"
 }
