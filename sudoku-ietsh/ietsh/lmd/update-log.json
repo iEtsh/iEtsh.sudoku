@@ -29743,5 +29743,60 @@
     "field": "sudokupad_solves",
     "previous": 102,
     "current": 103
+  },
+  {
+    "id": "2026-10-11T23:52:52.433628Z-0",
+    "time": "2026-10-11T23:52:52.433628Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 183,
+    "current": 184
+  },
+  {
+    "id": "2026-10-11T23:52:52.433628Z-1",
+    "time": "2026-10-11T23:52:52.433628Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 416,
+    "current": 417
+  },
+  {
+    "id": "2026-10-11T23:52:52.433628Z-2",
+    "time": "2026-10-11T23:52:52.433628Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 557,
+    "current": 558
+  },
+  {
+    "id": "2026-10-11T23:52:52.433628Z-3",
+    "time": "2026-10-11T23:52:52.433628Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-10-11T23:52:52.433628Z-4",
+    "time": "2026-10-11T23:52:52.433628Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 145,
+    "current": 146
   }
 ]
