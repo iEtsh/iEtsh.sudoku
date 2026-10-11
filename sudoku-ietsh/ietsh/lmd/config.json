@@ -7,12 +7,12 @@
       "title": "Uncharted 12",
       "date": "11. October 2026, 05:51",
       "stars": 5,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/7w4ofyxjy8",
       "lmd": "000VFT",
-      "solves": 9,
-      "sudokupad_solves": 9,
-      "rating": "N/A",
+      "solves": 10,
+      "sudokupad_solves": 10,
+      "rating": "90%",
       "image": "images/000VFT.png"
     },
     {
@@ -25,7 +25,7 @@
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
       "solves": 46,
-      "sudokupad_solves": 152,
+      "sudokupad_solves": 153,
       "rating": "88%",
       "image": "images/000VCU.png"
     },
@@ -66,8 +66,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/uxydsoqbxp",
       "lmd": "000VBP",
-      "solves": 50,
-      "sudokupad_solves": 100,
+      "solves": 51,
+      "sudokupad_solves": 101,
       "rating": "96%",
       "image": "images/000VBP.png"
     },
@@ -506,5 +506,5 @@
       "sudokupad_solves": 145
     }
   ],
-  "last_check": "2026-10-11T17:22:57.420638Z"
+  "last_check": "2026-10-11T17:33:03.840015Z"
 }
