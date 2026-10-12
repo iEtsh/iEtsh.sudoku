@@ -30238,5 +30238,60 @@
     "field": "sudokupad_solves",
     "previous": 1649,
     "current": 1650
+  },
+  {
+    "id": "2026-10-12T12:33:15.044317Z-0",
+    "time": "2026-10-12T12:33:15.044317Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 166,
+    "current": 167
+  },
+  {
+    "id": "2026-10-12T12:33:15.044317Z-1",
+    "time": "2026-10-12T12:33:15.044317Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 86,
+    "current": 87
+  },
+  {
+    "id": "2026-10-12T12:33:15.044317Z-2",
+    "time": "2026-10-12T12:33:15.044317Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 178,
+    "current": 179
+  },
+  {
+    "id": "2026-10-12T12:33:15.044317Z-3",
+    "time": "2026-10-12T12:33:15.044317Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 51,
+    "current": 52
+  },
+  {
+    "id": "2026-10-12T12:33:15.044317Z-4",
+    "time": "2026-10-12T12:33:15.044317Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 104,
+    "current": 105
   }
 ]
