@@ -30062,5 +30062,16 @@
     "field": "sudokupad_solves",
     "previous": 22,
     "current": 23
+  },
+  {
+    "id": "2026-10-12T06:53:00.530424Z-0",
+    "time": "2026-10-12T06:53:00.530424Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 15,
+    "current": 16
   }
 ]
