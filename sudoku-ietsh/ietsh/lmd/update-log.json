@@ -30579,5 +30579,49 @@
     "field": "sudokupad_solves",
     "previous": 174,
     "current": 175
+  },
+  {
+    "id": "2026-10-12T16:13:02.945467Z-0",
+    "time": "2026-10-12T16:13:02.945467Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 19,
+    "current": 20
+  },
+  {
+    "id": "2026-10-12T16:13:02.945467Z-1",
+    "time": "2026-10-12T16:13:02.945467Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 31,
+    "current": 32
+  },
+  {
+    "id": "2026-10-12T16:13:02.945467Z-2",
+    "time": "2026-10-12T16:13:02.945467Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "rating",
+    "previous": "90%",
+    "current": "91%"
+  },
+  {
+    "id": "2026-10-12T16:13:02.945467Z-3",
+    "time": "2026-10-12T16:13:02.945467Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "solves",
+    "previous": 85,
+    "current": 86
   }
 ]
