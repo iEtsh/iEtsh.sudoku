@@ -30073,5 +30073,60 @@
     "field": "solves",
     "previous": 15,
     "current": 16
+  },
+  {
+    "id": "2026-10-12T07:33:06.319583Z-0",
+    "time": "2026-10-12T07:33:06.319583Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 16,
+    "current": 17
+  },
+  {
+    "id": "2026-10-12T07:33:06.319583Z-1",
+    "time": "2026-10-12T07:33:06.319583Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 23,
+    "current": 24
+  },
+  {
+    "id": "2026-10-12T07:33:06.319583Z-2",
+    "time": "2026-10-12T07:33:06.319583Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "rating",
+    "previous": "89%",
+    "current": "90%"
+  },
+  {
+    "id": "2026-10-12T07:33:06.319583Z-3",
+    "time": "2026-10-12T07:33:06.319583Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 174,
+    "current": 176
+  },
+  {
+    "id": "2026-10-12T07:33:06.319583Z-4",
+    "time": "2026-10-12T07:33:06.319583Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "sudokupad_solves",
+    "previous": 259,
+    "current": 260
   }
 ]
