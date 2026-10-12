@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/7w4ofyxjy8",
       "lmd": "000VFT",
       "solves": 17,
-      "sudokupad_solves": 27,
+      "sudokupad_solves": 28,
       "rating": "90%",
       "image": "images/000VFT.png"
     },
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-12T12:53:17.607349Z"
+  "last_check": "2026-10-12T13:03:07.822505Z"
 }
