@@ -30139,5 +30139,27 @@
     "field": "sudokupad_solves",
     "previous": 24,
     "current": 25
+  },
+  {
+    "id": "2026-10-12T08:13:04.357126Z-0",
+    "time": "2026-10-12T08:13:04.357126Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 25,
+    "current": 26
+  },
+  {
+    "id": "2026-10-12T08:13:04.357126Z-1",
+    "time": "2026-10-12T08:13:04.357126Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-evilsaboteurs",
+    "puzzleNum": 3,
+    "title": "Evil Saboteurs",
+    "field": "sudokupad_solves",
+    "previous": 9,
+    "current": 10
   }
 ]
