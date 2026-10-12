@@ -30436,5 +30436,49 @@
     "field": "sudokupad_solves",
     "previous": 292,
     "current": 293
+  },
+  {
+    "id": "2026-10-12T15:13:08.225929Z-0",
+    "time": "2026-10-12T15:13:08.225929Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 167,
+    "current": 168
+  },
+  {
+    "id": "2026-10-12T15:13:08.225929Z-1",
+    "time": "2026-10-12T15:13:08.225929Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 384,
+    "current": 385
+  },
+  {
+    "id": "2026-10-12T15:13:08.225929Z-2",
+    "time": "2026-10-12T15:13:08.225929Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "solves",
+    "previous": 155,
+    "current": 156
+  },
+  {
+    "id": "2026-10-12T15:13:08.225929Z-3",
+    "time": "2026-10-12T15:13:08.225929Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "sudokupad_solves",
+    "previous": 165,
+    "current": 166
   }
 ]
