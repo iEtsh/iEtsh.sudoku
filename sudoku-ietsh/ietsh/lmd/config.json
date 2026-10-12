@@ -471,7 +471,7 @@
       "stars": 5,
       "puzz": "https://sudokupad.app/7wqfscpt1y",
       "lmd": "000SCS",
-      "solves": 5,
+      "solves": 6,
       "rating": "N/A",
       "author_rated": true,
       "image": "images/000SCS.png",
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-12T08:13:04.353768Z"
+  "last_check": "2026-10-12T08:22:54.266087Z"
 }

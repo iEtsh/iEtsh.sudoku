@@ -30161,5 +30161,16 @@
     "field": "sudokupad_solves",
     "previous": 9,
     "current": 10
+  },
+  {
+    "id": "2026-10-12T08:22:54.271817Z-0",
+    "time": "2026-10-12T08:22:54.271817Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-evilsaboteurs",
+    "puzzleNum": 3,
+    "title": "Evil Saboteurs",
+    "field": "solves",
+    "previous": 5,
+    "current": 6
   }
 ]
