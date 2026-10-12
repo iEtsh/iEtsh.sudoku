@@ -53,7 +53,7 @@
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
       "solves": 128,
-      "sudokupad_solves": 385,
+      "sudokupad_solves": 386,
       "rating": "97%",
       "image": "images/000VCF.png"
     },
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-12T15:22:53.301429Z"
+  "last_check": "2026-10-12T15:32:53.954316Z"
 }
