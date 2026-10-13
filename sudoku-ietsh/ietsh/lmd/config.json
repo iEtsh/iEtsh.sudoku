@@ -163,11 +163,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/iapen15ls1",
       "lmd": "000UVR",
-      "solves": 149,
-      "rating": "94%",
+      "solves": 150,
+      "rating": "95%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1651
+      "sudokupad_solves": 1652
     },
     {
       "num": 24,
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-13T12:23:00.349987Z"
+  "last_check": "2026-10-13T12:33:04.254001Z"
 }

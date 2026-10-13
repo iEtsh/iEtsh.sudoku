@@ -31569,5 +31569,38 @@
     "field": "sudokupad_solves",
     "previous": 395,
     "current": 396
+  },
+  {
+    "id": "2026-10-13T12:33:04.259972Z-0",
+    "time": "2026-10-13T12:33:04.259972Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "solves",
+    "previous": 149,
+    "current": 150
+  },
+  {
+    "id": "2026-10-13T12:33:04.259972Z-1",
+    "time": "2026-10-13T12:33:04.259972Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1651,
+    "current": 1652
+  },
+  {
+    "id": "2026-10-13T12:33:04.259972Z-2",
+    "time": "2026-10-13T12:33:04.259972Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "rating",
+    "previous": "94%",
+    "current": "95%"
   }
 ]
