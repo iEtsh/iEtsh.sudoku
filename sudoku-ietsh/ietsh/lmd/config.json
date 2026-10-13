@@ -331,11 +331,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/hswdlhrpuo",
       "lmd": "000U38",
-      "solves": 117,
+      "solves": 118,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000U38.png",
-      "sudokupad_solves": 263
+      "sudokupad_solves": 264
     },
     {
       "num": 12,
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-13T23:42:53.451403Z"
+  "last_check": "2026-10-13T23:53:11.415379Z"
 }
