@@ -31283,5 +31283,38 @@
     "field": "sudokupad_solves",
     "previous": 39,
     "current": 40
+  },
+  {
+    "id": "2026-10-13T08:22:54.156603Z-0",
+    "time": "2026-10-13T08:22:54.156603Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "solves",
+    "previous": 90,
+    "current": 91
+  },
+  {
+    "id": "2026-10-13T08:22:54.156603Z-1",
+    "time": "2026-10-13T08:22:54.156603Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 219,
+    "current": 220
+  },
+  {
+    "id": "2026-10-13T08:22:54.156603Z-2",
+    "time": "2026-10-13T08:22:54.156603Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "sudokupad_solves",
+    "previous": 138,
+    "current": 139
   }
 ]
