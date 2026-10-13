@@ -293,7 +293,7 @@
       "rating": "90%",
       "author_rated": false,
       "image": "images/000U86.png",
-      "sudokupad_solves": 251
+      "sudokupad_solves": 252
     },
     {
       "num": 15,
@@ -359,7 +359,7 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/6ihl37tq23",
       "lmd": "000TSS",
-      "solves": 49,
+      "solves": 50,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000TSS.png",
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-13T08:22:54.152689Z"
+  "last_check": "2026-10-13T08:33:05.019048Z"
 }

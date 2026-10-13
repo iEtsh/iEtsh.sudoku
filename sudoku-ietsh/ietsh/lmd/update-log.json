@@ -31316,5 +31316,27 @@
     "field": "sudokupad_solves",
     "previous": 138,
     "current": 139
+  },
+  {
+    "id": "2026-10-13T08:33:05.024946Z-0",
+    "time": "2026-10-13T08:33:05.024946Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 251,
+    "current": 252
+  },
+  {
+    "id": "2026-10-13T08:33:05.024946Z-1",
+    "time": "2026-10-13T08:33:05.024946Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "solves",
+    "previous": 49,
+    "current": 50
   }
 ]
