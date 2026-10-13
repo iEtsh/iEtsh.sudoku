@@ -25,7 +25,7 @@
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
       "solves": 62,
-      "sudokupad_solves": 186,
+      "sudokupad_solves": 187,
       "rating": "91%",
       "image": "images/000VCU.png"
     },
@@ -38,8 +38,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/7t90zlfvf3",
       "lmd": "000VE4",
-      "solves": 92,
-      "sudokupad_solves": 189,
+      "solves": 93,
+      "sudokupad_solves": 190,
       "rating": "96%",
       "image": "images/000VE4.png"
     },
@@ -53,7 +53,7 @@
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
       "solves": 134,
-      "sudokupad_solves": 597,
+      "sudokupad_solves": 605,
       "rating": "97%",
       "image": "images/000VCF.png"
     },
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-13T17:13:06.893950Z"
+  "last_check": "2026-10-13T17:23:04.795272Z"
 }
