@@ -32537,5 +32537,27 @@
     "field": "sudokupad_solves",
     "previous": 809,
     "current": 811
+  },
+  {
+    "id": "2026-10-13T22:52:48.308334Z-0",
+    "time": "2026-10-13T22:52:48.308334Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 811,
+    "current": 815
+  },
+  {
+    "id": "2026-10-13T22:52:48.308334Z-1",
+    "time": "2026-10-13T22:52:48.308334Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves",
+    "previous": 113,
+    "current": 114
   }
 ]
