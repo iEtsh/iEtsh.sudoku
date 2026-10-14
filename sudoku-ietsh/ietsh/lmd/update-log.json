@@ -33439,5 +33439,27 @@
     "field": "sudokupad_solves",
     "previous": 931,
     "current": 933
+  },
+  {
+    "id": "2026-10-14T08:03:02.252396Z-0",
+    "time": "2026-10-14T08:03:02.252396Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 933,
+    "current": 934
+  },
+  {
+    "id": "2026-10-14T08:03:02.252396Z-1",
+    "time": "2026-10-14T08:03:02.252396Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 142,
+    "current": 143
   }
 ]
