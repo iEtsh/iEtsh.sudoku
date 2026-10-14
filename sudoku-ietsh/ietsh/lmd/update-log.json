@@ -34671,5 +34671,71 @@
     "field": "sudokupad_solves",
     "previous": 295,
     "current": 296
+  },
+  {
+    "id": "2026-10-14T23:33:04.901062Z-0",
+    "time": "2026-10-14T23:33:04.901062Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 200,
+    "current": 201
+  },
+  {
+    "id": "2026-10-14T23:33:04.901062Z-1",
+    "time": "2026-10-14T23:33:04.901062Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 560,
+    "current": 561
+  },
+  {
+    "id": "2026-10-14T23:33:04.901062Z-2",
+    "time": "2026-10-14T23:33:04.901062Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 312,
+    "current": 313
+  },
+  {
+    "id": "2026-10-14T23:33:04.901062Z-3",
+    "time": "2026-10-14T23:33:04.901062Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "sudokupad_solves",
+    "previous": 296,
+    "current": 297
+  },
+  {
+    "id": "2026-10-14T23:33:04.901062Z-4",
+    "time": "2026-10-14T23:33:04.901062Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents2",
+    "puzzleNum": 12,
+    "title": "Crosscurrents II",
+    "field": "solves",
+    "previous": 77,
+    "current": 78
+  },
+  {
+    "id": "2026-10-14T23:33:04.901062Z-5",
+    "time": "2026-10-14T23:33:04.901062Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents2",
+    "puzzleNum": 12,
+    "title": "Crosscurrents II",
+    "field": "sudokupad_solves",
+    "previous": 217,
+    "current": 218
   }
 ]
