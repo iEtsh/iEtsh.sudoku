@@ -32867,5 +32867,27 @@
     "field": "sudokupad_solves",
     "previous": 849,
     "current": 851
+  },
+  {
+    "id": "2026-10-14T01:43:04.271233Z-0",
+    "time": "2026-10-14T01:43:04.271233Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 851,
+    "current": 852
+  },
+  {
+    "id": "2026-10-14T01:43:04.271233Z-1",
+    "time": "2026-10-14T01:43:04.271233Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 188,
+    "current": 189
   }
 ]
