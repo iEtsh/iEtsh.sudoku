@@ -81,7 +81,7 @@
       "puzz": "https://sudokupad.app/syuuh239xm",
       "lmd": "000VA7",
       "solves": 30,
-      "sudokupad_solves": 74,
+      "sudokupad_solves": 75,
       "rating": "89%",
       "image": "images/000VA7.png"
     },
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-14T00:53:04.341289Z"
+  "last_check": "2026-10-14T01:02:56.810602Z"
 }
