@@ -223,7 +223,7 @@
       "rating": "67%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 419
+      "sudokupad_solves": 420
     },
     {
       "num": 20,
@@ -237,7 +237,7 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 559
+      "sudokupad_solves": 560
     },
     {
       "num": 19,
@@ -251,7 +251,7 @@
       "rating": "79%",
       "author_rated": false,
       "image": "images/000UDT.png",
-      "sudokupad_solves": 311
+      "sudokupad_solves": 312
     },
     {
       "num": 18,
@@ -307,7 +307,7 @@
       "rating": "82%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 295
+      "sudokupad_solves": 296
     },
     {
       "num": 14,
@@ -506,5 +506,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-14T23:12:55.792950Z"
+  "last_check": "2026-10-14T23:23:11.177046Z"
 }
