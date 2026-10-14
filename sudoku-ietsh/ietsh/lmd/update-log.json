@@ -34264,5 +34264,38 @@
     "field": "sudokupad_solves",
     "previous": 1023,
     "current": 1024
+  },
+  {
+    "id": "2026-10-14T18:53:05.050775Z-0",
+    "time": "2026-10-14T18:53:05.050775Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 29,
+    "current": 30
+  },
+  {
+    "id": "2026-10-14T18:53:05.050775Z-1",
+    "time": "2026-10-14T18:53:05.050775Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 51,
+    "current": 52
+  },
+  {
+    "id": "2026-10-14T18:53:05.050775Z-2",
+    "time": "2026-10-14T18:53:05.050775Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1024,
+    "current": 1026
   }
 ]
