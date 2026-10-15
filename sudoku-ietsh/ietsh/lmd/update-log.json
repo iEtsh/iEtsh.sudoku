@@ -35905,5 +35905,27 @@
     "field": "sudokupad_solves",
     "previous": 352,
     "current": 354
+  },
+  {
+    "id": "2026-10-15T21:33:08.040442Z-0",
+    "time": "2026-10-15T21:33:08.040442Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 101,
+    "current": 102
+  },
+  {
+    "id": "2026-10-15T21:33:08.040442Z-1",
+    "time": "2026-10-15T21:33:08.040442Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 254,
+    "current": 255
   }
 ]

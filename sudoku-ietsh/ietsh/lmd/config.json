@@ -303,11 +303,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/evh9tt2q0i",
       "lmd": "000U86",
-      "solves": 101,
+      "solves": 102,
       "rating": "90%",
       "author_rated": false,
       "image": "images/000U86.png",
-      "sudokupad_solves": 254
+      "sudokupad_solves": 255
     },
     {
       "num": 15,
@@ -520,5 +520,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-15T21:23:09.094213Z"
+  "last_check": "2026-10-15T21:33:08.033481Z"
 }
