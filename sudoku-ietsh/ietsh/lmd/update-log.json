@@ -35553,5 +35553,27 @@
     "field": "sudokupad_solves",
     "previous": 298,
     "current": 299
+  },
+  {
+    "id": "2026-10-15T18:42:53.161016Z-0",
+    "time": "2026-10-15T18:42:53.161016Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 6,
+    "current": 7
+  },
+  {
+    "id": "2026-10-15T18:42:53.161016Z-1",
+    "time": "2026-10-15T18:42:53.161016Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 145,
+    "current": 146
   }
 ]
