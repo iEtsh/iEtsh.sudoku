@@ -35520,5 +35520,38 @@
     "field": "sudokupad_solves",
     "previous": 1093,
     "current": 1094
+  },
+  {
+    "id": "2026-10-15T18:33:08.972072Z-0",
+    "time": "2026-10-15T18:33:08.972072Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "solves",
+    "previous": 2,
+    "current": 3
+  },
+  {
+    "id": "2026-10-15T18:33:08.972072Z-1",
+    "time": "2026-10-15T18:33:08.972072Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 4,
+    "current": 6
+  },
+  {
+    "id": "2026-10-15T18:33:08.972072Z-2",
+    "time": "2026-10-15T18:33:08.972072Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "sudokupad_solves",
+    "previous": 298,
+    "current": 299
   }
 ]

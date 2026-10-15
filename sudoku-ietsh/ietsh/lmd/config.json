@@ -10,8 +10,8 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/c5opq1vrkj",
       "lmd": "000VI2",
-      "solves": 2,
-      "sudokupad_solves": 4,
+      "solves": 3,
+      "sudokupad_solves": 6,
       "rating": "N/A",
       "image": "images/000VI2.png"
     },
@@ -321,7 +321,7 @@
       "rating": "82%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 298
+      "sudokupad_solves": 299
     },
     {
       "num": 14,
@@ -520,5 +520,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-15T18:23:09.595963Z"
+  "last_check": "2026-10-15T18:33:08.965162Z"
 }
