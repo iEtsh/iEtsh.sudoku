@@ -36059,5 +36059,27 @@
     "field": "sudokupad_solves",
     "previous": 1663,
     "current": 1664
+  },
+  {
+    "id": "2026-10-15T22:53:08.198498Z-0",
+    "time": "2026-10-15T22:53:08.198498Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 11,
+    "current": 12
+  },
+  {
+    "id": "2026-10-15T22:53:08.198498Z-1",
+    "time": "2026-10-15T22:53:08.198498Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 205,
+    "current": 206
   }
 ]
