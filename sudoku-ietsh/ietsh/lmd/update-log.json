@@ -35100,5 +35100,40 @@
     "field": "sudokupad_solves",
     "previous": 420,
     "current": 421
+  },
+  {
+    "id": "2026-10-15T10:13:07.927592Z-0",
+    "time": "2026-10-15T10:13:07.927592Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 37,
+      "id": "ietsh-nerveshredder",
+      "title": "Nerve Shredder",
+      "date": "15. October 2026, 12:02",
+      "stars": 4,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/c5opq1vrkj",
+      "lmd": "000VI2",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000VI2.png"
+    }
+  },
+  {
+    "id": "2026-10-15T10:13:07.927592Z-1",
+    "time": "2026-10-15T10:13:07.927592Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1073,
+    "current": 1074
   }
 ]
