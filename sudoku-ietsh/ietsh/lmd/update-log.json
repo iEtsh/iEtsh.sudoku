@@ -35795,5 +35795,38 @@
     "field": "sudokupad_solves",
     "previous": 180,
     "current": 181
+  },
+  {
+    "id": "2026-10-15T20:03:01.086012Z-0",
+    "time": "2026-10-15T20:03:01.086012Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "solves",
+    "previous": 67,
+    "current": 68
+  },
+  {
+    "id": "2026-10-15T20:03:01.086012Z-1",
+    "time": "2026-10-15T20:03:01.086012Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 204,
+    "current": 205
+  },
+  {
+    "id": "2026-10-15T20:03:01.086012Z-2",
+    "time": "2026-10-15T20:03:01.086012Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1661,
+    "current": 1662
   }
 ]
