@@ -345,11 +345,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/hswdlhrpuo",
       "lmd": "000U38",
-      "solves": 119,
+      "solves": 120,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000U38.png",
-      "sudokupad_solves": 265
+      "sudokupad_solves": 266
     },
     {
       "num": 12,
@@ -520,5 +520,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-15T23:12:57.047433Z"
+  "last_check": "2026-10-15T23:23:04.412947Z"
 }
