@@ -35223,5 +35223,38 @@
     "field": "sudokupad_solves",
     "previous": 54,
     "current": 55
+  },
+  {
+    "id": "2026-10-15T12:33:01.912015Z-0",
+    "time": "2026-10-15T12:33:01.912015Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "rating",
+    "previous": "93%",
+    "current": "92%"
+  },
+  {
+    "id": "2026-10-15T12:33:01.912015Z-1",
+    "time": "2026-10-15T12:33:01.912015Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1080,
+    "current": 1082
+  },
+  {
+    "id": "2026-10-15T12:33:01.912015Z-2",
+    "time": "2026-10-15T12:33:01.912015Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "sudokupad_solves",
+    "previous": 297,
+    "current": 298
   }
 ]
