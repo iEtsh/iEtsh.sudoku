@@ -35575,5 +35575,38 @@
     "field": "sudokupad_solves",
     "previous": 145,
     "current": 146
+  },
+  {
+    "id": "2026-10-15T18:53:09.237162Z-0",
+    "time": "2026-10-15T18:53:09.237162Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 7,
+    "current": 8
+  },
+  {
+    "id": "2026-10-15T18:53:09.237162Z-1",
+    "time": "2026-10-15T18:53:09.237162Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1094,
+    "current": 1095
+  },
+  {
+    "id": "2026-10-15T18:53:09.237162Z-2",
+    "time": "2026-10-15T18:53:09.237162Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 319,
+    "current": 320
   }
 ]
