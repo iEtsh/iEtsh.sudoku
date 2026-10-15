@@ -181,7 +181,7 @@
       "rating": "95%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1660
+      "sudokupad_solves": 1661
     },
     {
       "num": 24,
@@ -247,11 +247,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/l0vo4o13rd",
       "lmd": "000UFT",
-      "solves": 197,
+      "solves": 198,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 562
+      "sudokupad_solves": 563
     },
     {
       "num": 19,
@@ -520,5 +520,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-15T19:22:54.323444Z"
+  "last_check": "2026-10-15T19:33:01.541089Z"
 }
