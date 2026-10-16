@@ -67,7 +67,7 @@
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
       "solves": 138,
-      "sudokupad_solves": 1113,
+      "sudokupad_solves": 1114,
       "rating": "97%",
       "image": "images/000VCF.png"
     },
@@ -345,11 +345,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/hswdlhrpuo",
       "lmd": "000U38",
-      "solves": 120,
+      "solves": 121,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000U38.png",
-      "sudokupad_solves": 266
+      "sudokupad_solves": 267
     },
     {
       "num": 12,
@@ -520,5 +520,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-16T02:23:09.000854Z"
+  "last_check": "2026-10-16T02:33:04.900951Z"
 }
