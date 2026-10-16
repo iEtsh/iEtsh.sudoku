@@ -36268,5 +36268,38 @@
     "field": "sudokupad_solves",
     "previous": 109,
     "current": 110
+  },
+  {
+    "id": "2026-10-16T02:03:07.613492Z-0",
+    "time": "2026-10-16T02:03:07.613492Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1111,
+    "current": 1112
+  },
+  {
+    "id": "2026-10-16T02:03:07.613492Z-1",
+    "time": "2026-10-16T02:03:07.613492Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "solves",
+    "previous": 91,
+    "current": 92
+  },
+  {
+    "id": "2026-10-16T02:03:07.613492Z-2",
+    "time": "2026-10-16T02:03:07.613492Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 229,
+    "current": 230
   }
 ]
