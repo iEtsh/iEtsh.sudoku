@@ -36411,5 +36411,16 @@
     "field": "sudokupad_solves",
     "previous": 1115,
     "current": 1116
+  },
+  {
+    "id": "2026-10-16T04:53:00.687137Z-0",
+    "time": "2026-10-16T04:53:00.687137Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 14,
+    "current": 15
   }
 ]
