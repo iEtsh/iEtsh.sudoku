@@ -7,12 +7,12 @@
       "title": "Nerve Shredder",
       "date": "15. October 2026, 12:02",
       "stars": 4,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/c5opq1vrkj",
       "lmd": "000VI2",
-      "solves": 11,
-      "sudokupad_solves": 15,
-      "rating": "N/A",
+      "solves": 12,
+      "sudokupad_solves": 16,
+      "rating": "83%",
       "image": "images/000VI2.png"
     },
     {
@@ -67,7 +67,7 @@
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
       "solves": 140,
-      "sudokupad_solves": 1127,
+      "sudokupad_solves": 1128,
       "rating": "97%",
       "image": "images/000VCF.png"
     },
@@ -520,5 +520,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-16T14:23:03.034840Z"
+  "last_check": "2026-10-16T14:33:13.151518Z"
 }

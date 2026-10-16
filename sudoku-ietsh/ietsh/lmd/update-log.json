@@ -36708,5 +36708,60 @@
     "field": "solves",
     "previous": 139,
     "current": 140
+  },
+  {
+    "id": "2026-10-16T14:33:13.158491Z-0",
+    "time": "2026-10-16T14:33:13.158491Z",
+    "type": "Author Rating Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "author_rated",
+    "previous": true,
+    "current": false
+  },
+  {
+    "id": "2026-10-16T14:33:13.158491Z-1",
+    "time": "2026-10-16T14:33:13.158491Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "solves",
+    "previous": 11,
+    "current": 12
+  },
+  {
+    "id": "2026-10-16T14:33:13.158491Z-2",
+    "time": "2026-10-16T14:33:13.158491Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 15,
+    "current": 16
+  },
+  {
+    "id": "2026-10-16T14:33:13.158491Z-3",
+    "time": "2026-10-16T14:33:13.158491Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "rating",
+    "previous": "N/A",
+    "current": "83%"
+  },
+  {
+    "id": "2026-10-16T14:33:13.158491Z-4",
+    "time": "2026-10-16T14:33:13.158491Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1127,
+    "current": 1128
   }
 ]
