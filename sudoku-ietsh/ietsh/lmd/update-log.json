@@ -36961,5 +36961,27 @@
     "field": "sudokupad_solves",
     "previous": 314,
     "current": 315
+  },
+  {
+    "id": "2026-10-16T18:33:00.309510Z-0",
+    "time": "2026-10-16T18:33:00.309510Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 54,
+    "current": 55
+  },
+  {
+    "id": "2026-10-16T18:33:00.309510Z-1",
+    "time": "2026-10-16T18:33:00.309510Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 109,
+    "current": 110
   }
 ]
