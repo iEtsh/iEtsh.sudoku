@@ -37192,5 +37192,51 @@
     "field": "sudokupad_solves",
     "previous": 1150,
     "current": 1151
+  },
+  {
+    "id": "2026-10-16T23:53:03.474990Z-0",
+    "time": "2026-10-16T23:53:03.474990Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 38,
+      "id": "ietsh-hlabyrinth",
+      "title": "H Labyrinth",
+      "date": "17. October 2026, 01:46",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/r544zk5sol",
+      "lmd": "000VIZ",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VIZ.png"
+    }
+  },
+  {
+    "id": "2026-10-16T23:53:03.474990Z-1",
+    "time": "2026-10-16T23:53:03.474990Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-10-16T23:53:03.474990Z-2",
+    "time": "2026-10-16T23:53:03.474990Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1151,
+    "current": 1152
   }
 ]
