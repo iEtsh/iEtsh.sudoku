@@ -37766,5 +37766,27 @@
     "field": "sudokupad_solves",
     "previous": 1161,
     "current": 1162
+  },
+  {
+    "id": "2026-10-17T10:33:16.640556Z-0",
+    "time": "2026-10-17T10:33:16.640556Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 11,
+    "current": 12
+  },
+  {
+    "id": "2026-10-17T10:33:16.640556Z-1",
+    "time": "2026-10-17T10:33:16.640556Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves",
+    "previous": 355,
+    "current": 356
   }
 ]
