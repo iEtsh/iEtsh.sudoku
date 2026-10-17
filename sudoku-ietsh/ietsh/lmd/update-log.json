@@ -37546,5 +37546,27 @@
     "field": "sudokupad_solves",
     "previous": 6,
     "current": 7
+  },
+  {
+    "id": "2026-10-17T05:33:07.537940Z-0",
+    "time": "2026-10-17T05:33:07.537940Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "solves",
+    "previous": 2,
+    "current": 3
+  },
+  {
+    "id": "2026-10-17T05:33:07.537940Z-1",
+    "time": "2026-10-17T05:33:07.537940Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1157,
+    "current": 1158
   }
 ]
