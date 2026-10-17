@@ -247,11 +247,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 185,
-      "rating": "67%",
+      "solves": 186,
+      "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 424
+      "sudokupad_solves": 425
     },
     {
       "num": 20,
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-17T08:22:59.616881Z"
+  "last_check": "2026-10-17T08:33:13.967261Z"
 }
