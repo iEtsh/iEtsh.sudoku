@@ -37425,5 +37425,16 @@
     "field": "sudokupad_solves",
     "previous": 267,
     "current": 268
+  },
+  {
+    "id": "2026-10-17T02:23:13.613553Z-0",
+    "time": "2026-10-17T02:23:13.613553Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 205,
+    "current": 206
   }
 ]
