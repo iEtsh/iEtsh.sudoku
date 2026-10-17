@@ -37689,5 +37689,16 @@
     "field": "rating",
     "previous": "67%",
     "current": "66%"
+  },
+  {
+    "id": "2026-10-17T08:43:02.930279Z-0",
+    "time": "2026-10-17T08:43:02.930279Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "solves",
+    "previous": 5,
+    "current": 6
   }
 ]
