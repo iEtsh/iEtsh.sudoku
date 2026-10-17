@@ -10,8 +10,8 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/r544zk5sol",
       "lmd": "000VIZ",
-      "solves": 3,
-      "sudokupad_solves": 7,
+      "solves": 4,
+      "sudokupad_solves": 8,
       "rating": "N/A",
       "image": "images/000VIZ.png"
     },
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-17T05:42:56.778526Z"
+  "last_check": "2026-10-17T05:53:23.264934Z"
 }

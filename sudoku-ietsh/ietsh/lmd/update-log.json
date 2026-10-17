@@ -37568,5 +37568,27 @@
     "field": "sudokupad_solves",
     "previous": 1157,
     "current": 1158
+  },
+  {
+    "id": "2026-10-17T05:53:23.271311Z-0",
+    "time": "2026-10-17T05:53:23.271311Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "solves",
+    "previous": 3,
+    "current": 4
+  },
+  {
+    "id": "2026-10-17T05:53:23.271311Z-1",
+    "time": "2026-10-17T05:53:23.271311Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 7,
+    "current": 8
   }
 ]
