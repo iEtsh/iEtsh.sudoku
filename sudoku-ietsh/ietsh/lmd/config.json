@@ -233,7 +233,7 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/gunf4ya35z",
       "lmd": "000UM4",
-      "solves": 123,
+      "solves": 124,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000UM4.jpg",
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-17T18:13:10.237034Z"
+  "last_check": "2026-10-17T18:22:59.656265Z"
 }
