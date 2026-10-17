@@ -387,11 +387,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/6ihl37tq23",
       "lmd": "000TSS",
-      "solves": 51,
+      "solves": 52,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000TSS.png",
-      "sudokupad_solves": 141
+      "sudokupad_solves": 142
     },
     {
       "num": 10,
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-17T21:22:58.547972Z"
+  "last_check": "2026-10-17T21:43:09.216508Z"
 }
