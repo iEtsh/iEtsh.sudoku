@@ -405,7 +405,7 @@
       "rating": "92%",
       "author_rated": false,
       "image": "images/000TSP.png",
-      "sudokupad_solves": 231
+      "sudokupad_solves": 232
     },
     {
       "num": 9,
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-18T04:32:59.189713Z"
+  "last_check": "2026-10-18T04:43:00.409143Z"
 }
