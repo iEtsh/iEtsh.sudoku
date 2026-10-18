@@ -38360,5 +38360,27 @@
     "field": "sudokupad_solves",
     "previous": 17,
     "current": 18
+  },
+  {
+    "id": "2026-10-18T09:52:58.943518Z-0",
+    "time": "2026-10-18T09:52:58.943518Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1175,
+    "current": 1176
+  },
+  {
+    "id": "2026-10-18T09:52:58.943518Z-1",
+    "time": "2026-10-18T09:52:58.943518Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 186,
+    "current": 187
   }
 ]
