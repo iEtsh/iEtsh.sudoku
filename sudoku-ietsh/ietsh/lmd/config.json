@@ -67,7 +67,7 @@
       "puzz": "https://sudokupad.app/7t90zlfvf3",
       "lmd": "000VE4",
       "solves": 99,
-      "sudokupad_solves": 210,
+      "sudokupad_solves": 211,
       "rating": "96%",
       "image": "images/000VE4.png"
     },
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-18T06:53:00.909568Z"
+  "last_check": "2026-10-18T07:02:59.796496Z"
 }
