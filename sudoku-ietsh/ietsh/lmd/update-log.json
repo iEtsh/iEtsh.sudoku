@@ -38657,5 +38657,27 @@
     "field": "sudokupad_solves",
     "previous": 1179,
     "current": 1180
+  },
+  {
+    "id": "2026-10-18T17:42:55.861164Z-0",
+    "time": "2026-10-18T17:42:55.861164Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arabesque",
+    "puzzleNum": 5,
+    "title": "Arabesque",
+    "field": "solves",
+    "previous": 38,
+    "current": 39
+  },
+  {
+    "id": "2026-10-18T17:42:55.861164Z-1",
+    "time": "2026-10-18T17:42:55.861164Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-arabesque",
+    "puzzleNum": 5,
+    "title": "Arabesque",
+    "field": "rating",
+    "previous": "81%",
+    "current": "80%"
   }
 ]

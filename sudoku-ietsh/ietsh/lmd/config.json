@@ -471,8 +471,8 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/nv449euelf",
       "lmd": "000SFF",
-      "solves": 38,
-      "rating": "81%",
+      "solves": 39,
+      "rating": "80%",
       "author_rated": false,
       "image": "images/000SFF.png",
       "sudokupad_solves": 94
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-18T17:33:03.168469Z"
+  "last_check": "2026-10-18T17:42:55.857057Z"
 }
