@@ -38558,5 +38558,49 @@
     "field": "sudokupad_solves",
     "previous": 1666,
     "current": 1667
+  },
+  {
+    "id": "2026-10-18T15:33:02.614382Z-0",
+    "time": "2026-10-18T15:33:02.614382Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 320,
+    "current": 321
+  },
+  {
+    "id": "2026-10-18T15:33:02.614382Z-1",
+    "time": "2026-10-18T15:33:02.614382Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "solves",
+    "previous": 144,
+    "current": 145
+  },
+  {
+    "id": "2026-10-18T15:33:02.614382Z-2",
+    "time": "2026-10-18T15:33:02.614382Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 316,
+    "current": 317
+  },
+  {
+    "id": "2026-10-18T15:33:02.614382Z-3",
+    "time": "2026-10-18T15:33:02.614382Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "rating",
+    "previous": "79%",
+    "current": "80%"
   }
 ]
