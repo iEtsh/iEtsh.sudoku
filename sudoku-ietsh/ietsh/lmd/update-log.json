@@ -38613,5 +38613,27 @@
     "field": "sudokupad_solves",
     "previous": 137,
     "current": 138
+  },
+  {
+    "id": "2026-10-18T16:03:00.294786Z-0",
+    "time": "2026-10-18T16:03:00.294786Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 211,
+    "current": 212
+  },
+  {
+    "id": "2026-10-18T16:03:00.294786Z-1",
+    "time": "2026-10-18T16:03:00.294786Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents2",
+    "puzzleNum": 12,
+    "title": "Crosscurrents II",
+    "field": "sudokupad_solves",
+    "previous": 220,
+    "current": 221
   }
 ]
