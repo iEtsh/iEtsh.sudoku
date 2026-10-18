@@ -38514,5 +38514,38 @@
     "field": "sudokupad_solves",
     "previous": 1665,
     "current": 1666
+  },
+  {
+    "id": "2026-10-18T14:43:21.225466Z-0",
+    "time": "2026-10-18T14:43:21.225466Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "solves",
+    "previous": 8,
+    "current": 9
+  },
+  {
+    "id": "2026-10-18T14:43:21.225466Z-1",
+    "time": "2026-10-18T14:43:21.225466Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 18,
+    "current": 19
+  },
+  {
+    "id": "2026-10-18T14:43:21.225466Z-2",
+    "time": "2026-10-18T14:43:21.225466Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents2",
+    "puzzleNum": 12,
+    "title": "Crosscurrents II",
+    "field": "sudokupad_solves",
+    "previous": 219,
+    "current": 220
   }
 ]
