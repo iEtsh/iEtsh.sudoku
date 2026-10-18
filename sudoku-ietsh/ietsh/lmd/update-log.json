@@ -38217,5 +38217,16 @@
     "field": "sudokupad_solves",
     "previous": 18,
     "current": 19
+  },
+  {
+    "id": "2026-10-18T01:53:08.360516Z-0",
+    "time": "2026-10-18T01:53:08.360516Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 15,
+    "current": 16
   }
 ]
