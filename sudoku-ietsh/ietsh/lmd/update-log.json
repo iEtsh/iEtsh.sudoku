@@ -39099,5 +39099,16 @@
       "rating": "N/A",
       "image": "images/000VLW.png"
     }
+  },
+  {
+    "id": "2026-10-19T11:23:11.716565Z-0",
+    "time": "2026-10-19T11:23:11.716565Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/p2xaxt2cd1",
+    "current": "https://sudokupad.app/mwo1h87xzn"
   }
 ]
