@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 39,
+      "id": "ietsh-arithmeticmeanline",
+      "title": "Arithmetic Mean Line",
+      "date": "19. October 2026, 13:07",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/p2xaxt2cd1",
+      "lmd": "000VLW",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VLW.png"
+    },
+    {
       "num": 38,
       "id": "ietsh-hlabyrinth",
       "title": "H Labyrinth",
@@ -534,5 +548,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-19T11:03:26.989099Z"
+  "last_check": "2026-10-19T11:13:16.085927Z"
 }

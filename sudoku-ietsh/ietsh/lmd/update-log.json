@@ -39075,5 +39075,29 @@
     "field": "sudokupad_solves",
     "previous": 1186,
     "current": 1187
+  },
+  {
+    "id": "2026-10-19T11:13:16.091172Z-0",
+    "time": "2026-10-19T11:13:16.091172Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 39,
+      "id": "ietsh-arithmeticmeanline",
+      "title": "Arithmetic Mean Line",
+      "date": "19. October 2026, 13:07",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/p2xaxt2cd1",
+      "lmd": "000VLW",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VLW.png"
+    }
   }
 ]
