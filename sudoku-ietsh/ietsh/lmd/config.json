@@ -275,7 +275,7 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/505e2zbaw0",
       "lmd": "000UDT",
-      "solves": 145,
+      "solves": 146,
       "rating": "80%",
       "author_rated": false,
       "image": "images/000UDT.png",
@@ -534,5 +534,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-19T03:23:11.604459Z"
+  "last_check": "2026-10-19T03:33:08.214056Z"
 }
