@@ -38921,5 +38921,16 @@
     "field": "sudokupad_solves",
     "previous": 1183,
     "current": 1184
+  },
+  {
+    "id": "2026-10-19T07:13:11.953473Z-0",
+    "time": "2026-10-19T07:13:11.953473Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 19,
+    "current": 20
   }
 ]
