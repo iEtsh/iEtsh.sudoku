@@ -12,7 +12,7 @@
       "lmd": "000VLW",
       "solves": 24,
       "sudokupad_solves": 67,
-      "rating": "93%",
+      "rating": "94%",
       "image": "images/000VLW.png"
     },
     {
@@ -548,5 +548,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-20T17:53:11.961307Z"
+  "last_check": "2026-10-20T18:03:18.145883Z"
 }
