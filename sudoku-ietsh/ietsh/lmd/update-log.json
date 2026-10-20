@@ -40573,5 +40573,38 @@
     "field": "sudokupad_solves",
     "previous": 63,
     "current": 65
+  },
+  {
+    "id": "2026-10-20T17:53:11.970369Z-0",
+    "time": "2026-10-20T17:53:11.970369Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 23,
+    "current": 24
+  },
+  {
+    "id": "2026-10-20T17:53:11.970369Z-1",
+    "time": "2026-10-20T17:53:11.970369Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 65,
+    "current": 67
+  },
+  {
+    "id": "2026-10-20T17:53:11.970369Z-2",
+    "time": "2026-10-20T17:53:11.970369Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1199,
+    "current": 1200
   }
 ]
