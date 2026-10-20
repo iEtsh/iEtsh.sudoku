@@ -40331,5 +40331,27 @@
     "field": "sudokupad_solves",
     "previous": 110,
     "current": 111
+  },
+  {
+    "id": "2026-10-20T13:33:15.616602Z-0",
+    "time": "2026-10-20T13:33:15.616602Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 53,
+    "current": 54
+  },
+  {
+    "id": "2026-10-20T13:33:15.616602Z-1",
+    "time": "2026-10-20T13:33:15.616602Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1674,
+    "current": 1675
   }
 ]
