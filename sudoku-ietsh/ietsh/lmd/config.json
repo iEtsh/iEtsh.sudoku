@@ -6,13 +6,13 @@
       "id": "ietsh-arithmeticmeanline",
       "title": "Arithmetic Mean Line",
       "date": "19. October 2026, 13:07",
-      "stars": 3,
-      "author_rated": true,
+      "stars": 2,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/mwo1h87xzn",
       "lmd": "000VLW",
-      "solves": 11,
+      "solves": 15,
       "sudokupad_solves": 30,
-      "rating": "N/A",
+      "rating": "92%",
       "image": "images/000VLW.png"
     },
     {
@@ -548,5 +548,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-20T02:33:10.255245Z"
+  "last_check": "2026-10-20T02:43:28.588253Z"
 }

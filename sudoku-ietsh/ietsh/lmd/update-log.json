@@ -39803,5 +39803,49 @@
     "field": "sudokupad_solves",
     "previous": 1195,
     "current": 1196
+  },
+  {
+    "id": "2026-10-20T02:43:28.597895Z-0",
+    "time": "2026-10-20T02:43:28.597895Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "stars",
+    "previous": 3,
+    "current": 2
+  },
+  {
+    "id": "2026-10-20T02:43:28.597895Z-1",
+    "time": "2026-10-20T02:43:28.597895Z",
+    "type": "Author Rating Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "author_rated",
+    "previous": true,
+    "current": false
+  },
+  {
+    "id": "2026-10-20T02:43:28.597895Z-2",
+    "time": "2026-10-20T02:43:28.597895Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 11,
+    "current": 15
+  },
+  {
+    "id": "2026-10-20T02:43:28.597895Z-3",
+    "time": "2026-10-20T02:43:28.597895Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "rating",
+    "previous": "N/A",
+    "current": "92%"
   }
 ]
