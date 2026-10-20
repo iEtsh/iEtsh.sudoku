@@ -40353,5 +40353,38 @@
     "field": "sudokupad_solves",
     "previous": 1674,
     "current": 1675
+  },
+  {
+    "id": "2026-10-20T13:42:58.983248Z-0",
+    "time": "2026-10-20T13:42:58.983248Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 20,
+    "current": 21
+  },
+  {
+    "id": "2026-10-20T13:42:58.983248Z-1",
+    "time": "2026-10-20T13:42:58.983248Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 54,
+    "current": 55
+  },
+  {
+    "id": "2026-10-20T13:42:58.983248Z-2",
+    "time": "2026-10-20T13:42:58.983248Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "rating",
+    "previous": "92%",
+    "current": "93%"
   }
 ]
