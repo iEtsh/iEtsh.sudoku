@@ -41761,5 +41761,27 @@
     "field": "sudokupad_solves",
     "previous": 93,
     "current": 94
+  },
+  {
+    "id": "2026-10-22T14:51:45.839801Z-0",
+    "time": "2026-10-22T14:51:45.839801Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 95,
+    "current": 96
+  },
+  {
+    "id": "2026-10-22T14:51:45.839801Z-1",
+    "time": "2026-10-22T14:51:45.839801Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 115,
+    "current": 116
   }
 ]
