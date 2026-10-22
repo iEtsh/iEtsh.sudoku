@@ -41915,5 +41915,38 @@
     "field": "sudokupad_solves",
     "previous": 1215,
     "current": 1216
+  },
+  {
+    "id": "2026-10-22T17:53:00.796144Z-0",
+    "time": "2026-10-22T17:53:00.796144Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 98,
+    "current": 99
+  },
+  {
+    "id": "2026-10-22T17:53:00.796144Z-1",
+    "time": "2026-10-22T17:53:00.796144Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 65,
+    "current": 66
+  },
+  {
+    "id": "2026-10-22T17:53:00.796144Z-2",
+    "time": "2026-10-22T17:53:00.796144Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 148,
+    "current": 149
   }
 ]
