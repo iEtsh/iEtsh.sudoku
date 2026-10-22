@@ -41706,5 +41706,49 @@
     "field": "solves",
     "previous": 203,
     "current": 204
+  },
+  {
+    "id": "2026-10-22T12:50:31.349645Z-0",
+    "time": "2026-10-22T12:50:31.349645Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 34,
+    "current": 35
+  },
+  {
+    "id": "2026-10-22T12:50:31.349645Z-1",
+    "time": "2026-10-22T12:50:31.349645Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 94,
+    "current": 95
+  },
+  {
+    "id": "2026-10-22T12:50:31.349645Z-2",
+    "time": "2026-10-22T12:50:31.349645Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "rating",
+    "previous": "94%",
+    "current": "95%"
+  },
+  {
+    "id": "2026-10-22T12:50:31.349645Z-3",
+    "time": "2026-10-22T12:50:31.349645Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 259,
+    "current": 260
   }
 ]
