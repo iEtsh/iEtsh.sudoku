@@ -41475,5 +41475,27 @@
     "field": "sudokupad_solves",
     "previous": 93,
     "current": 94
+  },
+  {
+    "id": "2026-10-22T03:43:09.770527Z-0",
+    "time": "2026-10-22T03:43:09.770527Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 188,
+    "current": 189
+  },
+  {
+    "id": "2026-10-22T03:43:09.770527Z-1",
+    "time": "2026-10-22T03:43:09.770527Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 427,
+    "current": 428
   }
 ]
