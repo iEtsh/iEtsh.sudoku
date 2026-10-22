@@ -108,9 +108,9 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/uxydsoqbxp",
       "lmd": "000VBP",
-      "solves": 55,
-      "sudokupad_solves": 114,
-      "rating": "96%",
+      "solves": 56,
+      "sudokupad_solves": 115,
+      "rating": "97%",
       "image": "images/000VBP.png"
     },
     {
@@ -548,5 +548,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-22T09:33:07.697674Z"
+  "last_check": "2026-10-22T09:46:28.014557Z"
 }
