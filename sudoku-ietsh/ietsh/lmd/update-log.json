@@ -41838,5 +41838,49 @@
     "field": "sudokupad_solves",
     "previous": 111,
     "current": 112
+  },
+  {
+    "id": "2026-10-22T16:10:02.939912Z-0",
+    "time": "2026-10-22T16:10:02.939912Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 97,
+    "current": 98
+  },
+  {
+    "id": "2026-10-22T16:10:02.939912Z-1",
+    "time": "2026-10-22T16:10:02.939912Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots4",
+    "puzzleNum": 17,
+    "title": "Vibrant Spots IV",
+    "field": "solves",
+    "previous": 61,
+    "current": 62
+  },
+  {
+    "id": "2026-10-22T16:10:02.939912Z-2",
+    "time": "2026-10-22T16:10:02.939912Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 106,
+    "current": 107
+  },
+  {
+    "id": "2026-10-22T16:10:02.939912Z-3",
+    "time": "2026-10-22T16:10:02.939912Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 262,
+    "current": 263
   }
 ]
