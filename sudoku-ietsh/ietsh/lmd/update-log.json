@@ -42355,5 +42355,16 @@
     "field": "solves",
     "previous": 102,
     "current": 103
+  },
+  {
+    "id": "2026-10-23T19:03:07.471201Z-0",
+    "time": "2026-10-23T19:03:07.471201Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 40,
+    "current": 41
   }
 ]
