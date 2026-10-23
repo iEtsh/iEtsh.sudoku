@@ -42267,5 +42267,16 @@
     "field": "solves",
     "previous": 37,
     "current": 38
+  },
+  {
+    "id": "2026-10-23T13:40:24.746139Z-0",
+    "time": "2026-10-23T13:40:24.746139Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1682,
+    "current": 1683
   }
 ]
