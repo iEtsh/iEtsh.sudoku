@@ -193,7 +193,7 @@
       "puzz": "https://sudokupad.app/21edcgjbyj",
       "lmd": "000V1L",
       "solves": 55,
-      "sudokupad_solves": 157,
+      "sudokupad_solves": 158,
       "rating": "91%",
       "image": "images/000V1L.jpg"
     },
@@ -562,5 +562,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-24T22:23:35.277835Z"
+  "last_check": "2026-10-24T22:33:19.821923Z"
 }
