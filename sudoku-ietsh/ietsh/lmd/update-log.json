@@ -42509,5 +42509,29 @@
     "field": "sudokupad_solves",
     "previous": 20,
     "current": 21
+  },
+  {
+    "id": "2026-10-24T06:33:23.069195Z-0",
+    "time": "2026-10-24T06:33:23.069195Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 40,
+      "id": "ietsh-clasico",
+      "title": "Clasico",
+      "date": "24. October 2026, 08:21",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/r7khdxjd8g",
+      "lmd": "000VOS",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VOS.png"
+    }
   }
 ]
