@@ -1067,63 +1067,55 @@
 }
 
 
-/* Corrective pass: preserve the SVG's real star geometry and lock header baselines. */
+/* Final mobile archive layout: DATE leads the metrics row; keep all labels and values inline. */
 @media (max-width: 760px) {
-    #summary-table .archive-difficulty {
-        overflow: visible !important;
-    }
-
-    #summary-table .archive-difficulty .puzzle-stars {
-        display: block !important;
-        position: relative;
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        height: 12px;
-        overflow: visible !important;
-    }
-
-    /* The SVG has no viewBox, so shrinking its CSS width crops paths instead of scaling them. */
-    #summary-table .archive-difficulty .star-bar,
-    #summary-table .archive-difficulty svg {
-        display: block !important;
-        position: relative;
-        left: 50%;
-        width: 55px !important;
-        min-width: 55px !important;
-        max-width: none !important;
-        height: 11px !important;
-        margin-left: -27.5px;
-        overflow: visible !important;
-        transform: scale(.76);
-        transform-origin: center center;
-    }
-
     #summary-table .archive-header {
-        grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
-        grid-template-rows: 24px !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.65fr) minmax(0, 1.2fr) repeat(3, minmax(0, 0.68fr)) minmax(0, 0.88fr) minmax(0, 0.72fr) !important;
+        grid-template-rows: 26px !important;
         align-items: center !important;
         gap: 4px !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
+        height: 26px !important;
+        margin: 0 0 7px !important;
+        padding: 0 6px !important;
         overflow: visible !important;
+        box-sizing: border-box !important;
     }
 
-    #summary-table .archive-header > div {
+    #summary-table .archive-header-number,
+    #summary-table .archive-header-title {
+        display: none !important;
+    }
+
+    #summary-table .archive-header-date,
+    #summary-table .archive-header-difficulty,
+    #summary-table .archive-header-link:nth-child(5),
+    #summary-table .archive-header-link:nth-child(6),
+    #summary-table .archive-header-sudokupad-solves,
+    #summary-table .archive-header-solves,
+    #summary-table .archive-header-rating {
+        display: flex !important;
         grid-row: 1 !important;
-        align-self: center !important;
+        align-self: stretch !important;
+        align-items: center !important;
+        justify-content: center !important;
         justify-self: stretch !important;
-        height: 24px !important;
-        min-height: 24px !important;
-        max-height: 24px !important;
+        min-width: 0 !important;
+        height: 26px !important;
         margin: 0 !important;
         padding: 0 !important;
-        line-height: 24px !important;
-        white-space: nowrap !important;
-        text-align: center !important;
         overflow: visible !important;
+        text-align: center !important;
+        color: #8792a8 !important;
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
     }
 
+    #summary-table .archive-header-date { grid-column: 1 !important; }
     #summary-table .archive-header-difficulty { grid-column: 2 !important; }
     #summary-table .archive-header-link:nth-child(5) { grid-column: 3 !important; }
     #summary-table .archive-header-link:nth-child(6) { grid-column: 4 !important; }
@@ -1135,62 +1127,255 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+        gap: 2px !important;
         width: 100% !important;
-        height: 24px !important;
-        min-height: 24px !important;
+        min-width: 0 !important;
+        height: 26px !important;
         margin: 0 !important;
         padding: 0 !important;
+        color: inherit !important;
+        font-family: inherit !important;
         font-size: 8px !important;
+        font-weight: 600 !important;
         line-height: 1 !important;
+        letter-spacing: 0 !important;
         white-space: nowrap !important;
         overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    #summary-table .archive-sort-label {
+        color: inherit !important;
+        font: inherit !important;
+        line-height: 1 !important;
+    }
+
+    #summary-table .archive-sort-arrow {
+        font-size: 7px !important;
+        line-height: 1 !important;
     }
 
     #summary-table .archive-header-link {
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        color: #8792a8 !important;
+        text-align: center !important;
+    }
+
+    #summary-table .archive-header-link::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    #summary-table .rec {
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    #summary-table ul {
+        position: relative !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.65fr) minmax(0, 1.2fr) repeat(3, minmax(0, 0.68fr)) minmax(0, 0.88fr) minmax(0, 0.72fr) !important;
+        grid-template-rows: auto auto !important;
+        align-items: center !important;
+        gap: 7px 4px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 12px 6px !important;
+        overflow: visible !important;
+        direction: ltr !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Keep the puzzle number beside the title; the next row is a true seven-column table row. */
+    #summary-table .archive-number {
+        position: absolute !important;
+        left: 6px !important;
+        top: 12px !important;
+        display: block !important;
+        width: 22px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+        font-size: 9px !important;
+        line-height: 1.4 !important;
+    }
+
+    #summary-table .archive-title {
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 0 0 24px !important;
+        font-size: 13px !important;
+        line-height: 1.3 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    #summary-table .archive-date {
+        display: block !important;
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        align-self: center !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #929bad !important;
+        font-size: 8px !important;
+        line-height: 1.25 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        text-align: center !important;
+    }
+
+    #summary-table .archive-difficulty {
         display: flex !important;
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        min-width: 0 !important;
         align-items: center !important;
         justify-content: center !important;
-        font-size: 0 !important;
-        line-height: 1 !important;
+        overflow: visible !important;
     }
 
-    #summary-table .archive-header-link:nth-child(5)::after {
-        content: 'LMD';
-        font-size: 8px;
-        line-height: 1;
+    #summary-table .archive-difficulty .puzzle-stars {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 13px !important;
+        margin: 0 !important;
+        overflow: visible !important;
     }
 
-    #summary-table .archive-header-link:nth-child(6)::after {
-        content: 'PLAY';
-        font-size: 8px;
-        line-height: 1;
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        display: block !important;
+        position: relative !important;
+        left: 50% !important;
+        width: 60px !important;
+        min-width: 60px !important;
+        max-width: none !important;
+        height: 12px !important;
+        margin-left: -30px !important;
+        overflow: visible !important;
+        transform: scale(.78) !important;
+        transform-origin: center center !important;
     }
 
-    #summary-table .archive-header-sudokupad-solves .archive-sort-button,
-    #summary-table .archive-header-solves .archive-sort-button,
-    #summary-table .archive-header-rating .archive-sort-button {
-        font-size: 0 !important;
+    #summary-table ul > li.archive-link:nth-child(5) {
+        grid-column: 3 !important;
+        grid-row: 2 !important;
     }
 
-    #summary-table .archive-header-sudokupad-solves .archive-sort-button::after {
-        content: 'SP';
-        font-size: 8px;
+    #summary-table ul > li.archive-link:nth-child(6) {
+        grid-column: 4 !important;
+        grid-row: 2 !important;
     }
 
-    #summary-table .archive-header-solves .archive-sort-button::after {
-        content: 'LMD';
-        font-size: 8px;
+    #summary-table .archive-link {
+        display: flex !important;
+        min-width: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: visible !important;
     }
 
-    #summary-table .archive-header-rating .archive-sort-button::after {
-        content: 'RATE';
-        font-size: 8px;
+    #summary-table .archive-action {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 28px !important;
+        min-width: 26px !important;
+        height: 30px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 0 1 auto !important;
+    }
+
+    #summary-table .archive-sudokupad-solves {
+        display: block !important;
+        grid-column: 5 !important;
+        grid-row: 2 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums;
+    }
+
+    #summary-table .archive-solves {
+        display: block !important;
+        grid-column: 6 !important;
+        grid-row: 2 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums;
+    }
+
+    #summary-table .archive-rating {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        grid-column: 7 !important;
+        grid-row: 2 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums;
+    }
+
+    #summary-table .archive-sudokupad-solves::before,
+    #summary-table .archive-solves::before,
+    #summary-table .archive-rating::before {
+        display: none !important;
+        content: none !important;
     }
 }
 
 @media (max-width: 380px) {
+    #summary-table .archive-header,
+    #summary-table ul {
+        gap: 4px 3px !important;
+    }
+
     #summary-table .archive-difficulty .star-bar,
     #summary-table .archive-difficulty svg {
-        transform: scale(.68);
+        transform: scale(.74) !important;
+    }
+
+    #summary-table .archive-action {
+        width: 26px !important;
+        min-width: 24px !important;
+    }
+
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
+        font-size: 8px !important;
     }
 }
