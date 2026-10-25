@@ -476,14 +476,14 @@
     }
 
     #summary-table .archive-difficulty .puzzle-stars {
-        width: 46px;
-        min-width: 46px;
-        max-width: 46px;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
         margin: 0;
     }
 
     #summary-table .archive-difficulty svg {
-        width: 46px;
+        width: 100%;
         height: 12px;
         max-width: 100%;
     }
@@ -748,13 +748,14 @@
     }
 
     #summary-table .archive-difficulty .puzzle-stars {
-        width: 42px;
-        min-width: 42px;
-        max-width: 42px;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
     }
 
     #summary-table .archive-difficulty svg {
-        width: 42px;
+        width: 100%;
+        max-width: 100%;
     }
 
     #summary-table .archive-action {
