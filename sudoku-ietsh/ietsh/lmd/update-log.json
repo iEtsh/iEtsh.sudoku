@@ -43274,5 +43274,49 @@
     "field": "sudokupad_solves",
     "previous": 1225,
     "current": 1227
+  },
+  {
+    "id": "2026-10-25T17:43:27.459810Z-0",
+    "time": "2026-10-25T17:43:27.459810Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 52,
+    "current": 53
+  },
+  {
+    "id": "2026-10-25T17:43:27.459810Z-1",
+    "time": "2026-10-25T17:43:27.459810Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 151,
+    "current": 152
+  },
+  {
+    "id": "2026-10-25T17:43:27.459810Z-2",
+    "time": "2026-10-25T17:43:27.459810Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "rating",
+    "previous": "86%",
+    "current": "87%"
+  },
+  {
+    "id": "2026-10-25T17:43:27.459810Z-3",
+    "time": "2026-10-25T17:43:27.459810Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 260,
+    "current": 261
   }
 ]
