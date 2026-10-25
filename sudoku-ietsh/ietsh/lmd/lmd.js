@@ -1500,7 +1500,7 @@
         'class',
         'archive-header-link'
       )
-      .text('LMD LINK');
+      .text('LMD');
 
     header
       .append('div')
