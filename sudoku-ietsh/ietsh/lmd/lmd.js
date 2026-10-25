@@ -2267,7 +2267,8 @@
       drawStars(
         ul.append('li'),
         puzzle.stars,
-        puzzle.author_rated === true
+        puzzle.author_rated === true,
+        window.matchMedia('(max-width: 760px)').matches ? 11 : undefined
       );
 
       ul
