@@ -1475,3 +1475,44 @@
         content: none !important;
     }
 }
+
+/* FINAL FIX: mobile puzzle number placement and rating suffix */
+@media (max-width: 760px) {
+    /* Keep the number in the first grid cell of the card's top row. */
+    #summary-table .rec > ul {
+        position: relative !important;
+        display: grid !important;
+        grid-template-rows: auto auto !important;
+    }
+
+    #summary-table .rec > ul > li.archive-number {
+        position: static !important;
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        inset: auto !important;
+        z-index: auto !important;
+        display: block !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        align-self: start !important;
+        justify-self: start !important;
+        text-align: left !important;
+    }
+
+    #summary-table .rec > ul > li.archive-title {
+        grid-column: 2 / -1 !important;
+        grid-row: 1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        align-self: start !important;
+    }
+
+    /* The rating is rendered as a plain number by lmd.js; don't synthesize '%' twice. */
+    #summary-table .rec > ul > li.archive-rating::before,
+    #summary-table .rec > ul > li.archive-rating::after {
+        display: none !important;
+        content: none !important;
+    }
+}
