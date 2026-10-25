@@ -275,7 +275,7 @@
     }
 
     /* Keep the sortable column labels, but give them enough room. */
-    .archive-header {
+    #summary-table .archive-header {
         display: grid;
         grid-template-columns:
             minmax(48px, 1fr)
