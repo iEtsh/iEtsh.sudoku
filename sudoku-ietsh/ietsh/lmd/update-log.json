@@ -43120,5 +43120,16 @@
     "field": "puzz",
     "previous": "https://sudokupad.app/wkkxwqu1u1?setting-outlinesondigits=true",
     "current": "https://sudokupad.app/hfgtozk1bh?setting-outlinesondigits=true"
+  },
+  {
+    "id": "2026-10-25T10:33:17.625426Z-0",
+    "time": "2026-10-25T10:33:17.625426Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/hfgtozk1bh?setting-outlinesondigits=true",
+    "current": "https://sudokupad.app/8s7gfb8klj?setting-outlinesondigits=true"
   }
 ]
