@@ -42852,5 +42852,27 @@
     "field": "sudokupad_solves",
     "previous": 430,
     "current": 431
+  },
+  {
+    "id": "2026-10-25T03:13:05.420143Z-0",
+    "time": "2026-10-25T03:13:05.420143Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "solves",
+    "previous": 148,
+    "current": 149
+  },
+  {
+    "id": "2026-10-25T03:13:05.420143Z-1",
+    "time": "2026-10-25T03:13:05.420143Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 321,
+    "current": 322
   }
 ]
