@@ -1445,3 +1445,22 @@
         color: inherit !important;
     }
 }
+
+
+/* LMD and PLAY now use their actual compact text from lmd.js.
+   Disable all generated pseudo-labels to avoid duplicate headings. */
+@media (max-width: 760px) {
+    #summary-table .archive-header-link {
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        text-align: center !important;
+    }
+
+    #summary-table .archive-header-link::before,
+    #summary-table .archive-header-link::after {
+        display: none !important;
+        content: none !important;
+    }
+}
