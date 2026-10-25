@@ -42951,5 +42951,49 @@
     "field": "sudokupad_solves",
     "previous": 1224,
     "current": 1225
+  },
+  {
+    "id": "2026-10-25T07:33:28.923472Z-0",
+    "time": "2026-10-25T07:33:28.923472Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "solves",
+    "previous": 0,
+    "current": 1
+  },
+  {
+    "id": "2026-10-25T07:33:28.923472Z-1",
+    "time": "2026-10-25T07:33:28.923472Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "sudokupad_solves",
+    "previous": 2,
+    "current": 3
+  },
+  {
+    "id": "2026-10-25T07:33:28.923472Z-2",
+    "time": "2026-10-25T07:33:28.923472Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "solves",
+    "previous": 76,
+    "current": 77
+  },
+  {
+    "id": "2026-10-25T07:33:28.923472Z-3",
+    "time": "2026-10-25T07:33:28.923472Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 228,
+    "current": 229
   }
 ]
