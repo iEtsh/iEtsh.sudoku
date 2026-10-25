@@ -1379,3 +1379,69 @@
         font-size: 8px !important;
     }
 }
+
+
+/* Single-source mobile header labels: suppress the original long text
+   wherever a compact mobile label is supplied, preventing duplicates. */
+@media (max-width: 760px) {
+    #summary-table .archive-header-link {
+        font-size: 0 !important;
+    }
+
+    #summary-table .archive-header-link::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    #summary-table .archive-header-link::after {
+        display: inline !important;
+        content: none !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    #summary-table .archive-header-link:nth-child(5)::after {
+        content: 'LMD' !important;
+    }
+
+    #summary-table .archive-header-link:nth-child(6)::after {
+        content: 'PLAY' !important;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-label,
+    #summary-table .archive-header-solves .archive-sort-label,
+    #summary-table .archive-header-rating .archive-sort-label {
+        display: none !important;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP' !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    #summary-table .archive-header-solves .archive-sort-button::after {
+        content: 'LMD' !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    #summary-table .archive-header-rating .archive-sort-button::after {
+        content: 'RATE' !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    /* The rating's percent sign belongs beside the number, not above it. */
+    #summary-table .archive-rating::after {
+        display: inline !important;
+        content: '%' !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+        color: inherit !important;
+    }
+}
