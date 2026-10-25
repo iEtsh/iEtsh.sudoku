@@ -1065,3 +1065,132 @@
         font-size: 9px;
     }
 }
+
+
+/* Corrective pass: preserve the SVG's real star geometry and lock header baselines. */
+@media (max-width: 760px) {
+    #summary-table .archive-difficulty {
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        display: block !important;
+        position: relative;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 12px;
+        overflow: visible !important;
+    }
+
+    /* The SVG has no viewBox, so shrinking its CSS width crops paths instead of scaling them. */
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        display: block !important;
+        position: relative;
+        left: 50%;
+        width: 55px !important;
+        min-width: 55px !important;
+        max-width: none !important;
+        height: 11px !important;
+        margin-left: -27.5px;
+        overflow: visible !important;
+        transform: scale(.76);
+        transform-origin: center center;
+    }
+
+    #summary-table .archive-header {
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
+        grid-template-rows: 24px !important;
+        align-items: center !important;
+        gap: 4px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-header > div {
+        grid-row: 1 !important;
+        align-self: center !important;
+        justify-self: stretch !important;
+        height: 24px !important;
+        min-height: 24px !important;
+        max-height: 24px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 24px !important;
+        white-space: nowrap !important;
+        text-align: center !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-header-difficulty { grid-column: 2 !important; }
+    #summary-table .archive-header-link:nth-child(5) { grid-column: 3 !important; }
+    #summary-table .archive-header-link:nth-child(6) { grid-column: 4 !important; }
+    #summary-table .archive-header-sudokupad-solves { grid-column: 5 !important; }
+    #summary-table .archive-header-solves { grid-column: 6 !important; }
+    #summary-table .archive-header-rating { grid-column: 7 !important; }
+
+    #summary-table .archive-header .archive-sort-button {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: 24px !important;
+        min-height: 24px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 8px !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-header-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 0 !important;
+        line-height: 1 !important;
+    }
+
+    #summary-table .archive-header-link:nth-child(5)::after {
+        content: 'LMD';
+        font-size: 8px;
+        line-height: 1;
+    }
+
+    #summary-table .archive-header-link:nth-child(6)::after {
+        content: 'PLAY';
+        font-size: 8px;
+        line-height: 1;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button,
+    #summary-table .archive-header-solves .archive-sort-button,
+    #summary-table .archive-header-rating .archive-sort-button {
+        font-size: 0 !important;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-solves .archive-sort-button::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-rating .archive-sort-button::after {
+        content: 'RATE';
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        transform: scale(.68);
+    }
+}
