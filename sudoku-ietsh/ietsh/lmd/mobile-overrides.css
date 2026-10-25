@@ -792,9 +792,10 @@
     }
 }
 
-/* Final mobile archive sizing overrides.
-   layout-overrides.css sets a 1026px minimum for desktop tables;
-   explicitly remove that minimum on phones so every metric fits. */
+/* Final mobile archive alignment fixes.
+   Keep the header and each row on the same seven-column grid:
+   number + difficulty + LMD + Play + SudokuPad + LMD solves + rating.
+   Title and date occupy their own rows above the metrics. */
 @media (max-width: 760px) {
     #content,
     .listing-section,
@@ -809,15 +810,95 @@
         min-width: 0 !important;
     }
 
-    #summary-table .archive-header,
-    #summary-table ul {
+    #summary-table .archive-header {
+        display: grid;
         grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
+        grid-template-rows: auto;
+        grid-auto-flow: row;
+        align-items: center;
+        gap: 4px;
+        height: auto;
+        margin: 0 0 7px;
+        padding: 0 6px;
+        overflow: hidden;
     }
 
-    #summary-table .archive-header {
+    #summary-table .archive-header-number,
+    #summary-table .archive-header-title,
+    #summary-table .archive-header-date {
+        display: none !important;
+    }
+
+    #summary-table .archive-header-difficulty,
+    #summary-table .archive-header-link:nth-of-type(5),
+    #summary-table .archive-header-link:nth-of-type(6),
+    #summary-table .archive-header-sudokupad-solves,
+    #summary-table .archive-header-solves,
+    #summary-table .archive-header-rating {
+        display: block !important;
+        min-width: 0;
+        grid-row: 1 !important;
+        align-self: center;
+        justify-self: stretch;
+        text-align: center;
         overflow: hidden;
-        padding-right: 6px;
-        padding-left: 6px;
+    }
+
+    #summary-table .archive-header-difficulty { grid-column: 2 !important; }
+    #summary-table .archive-header-link:nth-of-type(5) { grid-column: 3 !important; }
+    #summary-table .archive-header-link:nth-of-type(6) { grid-column: 4 !important; }
+    #summary-table .archive-header-sudokupad-solves { grid-column: 5 !important; }
+    #summary-table .archive-header-solves { grid-column: 6 !important; }
+    #summary-table .archive-header-rating { grid-column: 7 !important; }
+
+    #summary-table .archive-sort-button {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 5px 0;
+        font-size: 8px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    #summary-table .archive-header-link {
+        font-size: 0;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    #summary-table .archive-header-link:nth-of-type(5)::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-link:nth-of-type(6)::after {
+        content: 'PLAY';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button,
+    #summary-table .archive-header-solves .archive-sort-button,
+    #summary-table .archive-header-rating .archive-sort-button {
+        font-size: 0;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-solves .archive-sort-button::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-rating .archive-sort-button::after {
+        content: 'RATE';
+        font-size: 8px;
     }
 
     #summary-table .rec {
@@ -825,24 +906,40 @@
     }
 
     #summary-table ul {
+        display: grid;
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
+        grid-template-rows: auto auto auto;
+        grid-auto-flow: row;
+        align-items: center;
+        gap: 5px 4px;
+        padding: 12px 6px;
         overflow: hidden;
-        padding-right: 6px;
-        padding-left: 6px;
+        direction: ltr;
     }
 
-    #summary-table .archive-difficulty,
-    #summary-table .archive-link,
-    #summary-table .archive-sudokupad-solves,
-    #summary-table .archive-solves,
-    #summary-table .archive-rating {
+    #summary-table .archive-number {
+        grid-column: 1 !important;
+        grid-row: 1 / 4 !important;
+    }
+
+    #summary-table .archive-title {
+        grid-column: 2 / -1 !important;
+        grid-row: 1 !important;
+    }
+
+    #summary-table .archive-date {
+        grid-column: 2 / -1 !important;
+        grid-row: 2 !important;
+    }
+
+    #summary-table .archive-difficulty {
+        display: flex;
+        grid-column: 2 !important;
+        grid-row: 3 !important;
         min-width: 0 !important;
         max-width: 100%;
-    }
-
-    #summary-table .archive-action {
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
+        align-items: center;
+        justify-content: center;
     }
 
     #summary-table .archive-difficulty .puzzle-stars {
@@ -850,13 +947,103 @@
         width: 100%;
         min-width: 0;
         max-width: 100%;
+        margin: 0;
         overflow: hidden;
     }
 
-    #summary-table .archive-difficulty .puzzle-stars .star-bar {
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        display: block;
         width: 100%;
         max-width: 100%;
         height: auto;
+    }
+
+    #summary-table ul > li.archive-link:nth-of-type(5) {
+        grid-column: 3 !important;
+        grid-row: 3 !important;
+    }
+
+    #summary-table ul > li.archive-link:nth-of-type(6) {
+        grid-column: 4 !important;
+        grid-row: 3 !important;
+    }
+
+    #summary-table .archive-link {
+        display: flex;
+        min-width: 0 !important;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 30px;
+        min-width: 28px;
+        max-width: 100%;
+        padding: 0;
+        flex: 0 1 auto;
+    }
+
+    #summary-table .archive-action .action-icon {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-sudokupad-solves {
+        display: flex;
+        grid-column: 5 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-solves {
+        display: flex;
+        grid-column: 6 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-rating {
+        display: flex;
+        grid-column: 7 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
     }
 }
 
@@ -864,6 +1051,17 @@
     #summary-table .archive-header,
     #summary-table ul {
         grid-template-columns: 16px repeat(6, minmax(0, 1fr)) !important;
+        gap: 4px 3px;
+    }
+
+    #summary-table .archive-action {
+        width: 26px;
+        min-width: 26px;
+    }
+
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
+        font-size: 9px;
     }
 }
-
