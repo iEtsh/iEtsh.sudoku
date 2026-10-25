@@ -2801,6 +2801,7 @@ body {
 
         grid-template-rows:
             auto
+            auto
             auto;
 
         gap: 6px;
@@ -2814,16 +2815,16 @@ body {
     }
 
     #summary-table .archive-number {
-        grid-column: 1;
+        grid-column: 2;
         grid-row: 1;
         align-self: start;
-        justify-self: center;
-        padding-top: 1px;
+        justify-self: start;
+        padding-top: 0;
     }
 
     #summary-table .archive-title {
         grid-column: 2;
-        grid-row: 1;
+        grid-row: 2;
         width: 100%;
         min-width: 0;
 
@@ -2843,7 +2844,7 @@ body {
 
     #summary-table .archive-date {
         grid-column: 2;
-        grid-row: 2;
+        grid-row: 3;
 
         display: block;
         width: 100%;
@@ -2865,7 +2866,7 @@ body {
 
     #summary-table .archive-difficulty {
         grid-column: 3;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
 
         display: flex;
         align-items: center;
@@ -2887,17 +2888,17 @@ body {
 
     #summary-table .archive-link:nth-of-type(1) {
         grid-column: 4;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
     }
 
     #summary-table .archive-link:nth-of-type(2) {
         grid-column: 5;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
     }
 
     #summary-table .archive-sudokupad-solves {
         grid-column: 6;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
 
         display: block;
         min-width: 0;
@@ -2916,7 +2917,7 @@ body {
 
     #summary-table .archive-solves {
         grid-column: 7;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
 
         display: block;
         min-width: 0;
@@ -2935,7 +2936,7 @@ body {
 
     #summary-table .archive-rating {
         grid-column: 8;
-        grid-row: 1 / 3;
+        grid-row: 1 / 4;
 
         display: block;
         min-width: 0;
