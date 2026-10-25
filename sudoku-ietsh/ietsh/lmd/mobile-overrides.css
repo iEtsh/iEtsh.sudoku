@@ -274,11 +274,13 @@
         white-space: normal;
     }
 
-    /* Keep the sortable column labels, but give them enough room. */
+    /* Align the mobile labels with the six compact metadata columns.
+       DATE is omitted here because each card already shows its date under the title. */
     #summary-table .archive-header {
         display: grid;
         grid-template-columns:
-            minmax(48px, 1fr)
+            20px
+            minmax(0, 1fr)
             46px
             26px
             26px
@@ -286,18 +288,19 @@
             30px
             34px;
         grid-template-rows: auto;
-        gap: 2px;
+        gap: 5px 4px;
         width: 100%;
         min-width: 0;
         height: auto;
         margin: 0 0 7px;
-        padding: 0 4px;
+        padding: 0 8px;
         align-items: center;
         direction: ltr;
     }
 
     .archive-header-number,
-    .archive-header-title {
+    .archive-header-title,
+    .archive-header-date {
         display: none !important;
     }
 
@@ -308,39 +311,34 @@
         text-align: center;
     }
 
-    .archive-header-date {
-        display: block;
-        grid-column: 1;
-    }
-
     .archive-header-difficulty {
-        display: block;
-        grid-column: 2;
-    }
-
-    .archive-header-link:nth-of-type(5) {
         display: block;
         grid-column: 3;
     }
 
-    .archive-header-link:nth-of-type(6) {
+    .archive-header-link:nth-of-type(5) {
         display: block;
         grid-column: 4;
     }
 
-    .archive-header-sudokupad-solves {
+    .archive-header-link:nth-of-type(6) {
         display: block;
         grid-column: 5;
     }
 
-    .archive-header-solves {
+    .archive-header-sudokupad-solves {
         display: block;
         grid-column: 6;
     }
 
-    .archive-header-rating {
+    .archive-header-solves {
         display: block;
         grid-column: 7;
+    }
+
+    .archive-header-rating {
+        display: block;
+        grid-column: 8;
     }
 
     .archive-sort-button {
@@ -351,9 +349,13 @@
         font-size: 8px;
         line-height: 1.2;
         letter-spacing: 0;
-        white-space: normal;
-        overflow-wrap: anywhere;
+        white-space: nowrap;
+        overflow-wrap: normal;
         text-align: center;
+    }
+
+    .archive-header-difficulty .archive-sort-button {
+        font-size: 8px;
     }
 
     .archive-header-link {
@@ -372,21 +374,20 @@
         font-size: 8px;
     }
 
-    .archive-header-sudokupad-solves .archive-sort-button {
-        font-size: 8px;
+    .archive-header-sudokupad-solves .archive-sort-button,
+    .archive-header-solves .archive-sort-button,
+    .archive-header-rating .archive-sort-button {
+        font-size: 0;
     }
 
-    .archive-header-solves .archive-sort-button {
-        font-size: 0;
+    .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP';
+        font-size: 8px;
     }
 
     .archive-header-solves .archive-sort-button::after {
         content: 'LMD';
         font-size: 8px;
-    }
-
-    .archive-header-rating .archive-sort-button {
-        font-size: 0;
     }
 
     .archive-header-rating .archive-sort-button::after {
