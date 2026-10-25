@@ -791,3 +791,79 @@
         transition: none !important;
     }
 }
+
+/* Final mobile archive sizing overrides.
+   layout-overrides.css sets a 1026px minimum for desktop tables;
+   explicitly remove that minimum on phones so every metric fits. */
+@media (max-width: 760px) {
+    #content,
+    .listing-section,
+    .listing-section #summary-table,
+    #summary-table,
+    #summary-table .archive-header,
+    #summary-table .rec,
+    #summary-table ul {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+    }
+
+    #summary-table .archive-header,
+    #summary-table ul {
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
+    }
+
+    #summary-table .archive-header {
+        overflow: hidden;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+
+    #summary-table .rec {
+        overflow: hidden;
+    }
+
+    #summary-table ul {
+        overflow: hidden;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+
+    #summary-table .archive-difficulty,
+    #summary-table .archive-link,
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
+        min-width: 0 !important;
+        max-width: 100%;
+    }
+
+    #summary-table .archive-action {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars .star-bar {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 380px) {
+    #summary-table .archive-header,
+    #summary-table ul {
+        grid-template-columns: 16px repeat(6, minmax(0, 1fr)) !important;
+    }
+}
+
