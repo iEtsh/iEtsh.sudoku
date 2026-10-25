@@ -10,8 +10,8 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/8s7gfb8klj?setting-outlinesondigits=true",
       "lmd": "000VOS",
-      "solves": 1,
-      "sudokupad_solves": 3,
+      "solves": 2,
+      "sudokupad_solves": 4,
       "rating": "N/A",
       "image": "images/000VOS.png"
     },
@@ -562,5 +562,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-25T10:53:10.277762Z"
+  "last_check": "2026-10-25T11:03:32.207983Z"
 }

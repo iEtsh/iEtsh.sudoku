@@ -43153,5 +43153,27 @@
     "field": "sudokupad_solves",
     "previous": 571,
     "current": 572
+  },
+  {
+    "id": "2026-10-25T11:03:32.214600Z-0",
+    "time": "2026-10-25T11:03:32.214600Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "solves",
+    "previous": 1,
+    "current": 2
+  },
+  {
+    "id": "2026-10-25T11:03:32.214600Z-1",
+    "time": "2026-10-25T11:03:32.214600Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "sudokupad_solves",
+    "previous": 3,
+    "current": 4
   }
 ]
