@@ -21,14 +21,24 @@
     }
 
     .site-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         min-width: 0;
         gap: 12px;
         padding-bottom: 20px;
     }
 
     .brand {
+        flex: 1 1 180px;
         min-width: 0;
         gap: 10px;
+    }
+
+    .live-status {
+        flex: 0 1 auto;
+        min-width: 0;
+        margin-left: auto;
     }
 
     .brand-mark {
@@ -203,10 +213,17 @@
         margin-bottom: 0;
     }
 
+    .listing-section .section-heading > div:first-child {
+        flex: 1 1 150px;
+        min-width: 0;
+    }
+
     .section-heading h1 {
-        font-size: 25px;
+        max-width: 100%;
+        font-size: clamp(21px, 6vw, 25px);
         line-height: 1.2;
         letter-spacing: -0.5px;
+        overflow-wrap: anywhere;
     }
 
     .update-status {
@@ -278,15 +295,7 @@
        DATE is omitted here because each card already shows its date under the title. */
     #summary-table .archive-header {
         display: grid;
-        grid-template-columns:
-            20px
-            minmax(0, 1fr)
-            46px
-            26px
-            26px
-            30px
-            30px
-            34px;
+        grid-template-columns: 20px repeat(6, minmax(0, 1fr));
         grid-template-rows: auto;
         gap: 5px 4px;
         width: 100%;
@@ -313,32 +322,32 @@
 
     .archive-header-difficulty {
         display: block;
-        grid-column: 3;
+        grid-column: 2;
     }
 
     .archive-header-link:nth-of-type(5) {
         display: block;
-        grid-column: 4;
+        grid-column: 3;
     }
 
     .archive-header-link:nth-of-type(6) {
         display: block;
-        grid-column: 5;
+        grid-column: 4;
     }
 
     .archive-header-sudokupad-solves {
         display: block;
-        grid-column: 6;
+        grid-column: 5;
     }
 
     .archive-header-solves {
         display: block;
-        grid-column: 7;
+        grid-column: 6;
     }
 
     .archive-header-rating {
         display: block;
-        grid-column: 8;
+        grid-column: 7;
     }
 
     .archive-sort-button {
@@ -406,15 +415,7 @@
 
     #summary-table ul {
         display: grid;
-        grid-template-columns:
-            20px
-            minmax(0, 1fr)
-            46px
-            26px
-            26px
-            30px
-            30px
-            34px;
+        grid-template-columns: 20px repeat(6, minmax(0, 1fr));
         grid-template-rows: auto auto auto;
         gap: 5px 4px;
         width: 100%;
@@ -467,7 +468,7 @@
 
     #summary-table .archive-difficulty {
         display: flex;
-        grid-column: 3;
+        grid-column: 2;
         grid-row: 3;
         min-width: 0;
         align-items: center;
@@ -490,12 +491,12 @@
     /* Each row's <li> order is: number, title, date, stars,
        LMD link, Play link, SudokuPad solves, LMD solves, rating. */
     #summary-table ul > li.archive-link:nth-of-type(5) {
-        grid-column: 4;
+        grid-column: 3;
         grid-row: 3;
     }
 
     #summary-table ul > li.archive-link:nth-of-type(6) {
-        grid-column: 5;
+        grid-column: 4;
         grid-row: 3;
     }
 
@@ -511,7 +512,7 @@
 
     #summary-table .archive-sudokupad-solves {
         display: flex;
-        grid-column: 6;
+        grid-column: 5;
         grid-row: 3;
         min-width: 0;
         flex-direction: column;
@@ -535,7 +536,7 @@
 
     #summary-table .archive-solves {
         display: flex;
-        grid-column: 7;
+        grid-column: 6;
         grid-row: 3;
         min-width: 0;
         flex-direction: column;
@@ -559,7 +560,7 @@
 
     #summary-table .archive-rating {
         display: flex;
-        grid-column: 8;
+        grid-column: 7;
         grid-row: 3;
         min-width: 0;
         flex-direction: column;
@@ -741,15 +742,7 @@
     }
 
     #summary-table ul {
-        grid-template-columns:
-            18px
-            minmax(0, 1fr)
-            42px
-            24px
-            24px
-            27px
-            27px
-            30px;
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr));
         gap: 5px 3px;
         padding: 11px 6px;
     }
