@@ -221,3 +221,12 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m 'Auto-update puzzle data'
 
           git push
+
+      - name: Install Supabase client
+        run: pip install supabase
+
+      - name: Sync latest puzzle data to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python sudoku-ietsh/ietsh/lmd/sync_to_supabase.py
