@@ -720,7 +720,7 @@
         'class',
         'action-icon'
       )
-      .text('↗');
+      .text('');
 
 
   };
@@ -931,7 +931,7 @@
           'class',
           'action-icon'
         )
-        .text('↗');
+        .text('');
 
       lmd
         .append('span')
@@ -2747,7 +2747,7 @@
         imageLink.append('div').attr('class', 'gallery-image-placeholder')
           .append('span').text('Puzzle preview unavailable');
       }
-      imageLink.append('span').attr('class', 'gallery-image-overlay').text('OPEN PUZZLE ↗');
+      imageLink.append('span').attr('class', 'gallery-image-overlay').text('OPEN PUZZLE');
 
       const body = card.append('div').attr('class', 'gallery-card-body');
       const top = body.append('div').attr('class', 'gallery-card-topline');
@@ -2779,13 +2779,13 @@
         actions.append('a').attr('class', 'gallery-play-button')
           .attr('href', puzzle.puzz + (puzzle.qs || ''))
           .attr('target', '_blank').attr('rel', 'noopener noreferrer')
-          .text('Play puzzle ↗');
+          .text('Play on SudokuPad');
       }
       if (puzzle.lmd) {
         actions.append('a').attr('class', 'gallery-lmd-link')
           .attr('href', lmdLink(puzzle.lmd))
           .attr('target', '_blank').attr('rel', 'noopener noreferrer')
-          .text('LMD details');
+          .text('LMD Link');
       }
 
       card.on('pointermove', function (event) {
