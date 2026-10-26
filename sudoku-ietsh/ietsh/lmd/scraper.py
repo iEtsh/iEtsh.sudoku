@@ -1150,6 +1150,24 @@ def update_config():
     print(f"Duplicate LMD codes in parsed rows: {duplicate_codes}")
     print(f"LMD page counts: {page_counts}")
 
+    # Pagination responses can overlap or repeat rows. Keep the first
+    # occurrence of each LMD code so downstream updates process each
+    # puzzle exactly once, without skipping any unique puzzle.
+    deduplicated_puzzles = []
+    seen_page_codes = set()
+    for puzzle in all_puzzles:
+        code = puzzle["lmd"]
+        if code in seen_page_codes:
+            continue
+        seen_page_codes.add(code)
+        deduplicated_puzzles.append(puzzle)
+
+    print(
+        f"Removed {len(all_puzzles) - len(deduplicated_puzzles)} "
+        "duplicate listing rows before processing."
+    )
+    all_puzzles = deduplicated_puzzles
+
     # -----------------------------------------------------
     # Load config
     # -----------------------------------------------------
