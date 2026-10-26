@@ -85,6 +85,13 @@ jobs:
                   if has_known_table or has_puzzle_links:
                       return last_html
 
+                  # LMD uses this message for a normal out-of-range page
+                  # (for example start=40 when exactly 40 puzzles exist).
+                  # Let the pagination loop decide whether this is a safe end.
+                  page_text = ' '.join(soup.get_text(' ', strip=True).split())
+                  if start > 0 and 'Es konnte kein Rätsel gefunden werden' in page_text:
+                      return last_html
+
                   print(
                       f'LMD listing was not recognizable on attempt '
                       f'{attempt}/3 (start={start}); retrying.'
@@ -148,6 +155,15 @@ jobs:
 
           while True:
               html = fetch_page(start)
+              soup = BeautifulSoup(html, 'html.parser')
+              page_text = ' '.join(soup.get_text(' ', strip=True).split())
+
+              # An explicit no-results page after successfully reading earlier
+              # pages is the normal pagination terminator, not a parsing failure.
+              if start > 0 and live_codes and 'Es konnte kein Rätsel gefunden werden' in page_text:
+                  print(f'LMD listing ended normally at start={start}; collected {len(live_codes)} puzzle code(s).')
+                  break
+
               page_codes = parse_lmd_codes(html)
               if start == 0 and not page_codes:
                   raise RuntimeError(
