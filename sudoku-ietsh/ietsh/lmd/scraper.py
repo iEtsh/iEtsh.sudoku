@@ -410,7 +410,15 @@ def get_sudokupad_solve_counter(
             timeout=60000
         )
 
-        time.sleep(3)
+        # Wait for the counter to be populated instead of sleeping for
+        # a fixed three seconds on every puzzle page.
+        page.wait_for_function(
+            """() => {
+                const counter = document.querySelector("#solvedcounter_val");
+                return counter && counter.textContent.trim() !== "";
+            }""",
+            timeout=10000
+        )
 
         counter = page.locator(
             "#solvedcounter_val"
