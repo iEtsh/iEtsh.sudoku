@@ -1,0 +1,67 @@
+/* iEtsh Community — site-wide support and comments */
+#community-section { padding-top: 46px; }
+.community-shell {
+  position: relative; overflow: hidden; padding: clamp(22px, 4vw, 42px);
+  border: 1px solid rgba(124, 140, 205, .23); border-radius: 22px;
+  background: radial-gradient(circle at 12% 0%, rgba(101,118,184,.18), transparent 42%),
+              linear-gradient(135deg, rgba(22,27,41,.98), rgba(12,15,23,.98));
+  box-shadow: 0 24px 70px rgba(0,0,0,.24);
+}
+.community-intro { max-width: 720px; margin-bottom: 28px; }
+.community-eyebrow, .community-card-kicker {
+  color: #91a0df; font-size: 10px; font-weight: 800; letter-spacing: 1.8px;
+}
+.community-title { margin: 9px 0 10px; color: #f4f5fa; font-size: clamp(27px, 4vw, 39px); line-height: 1.1; letter-spacing: -1.2px; }
+.community-description { margin: 0; color: #9da6b8; font-size: 14px; line-height: 1.7; max-width: 650px; }
+.community-main { display: grid; grid-template-columns: minmax(250px, .8fr) minmax(0, 1.2fr); gap: 16px; align-items: start; }
+.community-support-card, .community-comments-card {
+  min-width: 0; padding: 22px; border: 1px solid rgba(255,255,255,.075); border-radius: 16px;
+  background: rgba(255,255,255,.025);
+}
+.community-like-count { margin-top: 15px; color: #f6f7fb; font-size: clamp(40px, 5vw, 56px); font-weight: 750; letter-spacing: -2px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.community-count-label { margin: 7px 0 20px; color: #8993a7; font-size: 12px; }
+.community-like-button, .community-submit-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 43px;
+  padding: 0 17px; border: 1px solid transparent; border-radius: 10px; background: #6879bc;
+  color: #fff; font: inherit; font-size: 12px; font-weight: 750; cursor: pointer;
+  transition: transform .18s ease, background .18s ease, opacity .18s ease;
+}
+.community-like-button { width: 100%; min-height: 48px; font-size: 13px; }
+.community-like-button:hover:not(:disabled), .community-submit-button:hover:not(:disabled) { transform: translateY(-1px); background: #7889ce; }
+.community-like-button.is-liked { background: rgba(114,189,148,.14); border-color: rgba(114,189,148,.28); color: #9bd4b2; cursor: default; }
+.community-like-button:disabled, .community-submit-button:disabled { opacity: .65; cursor: not-allowed; }
+.community-liker-names { margin-top: 14px; color: #8993a7; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+.community-profile { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 17px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.07); }
+.community-profile-name { color: #aeb7c8; font-size: 11px; }
+.community-text-button { padding: 5px 8px; border: 0; background: transparent; color: #a7b4ee; font: inherit; font-size: 11px; cursor: pointer; }
+.community-name-locked { color: #667087; font-size: 10px; }
+.community-name-form { display: grid; gap: 9px; margin-top: 18px; }
+.community-name-form label { color: #aab3c5; font-size: 11px; }
+.community-input, .community-textarea { width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 9px; outline: none; background: rgba(3,5,10,.32); color: #edf0f7; font: inherit; font-size: 12px; }
+.community-input:focus, .community-textarea:focus { border-color: rgba(135,151,222,.65); }
+.community-comments-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.community-comments-title { margin: 7px 0 0; color: #f0f2f7; font-size: 21px; letter-spacing: -.4px; }
+.community-comment-count { display: inline-flex; min-width: 30px; height: 30px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.1); border-radius: 9px; color: #c5ccdb; font-size: 12px; }
+.community-comment-form { padding-bottom: 17px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.community-textarea { display: block; resize: vertical; min-height: 84px; line-height: 1.55; }
+.community-form-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; }
+.community-character-hint, .community-login-hint { color: #727d91; font-size: 10px; }
+.community-comment-list { display: grid; gap: 0; max-height: 430px; overflow-y: auto; }
+.community-comment { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.055); }
+.community-comment:last-child { border-bottom: 0; }
+.community-comment-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px; }
+.community-comment-author { color: #dfe3ef; font-size: 12px; }
+.community-comment-date { color: #697489; font-size: 10px; }
+.community-comment-body { margin: 7px 0 0; color: #aeb6c6; font-size: 12px; line-height: 1.65; overflow-wrap: anywhere; white-space: pre-wrap; }
+.community-empty-comments { margin: 18px 0 3px; color: #788398; font-size: 12px; }
+.community-message { min-height: 16px; margin: 13px 0 0; color: #8fcea9; font-size: 11px; }
+.community-message.is-error { color: #f0a0a7; }
+.community-rename-form { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; width: 100%; }
+.community-rename-form .community-input { flex: 1 1 120px; }
+@media (max-width: 760px) {
+  #community-section { padding-top: 30px; }
+  .community-shell { padding: 20px; border-radius: 17px; }
+  .community-main { grid-template-columns: 1fr; }
+  .community-support-card, .community-comments-card { padding: 18px; }
+  .community-like-count { font-size: 46px; }
+}
