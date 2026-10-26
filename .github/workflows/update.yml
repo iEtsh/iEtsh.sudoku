@@ -71,23 +71,50 @@ jobs:
           def parse_lmd_codes(html):
               soup = BeautifulSoup(html, 'html.parser')
               table = soup.find('table', class_='rp_raetselliste')
-              if not table:
+
+              # The source may change table classes. If the known class is
+              # absent, look for a table whose rows contain actual LMD puzzle
+              # detail links instead of assuming the listing is empty.
+              if table is None:
+                  candidates = []
+                  for candidate in soup.find_all('table'):
+                      candidate_codes = []
+                      for row in candidate.find_all('tr'):
+                          for link in row.find_all('a', href=True):
+                              if 'Raetsel/zeigen.php' not in link['href']:
+                                  continue
+                              match = re.search(r'[?&]id=([A-Z0-9]+)', link['href'])
+                              if match:
+                                  candidate_codes.append(match.group(1))
+                      if candidate_codes:
+                          candidates.append(candidate_codes)
+                  if candidates:
+                      codes = max(candidates, key=len)
+                      print(
+                          'LMD listing table class changed; recovered '
+                          f'{len(codes)} puzzle code(s) from table links.'
+                      )
+                      return list(dict.fromkeys(codes))
+
+                  title = soup.title.get_text(' ', strip=True) if soup.title else '(no title)'
+                  page_text = ' '.join(soup.get_text(' ', strip=True).split())[:500]
                   raise RuntimeError(
-                      'LMD puzzle-list table was not found; refusing to treat this as an empty list.'
+                      'Could not identify the LMD puzzle listing. '
+                      f'Page title: {title!r}. Visible text excerpt: {page_text!r}. '
+                      'Refusing to treat this as an empty list.'
                   )
 
               codes = []
               for row in table.find_all('tr'):
+                  # Keep the established layout when the expected table exists.
                   cells = row.find_all('td')
-                  if len(cells) < 2:
-                      continue
-                  link = cells[1].find('a')
-                  if not link:
-                      continue
-                  match = re.search(r'id=([A-Z0-9]+)', link.get('href', ''))
-                  if match:
-                      codes.append(match.group(1))
-              return codes
+                  if len(cells) >= 2:
+                      link = cells[1].find('a', href=True)
+                      if link:
+                          match = re.search(r'[?&]id=([A-Z0-9]+)', link['href'])
+                          if match:
+                              codes.append(match.group(1))
+              return list(dict.fromkeys(codes))
 
           live_codes = set()
           start = 0
