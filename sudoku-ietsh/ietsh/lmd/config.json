@@ -317,11 +317,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/q4yzi1h1e6",
       "lmd": "000UCQ",
-      "solves": 106,
+      "solves": 107,
       "rating": "85%",
       "author_rated": false,
       "image": "images/000UCQ.png",
-      "sudokupad_solves": 246
+      "sudokupad_solves": 247
     },
     {
       "num": 17,
@@ -562,5 +562,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-26T16:03:12.169614Z"
+  "last_check": "2026-10-26T16:21:17.764058Z"
 }
