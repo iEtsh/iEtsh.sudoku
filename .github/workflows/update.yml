@@ -18,6 +18,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Runs may wait behind another update while main advances. Start from
+      # the latest main so generated JSON files cannot be based on a stale SHA.
+      - name: Sync checkout with latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
