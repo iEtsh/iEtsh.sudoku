@@ -249,3 +249,9 @@
         margin-left: auto;
     }
 }
+
+
+/* Keep SVG link/play glyphs consistent with the archive actions. */
+.gallery-image-overlay, .gallery-play-button, .gallery-lmd-link { gap: 7px; }
+.gallery-image-overlay .action-icon-svg { width: 13px; height: 13px; }
+.gallery-play-button .action-icon-svg, .gallery-lmd-link .action-icon-svg { width: 14px; height: 14px; }
