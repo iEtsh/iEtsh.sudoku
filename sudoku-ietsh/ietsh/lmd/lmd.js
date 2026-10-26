@@ -28,6 +28,26 @@
     sortDirection: 'desc'
   };
 
+  let archiveMode = 'table';
+  let gallerySelectedPuzzle = null;
+
+  const setArchiveMode = mode => {
+    archiveMode = mode === 'gallery' ? 'gallery' : 'table';
+    document.body.classList.toggle('gallery-mode-active', archiveMode === 'gallery');
+    d3.selectAll('.archive-view-button')
+      .classed('is-active', function () {
+        return this.dataset.view === archiveMode;
+      })
+      .attr('aria-pressed', function () {
+        return String(this.dataset.view === archiveMode);
+      });
+    renderArchive(false, true);
+  };
+
+  d3.selectAll('.archive-view-button').on('click', function () {
+    setArchiveMode(this.dataset.view);
+  });
+
   const clearUndoPassword = '1907';
 
   // ---------------------------------------------------------
@@ -2563,6 +2583,227 @@
     handleArchiveKeyboard
   );
 
+
+  // ---------------------------------------------------------
+  // Interactive gallery + data exploration
+  // ---------------------------------------------------------
+
+  const galleryNumber = value =>
+    Number(value || 0).toLocaleString();
+
+  const galleryRatingText = puzzle => {
+    const value = puzzleRating(puzzle);
+    return value === null ? 'N/A' : `${value}%`;
+  };
+
+  const renderGallery = puzzles => {
+    const root = summs
+      .append('section')
+      .attr('class', 'living-gallery')
+      .attr('aria-label', 'Interactive puzzle gallery');
+
+    const ratings = puzzles
+      .map(puzzleRating)
+      .filter(value => value !== null);
+    const averageRating = ratings.length
+      ? ratings.reduce((sum, value) => sum + value, 0) / ratings.length
+      : null;
+    const totalPadSolves = puzzles.reduce((sum, puzzle) => {
+      const value = Number(puzzle.sudokupad_solves);
+      return sum + (Number.isFinite(value) ? value : 0);
+    }, 0);
+    const totalLmdSolves = puzzles.reduce((sum, puzzle) => {
+      const value = Number(puzzle.solves);
+      return sum + (Number.isFinite(value) ? value : 0);
+    }, 0);
+
+    const metrics = root.append('div').attr('class', 'gallery-metrics');
+    [
+      { label: 'Puzzles shown', value: galleryNumber(puzzles.length), note: 'Current selection', tone: 'cyan' },
+      { label: 'Average rating', value: averageRating === null ? 'N/A' : `${averageRating.toFixed(1)}%`, note: `${ratings.length} rated puzzles`, tone: 'violet' },
+      { label: 'SudokuPad solves', value: galleryNumber(totalPadSolves), note: 'Across this selection', tone: 'blue' },
+      { label: 'LMD solves', value: galleryNumber(totalLmdSolves), note: 'Across this selection', tone: 'amber' }
+    ].forEach(metric => {
+      const card = metrics.append('div')
+        .attr('class', `gallery-metric gallery-metric-${metric.tone}`);
+      card.append('span').attr('class', 'gallery-metric-label').text(metric.label);
+      card.append('strong').attr('class', 'gallery-metric-value').text(metric.value);
+      card.append('span').attr('class', 'gallery-metric-note').text(metric.note);
+    });
+
+    const analysis = root.append('div').attr('class', 'gallery-analysis');
+    const chartPanel = analysis.append('section').attr('class', 'gallery-chart-panel');
+    const chartHead = chartPanel.append('div').attr('class', 'gallery-panel-heading');
+    const chartTitle = chartHead.append('div');
+    chartTitle.append('h2').text('Most played puzzles');
+    chartTitle.append('p').text('Select a bar to jump to that puzzle');
+    chartHead.append('span').attr('class', 'gallery-chart-key').text('SUDOKUPAD SOLVES');
+
+    const chartData = [...puzzles]
+      .sort((a, b) => (Number(b.sudokupad_solves) || 0) - (Number(a.sudokupad_solves) || 0))
+      .slice(0, 8);
+    const maxSolves = Math.max(1, ...chartData.map(p => Number(p.sudokupad_solves) || 0));
+    const chart = chartPanel.append('div').attr('class', 'gallery-bar-chart');
+
+    if (!chartData.length) {
+      chart.append('p').attr('class', 'gallery-empty-chart').text('No puzzles match the current search.');
+    } else {
+      chartData.forEach((puzzle, index) => {
+        const value = Number(puzzle.sudokupad_solves) || 0;
+        const row = chart.append('button')
+          .attr('type', 'button')
+          .attr('class', 'gallery-bar-row')
+          .attr('title', `${puzzle.title}: ${galleryNumber(value)} SudokuPad solves`)
+          .attr('aria-label', `Show ${puzzle.title}, ${galleryNumber(value)} SudokuPad solves`)
+          .on('click', () => {
+            gallerySelectedPuzzle = puzzle.id;
+            root.selectAll('.gallery-puzzle-card').classed('is-selected', d => d.id === puzzle.id);
+            const target = document.getElementById(`gallery-${puzzle.id}`);
+            if (target) target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+          });
+        row.append('span').attr('class', 'gallery-bar-name').text(puzzle.title || 'Untitled puzzle');
+        const track = row.append('span').attr('class', 'gallery-bar-track');
+        track.append('span')
+          .attr('class', 'gallery-bar-fill')
+          .style('width', `${Math.max(value > 0 ? 2 : 0, value / maxSolves * 100)}%`)
+          .style('animation-delay', `${index * 45}ms`);
+        row.append('strong').attr('class', 'gallery-bar-value').text(galleryNumber(value));
+      });
+    }
+
+    const insightPanel = analysis.append('section').attr('class', 'gallery-insight-panel');
+    insightPanel.append('h2').text('Collection snapshot');
+    insightPanel.append('p').attr('class', 'gallery-insight-intro').text('A live summary of the puzzles currently in view.');
+    const rated = puzzles.filter(p => puzzleRating(p) !== null);
+    const topRated = [...rated].sort((a, b) => puzzleRating(b) - puzzleRating(a))[0];
+    const mostPlayed = [...puzzles].sort((a, b) => (Number(b.sudokupad_solves) || 0) - (Number(a.sudokupad_solves) || 0))[0];
+    const insightList = insightPanel.append('div').attr('class', 'gallery-insight-list');
+    [
+      { label: 'Highest rating', value: topRated ? `${topRated.title} · ${galleryRatingText(topRated)}` : 'No ratings available', kind: 'rating' },
+      { label: 'Most played', value: mostPlayed ? `${mostPlayed.title} · ${galleryNumber(Number(mostPlayed.sudokupad_solves) || 0)} solves` : 'No puzzles to compare', kind: 'plays' },
+      { label: 'Rating coverage', value: puzzles.length ? `${Math.round(rated.length / puzzles.length * 100)}% of shown puzzles` : '0% of shown puzzles', kind: 'coverage' }
+    ].forEach(item => {
+      const line = insightList.append('div').attr('class', 'gallery-insight-row');
+      line.append('span').attr('class', `gallery-insight-mark mark-${item.kind}`);
+      const copy = line.append('div');
+      copy.append('span').attr('class', 'gallery-insight-label').text(item.label);
+      copy.append('strong').attr('class', 'gallery-insight-value').text(item.value);
+    });
+
+    const galleryHead = root.append('div').attr('class', 'gallery-results-heading');
+    const headingCopy = galleryHead.append('div');
+    headingCopy.append('h2').text('Explore puzzles');
+    headingCopy.append('p').text('Open a puzzle, compare its stats, or sort the collection.');
+    const sortWrap = galleryHead.append('label').attr('class', 'gallery-sort-wrap');
+    sortWrap.append('span').text('Sort by');
+    const sort = sortWrap.append('select')
+      .attr('aria-label', 'Sort gallery puzzles')
+      .on('change', function () {
+        const [key, direction] = this.value.split(':');
+        archiveState.sortKey = key;
+        archiveState.sortDirection = direction;
+        renderArchive(false, true);
+      });
+    [
+      ['date:desc', 'Newest first'],
+      ['date:asc', 'Oldest first'],
+      ['rating:desc', 'Highest rated'],
+      ['sudokupad_solves:desc', 'Most played'],
+      ['solves:desc', 'Most LMD solves'],
+      ['difficulty:asc', 'Easiest first'],
+      ['difficulty:desc', 'Hardest first']
+    ].forEach(([value, label]) => sort.append('option').attr('value', value).text(label));
+    sort.property('value', `${archiveState.sortKey}:${archiveState.sortDirection}`);
+
+    const grid = root.append('div').attr('class', 'gallery-card-grid');
+    if (!puzzles.length) {
+      grid.append('div').attr('class', 'gallery-empty-state')
+        .append('strong').text('No puzzles found');
+      grid.select('.gallery-empty-state').append('p')
+        .text(archiveState.search ? `No puzzle matches "${archiveState.search}".` : 'There are no puzzles to display.');
+      return;
+    }
+
+    puzzles.forEach((puzzle, index) => {
+      const card = grid.append('article')
+        .datum(puzzle)
+        .attr('id', `gallery-${puzzle.id}`)
+        .attr('class', `gallery-puzzle-card${gallerySelectedPuzzle === puzzle.id ? ' is-selected' : ''}`)
+        .style('--card-index', index)
+        .attr('aria-label', puzzle.title || 'Puzzle');
+
+      const imageLink = card.append('a')
+        .attr('class', 'gallery-card-image')
+        .attr('href', puzzle.puzz ? puzzle.puzz + (puzzle.qs || '') : '#')
+        .attr('target', '_blank')
+        .attr('rel', 'noopener noreferrer')
+        .attr('aria-label', `Play ${puzzle.title || 'puzzle'}`);
+      if (puzzle.image) {
+        imageLink.append('img')
+          .attr('src', puzzle.image)
+          .attr('alt', `${puzzle.title || 'Puzzle'} preview`)
+          .attr('loading', index < 4 ? 'eager' : 'lazy');
+      } else {
+        imageLink.append('div').attr('class', 'gallery-image-placeholder')
+          .append('span').text('Puzzle preview unavailable');
+      }
+      imageLink.append('span').attr('class', 'gallery-image-overlay').text('OPEN PUZZLE ↗');
+
+      const body = card.append('div').attr('class', 'gallery-card-body');
+      const top = body.append('div').attr('class', 'gallery-card-topline');
+      top.append('span').attr('class', 'gallery-puzzle-number').text(`#${puzzle.num}`);
+      top.append('span').attr('class', 'gallery-puzzle-date').text(puzzle.date || 'Date unavailable');
+      body.append('h3').text(puzzle.title || 'Untitled puzzle');
+
+      const starsRow = body.append('div').attr('class', 'gallery-stars-row');
+      drawStars(starsRow, puzzle.stars, puzzle.author_rated === true, 13);
+      starsRow.append('span').attr('class', 'gallery-rating-value').text(galleryRatingText(puzzle));
+
+      const rating = puzzleRating(puzzle);
+      const ratingTrack = body.append('div').attr('class', 'gallery-rating-track');
+      ratingTrack.append('span').attr('class', 'gallery-rating-fill')
+        .style('width', `${rating === null ? 0 : Math.max(0, Math.min(100, rating))}%`);
+
+      const stats = body.append('div').attr('class', 'gallery-card-stats');
+      [
+        { label: 'SudokuPad', value: galleryNumber(Number(puzzle.sudokupad_solves) || 0) },
+        { label: 'LMD', value: galleryNumber(Number(puzzle.solves) || 0) }
+      ].forEach(stat => {
+        const item = stats.append('div').attr('class', 'gallery-card-stat');
+        item.append('span').text(stat.label);
+        item.append('strong').text(stat.value);
+      });
+
+      const actions = body.append('div').attr('class', 'gallery-card-actions');
+      if (puzzle.puzz) {
+        actions.append('a').attr('class', 'gallery-play-button')
+          .attr('href', puzzle.puzz + (puzzle.qs || ''))
+          .attr('target', '_blank').attr('rel', 'noopener noreferrer')
+          .text('Play puzzle ↗');
+      }
+      if (puzzle.lmd) {
+        actions.append('a').attr('class', 'gallery-lmd-link')
+          .attr('href', lmdLink(puzzle.lmd))
+          .attr('target', '_blank').attr('rel', 'noopener noreferrer')
+          .text('LMD details');
+      }
+
+      card.on('pointermove', function (event) {
+        if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const rect = this.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        this.style.setProperty('--pointer-x', `${x * 100}%`);
+        this.style.setProperty('--pointer-y', `${y * 100}%`);
+        this.style.setProperty('--tilt-x', `${(0.5 - y) * 2.4}deg`);
+        this.style.setProperty('--tilt-y', `${(x - 0.5) * 2.8}deg`);
+      }).on('pointerleave', function () {
+        this.style.setProperty('--tilt-x', '0deg');
+        this.style.setProperty('--tilt-y', '0deg');
+      });
+    });
+  };
+
   // ---------------------------------------------------------
   // Archive rendering
   // ---------------------------------------------------------
@@ -2632,6 +2873,20 @@
     summs.html('');
 
     genArchiveControls();
+
+    if (archiveMode === 'gallery') {
+      renderGallery(sorted);
+      if (searchWasFocused) {
+        const newInput = document.querySelector('#summary-table .archive-search-input');
+        if (newInput) {
+          newInput.focus();
+          if (selectionStart !== null && selectionEnd !== null) {
+            newInput.setSelectionRange(selectionStart, selectionEnd);
+          }
+        }
+      }
+      return;
+    }
 
     genSummaryHeader();
 
