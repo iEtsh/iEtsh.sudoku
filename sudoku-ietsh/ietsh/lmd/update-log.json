@@ -43461,5 +43461,16 @@
     "field": "sudokupad_solves",
     "previous": 1685,
     "current": 1686
+  },
+  {
+    "id": "2026-10-26T02:13:44.989854Z-0",
+    "time": "2026-10-26T02:13:44.989854Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 110,
+    "current": 111
   }
 ]
