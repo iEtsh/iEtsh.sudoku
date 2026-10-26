@@ -2643,6 +2643,148 @@
     chartTitle.append('p').text('Select a bar to jump to that puzzle');
     chartHead.append('span').attr('class', 'gallery-chart-key').text('SUDOKUPAD SOLVES');
 
+    const distribution = chartPanel.append('div').attr('class', 'gallery-distribution');
+    const distributionHead = distribution.append('div').attr('class', 'gallery-distribution-heading');
+    const distributionCopy = distributionHead.append('div');
+    distributionCopy.append('span').attr('class', 'gallery-distribution-eyebrow').text('SOLVE DISTRIBUTION');
+    distributionCopy.append('h3').text('How the collection gets played');
+    distributionCopy.append('p').text('Each point is a puzzle. Hover to inspect it, or switch the data source.');
+    const distributionSwitch = distributionHead.append('div')
+      .attr('class', 'gallery-distribution-switch')
+      .attr('role', 'group')
+      .attr('aria-label', 'Choose solve distribution');
+    const distributionModes = [
+      { key: 'sudokupad_solves', label: 'SudokuPad', tone: 'pad' },
+      { key: 'solves', label: 'LMD', tone: 'lmd' }
+    ];
+    distributionModes.forEach((mode, index) => {
+      if (index === 1) distributionSwitch.append('span').attr('class', 'gallery-distribution-divider').attr('aria-hidden', 'true');
+      distributionSwitch.append('button')
+        .attr('type', 'button')
+        .attr('class', `gallery-distribution-option distribution-option-${mode.tone}${index === 0 ? ' is-active' : ''}`)
+        .attr('data-metric', mode.key)
+        .attr('aria-pressed', String(index === 0))
+        .text(mode.label)
+        .on('click', function () {
+          const metric = this.dataset.metric;
+          distributionSwitch.selectAll('.gallery-distribution-option')
+            .classed('is-active', function () { return this.dataset.metric === metric; })
+            .attr('aria-pressed', function () { return String(this.dataset.metric === metric); });
+          drawDistribution(metric, true);
+        });
+    });
+    const distributionChartHost = distribution.append('div').attr('class', 'gallery-distribution-chart');
+    const distributionSvg = distributionChartHost.append('svg')
+      .attr('viewBox', '0 0 760 230')
+      .attr('role', 'img')
+      .attr('aria-label', 'Puzzle solve distribution curve');
+    const distributionDefs = distributionSvg.append('defs');
+    const distributionGradient = distributionDefs.append('linearGradient')
+      .attr('id', 'puzzle-distribution-gradient').attr('x1', '0').attr('x2', '0').attr('y1', '0').attr('y2', '1');
+    distributionGradient.append('stop').attr('offset', '0%').attr('stop-color', '#67e8f9').attr('stop-opacity', .3);
+    distributionGradient.append('stop').attr('offset', '100%').attr('stop-color', '#818cf8').attr('stop-opacity', .015);
+    const distributionGrid = distributionSvg.append('g').attr('class', 'distribution-grid');
+    const distributionArea = distributionSvg.append('path').attr('class', 'distribution-area');
+    const distributionCurve = distributionSvg.append('path').attr('class', 'distribution-curve');
+    const distributionPoints = distributionSvg.append('g').attr('class', 'distribution-points');
+    const distributionAxis = distributionSvg.append('g').attr('class', 'distribution-axis');
+    const distributionNote = distribution.append('div').attr('class', 'gallery-distribution-note');
+    const distributionColors = d3.scaleOrdinal(d3.schemeTableau10);
+    const distributionMotionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let distributionObserver = null;
+    let distributionHasEntered = false;
+    let distributionMetric = 'sudokupad_solves';
+
+    const drawDistribution = (metric, animate) => {
+      distributionMetric = metric;
+      const sorted = [...puzzles].map((puzzle, index) => ({
+        puzzle,
+        index,
+        value: Math.max(0, Number(puzzle[metric]) || 0)
+      })).sort((a, b) => a.value - b.value);
+      const width = 760, height = 230;
+      const margin = { top: 14, right: 18, bottom: 32, left: 48 };
+      const innerWidth = width - margin.left - margin.right;
+      const innerHeight = height - margin.top - margin.bottom;
+      const maxValue = Math.max(1, ...sorted.map(point => point.value));
+      const x = d3.scaleLinear().domain([0, Math.max(1, sorted.length - 1)]).range([margin.left, width - margin.right]);
+      const y = d3.scaleLinear().domain([0, maxValue * 1.08]).nice(4).range([height - margin.bottom, margin.top]);
+      const points = sorted.map((item, index) => ({ ...item, x: x(index), y: y(item.value) }));
+      const line = d3.line().x(point => point.x).y(point => point.y).curve(d3.curveMonotoneX);
+      const area = d3.area().x(point => point.x).y0(height - margin.bottom).y1(point => point.y).curve(d3.curveMonotoneX);
+
+      distributionGrid.selectAll('*').remove();
+      distributionGrid.selectAll('line').data(y.ticks(4)).join('line')
+        .attr('x1', margin.left).attr('x2', width - margin.right)
+        .attr('y1', tick => y(tick)).attr('y2', tick => y(tick));
+      distributionGrid.selectAll('text').data(y.ticks(4)).join('text')
+        .attr('x', margin.left - 9).attr('y', tick => y(tick) + 3)
+        .attr('text-anchor', 'end').text(tick => galleryNumber(tick));
+      distributionAxis.selectAll('*').remove();
+      distributionAxis.append('text').attr('x', margin.left).attr('y', height - 7).text('LESS PLAYED');
+      distributionAxis.append('text').attr('x', width - margin.right).attr('y', height - 7)
+        .attr('text-anchor', 'end').text('MORE PLAYED');
+      distributionArea.datum(points).attr('d', points.length > 1 ? area : null);
+      distributionCurve.datum(points).attr('d', points.length > 1 ? line : null);
+      distributionPoints.selectAll('circle').data(points, point => point.puzzle.id)
+        .join(
+          enter => enter.append('circle').attr('r', 0).attr('cx', point => point.x).attr('cy', point => point.y),
+          update => update,
+          exit => exit.transition().duration(distributionMotionReduced ? 0 : 180).attr('r', 0).remove()
+        )
+        .attr('cx', point => point.x)
+        .attr('cy', point => point.y)
+        .attr('fill', point => distributionColors(point.puzzle.id || point.index))
+        .attr('stroke', '#0c121e').attr('stroke-width', 2)
+        .attr('tabindex', 0)
+        .attr('aria-label', point => `${point.puzzle.title || 'Puzzle'}: ${galleryNumber(point.value)} ${metric === 'solves' ? 'LMD solves' : 'SudokuPad solves'}`)
+        .on('pointerenter focus', function (event, point) {
+          d3.select(this).attr('r', 6).attr('stroke', '#f8fafc');
+          distributionNote.text(`${point.puzzle.title || 'Untitled puzzle'} · ${galleryNumber(point.value)} ${metric === 'solves' ? 'LMD solves' : 'SudokuPad solves'}`);
+        })
+        .on('pointerleave blur', function () {
+          d3.select(this).attr('r', 3.5).attr('stroke', '#0c121e');
+          distributionNote.text(`${sorted.length} puzzles · Sorted from fewer to more solves`);
+        })
+        .attr('r', animate && !distributionMotionReduced ? 0 : 3.5)
+        .transition().duration(animate && !distributionMotionReduced ? 520 : 0)
+        .delay((point, index) => animate && !distributionMotionReduced ? Math.min(index * 8, 360) : 0)
+        .attr('r', 3.5);
+      if (animate && !distributionMotionReduced && distributionHasEntered) {
+        const path = distributionCurve.node();
+        if (path) {
+          const length = path.getTotalLength();
+          distributionCurve.attr('stroke-dasharray', length).attr('stroke-dashoffset', length)
+            .transition().duration(1050).ease(d3.easeCubicOut).attr('stroke-dashoffset', 0);
+        }
+        distributionArea.style('opacity', 0).transition().duration(900).style('opacity', 1);
+      } else {
+        distributionCurve.attr('stroke-dasharray', null).attr('stroke-dashoffset', null);
+        distributionArea.style('opacity', 1);
+      }
+      distributionNote.text(`${sorted.length} puzzles · Sorted from fewer to more solves`);
+      distributionSvg.attr('aria-label', `${metric === 'solves' ? 'LMD' : 'SudokuPad'} solve distribution across ${sorted.length} puzzles`);
+    };
+
+    drawDistribution(distributionMetric, false);
+    const startDistributionAnimation = () => {
+      if (distributionHasEntered) return;
+      distributionHasEntered = true;
+      distribution.classed('is-visible', true);
+      drawDistribution(distributionMetric, true);
+    };
+    if ('IntersectionObserver' in window) {
+      distributionObserver = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          startDistributionAnimation();
+          distributionObserver.disconnect();
+        }
+      }, { threshold: 0.22 });
+      distributionObserver.observe(distribution.node());
+    } else {
+      startDistributionAnimation();
+    }
+
     const chartData = [...puzzles]
       .sort((a, b) => (Number(b.sudokupad_solves) || 0) - (Number(a.sudokupad_solves) || 0))
       .slice(0, 8);
