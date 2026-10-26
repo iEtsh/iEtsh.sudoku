@@ -72,7 +72,9 @@ jobs:
               soup = BeautifulSoup(html, 'html.parser')
               table = soup.find('table', class_='rp_raetselliste')
               if not table:
-                  return []
+                  raise RuntimeError(
+                      'LMD puzzle-list table was not found; refusing to treat this as an empty list.'
+                  )
 
               codes = []
               for row in table.find_all('tr'):
@@ -93,6 +95,10 @@ jobs:
           while True:
               html = fetch_page(start)
               page_codes = parse_lmd_codes(html)
+              if start == 0 and not page_codes:
+                  raise RuntimeError(
+                      'The first LMD listing page contained no puzzle codes; refusing to remove puzzles.'
+                  )
               if not page_codes:
                   break
               live_codes.update(page_codes)
