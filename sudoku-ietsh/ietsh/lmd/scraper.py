@@ -1101,7 +1101,7 @@ def record_update_log(
 def update_config():
 
     all_puzzles = []
-
+    page_counts = []
     start = 0
 
     # -----------------------------------------------------
@@ -1118,6 +1118,14 @@ def update_config():
             html
         )
 
+        page_counts.append({
+            "start": start,
+            "count": len(puzzles),
+        })
+        print(
+            f"LMD page start={start}: parsed {len(puzzles)} puzzle rows"
+        )
+
         if not puzzles:
             break
 
@@ -1130,9 +1138,17 @@ def update_config():
 
         start += 20
 
-    print(
-        f"Found {len(all_puzzles)} puzzles on LMD"
-    )
+    raw_codes = [p["lmd"] for p in all_puzzles]
+    unique_codes = set(raw_codes)
+    duplicate_codes = sorted({
+        code for code in raw_codes
+        if raw_codes.count(code) > 1
+    })
+
+    print(f"Found {len(all_puzzles)} puzzle rows on LMD")
+    print(f"Unique LMD codes: {len(unique_codes)}")
+    print(f"Duplicate LMD codes in parsed rows: {duplicate_codes}")
+    print(f"LMD page counts: {page_counts}")
 
     # -----------------------------------------------------
     # Load config
@@ -1145,6 +1161,20 @@ def update_config():
     ) as f:
 
         cfg = json.load(f)
+
+    configured_codes = {
+        item.get("lmd")
+        for item in cfg.get("items", [])
+        if item.get("lmd")
+    }
+    print(
+        "LMD codes not currently in config: "
+        + str(sorted(unique_codes - configured_codes))
+    )
+    print(
+        "Config codes not found in this LMD scan: "
+        + str(sorted(configured_codes - unique_codes))
+    )
 
     previous_items = json.loads(
         json.dumps(
