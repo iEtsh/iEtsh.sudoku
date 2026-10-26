@@ -2162,6 +2162,24 @@
     hideTooltip();
   };
 
+  // On touch screens, dismiss the row preview when tapping outside the table.
+  d3.select('body').on(
+    'click.archive-tooltip',
+    function (event) {
+      const target = event.target;
+
+      if (
+        target &&
+        target.closest &&
+        target.closest('#summary-table .rec')
+      ) {
+        return;
+      }
+
+      hideTooltip();
+    }
+  );
+
   // ---------------------------------------------------------
   // Archive row
   // ---------------------------------------------------------
@@ -2206,6 +2224,53 @@
         .on(
           'mouseleave',
           handleRowMouseLeave
+        )
+        .on(
+          'click',
+          function (event) {
+            if (
+              !window.matchMedia(
+                '(max-width: 760px)'
+              ).matches
+            ) {
+              return;
+            }
+
+            const target = event.target;
+
+            if (
+              target &&
+              target.closest &&
+              target.closest(
+                'a, button, input, select, textarea'
+              )
+            ) {
+              return;
+            }
+
+            const row = d3.select(this);
+            const rowId = row.attr('id');
+
+            if (!rowId) {
+              hideTooltip();
+              return;
+            }
+
+            const id = rowId.slice(3);
+
+            cache.hovered = row;
+
+            row.style(
+              'background-color',
+              'rgba(255,255,255,0.04)'
+            );
+
+            showTooltip(
+              id,
+              cache.titles[id] || '',
+              event
+            );
+          }
         );
 
       const ul =
