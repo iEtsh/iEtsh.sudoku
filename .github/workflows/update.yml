@@ -32,8 +32,14 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4 htmldate playwright==1.63.0
 
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-ubuntu-1.63.0
+
       - name: Install Chromium
-        run: python -m playwright install --with-deps chromium
+        run: python -m playwright install chromium
 
       - name: Save previous puzzle data
         run: cp sudoku-ietsh/ietsh/lmd/config.json /tmp/config-before-update.json
