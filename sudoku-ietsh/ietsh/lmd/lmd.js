@@ -2785,7 +2785,7 @@
         actions.append('a').attr('class', 'gallery-lmd-link')
           .attr('href', lmdLink(puzzle.lmd))
           .attr('target', '_blank').attr('rel', 'noopener noreferrer')
-          .text('LMD details');
+          .text('LMD Link');
       }
 
       card.on('pointermove', function (event) {
