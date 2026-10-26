@@ -65,9 +65,16 @@
     renderArchive(false, true);
   };
 
-  d3.selectAll('.archive-view-button').on('click', function () {
-    setArchiveMode(this.dataset.view);
-  });
+  d3.selectAll('.archive-view-button')
+    .classed('is-active', function () {
+      return this.dataset.view === archiveMode;
+    })
+    .attr('aria-pressed', function () {
+      return String(this.dataset.view === archiveMode);
+    })
+    .on('click', function () {
+      setArchiveMode(this.dataset.view);
+    });
 
   const clearUndoPassword = '1907';
 
