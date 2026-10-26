@@ -303,7 +303,7 @@
 
 
 /* Radar-like horizontal scan clipped strictly to the filled distribution area. */
-.distribution-scan { mix-blend-mode: screen; filter: drop-shadow(0 0 5px rgba(103, 232, 249, .9)); }
+.distribution-scan { mix-blend-mode: screen; }
 .gallery-bar-fill { transform-origin: left center; }
 .gallery-bar-track { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
