@@ -2691,15 +2691,17 @@
     distributionClip.append('path');
     const distributionScan = distributionSvg.append('rect')
       .attr('class', 'distribution-scan')
-      .attr('y', 10).attr('width', 110).attr('height', 190)
+      .attr('x', 0).attr('y', 10).attr('width', 76).attr('height', 190)
+      .attr('opacity', 0)
       .attr('fill', 'url(#puzzle-distribution-scan-gradient)')
       .attr('clip-path', 'url(#puzzle-distribution-area-clip)')
       .attr('pointer-events', 'none');
     const scanGradient = distributionDefs.append('linearGradient')
       .attr('id', 'puzzle-distribution-scan-gradient').attr('x1', '0').attr('x2', '1').attr('y1', '0').attr('y2', '0');
     scanGradient.append('stop').attr('offset', '0%').attr('stop-color', '#67e8f9').attr('stop-opacity', 0);
-    scanGradient.append('stop').attr('offset', '45%').attr('stop-color', '#67e8f9').attr('stop-opacity', .02);
-    scanGradient.append('stop').attr('offset', '72%').attr('stop-color', '#a5f3fc').attr('stop-opacity', .34);
+    scanGradient.append('stop').attr('offset', '35%').attr('stop-color', '#67e8f9').attr('stop-opacity', .12);
+    scanGradient.append('stop').attr('offset', '62%').attr('stop-color', '#ecfeff').attr('stop-opacity', .95);
+    scanGradient.append('stop').attr('offset', '78%').attr('stop-color', '#67e8f9').attr('stop-opacity', .58);
     scanGradient.append('stop').attr('offset', '100%').attr('stop-color', '#67e8f9').attr('stop-opacity', 0);
     const distributionCurve = distributionSvg.append('path').attr('class', 'distribution-curve');
     const distributionPoints = distributionSvg.append('g').attr('class', 'distribution-points');
@@ -2743,7 +2745,7 @@
       const areaPath = points.length > 1 ? area(points) : null;
       distributionArea.datum(points).attr('d', areaPath);
       distributionClip.select('path').attr('d', areaPath);
-      distributionScan.attr('x', margin.left - 110).attr('height', height - margin.top - margin.bottom + 2);
+      distributionScan.attr('x', margin.left - 76).attr('y', margin.top).attr('width', 76).attr('height', height - margin.top - margin.bottom + 2);
       distributionCurve.datum(points).attr('d', points.length > 1 ? line : null);
       distributionPoints.selectAll('circle').data(points, point => point.puzzle.id)
         .join(
@@ -2788,12 +2790,22 @@
     drawDistribution(distributionMetric, false);
     const runDistributionScan = () => {
       if (distributionMotionReduced || !distributionHasEntered) return;
-      distributionScan.interrupt().attr('x', 0).attr('opacity', 0);
+      const scanStart = 48 - 76;
+      const scanEnd = 742;
+      distributionScan.interrupt()
+        .attr('x', scanStart)
+        .attr('opacity', 0);
       const scanOnce = () => distributionScan
-        .attr('x', 0).attr('opacity', 0)
-        .transition().duration(2400).ease(d3.easeLinear)
-        .attr('x', 760).attr('opacity', 1)
-        .transition().duration(0).attr('opacity', 0)
+        .attr('x', scanStart)
+        .attr('opacity', 0.15)
+        .transition().duration(1850).ease(d3.easeLinear)
+        .attr('x', scanEnd)
+        .attr('opacity', 1)
+        .transition().duration(180).ease(d3.easeLinear)
+        .attr('opacity', 0.12)
+        .transition().duration(0)
+        .attr('x', scanStart)
+        .attr('opacity', 0)
         .on('end', scanOnce);
       scanOnce();
     };
