@@ -43582,5 +43582,16 @@
     "field": "sudokupad_solves",
     "previous": 322,
     "current": 323
+  },
+  {
+    "id": "2026-10-26T11:33:10.714327Z-0",
+    "time": "2026-10-26T11:33:10.714327Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/8s7gfb8klj?setting-outlinesondigits=true",
+    "current": "https://sudokupad.app/6kvciykt3t?setting-outlinesondigits=true"
   }
 ]
