@@ -778,7 +778,10 @@ def parse_puzzles(html):
         "tr"
     )
 
-    for row in rows:
+    # The first row (array index 0) contains the table headings:
+    # Description / solved / Rating. It is not a puzzle, so start
+    # parsing at index 1 and process only actual puzzle rows.
+    for row in rows[1:]:
 
         cells = row.find_all(
             "td"
@@ -1163,23 +1166,9 @@ def update_config():
     print(f"Duplicate LMD codes in parsed rows: {duplicate_codes}")
     print(f"LMD page counts: {page_counts}")
 
-    # Pagination responses can overlap or repeat rows. Keep the first
-    # occurrence of each LMD code so downstream updates process each
-    # puzzle exactly once, without skipping any unique puzzle.
-    deduplicated_puzzles = []
-    seen_page_codes = set()
-    for puzzle in all_puzzles:
-        code = puzzle["lmd"]
-        if code in seen_page_codes:
-            continue
-        seen_page_codes.add(code)
-        deduplicated_puzzles.append(puzzle)
-
-    print(
-        f"Removed {len(all_puzzles) - len(deduplicated_puzzles)} "
-        "duplicate listing rows before processing."
-    )
-    all_puzzles = deduplicated_puzzles
+    # Each page is parsed from rows[1:] above, excluding its heading row
+    # before collecting puzzle data. Keep the raw listing count visible
+    # here rather than masking pagination/parser mistakes by deleting rows.
 
     # -----------------------------------------------------
     # Load config
