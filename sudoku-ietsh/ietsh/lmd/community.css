@@ -1,4 +1,111 @@
-/* iEtsh Community — site-wide support and comments */
+/* iEtsh Community — compact collapsible side panel */
+#community-section {
+  position: fixed;
+  z-index: 1000;
+  top: 34%;
+  right: 0;
+  width: min(410px, calc(100vw - 12px));
+  max-height: 78vh;
+  display: flex;
+  align-items: stretch;
+  transform: translateX(calc(100% - 46px));
+  transition: transform .28s cubic-bezier(.2,.8,.2,1);
+  padding: 0;
+  filter: drop-shadow(0 14px 34px rgba(0,0,0,.35));
+}
+#community-section.community-panel-open { transform: translateX(0); }
+.community-side-toggle {
+  flex: 0 0 46px;
+  align-self: center;
+  width: 46px;
+  min-height: 124px;
+  padding: 12px 8px;
+  border: 1px solid rgba(143,157,220,.35);
+  border-right: 0;
+  border-radius: 13px 0 0 13px;
+  background: #20283d;
+  color: #e9edff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+.community-shell {
+  min-width: 0;
+  flex: 1 1 auto;
+  max-height: 78vh;
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid rgba(124, 140, 205, .23);
+  border-right: 0;
+  border-radius: 16px 0 0 16px;
+  background: radial-gradient(circle at 12% 0%, rgba(101,118,184,.18), transparent 42%),
+              linear-gradient(135deg, rgba(22,27,41,.99), rgba(12,15,23,.99));
+  box-shadow: 0 12px 38px rgba(0,0,0,.25);
+}
+.community-intro { max-width: 720px; margin-bottom: 20px; }
+.community-eyebrow, .community-card-kicker {
+  color: #91a0df; font-size: 10px; font-weight: 800; letter-spacing: 1.8px;
+}
+.community-title { margin: 7px 0 8px; color: #f4f5fa; font-size: 25px; line-height: 1.12; letter-spacing: -.7px; }
+.community-description { margin: 0; color: #9da6b8; font-size: 12px; line-height: 1.6; }
+.community-main { display: grid; grid-template-columns: 1fr; gap: 12px; align-items: start; }
+.community-support-card, .community-comments-card {
+  min-width: 0; padding: 16px; border: 1px solid rgba(255,255,255,.075); border-radius: 13px;
+  background: rgba(255,255,255,.025);
+}
+.community-like-count { margin-top: 10px; color: #f6f7fb; font-size: 42px; font-weight: 750; letter-spacing: -2px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.community-count-label { margin: 6px 0 14px; color: #8993a7; font-size: 11px; }
+.community-like-button, .community-submit-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 39px;
+  padding: 0 14px; border: 1px solid transparent; border-radius: 9px; background: #6879bc;
+  color: #fff; font: inherit; font-size: 11px; font-weight: 750; cursor: pointer;
+  transition: transform .18s ease, background .18s ease, opacity .18s ease;
+}
+.community-like-button { width: 100%; min-height: 43px; font-size: 12px; }
+.community-like-button:hover:not(:disabled), .community-submit-button:hover:not(:disabled) { transform: translateY(-1px); background: #7889ce; }
+.community-like-button.is-liked { background: rgba(114,189,148,.14); border-color: rgba(114,189,148,.28); color: #9bd4b2; cursor: default; }
+.community-like-button:disabled, .community-submit-button:disabled { opacity: .65; cursor: not-allowed; }
+.community-liker-names { margin-top: 11px; color: #8993a7; font-size: 10px; line-height: 1.5; overflow-wrap: anywhere; }
+.community-profile { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 13px; padding-top: 11px; border-top: 1px solid rgba(255,255,255,.07); }
+.community-profile-name { color: #aeb7c8; font-size: 10px; }
+.community-text-button { padding: 5px 7px; border: 0; background: transparent; color: #a7b4ee; font: inherit; font-size: 10px; cursor: pointer; }
+.community-name-locked { color: #667087; font-size: 9px; }
+.community-name-form { display: grid; gap: 8px; margin-top: 13px; }
+.community-name-form label { color: #aab3c5; font-size: 10px; }
+.community-input, .community-textarea { width: 100%; min-width: 0; box-sizing: border-box; padding: 10px 11px; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; outline: none; background: rgba(3,5,10,.32); color: #edf0f7; font: inherit; font-size: 11px; }
+.community-input:focus, .community-textarea:focus { border-color: rgba(135,151,222,.65); }
+.community-comments-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
+.community-comments-title { margin: 6px 0 0; color: #f0f2f7; font-size: 18px; letter-spacing: -.4px; }
+.community-comment-count { display: inline-flex; min-width: 28px; height: 28px; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; color: #c5ccdb; font-size: 11px; }
+.community-comment-form { padding-bottom: 13px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.community-textarea { display: block; resize: vertical; min-height: 68px; line-height: 1.5; }
+.community-form-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; }
+.community-character-hint, .community-login-hint { color: #727d91; font-size: 9px; }
+.community-comment-list { display: grid; gap: 0; max-height: 220px; overflow-y: auto; }
+.community-comment { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.055); }
+.community-comment:last-child { border-bottom: 0; }
+.community-comment-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.community-comment-author { color: #dfe3ef; font-size: 11px; }
+.community-comment-date { color: #697489; font-size: 9px; }
+.community-comment-body { margin: 6px 0 0; color: #aeb6c6; font-size: 11px; line-height: 1.55; overflow-wrap: anywhere; white-space: pre-wrap; }
+.community-empty-comments { margin: 14px 0 2px; color: #788398; font-size: 11px; }
+.community-message { min-height: 14px; margin: 10px 0 0; color: #8fcea9; font-size: 10px; }
+.community-message.is-error { color: #f0a0a7; }
+.community-rename-form { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; width: 100%; }
+.community-rename-form .community-input { flex: 1 1 120px; }
+@media (max-width: 600px) {
+  #community-section { top: auto; bottom: 14%; width: min(360px, calc(100vw - 8px)); max-height: 76vh; }
+  .community-shell { max-height: 76vh; padding: 15px; }
+  .community-side-toggle { flex-basis: 42px; width: 42px; min-height: 112px; }
+  #community-section { transform: translateX(calc(100% - 42px)); }
+  #community-section.community-panel-open { transform: translateX(0); }
+  .community-title { font-size: 22px; }
+  .community-support-card, .community-comments-card { padding: 13px; }
+}
 #community-section { padding-top: 46px; }
 .community-shell {
   position: relative; overflow: hidden; padding: clamp(22px, 4vw, 42px);
