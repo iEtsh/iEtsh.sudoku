@@ -60,13 +60,40 @@ jobs:
           }
 
           def fetch_page(start):
-              response = requests.get(
-                  f'{BASE_URL}&start={start}',
-                  headers=headers,
-                  timeout=30,
-              )
-              response.raise_for_status()
-              return response.text
+              # LMD occasionally returns its generic "no puzzle found"
+              # page to a transient request even while the scraper has
+              # successfully read the listing. Retry before failing safely.
+              last_html = ''
+              for attempt in range(1, 4):
+                  response = requests.get(
+                      f'{BASE_URL}&start={start}',
+                      headers=headers,
+                      timeout=30,
+                  )
+                  response.raise_for_status()
+                  last_html = response.text
+
+                  soup = BeautifulSoup(last_html, 'html.parser')
+                  has_known_table = soup.find(
+                      'table', class_='rp_raetselliste'
+                  ) is not None
+                  has_puzzle_links = any(
+                      'Raetsel/zeigen.php' in a.get('href', '')
+                      and re.search(r'[?&]id=([A-Z0-9]+)', a.get('href', ''))
+                      for a in soup.find_all('a', href=True)
+                  )
+                  if has_known_table or has_puzzle_links:
+                      return last_html
+
+                  print(
+                      f'LMD listing was not recognizable on attempt '
+                      f'{attempt}/3 (start={start}); retrying.'
+                  )
+                  if attempt < 3:
+                      import time
+                      time.sleep(3 * attempt)
+
+              return last_html
 
           def parse_lmd_codes(html):
               soup = BeautifulSoup(html, 'html.parser')
