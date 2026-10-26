@@ -2691,18 +2691,22 @@
     distributionClip.append('path');
     const distributionScan = distributionSvg.append('rect')
       .attr('class', 'distribution-scan')
-      .attr('x', 0).attr('y', 10).attr('width', 76).attr('height', 190)
+      .attr('x', 0).attr('y', 10).attr('width', 800).attr('height', 190)
       .attr('opacity', 0)
       .attr('fill', 'url(#puzzle-distribution-scan-gradient)')
       .attr('clip-path', 'url(#puzzle-distribution-area-clip)')
       .attr('pointer-events', 'none');
     const scanGradient = distributionDefs.append('linearGradient')
-      .attr('id', 'puzzle-distribution-scan-gradient').attr('x1', '0').attr('x2', '1').attr('y1', '0').attr('y2', '0');
-    scanGradient.append('stop').attr('offset', '0%').attr('stop-color', '#67e8f9').attr('stop-opacity', 0);
-    scanGradient.append('stop').attr('offset', '35%').attr('stop-color', '#67e8f9').attr('stop-opacity', .12);
-    scanGradient.append('stop').attr('offset', '62%').attr('stop-color', '#ecfeff').attr('stop-opacity', .95);
-    scanGradient.append('stop').attr('offset', '78%').attr('stop-color', '#67e8f9').attr('stop-opacity', .58);
-    scanGradient.append('stop').attr('offset', '100%').attr('stop-color', '#67e8f9').attr('stop-opacity', 0);
+      .attr('id', 'puzzle-distribution-scan-gradient')
+      .attr('gradientUnits', 'userSpaceOnUse')
+      .attr('x1', 0).attr('x2', 800).attr('y1', 0).attr('y2', 0);
+    scanGradient.append('stop').attr('offset', '0%').attr('stop-color', '#3b82f6').attr('stop-opacity', 0);
+    scanGradient.append('stop').attr('offset', '18%').attr('stop-color', '#3b82f6').attr('stop-opacity', .025);
+    scanGradient.append('stop').attr('offset', '38%').attr('stop-color', '#3b82f6').attr('stop-opacity', .10);
+    scanGradient.append('stop').attr('offset', '50%').attr('stop-color', '#60a5fa').attr('stop-opacity', .16);
+    scanGradient.append('stop').attr('offset', '62%').attr('stop-color', '#3b82f6').attr('stop-opacity', .10);
+    scanGradient.append('stop').attr('offset', '82%').attr('stop-color', '#3b82f6').attr('stop-opacity', .025);
+    scanGradient.append('stop').attr('offset', '100%').attr('stop-color', '#3b82f6').attr('stop-opacity', 0);
     const distributionCurve = distributionSvg.append('path').attr('class', 'distribution-curve');
     const distributionPoints = distributionSvg.append('g').attr('class', 'distribution-points');
     const distributionAxis = distributionSvg.append('g').attr('class', 'distribution-axis');
@@ -2745,7 +2749,7 @@
       const areaPath = points.length > 1 ? area(points) : null;
       distributionArea.datum(points).attr('d', areaPath);
       distributionClip.select('path').attr('d', areaPath);
-      distributionScan.attr('x', margin.left - 76).attr('y', margin.top).attr('width', 76).attr('height', height - margin.top - margin.bottom + 2);
+      distributionScan.attr('x', margin.left).attr('y', margin.top).attr('width', width - margin.left - margin.right).attr('height', height - margin.top - margin.bottom + 2);
       distributionCurve.datum(points).attr('d', points.length > 1 ? line : null);
       distributionPoints.selectAll('circle').data(points, point => point.puzzle.id)
         .join(
@@ -2790,23 +2794,14 @@
     drawDistribution(distributionMetric, false);
     const runDistributionScan = () => {
       if (distributionMotionReduced || !distributionHasEntered) return;
-      const scanStart = 48 - 76;
-      const scanEnd = 742;
-      distributionScan.interrupt()
-        .attr('x', scanStart)
-        .attr('opacity', 0);
-      const scanOnce = () => distributionScan
-        .attr('x', scanStart)
-        .attr('opacity', 0.15)
-        .transition().duration(1850).ease(d3.easeLinear)
-        .attr('x', scanEnd)
-        .attr('opacity', 1)
-        .transition().duration(180).ease(d3.easeLinear)
-        .attr('opacity', 0.12)
-        .transition().duration(0)
-        .attr('x', scanStart)
-        .attr('opacity', 0)
+      distributionScan.interrupt().attr('opacity', 0);
+      scanGradient.interrupt().attr('gradientTransform', 'translate(-800 0)');
+      const scanOnce = () => scanGradient
+        .attr('gradientTransform', 'translate(-800 0)')
+        .transition().duration(5600).ease(d3.easeLinear)
+        .attr('gradientTransform', 'translate(800 0)')
         .on('end', scanOnce);
+      distributionScan.attr('opacity', 1);
       scanOnce();
     };
     const startDistributionAnimation = () => {
