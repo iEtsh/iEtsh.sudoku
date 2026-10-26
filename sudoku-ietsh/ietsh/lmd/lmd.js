@@ -28,11 +28,32 @@
     sortDirection: 'desc'
   };
 
-  let archiveMode = 'table';
+  const archiveViewStorageKey = 'ietsh-lmd-archive-view';
+
+  const loadArchiveMode = () => {
+    try {
+      return localStorage.getItem(archiveViewStorageKey) === 'table'
+        ? 'table'
+        : 'gallery';
+    } catch (error) {
+      return 'gallery';
+    }
+  };
+
+  let archiveMode = loadArchiveMode();
   let gallerySelectedPuzzle = null;
+
+  document.body.classList.toggle('gallery-mode-active', archiveMode === 'gallery');
 
   const setArchiveMode = mode => {
     archiveMode = mode === 'gallery' ? 'gallery' : 'table';
+
+    try {
+      localStorage.setItem(archiveViewStorageKey, archiveMode);
+    } catch (error) {
+      // Keep the view switch usable when storage is unavailable.
+    }
+
     document.body.classList.toggle('gallery-mode-active', archiveMode === 'gallery');
     d3.selectAll('.archive-view-button')
       .classed('is-active', function () {
