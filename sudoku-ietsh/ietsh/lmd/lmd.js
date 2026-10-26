@@ -2732,6 +2732,8 @@
           update => update,
           exit => exit.transition().duration(distributionMotionReduced ? 0 : 180).attr('r', 0).remove()
         )
+        .attr('cx', point => point.x)
+        .attr('cy', point => point.y)
         .attr('fill', point => distributionColors(point.puzzle.id || point.index))
         .attr('stroke', '#0c121e').attr('stroke-width', 2)
         .attr('tabindex', 0)
