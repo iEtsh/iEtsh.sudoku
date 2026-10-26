@@ -43494,5 +43494,38 @@
     "field": "sudokupad_solves",
     "previous": 1230,
     "current": 1231
+  },
+  {
+    "id": "2026-10-26T07:03:11.716236Z-0",
+    "time": "2026-10-26T07:03:11.716236Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 45,
+    "current": 46
+  },
+  {
+    "id": "2026-10-26T07:03:11.716236Z-1",
+    "time": "2026-10-26T07:03:11.716236Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 111,
+    "current": 112
+  },
+  {
+    "id": "2026-10-26T07:03:11.716236Z-2",
+    "time": "2026-10-26T07:03:11.716236Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 229,
+    "current": 230
   }
 ]
