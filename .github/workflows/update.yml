@@ -296,6 +296,11 @@ jobs:
 
           git diff --quiet && git diff --staged --quiet || git commit -m 'Auto-update puzzle data'
 
+          # Another run or manual commit may update main while this job
+          # is processing puzzle pages. Rebase the generated commit onto
+          # the latest remote branch before pushing to avoid a stale push.
+          git fetch origin main
+          git rebase origin/main
           git push
 
       - name: Install Supabase client
