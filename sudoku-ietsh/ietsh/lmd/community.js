@@ -72,10 +72,10 @@
     root.innerHTML = '';
     root.classList.toggle('community-panel-open', panelOpen);
 
-    const toggle = el('button', 'community-side-toggle', panelOpen ? '×  CLOSE' : '♥  SUPPORT');
+    const toggle = el('button', 'community-side-toggle', panelOpen ? '×' : '♥');
     toggle.type = 'button';
     toggle.setAttribute('aria-expanded', String(panelOpen));
-    toggle.setAttribute('aria-label', panelOpen ? 'Close community panel' : 'Open site support and comments');
+    toggle.setAttribute('aria-label', panelOpen ? 'Close comments panel' : 'Like and comment');
     toggle.addEventListener('click', () => {
       panelOpen = !panelOpen;
       render();
@@ -84,22 +84,20 @@
 
     const shell = el('div', 'community-shell');
     const intro = el('div', 'community-intro');
-    intro.append(el('div', 'community-eyebrow', 'THE COMMUNITY'));
-    intro.append(el('h2', 'community-title', 'Support iEtsh’s Puzzles'));
-    intro.append(el('p', 'community-description', 'If you enjoy these puzzles, leave a like to support the site or share a comment. Your support means a lot.'));
+    intro.append(el('h2', 'community-title', 'Like & comment'));
     shell.append(intro);
 
     const main = el('div', 'community-main');
     const support = el('div', 'community-support-card');
-    support.append(el('div', 'community-card-kicker', 'SHOW YOUR SUPPORT'));
+    
 
     const count = el('div', 'community-like-count', String(state.feed.like_count || 0));
     count.setAttribute('aria-live', 'polite');
     support.append(count);
-    support.append(el('div', 'community-count-label', Number(state.feed.like_count || 0) === 1 ? 'person supports this site' : 'people support this site'));
+    support.append(el('div', 'community-count-label', Number(state.feed.like_count || 0) === 1 ? 'like' : 'likes'));
 
     const liked = Boolean(state.visitor && state.feed.likes.some(item => item.visitor_id === state.visitor.visitor_id));
-    const likeButton = el('button', 'community-like-button' + (liked ? ' is-liked' : ''), liked ? '♥  Thanks for your support' : '♥  Support this site');
+    const likeButton = el('button', 'community-like-button' + (liked ? ' is-liked' : ''), liked ? '♥  Liked' : '♥  Like this archive');
     likeButton.type = 'button';
     likeButton.disabled = !state.visitor || liked || state.busy;
     likeButton.addEventListener('click', async () => {
@@ -109,7 +107,7 @@
       try {
         await request({ action: 'like', visitor_id: state.visitor.visitor_id, token: state.visitor.token });
         await loadFeed();
-        setMessage('Thanks for supporting the site!');
+        setMessage('Thanks for the like!');
       } catch (error) {
         setMessage(error.message, true);
       } finally {
@@ -122,9 +120,9 @@
     const names = el('div', 'community-liker-names');
     const likerNames = [...new Set(state.feed.likes.map(visitorName))];
     if (likerNames.length) {
-      names.textContent = 'Supported by: ' + likerNames.join(', ');
+      names.textContent = likerNames.join(', ');
     } else {
-      names.textContent = 'Be the first to support the site.';
+      names.textContent = 'Be the first to like this archive.';
     }
     support.append(names);
 
@@ -164,7 +162,7 @@
           saveVisitor({ visitor_id: result.visitor_id, token: result.token, display_name: name, name_change_used: false });
           await loadFeed();
           render();
-          setMessage('Welcome! You can now support the site and leave comments.');
+          setMessage('You can now leave a comment.');
         } catch (error) {
           setMessage(error.message, true);
           submit.disabled = false;
@@ -177,8 +175,7 @@
     const comments = el('div', 'community-comments-card');
     const commentsHead = el('div', 'community-comments-head');
     const heading = el('div');
-    heading.append(el('div', 'community-card-kicker', 'FROM THE COMMUNITY'));
-    heading.append(el('h3', 'community-comments-title', 'Site comments'));
+    heading.append(el('h3', 'community-comments-title', 'Comments'));
     commentsHead.append(heading);
     commentsHead.append(el('span', 'community-comment-count', String(state.feed.comments.length)));
     comments.append(commentsHead);
@@ -187,7 +184,7 @@
       const commentForm = el('form', 'community-comment-form');
       const textarea = el('textarea', 'community-textarea');
       textarea.name = 'comment';
-      textarea.placeholder = 'Leave a message about the site…';
+      textarea.placeholder = 'Write a comment…';
       textarea.maxLength = 1000;
       textarea.required = true;
       textarea.rows = 3;
