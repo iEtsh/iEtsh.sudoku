@@ -1133,15 +1133,15 @@ def update_config():
             puzzles
         )
 
-        # Advance by the number of rows actually returned. The LMD
-        # listing has returned 21 rows for a start offset of 0, so a
-        # fixed step of 20 overlaps the next request and repeats puzzles.
-        # Using the observed page length avoids that overlap; the
-        # downstream code still deduplicates defensively.
+        # LMD uses a fixed page offset of 20. Some listing pages
+        # include pinned/repeated rows, so page lengths are not a
+        # reliable offset. Advance by 20 and deduplicate by LMD code
+        # after collecting all pages; advancing by len(puzzles) can
+        # skip a puzzle when a page contains repeated rows.
         if len(puzzles) < 20:
             break
 
-        start += len(puzzles)
+        start += 20
 
     raw_codes = [p["lmd"] for p in all_puzzles]
     unique_codes = set(raw_codes)
