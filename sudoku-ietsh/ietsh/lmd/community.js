@@ -9,6 +9,8 @@
   const root = document.getElementById('community-section');
   if (!root) return;
 
+  let panelOpen = false;
+
   const state = {
     visitor: null,
     feed: { likes: [], comments: [], like_count: 0 },
@@ -68,6 +70,17 @@
 
   const render = () => {
     root.innerHTML = '';
+    root.classList.toggle('community-panel-open', panelOpen);
+
+    const toggle = el('button', 'community-side-toggle', panelOpen ? '×  CLOSE' : '♥  SUPPORT');
+    toggle.type = 'button';
+    toggle.setAttribute('aria-expanded', String(panelOpen));
+    toggle.setAttribute('aria-label', panelOpen ? 'Close community panel' : 'Open site support and comments');
+    toggle.addEventListener('click', () => {
+      panelOpen = !panelOpen;
+      render();
+    });
+    root.append(toggle);
 
     const shell = el('div', 'community-shell');
     const intro = el('div', 'community-intro');
