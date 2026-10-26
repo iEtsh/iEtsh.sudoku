@@ -194,12 +194,13 @@
         try {
           await request({ action: 'comment', visitor_id: state.visitor.visitor_id, token: state.visitor.token, body });
           await loadFeed();
+          state.busy = false;
           render();
           setMessage('Your comment has been posted.');
         } catch (error) {
-          setMessage(error.message, true);
           state.busy = false;
           render();
+          setMessage(error.message, true);
         }
       });
       comments.append(commentForm);
