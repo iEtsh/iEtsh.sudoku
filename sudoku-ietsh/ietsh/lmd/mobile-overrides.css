@@ -1553,3 +1553,12 @@
         box-sizing: border-box !important;
     }
 }
+
+/* Mobile only: move the difficulty stars left so they sit close after the date,
+   leaving a small gap before the LMD icon. */
+@media (max-width: 760px) {
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        left: calc(50% - 12px) !important;
+    }
+}
