@@ -43802,5 +43802,27 @@
     "field": "sudokupad_solves",
     "previous": 1234,
     "current": 1235
+  },
+  {
+    "id": "2026-10-26T19:31:08.842263Z-0",
+    "time": "2026-10-26T19:31:08.842263Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "solves",
+    "previous": 12,
+    "current": 13
+  },
+  {
+    "id": "2026-10-26T19:31:08.842263Z-1",
+    "time": "2026-10-26T19:31:08.842263Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "rating",
+    "previous": "83%",
+    "current": "84%"
   }
 ]
