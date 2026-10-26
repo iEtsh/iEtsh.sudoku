@@ -1,0 +1,1555 @@
+/* =========================================================
+   Mobile usability fixes
+   Kept separate from the original styles to make the
+   responsive layout easier to maintain and review.
+   ========================================================= */
+
+@media (max-width: 760px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    body {
+        overflow-x: clip;
+    }
+
+    #content {
+        width: calc(100% - 28px);
+        max-width: 100%;
+        padding: 22px 0 28px;
+    }
+
+    .site-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        min-width: 0;
+        gap: 12px;
+        padding-bottom: 20px;
+    }
+
+    .brand {
+        flex: 1 1 180px;
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .live-status {
+        flex: 0 1 auto;
+        min-width: 0;
+        margin-left: auto;
+    }
+
+    .brand-mark {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .brand-info {
+        min-width: 0;
+    }
+
+    .brand-title {
+        font-size: clamp(15px, 4.3vw, 18px);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+        line-height: 1.35;
+        letter-spacing: 0.15px;
+        overflow-wrap: anywhere;
+    }
+
+    .section-label {
+        font-size: 10px;
+        line-height: 1.4;
+        letter-spacing: 1.5px;
+        overflow-wrap: anywhere;
+    }
+
+    .latest-section {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding-top: 30px;
+        min-width: 0;
+    }
+
+    .latest-section > .section-label,
+    .latest-section #most-recent,
+    .latest-section #puzzle-dashboard {
+        grid-column: 1;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .latest-card {
+        min-width: 0;
+        padding: 22px 18px;
+        border-radius: 15px;
+    }
+
+    .latest-info {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .latest-title {
+        max-width: 100%;
+        font-size: clamp(27px, 7.5vw, 36px);
+        line-height: 1.12;
+        letter-spacing: -0.8px;
+        overflow-wrap: anywhere;
+    }
+
+    .latest-date {
+        font-size: 12px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .latest-number {
+        top: -18px;
+        right: 0;
+        font-size: 11px;
+    }
+
+    .latest-meta {
+        gap: 7px;
+        margin-bottom: 20px;
+    }
+
+    .meta-pill {
+        max-width: 100%;
+        padding: 8px 9px;
+        font-size: 10px;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+    }
+
+    .meta-pill strong {
+        font-size: 12px;
+    }
+
+    .latest-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+    }
+
+    .action-btn {
+        min-width: 0;
+        width: 100%;
+        min-height: 42px;
+        height: auto;
+        padding: 10px 8px;
+        gap: 6px;
+        font-size: 10px;
+        line-height: 1.25;
+        letter-spacing: 0.25px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .latest-image {
+        width: min(100%, 245px);
+        height: auto;
+        aspect-ratio: 1;
+        margin: 22px auto 0;
+    }
+
+    .latest-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .latest-section #puzzle-dashboard {
+        margin-top: 0;
+    }
+
+    .latest-section #puzzle-dashboard .dashboard-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .latest-section #puzzle-dashboard .dashboard-card {
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 7px;
+        padding: 12px;
+    }
+
+    .latest-section #puzzle-dashboard .dashboard-card-label {
+        font-size: 9px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .latest-section #puzzle-dashboard .dashboard-card-value {
+        font-size: clamp(17px, 5vw, 22px);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .listing-section {
+        min-width: 0;
+        padding-top: 48px;
+        row-gap: 18px;
+    }
+
+    .listing-section .section-heading {
+        min-width: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 0;
+    }
+
+    .listing-section .section-heading > div:first-child {
+        flex: 1 1 150px;
+        min-width: 0;
+    }
+
+    .section-heading h1 {
+        max-width: 100%;
+        font-size: clamp(21px, 6vw, 25px);
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+        overflow-wrap: anywhere;
+    }
+
+    .update-status {
+        max-width: 100%;
+        min-width: 0;
+        gap: 7px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .update-text {
+        white-space: normal;
+        text-align: left;
+        overflow-wrap: anywhere;
+    }
+
+    #summary-table {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .archive-controls {
+        display: flex;
+        align-items: stretch;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .archive-search {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .archive-search-input {
+        min-height: 44px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        font-size: 16px;
+    }
+
+    .archive-password {
+        flex: 1 1 130px;
+        width: auto;
+        min-width: 0;
+    }
+
+    .archive-password-input {
+        min-height: 42px;
+        font-size: 16px;
+    }
+
+    .archive-search-button,
+    .archive-clear-updates,
+    .archive-undo-updates {
+        min-height: 42px;
+        height: auto;
+        padding: 9px 10px;
+        font-size: 10px;
+        line-height: 1.25;
+        letter-spacing: 0.2px;
+        white-space: normal;
+    }
+
+    /* Align the mobile labels with the six compact metadata columns.
+       DATE is omitted here because each card already shows its date under the title. */
+    #summary-table .archive-header {
+        display: grid;
+        grid-template-columns: 20px repeat(6, minmax(0, 1fr));
+        grid-template-rows: auto;
+        gap: 5px 4px;
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        margin: 0 0 7px;
+        padding: 0 8px;
+        align-items: center;
+        direction: ltr;
+    }
+
+    .archive-header-number,
+    .archive-header-title,
+    .archive-header-date {
+        display: none !important;
+    }
+
+    .archive-header > div {
+        min-width: 0;
+        padding: 0;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .archive-header-difficulty {
+        display: block;
+        grid-column: 2;
+    }
+
+    .archive-header-link:nth-of-type(5) {
+        display: block;
+        grid-column: 3;
+    }
+
+    .archive-header-link:nth-of-type(6) {
+        display: block;
+        grid-column: 4;
+    }
+
+    .archive-header-sudokupad-solves {
+        display: block;
+        grid-column: 5;
+    }
+
+    .archive-header-solves {
+        display: block;
+        grid-column: 6;
+    }
+
+    .archive-header-rating {
+        display: block;
+        grid-column: 7;
+    }
+
+    .archive-sort-button {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        padding: 5px 0;
+        font-size: 8px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        text-align: center;
+    }
+
+    .archive-header-difficulty .archive-sort-button {
+        font-size: 8px;
+    }
+
+    .archive-header-link {
+        font-size: 0;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .archive-header-link:nth-of-type(5)::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    .archive-header-link:nth-of-type(6)::after {
+        content: 'PLAY';
+        font-size: 8px;
+    }
+
+    .archive-header-sudokupad-solves .archive-sort-button,
+    .archive-header-solves .archive-sort-button,
+    .archive-header-rating .archive-sort-button {
+        font-size: 0;
+    }
+
+    .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP';
+        font-size: 8px;
+    }
+
+    .archive-header-solves .archive-sort-button::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    .archive-header-rating .archive-sort-button::after {
+        content: 'RATE';
+        font-size: 8px;
+    }
+
+    /* Each puzzle is a readable card instead of a squeezed desktop row. */
+    #summary-table .rec {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 8px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    #summary-table ul {
+        display: grid;
+        grid-template-columns: 20px repeat(6, minmax(0, 1fr));
+        grid-template-rows: auto auto auto;
+        gap: 5px 4px;
+        width: 100%;
+        min-width: 0;
+        padding: 12px 8px;
+        direction: ltr;
+    }
+
+    #summary-table .archive-number {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        align-self: start;
+        justify-self: center;
+        padding-top: 2px;
+        font-size: 10px;
+    }
+
+    #summary-table .archive-title {
+        grid-column: 2 / -1;
+        grid-row: 1;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: normal;
+        overflow: visible;
+        text-align: left;
+    }
+
+    #summary-table .archive-date {
+        display: block;
+        grid-column: 2 / -1;
+        grid-row: 2;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 11px;
+        line-height: 1.35;
+        color: #929bad;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: left;
+    }
+
+    #summary-table .archive-difficulty {
+        display: flex;
+        grid-column: 2;
+        grid-row: 3;
+        min-width: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    #summary-table .archive-difficulty svg {
+        width: 100%;
+        height: 12px;
+        max-width: 100%;
+    }
+
+    /* Each row's <li> order is: number, title, date, stars,
+       LMD link, Play link, SudokuPad solves, LMD solves, rating. */
+    #summary-table ul > li.archive-link:nth-of-type(5) {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    #summary-table ul > li.archive-link:nth-of-type(6) {
+        grid-column: 4;
+        grid-row: 3;
+    }
+
+    #summary-table .archive-action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 32px;
+        min-width: 28px;
+        border-radius: 7px;
+    }
+
+    #summary-table .archive-sudokupad-solves {
+        display: flex;
+        grid-column: 5;
+        grid-row: 3;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-sudokupad-solves::before {
+        content: 'SP';
+        color: #8792a8;
+        font-size: 8px;
+        line-height: 1.1;
+        letter-spacing: 0.2px;
+    }
+
+    #summary-table .archive-solves {
+        display: flex;
+        grid-column: 6;
+        grid-row: 3;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-solves::before {
+        content: 'LMD';
+        color: #8792a8;
+        font-size: 8px;
+        line-height: 1.1;
+        letter-spacing: 0.2px;
+    }
+
+    #summary-table .archive-rating {
+        display: flex;
+        grid-column: 7;
+        grid-row: 3;
+        min-width: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-rating::before {
+        content: '%';
+        color: #8792a8;
+        font-size: 8px;
+        line-height: 1.1;
+    }
+
+    .update-monitor-heading {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .update-monitor-filter {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .update-monitor-filter-select {
+        max-width: 100%;
+        min-height: 38px;
+        font-size: 12px;
+    }
+
+    .update-entry {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .update-entry-title,
+    .update-entry-value {
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
+
+    .about-section {
+        margin-top: 48px;
+        padding: 22px 16px 20px;
+        border-radius: 15px;
+    }
+
+    .about-section-top {
+        margin-bottom: 16px;
+    }
+
+    .about-stage {
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
+    }
+
+    .about-identity {
+        display: block;
+        min-width: 0;
+        padding: 22px 4px 12px;
+    }
+
+    .identity-eyebrow {
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+        margin-bottom: 12px;
+        font-size: 10px;
+        line-height: 1.4;
+        letter-spacing: 0.3px;
+        overflow-wrap: anywhere;
+    }
+
+    .identity-title {
+        margin-bottom: 12px;
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.1;
+        letter-spacing: -0.8px;
+        overflow-wrap: anywhere;
+    }
+
+    .identity-lead,
+    .identity-description {
+        max-width: 100%;
+        font-size: 14px;
+        line-height: 1.65;
+        overflow-wrap: anywhere;
+    }
+
+    .about-visual {
+        min-height: 205px;
+        padding: 18px 24px 28px;
+    }
+
+    .visual-frame {
+        width: min(148px, 70vw);
+        padding: 11px;
+    }
+
+    .visual-cell {
+        font-size: 7px;
+    }
+
+    .about-bottom {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding-top: 20px;
+    }
+
+    .contact-panel-head {
+        flex-wrap: wrap;
+        gap: 5px 12px;
+        padding: 8px 0;
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+    .contact-panel-head span:last-child {
+        font-size: 8px;
+    }
+
+    .contact-card {
+        grid-template-columns: 32px minmax(0, 1fr) 16px;
+        gap: 10px;
+        min-height: 58px;
+    }
+
+    .contact-card-value {
+        font-size: 12px;
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .site-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 14px;
+        align-items: flex-start;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .site-footer a {
+        display: inline;
+        margin: 0;
+    }
+
+    #tooltip {
+        display: none !important;
+    }
+
+    .latest-card:hover,
+    .action-btn:hover,
+    .visual-frame:hover,
+    .contact-card:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .latest-section #puzzle-dashboard .dashboard-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .latest-section #puzzle-dashboard .dashboard-card {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+    }
+
+    .latest-actions {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #summary-table ul {
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr));
+        gap: 5px 3px;
+        padding: 11px 6px;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #summary-table .archive-difficulty svg {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #summary-table .archive-action {
+        width: 26px;
+        min-width: 26px;
+    }
+
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
+        font-size: 9px;
+    }
+
+    .about-section {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .status-dot,
+    .identity-pulse {
+        animation: none !important;
+    }
+
+    .latest-card,
+    .action-btn,
+    .visual-frame,
+    .visual-cell,
+    .contact-card,
+    .contact-card-icon,
+    .contact-card-arrow {
+        transition: none !important;
+    }
+}
+
+/* Final mobile archive alignment fixes.
+   Keep the header and each row on the same seven-column grid:
+   number + difficulty + LMD + Play + SudokuPad + LMD solves + rating.
+   Title and date occupy their own rows above the metrics. */
+@media (max-width: 760px) {
+    #content,
+    .listing-section,
+    .listing-section #summary-table,
+    #summary-table,
+    #summary-table .archive-header,
+    #summary-table .rec,
+    #summary-table ul {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+    }
+
+    #summary-table .archive-header {
+        display: grid;
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
+        grid-template-rows: auto;
+        grid-auto-flow: row;
+        align-items: center;
+        gap: 4px;
+        height: auto;
+        margin: 0 0 7px;
+        padding: 0 6px;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-header-number,
+    #summary-table .archive-header-title,
+    #summary-table .archive-header-date {
+        display: none !important;
+    }
+
+    #summary-table .archive-header-difficulty,
+    #summary-table .archive-header-link:nth-of-type(5),
+    #summary-table .archive-header-link:nth-of-type(6),
+    #summary-table .archive-header-sudokupad-solves,
+    #summary-table .archive-header-solves,
+    #summary-table .archive-header-rating {
+        display: block !important;
+        min-width: 0;
+        grid-row: 1 !important;
+        align-self: center;
+        justify-self: stretch;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-header-difficulty { grid-column: 2 !important; }
+    #summary-table .archive-header-link:nth-of-type(5) { grid-column: 3 !important; }
+    #summary-table .archive-header-link:nth-of-type(6) { grid-column: 4 !important; }
+    #summary-table .archive-header-sudokupad-solves { grid-column: 5 !important; }
+    #summary-table .archive-header-solves { grid-column: 6 !important; }
+    #summary-table .archive-header-rating { grid-column: 7 !important; }
+
+    #summary-table .archive-sort-button {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 5px 0;
+        font-size: 8px;
+        line-height: 1.2;
+        letter-spacing: 0;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    #summary-table .archive-header-link {
+        font-size: 0;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    #summary-table .archive-header-link:nth-of-type(5)::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-link:nth-of-type(6)::after {
+        content: 'PLAY';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button,
+    #summary-table .archive-header-solves .archive-sort-button,
+    #summary-table .archive-header-rating .archive-sort-button {
+        font-size: 0;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-solves .archive-sort-button::after {
+        content: 'LMD';
+        font-size: 8px;
+    }
+
+    #summary-table .archive-header-rating .archive-sort-button::after {
+        content: 'RATE';
+        font-size: 8px;
+    }
+
+    #summary-table .rec {
+        overflow: hidden;
+    }
+
+    #summary-table ul {
+        display: grid;
+        grid-template-columns: 18px repeat(6, minmax(0, 1fr)) !important;
+        grid-template-rows: auto auto auto;
+        grid-auto-flow: row;
+        align-items: center;
+        gap: 5px 4px;
+        padding: 12px 6px;
+        overflow: hidden;
+        direction: ltr;
+    }
+
+    #summary-table .archive-number {
+        grid-column: 1 !important;
+        grid-row: 1 / 4 !important;
+    }
+
+    #summary-table .archive-title {
+        grid-column: 2 / -1 !important;
+        grid-row: 1 !important;
+    }
+
+    #summary-table .archive-date {
+        grid-column: 2 / -1 !important;
+        grid-row: 2 !important;
+    }
+
+    #summary-table .archive-difficulty {
+        display: flex;
+        grid-column: 2 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    #summary-table ul > li.archive-link:nth-of-type(5) {
+        grid-column: 3 !important;
+        grid-row: 3 !important;
+    }
+
+    #summary-table ul > li.archive-link:nth-of-type(6) {
+        grid-column: 4 !important;
+        grid-row: 3 !important;
+    }
+
+    #summary-table .archive-link {
+        display: flex;
+        min-width: 0 !important;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 30px;
+        min-width: 28px;
+        max-width: 100%;
+        padding: 0;
+        flex: 0 1 auto;
+    }
+
+    #summary-table .archive-action .action-icon {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    #summary-table .archive-sudokupad-solves {
+        display: flex;
+        grid-column: 5 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-solves {
+        display: flex;
+        grid-column: 6 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    #summary-table .archive-rating {
+        display: flex;
+        grid-column: 7 !important;
+        grid-row: 3 !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        font-size: 10px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    #summary-table .archive-header,
+    #summary-table ul {
+        grid-template-columns: 16px repeat(6, minmax(0, 1fr)) !important;
+        gap: 4px 3px;
+    }
+
+    #summary-table .archive-action {
+        width: 26px;
+        min-width: 26px;
+    }
+
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
+        font-size: 9px;
+    }
+}
+
+
+/* Final mobile archive layout: DATE leads the metrics row; keep all labels and values inline. */
+@media (max-width: 760px) {
+    #summary-table .archive-header {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.65fr) minmax(0, 1.2fr) repeat(3, minmax(0, 0.68fr)) minmax(0, 0.88fr) minmax(0, 0.72fr) !important;
+        grid-template-rows: 26px !important;
+        align-items: center !important;
+        gap: 4px !important;
+        height: 26px !important;
+        margin: 0 0 7px !important;
+        padding: 0 6px !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    #summary-table .archive-header-number,
+    #summary-table .archive-header-title {
+        display: none !important;
+    }
+
+    #summary-table .archive-header-date,
+    #summary-table .archive-header-difficulty,
+    #summary-table .archive-header-link:nth-child(5),
+    #summary-table .archive-header-link:nth-child(6),
+    #summary-table .archive-header-sudokupad-solves,
+    #summary-table .archive-header-solves,
+    #summary-table .archive-header-rating {
+        display: flex !important;
+        grid-row: 1 !important;
+        align-self: stretch !important;
+        align-items: center !important;
+        justify-content: center !important;
+        justify-self: stretch !important;
+        min-width: 0 !important;
+        height: 26px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        text-align: center !important;
+        color: #8792a8 !important;
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+        box-sizing: border-box !important;
+    }
+
+    #summary-table .archive-header-date { grid-column: 1 !important; }
+    #summary-table .archive-header-difficulty { grid-column: 2 !important; }
+    #summary-table .archive-header-link:nth-child(5) { grid-column: 3 !important; }
+    #summary-table .archive-header-link:nth-child(6) { grid-column: 4 !important; }
+    #summary-table .archive-header-sudokupad-solves { grid-column: 5 !important; }
+    #summary-table .archive-header-solves { grid-column: 6 !important; }
+    #summary-table .archive-header-rating { grid-column: 7 !important; }
+
+    #summary-table .archive-header .archive-sort-button {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 2px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 26px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: inherit !important;
+        font-family: inherit !important;
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
+    }
+
+    #summary-table .archive-sort-label {
+        color: inherit !important;
+        font: inherit !important;
+        line-height: 1 !important;
+    }
+
+    #summary-table .archive-sort-arrow {
+        font-size: 7px !important;
+        line-height: 1 !important;
+    }
+
+    #summary-table .archive-header-link {
+        font-size: 8px !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        color: #8792a8 !important;
+        text-align: center !important;
+    }
+
+    #summary-table .archive-header-link::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    #summary-table .rec {
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    #summary-table ul {
+        position: relative !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1.65fr) minmax(0, 1.2fr) repeat(3, minmax(0, 0.68fr)) minmax(0, 0.88fr) minmax(0, 0.72fr) !important;
+        grid-template-rows: auto auto !important;
+        align-items: center !important;
+        gap: 7px 4px !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 12px 6px !important;
+        overflow: visible !important;
+        direction: ltr !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Keep the puzzle number beside the title; the next row is a true seven-column table row. */
+    #summary-table .archive-number {
+        position: absolute !important;
+        left: 8px !important;
+        top: 8px !important;
+        right: auto !important;
+        bottom: auto !important;
+        z-index: 2 !important;
+        display: block !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+        font-size: 9px !important;
+        line-height: 1.4 !important;
+        align-self: start !important;
+        justify-self: start !important;
+    }
+
+    #summary-table .archive-title {
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 0 0 28px !important;
+        font-size: 13px !important;
+        line-height: 1.3 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
+    }
+
+    #summary-table .archive-date {
+        display: block !important;
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        align-self: center !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #929bad !important;
+        font-size: 8px !important;
+        line-height: 1.25 !important;
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        text-align: center !important;
+    }
+
+    #summary-table .archive-difficulty {
+        display: flex !important;
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        min-width: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-difficulty .puzzle-stars {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 13px !important;
+        margin: 0 !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        display: block !important;
+        position: relative !important;
+        left: 50% !important;
+        width: 60px !important;
+        min-width: 60px !important;
+        max-width: none !important;
+        height: 12px !important;
+        margin-left: -30px !important;
+        overflow: visible !important;
+        transform: scale(.78) !important;
+        transform-origin: center center !important;
+    }
+
+    #summary-table ul > li.archive-link:nth-child(5) {
+        grid-column: 3 !important;
+        grid-row: 2 !important;
+    }
+
+    #summary-table ul > li.archive-link:nth-child(6) {
+        grid-column: 4 !important;
+        grid-row: 2 !important;
+    }
+
+    #summary-table .archive-link {
+        display: flex !important;
+        min-width: 0 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-action {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 28px !important;
+        min-width: 26px !important;
+        height: 30px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex: 0 1 auto !important;
+    }
+
+    #summary-table .archive-sudokupad-solves {
+        display: block !important;
+        grid-column: 5 !important;
+        grid-row: 2 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums;
+    }
+
+    #summary-table .archive-solves {
+        display: block !important;
+        grid-column: 6 !important;
+        grid-row: 2 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums;
+    }
+
+    #summary-table .archive-rating {
+        display: inline-flex !important;
+        flex-direction: row !important;
+        grid-column: 7 !important;
+        grid-row: 2 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-align: center !important;
+        font-variant-numeric: tabular-nums;
+    }
+
+    #summary-table .archive-sudokupad-solves::before,
+    #summary-table .archive-solves::before,
+    #summary-table .archive-rating::before {
+        display: none !important;
+        content: none !important;
+    }
+}
+
+@media (max-width: 380px) {
+    #summary-table .archive-header,
+    #summary-table ul {
+        gap: 4px 3px !important;
+    }
+
+    #summary-table .archive-difficulty .star-bar,
+    #summary-table .archive-difficulty svg {
+        transform: scale(.74) !important;
+    }
+
+    #summary-table .archive-action {
+        width: 26px !important;
+        min-width: 24px !important;
+    }
+
+    #summary-table .archive-sudokupad-solves,
+    #summary-table .archive-solves,
+    #summary-table .archive-rating {
+        font-size: 8px !important;
+    }
+}
+
+
+/* Single-source mobile header labels: suppress the original long text
+   wherever a compact mobile label is supplied, preventing duplicates. */
+@media (max-width: 760px) {
+    #summary-table .archive-header-link {
+        font-size: 0 !important;
+    }
+
+    #summary-table .archive-header-link::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    #summary-table .archive-header-link::after {
+        display: inline !important;
+        content: none !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    #summary-table .archive-header-link:nth-child(5)::after {
+        content: 'LMD' !important;
+    }
+
+    #summary-table .archive-header-link:nth-child(6)::after {
+        content: 'PLAY' !important;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-label,
+    #summary-table .archive-header-solves .archive-sort-label,
+    #summary-table .archive-header-rating .archive-sort-label {
+        display: none !important;
+    }
+
+    #summary-table .archive-header-sudokupad-solves .archive-sort-button::after {
+        content: 'SP' !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    #summary-table .archive-header-solves .archive-sort-button::after {
+        content: 'LMD' !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    #summary-table .archive-header-rating .archive-sort-button::after {
+        content: 'RATE' !important;
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Show the percent sign only once, beside the rating value. */
+    #summary-table .archive-rating::before {
+        display: none !important;
+        content: none !important;
+    }
+
+    #summary-table .archive-rating::after {
+        display: inline !important;
+        content: '%' !important;
+        font-size: inherit !important;
+        line-height: inherit !important;
+        color: inherit !important;
+    }
+}
+
+
+/* LMD and PLAY now use their actual compact text from lmd.js.
+   Disable all generated pseudo-labels to avoid duplicate headings. */
+@media (max-width: 760px) {
+    #summary-table .archive-header-link {
+        font-size: 8px !important;
+        color: #8792a8 !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        text-align: center !important;
+    }
+
+    #summary-table .archive-header-link::before,
+    #summary-table .archive-header-link::after {
+        display: none !important;
+        content: none !important;
+    }
+}
+
+/* FINAL FIX: mobile puzzle number placement and rating suffix */
+@media (max-width: 760px) {
+    /* Keep the number in the first grid cell of the card's top row. */
+    #summary-table .rec > ul {
+        position: relative !important;
+        display: grid !important;
+        grid-template-rows: auto auto !important;
+    }
+
+    #summary-table .rec > ul > li.archive-number {
+        position: static !important;
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        inset: auto !important;
+        z-index: auto !important;
+        display: block !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        align-self: start !important;
+        justify-self: start !important;
+        text-align: left !important;
+    }
+
+    #summary-table .rec > ul > li.archive-title {
+        grid-column: 2 / -1 !important;
+        grid-row: 1 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        align-self: start !important;
+    }
+
+    /* The rating is rendered as a plain number by lmd.js; don't synthesize '%' twice. */
+    #summary-table .rec > ul > li.archive-rating::before,
+    #summary-table .rec > ul > li.archive-rating::after {
+        display: none !important;
+        content: none !important;
+    }
+}
+
+
+/* Tighten the gap between the mobile puzzle number and title. */
+@media (max-width: 760px) {
+    #summary-table .rec > ul {
+        position: relative !important;
+    }
+
+    #summary-table .rec > ul > li.archive-number {
+        position: absolute !important;
+        left: 8px !important;
+        top: 12px !important;
+        right: auto !important;
+        bottom: auto !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        z-index: 2 !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        align-self: auto !important;
+        justify-self: auto !important;
+        line-height: 1.3 !important;
+        text-align: left !important;
+    }
+
+    #summary-table .rec > ul > li.archive-title {
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        margin: 0 !important;
+        padding: 0 0 0 28px !important;
+        align-self: start !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+}

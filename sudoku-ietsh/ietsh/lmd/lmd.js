@@ -1500,7 +1500,7 @@
         'class',
         'archive-header-link'
       )
-      .text('LMD LINK');
+      .text('LMD');
 
     header
       .append('div')
@@ -2267,7 +2267,8 @@
       drawStars(
         ul.append('li'),
         puzzle.stars,
-        puzzle.author_rated === true
+        puzzle.author_rated === true,
+        window.matchMedia('(max-width: 760px)').matches ? 12 : undefined
       );
 
       ul
