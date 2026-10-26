@@ -2671,6 +2671,8 @@
             .classed('is-active', function () { return this.dataset.metric === metric; })
             .attr('aria-pressed', function () { return String(this.dataset.metric === metric); });
           drawDistribution(metric, true);
+          renderBars(metric, true);
+          chartHead.select('.gallery-chart-key').text(metric === 'solves' ? 'LMD SOLVES' : 'SUDOKUPAD SOLVES');
         });
     });
     const distributionChartHost = distribution.append('div').attr('class', 'gallery-distribution-chart');
@@ -2685,6 +2687,20 @@
     distributionGradient.append('stop').attr('offset', '100%').attr('stop-color', '#818cf8').attr('stop-opacity', .015);
     const distributionGrid = distributionSvg.append('g').attr('class', 'distribution-grid');
     const distributionArea = distributionSvg.append('path').attr('class', 'distribution-area');
+    const distributionClip = distributionDefs.append('clipPath').attr('id', 'puzzle-distribution-area-clip');
+    distributionClip.append('path');
+    const distributionScan = distributionSvg.append('rect')
+      .attr('class', 'distribution-scan')
+      .attr('y', 10).attr('width', 110).attr('height', 190)
+      .attr('fill', 'url(#puzzle-distribution-scan-gradient)')
+      .attr('clip-path', 'url(#puzzle-distribution-area-clip)')
+      .attr('pointer-events', 'none');
+    const scanGradient = distributionDefs.append('linearGradient')
+      .attr('id', 'puzzle-distribution-scan-gradient').attr('x1', '0').attr('x2', '1').attr('y1', '0').attr('y2', '0');
+    scanGradient.append('stop').attr('offset', '0%').attr('stop-color', '#67e8f9').attr('stop-opacity', 0);
+    scanGradient.append('stop').attr('offset', '45%').attr('stop-color', '#67e8f9').attr('stop-opacity', .02);
+    scanGradient.append('stop').attr('offset', '72%').attr('stop-color', '#a5f3fc').attr('stop-opacity', .34);
+    scanGradient.append('stop').attr('offset', '100%').attr('stop-color', '#67e8f9').attr('stop-opacity', 0);
     const distributionCurve = distributionSvg.append('path').attr('class', 'distribution-curve');
     const distributionPoints = distributionSvg.append('g').attr('class', 'distribution-points');
     const distributionAxis = distributionSvg.append('g').attr('class', 'distribution-axis');
@@ -2724,7 +2740,10 @@
       distributionAxis.append('text').attr('x', margin.left).attr('y', height - 7).text('LESS PLAYED');
       distributionAxis.append('text').attr('x', width - margin.right).attr('y', height - 7)
         .attr('text-anchor', 'end').text('MORE PLAYED');
-      distributionArea.datum(points).attr('d', points.length > 1 ? area : null);
+      const areaPath = points.length > 1 ? area(points) : null;
+      distributionArea.datum(points).attr('d', areaPath);
+      distributionClip.select('path').attr('d', areaPath);
+      distributionScan.attr('x', margin.left - 110).attr('height', height - margin.top - margin.bottom + 2);
       distributionCurve.datum(points).attr('d', points.length > 1 ? line : null);
       distributionPoints.selectAll('circle').data(points, point => point.puzzle.id)
         .join(
@@ -2767,11 +2786,23 @@
     };
 
     drawDistribution(distributionMetric, false);
+    const runDistributionScan = () => {
+      if (distributionMotionReduced || !distributionHasEntered) return;
+      distributionScan.interrupt().attr('x', 0).attr('opacity', 0);
+      const scanOnce = () => distributionScan
+        .attr('x', 0).attr('opacity', 0)
+        .transition().duration(2400).ease(d3.easeLinear)
+        .attr('x', 760).attr('opacity', 1)
+        .transition().duration(0).attr('opacity', 0)
+        .on('end', scanOnce);
+      scanOnce();
+    };
     const startDistributionAnimation = () => {
       if (distributionHasEntered) return;
       distributionHasEntered = true;
       distribution.classed('is-visible', true);
       drawDistribution(distributionMetric, true);
+      runDistributionScan();
     };
     if ('IntersectionObserver' in window) {
       distributionObserver = new IntersectionObserver(entries => {
@@ -2785,22 +2816,25 @@
       startDistributionAnimation();
     }
 
-    const chartData = [...puzzles]
-      .sort((a, b) => (Number(b.sudokupad_solves) || 0) - (Number(a.sudokupad_solves) || 0))
-      .slice(0, 8);
-    const maxSolves = Math.max(1, ...chartData.map(p => Number(p.sudokupad_solves) || 0));
     const chart = chartPanel.append('div').attr('class', 'gallery-bar-chart');
-
-    if (!chartData.length) {
-      chart.append('p').attr('class', 'gallery-empty-chart').text('No puzzles match the current search.');
-    } else {
+    let chartData = [];
+    const renderBars = (metric, animate) => {
+      chartData = [...puzzles]
+        .sort((a, b) => (Number(b[metric]) || 0) - (Number(a[metric]) || 0))
+        .slice(0, 8);
+      const maxSolves = Math.max(1, ...chartData.map(p => Number(p[metric]) || 0));
+      chart.selectAll('*').remove();
+      if (!chartData.length) {
+        chart.append('p').attr('class', 'gallery-empty-chart').text('No puzzles match the current search.');
+        return;
+      }
       chartData.forEach((puzzle, index) => {
-        const value = Number(puzzle.sudokupad_solves) || 0;
+        const value = Number(puzzle[metric]) || 0;
         const row = chart.append('button')
           .attr('type', 'button')
           .attr('class', 'gallery-bar-row')
-          .attr('title', `${puzzle.title}: ${galleryNumber(value)} SudokuPad solves`)
-          .attr('aria-label', `Show ${puzzle.title}, ${galleryNumber(value)} SudokuPad solves`)
+          .attr('title', `${puzzle.title}: ${galleryNumber(value)} ${metric === 'solves' ? 'LMD' : 'SudokuPad'} solves`)
+          .attr('aria-label', `Show ${puzzle.title}, ${galleryNumber(value)} ${metric === 'solves' ? 'LMD' : 'SudokuPad'} solves`)
           .on('click', () => {
             gallerySelectedPuzzle = puzzle.id;
             root.selectAll('.gallery-puzzle-card').classed('is-selected', d => d.id === puzzle.id);
@@ -2809,13 +2843,19 @@
           });
         row.append('span').attr('class', 'gallery-bar-name').text(puzzle.title || 'Untitled puzzle');
         const track = row.append('span').attr('class', 'gallery-bar-track');
-        track.append('span')
-          .attr('class', 'gallery-bar-fill')
-          .style('width', `${Math.max(value > 0 ? 2 : 0, value / maxSolves * 100)}%`)
-          .style('animation-delay', `${index * 45}ms`);
+        const fill = track.append('span').attr('class', 'gallery-bar-fill')
+          .style('width', '0%')
+          .style('transform-origin', 'left center');
         row.append('strong').attr('class', 'gallery-bar-value').text(galleryNumber(value));
+        const targetWidth = `${Math.max(value > 0 ? 1.5 : 0, value / maxSolves * 100)}%`;
+        if (animate && !distributionMotionReduced) {
+          fill.transition().delay(index * 65).duration(720).ease(d3.easeCubicOut).style('width', targetWidth);
+        } else {
+          fill.style('width', targetWidth);
+        }
       });
-    }
+    };
+    renderBars('sudokupad_solves', false);
 
     const insightPanel = analysis.append('section').attr('class', 'gallery-insight-panel');
     insightPanel.append('h2').text('Collection snapshot');

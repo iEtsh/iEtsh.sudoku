@@ -300,3 +300,12 @@
     .gallery-distribution, .gallery-distribution-option, .gallery-distribution-divider, .distribution-area { transition: none !important; animation: none !important; }
     .gallery-distribution-option, .gallery-distribution-option:first-child, .gallery-distribution-option:last-child { transform: none !important; }
 }
+
+
+/* Radar-like horizontal scan clipped strictly to the filled distribution area. */
+.distribution-scan { mix-blend-mode: screen; opacity: 0; }
+.gallery-bar-fill { transform-origin: left center; }
+.gallery-bar-track { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+    .distribution-scan { display: none !important; }
+}
