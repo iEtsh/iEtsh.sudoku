@@ -159,6 +159,7 @@
 .gallery-puzzle-card:hover .gallery-card-image img { transform: scale(1.045); filter: drop-shadow(0 8px 18px rgba(0,0,0,.25)); }
 .gallery-image-placeholder { display: grid; place-items: center; width: 100%; height: 100%; color: #6d7b91; font-size: 12px; text-align: center; }
 .gallery-image-overlay {
+    display: inline-flex; align-items: center; gap: 7px;
     position: absolute; right: 12px; bottom: 12px; padding: 8px 10px;
     border: 1px solid rgba(255,255,255,.15); border-radius: 9px;
     color: #ecfeff; background: rgba(8, 14, 24, .82); backdrop-filter: blur(10px);
@@ -249,3 +250,9 @@
         margin-left: auto;
     }
 }
+
+
+/* Keep SVG link/play glyphs consistent with the archive actions. */
+.gallery-image-overlay, .gallery-play-button, .gallery-lmd-link { gap: 7px; }
+.gallery-image-overlay .action-icon-svg { width: 13px; height: 13px; }
+.gallery-play-button .action-icon-svg, .gallery-lmd-link .action-icon-svg { width: 14px; height: 14px; }

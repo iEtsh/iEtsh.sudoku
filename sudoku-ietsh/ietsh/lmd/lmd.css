@@ -3692,3 +3692,16 @@ body {
         box-sizing: border-box !important;
     }
 }
+
+
+/* Stable, scalable SVG icons for external puzzle links. */
+.action-icon-svg, .site-link-icon {
+    display: block;
+    flex: 0 0 auto;
+    width: 15px;
+    height: 15px;
+}
+.action-icon-svg { overflow: visible; }
+.action-icon { display: inline-flex; align-items: center; justify-content: center; }
+.footer-lmd-link { display: inline-flex; align-items: center; gap: 7px; }
+.footer-lmd-link .site-link-icon { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }

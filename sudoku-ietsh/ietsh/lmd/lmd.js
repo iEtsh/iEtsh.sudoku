@@ -100,14 +100,7 @@
   const fetchUpdateLog = async () => {
     try {
       const response =
-        await fetch(
-          updateLogPath +
-            '?t=' +
-            Date.now(),
-          {
-            cache: 'no-store'
-          }
-        );
+        await fetch(updateLogPath, { cache: 'no-cache' });
 
       if (!response.ok) {
         throw new Error(
@@ -630,6 +623,43 @@
   };
 
   // ---------------------------------------------------------
+  // Consistent SVG action icons
+  // ---------------------------------------------------------
+
+  const appendActionIcon = (node, type) => {
+    const svg = node.append('svg')
+      .attr('class', `action-icon-svg action-icon-${type}`)
+      .attr('viewBox', '0 0 24 24')
+      .attr('width', 15)
+      .attr('height', 15)
+      .attr('aria-hidden', 'true')
+      .attr('focusable', 'false');
+
+    if (type === 'play') {
+      svg.append('path')
+        .attr('d', 'M8 5.5v13L18 12z')
+        .attr('fill', 'currentColor');
+    } else if (type === 'link') {
+      svg.append('path')
+        .attr('d', 'M10 13a5 5 0 0 0 7.07 0l3-3A5 5 0 0 0 13 2.93l-1.72 1.71')
+        .attr('fill', 'none')
+        .attr('stroke', 'currentColor')
+        .attr('stroke-width', 1.8)
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round');
+      svg.append('path')
+        .attr('d', 'M14 11a5 5 0 0 0-7.07 0l-3 3A5 5 0 0 0 11 21.07l1.71-1.71')
+        .attr('fill', 'none')
+        .attr('stroke', 'currentColor')
+        .attr('stroke-width', 1.8)
+        .attr('stroke-linecap', 'round')
+        .attr('stroke-linejoin', 'round');
+    }
+
+    return svg;
+  };
+
+  // ---------------------------------------------------------
   // Action buttons
   // ---------------------------------------------------------
 
@@ -667,13 +697,7 @@
         'Play this puzzle'
       );
 
-    link
-      .append('span')
-      .attr(
-        'class',
-        'action-icon'
-      )
-      .text('▶');
+    appendActionIcon(link.append('span').attr('class', 'action-icon'), 'play');
 
 
   };
@@ -714,13 +738,7 @@
         'View this puzzle on Logic Masters Germany'
       );
 
-    link
-      .append('span')
-      .attr(
-        'class',
-        'action-icon'
-      )
-      .text('');
+    appendActionIcon(link.append('span').attr('class', 'action-icon'), 'link');
 
 
   };
@@ -880,13 +898,7 @@
           'Play this puzzle'
         );
 
-      play
-        .append('span')
-        .attr(
-          'class',
-          'action-icon'
-        )
-        .text('▶');
+      appendActionIcon(play.append('span').attr('class', 'action-icon'), 'play');
 
       play
         .append('span')
@@ -925,13 +937,7 @@
           'View this puzzle on Logic Masters Germany'
         );
 
-      lmd
-        .append('span')
-        .attr(
-          'class',
-          'action-icon'
-        )
-        .text('');
+      appendActionIcon(lmd.append('span').attr('class', 'action-icon'), 'link');
 
       lmd
         .append('span')
@@ -972,10 +978,8 @@
           'alt',
           i.title || 'Puzzle'
         )
-        .attr(
-          'loading',
-          'eager'
-        );
+        .attr('loading', 'eager')
+        .attr('decoding', 'async');
     }
   };
 
@@ -2742,12 +2746,15 @@
         imageLink.append('img')
           .attr('src', puzzle.image)
           .attr('alt', `${puzzle.title || 'Puzzle'} preview`)
-          .attr('loading', index < 4 ? 'eager' : 'lazy');
+          .attr('loading', index < 2 ? 'eager' : 'lazy')
+          .attr('decoding', 'async');
       } else {
         imageLink.append('div').attr('class', 'gallery-image-placeholder')
           .append('span').text('Puzzle preview unavailable');
       }
-      imageLink.append('span').attr('class', 'gallery-image-overlay').text('OPEN PUZZLE');
+      const imageOverlay = imageLink.append('span').attr('class', 'gallery-image-overlay');
+      appendActionIcon(imageOverlay, 'play');
+      imageOverlay.append('span').text('OPEN PUZZLE');
 
       const body = card.append('div').attr('class', 'gallery-card-body');
       const top = body.append('div').attr('class', 'gallery-card-topline');
@@ -2776,16 +2783,18 @@
 
       const actions = body.append('div').attr('class', 'gallery-card-actions');
       if (puzzle.puzz) {
-        actions.append('a').attr('class', 'gallery-play-button')
+        const playButton = actions.append('a').attr('class', 'gallery-play-button')
           .attr('href', puzzle.puzz + (puzzle.qs || ''))
-          .attr('target', '_blank').attr('rel', 'noopener noreferrer')
-          .text('Play on SudokuPad');
+          .attr('target', '_blank').attr('rel', 'noopener noreferrer');
+        appendActionIcon(playButton, 'play');
+        playButton.append('span').text('Play on SudokuPad');
       }
       if (puzzle.lmd) {
-        actions.append('a').attr('class', 'gallery-lmd-link')
+        const lmdButton = actions.append('a').attr('class', 'gallery-lmd-link')
           .attr('href', lmdLink(puzzle.lmd))
-          .attr('target', '_blank').attr('rel', 'noopener noreferrer')
-          .text('LMD Link');
+          .attr('target', '_blank').attr('rel', 'noopener noreferrer');
+        appendActionIcon(lmdButton, 'link');
+        lmdButton.append('span').text('LMD Link');
       }
 
       card.on('pointermove', function (event) {
@@ -3142,14 +3151,7 @@
 
   async function fetchConfig() {
     const response =
-      await fetch(
-        confPath +
-          '?t=' +
-          Date.now(),
-        {
-          cache: 'no-store'
-        }
-      );
+      await fetch(confPath, { cache: 'no-cache' });
 
     if (!response.ok) {
       throw new Error(
@@ -3254,21 +3256,17 @@
           d.last_check
         );
 
-      await fetchUpdateLog();
-
       renderData(d);
 
       updateTimer();
 
-      setInterval(
-        updateTimer,
-        1000
-      );
+      setInterval(updateTimer, 1000);
+      setInterval(checkForUpdates, 30000);
 
-      setInterval(
-        checkForUpdates,
-        30000
-      );
+      // Render the puzzle archive immediately; the update history can load after it.
+      fetchUpdateLog().then(newEntryIds => {
+        renderUpdateMonitor(newEntryIds);
+      });
 
     } catch (error) {
       console.error(
