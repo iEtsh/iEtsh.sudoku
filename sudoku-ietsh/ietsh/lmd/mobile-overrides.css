@@ -715,8 +715,11 @@
         margin: 0;
     }
 
+    /* Keep the puzzle preview available when a row is tapped on mobile. */
     #tooltip {
-        display: none !important;
+        display: block !important;
+        width: min(220px, calc(100vw - 24px)) !important;
+        box-sizing: border-box !important;
     }
 
     .latest-card:hover,
