@@ -229,3 +229,23 @@
     .gallery-puzzle-card, .gallery-card-image img, .gallery-image-overlay, .gallery-rating-fill { transition: none !important; }
     .gallery-puzzle-card { transform: none !important; }
 }
+
+/* Keep the archive view switch visible in the page header. */
+.site-header .archive-view-switch {
+    flex: 0 0 auto;
+    margin-left: auto;
+}
+.site-header .live-status {
+    flex: 0 0 auto;
+    margin-left: 18px;
+}
+@media (max-width: 760px) {
+    .site-header .archive-view-switch {
+        order: 3;
+        width: 100%;
+        margin-left: 0;
+    }
+    .site-header .live-status {
+        margin-left: auto;
+    }
+}
