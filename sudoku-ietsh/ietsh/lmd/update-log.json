@@ -44077,5 +44077,16 @@
     "field": "rating",
     "previous": "89%",
     "current": "90%"
+  },
+  {
+    "id": "2026-10-27T19:11:09.484221Z-0",
+    "time": "2026-10-27T19:11:09.484221Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 46,
+    "current": 47
   }
 ]
