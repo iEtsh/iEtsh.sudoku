@@ -303,11 +303,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/505e2zbaw0",
       "lmd": "000UDT",
-      "solves": 151,
+      "solves": 152,
       "rating": "80%",
       "author_rated": false,
       "image": "images/000UDT.png",
-      "sudokupad_solves": 325
+      "sudokupad_solves": 326
     },
     {
       "num": 18,
@@ -562,5 +562,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-27T22:50:58.885068Z"
+  "last_check": "2026-10-27T23:01:18.898020Z"
 }
