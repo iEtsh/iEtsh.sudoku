@@ -44110,5 +44110,49 @@
     "field": "sudokupad_solves",
     "previous": 1690,
     "current": 1691
+  },
+  {
+    "id": "2026-10-27T22:50:58.895846Z-0",
+    "time": "2026-10-27T22:50:58.895846Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 53,
+    "current": 54
+  },
+  {
+    "id": "2026-10-27T22:50:58.895846Z-1",
+    "time": "2026-10-27T22:50:58.895846Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 153,
+    "current": 154
+  },
+  {
+    "id": "2026-10-27T22:50:58.895846Z-2",
+    "time": "2026-10-27T22:50:58.895846Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "solves",
+    "previous": 150,
+    "current": 151
+  },
+  {
+    "id": "2026-10-27T22:50:58.895846Z-3",
+    "time": "2026-10-27T22:50:58.895846Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 323,
+    "current": 325
   }
 ]
