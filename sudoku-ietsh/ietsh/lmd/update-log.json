@@ -43967,5 +43967,27 @@
     "field": "sudokupad_solves",
     "previous": 152,
     "current": 153
+  },
+  {
+    "id": "2026-10-27T11:21:06.300919Z-0",
+    "time": "2026-10-27T11:21:06.300919Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "solves",
+    "previous": 151,
+    "current": 152
+  },
+  {
+    "id": "2026-10-27T11:21:06.300919Z-1",
+    "time": "2026-10-27T11:21:06.300919Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "solves",
+    "previous": 55,
+    "current": 56
   }
 ]
