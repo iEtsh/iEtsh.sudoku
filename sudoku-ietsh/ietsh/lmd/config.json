@@ -53,7 +53,7 @@
       "puzz": "https://sudokupad.app/c5opq1vrkj",
       "lmd": "000VI2",
       "solves": 13,
-      "sudokupad_solves": 21,
+      "sudokupad_solves": 22,
       "rating": "84%",
       "image": "images/000VI2.png"
     },
@@ -562,5 +562,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-27T15:21:14.260359Z"
+  "last_check": "2026-10-27T15:31:12.576943Z"
 }
