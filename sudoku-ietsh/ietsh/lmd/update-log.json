@@ -44418,5 +44418,38 @@
     "field": "sudokupad_solves",
     "previous": 345,
     "current": 346
+  },
+  {
+    "id": "2026-10-28T20:11:16.684602Z-0",
+    "time": "2026-10-28T20:11:16.684602Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 47,
+    "current": 48
+  },
+  {
+    "id": "2026-10-28T20:11:16.684602Z-1",
+    "time": "2026-10-28T20:11:16.684602Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 55,
+    "current": 56
+  },
+  {
+    "id": "2026-10-28T20:11:16.684602Z-2",
+    "time": "2026-10-28T20:11:16.684602Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "solves",
+    "previous": 107,
+    "current": 108
   }
 ]
