@@ -44649,5 +44649,27 @@
     "field": "sudokupad_solves",
     "previous": 271,
     "current": 272
+  },
+  {
+    "id": "2026-10-29T03:11:01.796024Z-0",
+    "time": "2026-10-29T03:11:01.796024Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "solves",
+    "previous": 119,
+    "current": 120
+  },
+  {
+    "id": "2026-10-29T03:11:01.796024Z-1",
+    "time": "2026-10-29T03:11:01.796024Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots6",
+    "puzzleNum": 23,
+    "title": "Vibrant Spots VI - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 332,
+    "current": 333
   }
 ]
