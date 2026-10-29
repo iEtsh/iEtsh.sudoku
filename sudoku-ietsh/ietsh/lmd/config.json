@@ -233,11 +233,11 @@
       "stars": 4,
       "puzz": "https://sudokupad.app/pnkh0wymgo",
       "lmd": "000UR2",
-      "solves": 88,
+      "solves": 89,
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 188
+      "sudokupad_solves": 189
     },
     {
       "num": 23,
@@ -562,5 +562,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-29T06:41:16.800129Z"
+  "last_check": "2026-10-29T06:51:13.727988Z"
 }
