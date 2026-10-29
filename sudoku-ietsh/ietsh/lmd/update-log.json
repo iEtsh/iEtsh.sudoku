@@ -44550,5 +44550,38 @@
     "field": "sudokupad_solves",
     "previous": 232,
     "current": 233
+  },
+  {
+    "id": "2026-10-29T00:21:02.849473Z-0",
+    "time": "2026-10-29T00:21:02.849473Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 34,
+    "current": 35
+  },
+  {
+    "id": "2026-10-29T00:21:02.849473Z-1",
+    "time": "2026-10-29T00:21:02.849473Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "solves",
+    "previous": 94,
+    "current": 95
+  },
+  {
+    "id": "2026-10-29T00:21:02.849473Z-2",
+    "time": "2026-10-29T00:21:02.849473Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 233,
+    "current": 234
   }
 ]
