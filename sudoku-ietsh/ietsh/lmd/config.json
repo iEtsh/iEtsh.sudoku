@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 41,
+      "id": "ietsh-processor",
+      "title": "Processor",
+      "date": "30. October 2026, 14:33",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/2zp4wfcfc2",
+      "lmd": "000VSB",
+      "solves": 0,
+      "sudokupad_solves": null,
+      "rating": "N/A",
+      "image": "images/000VSB.png"
+    },
+    {
       "num": 40,
       "id": "ietsh-clasico",
       "title": "Clasico",
@@ -562,5 +576,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-30T13:31:12.998492Z"
+  "last_check": "2026-10-30T13:41:32.043557Z"
 }
