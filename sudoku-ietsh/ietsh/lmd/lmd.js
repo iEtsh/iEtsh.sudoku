@@ -2698,7 +2698,11 @@
           distributionSwitch.selectAll('.gallery-distribution-option')
             .classed('is-active', function () { return this.dataset.metric === metric; })
             .attr('aria-pressed', function () { return String(this.dataset.metric === metric); });
-          drawDistribution(metric, true);
+          if (distributionHasEntered) {
+            drawDistribution(metric, true);
+          } else {
+            distributionMetric = metric;
+          }
           renderBars(metric, true);
           chartHead.select('.gallery-chart-key').text(metric === 'solves' ? 'LMD SOLVES' : 'SUDOKUPAD SOLVES');
         });
@@ -2819,7 +2823,6 @@
       distributionSvg.attr('aria-label', `${metric === 'solves' ? 'LMD' : 'SudokuPad'} solve distribution across ${sorted.length} puzzles`);
     };
 
-    drawDistribution(distributionMetric, false);
     const runDistributionScan = () => {
       if (distributionMotionReduced || !distributionHasEntered) return;
       distributionScan.interrupt().attr('opacity', 0);
