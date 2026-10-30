@@ -45366,5 +45366,16 @@
     "field": "sudokupad_solves",
     "previous": 5,
     "current": 6
+  },
+  {
+    "id": "2026-10-30T15:31:08.181161Z-0",
+    "time": "2026-10-30T15:31:08.181161Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "solves",
+    "previous": 2,
+    "current": 3
   }
 ]
