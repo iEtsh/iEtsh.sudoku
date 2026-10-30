@@ -8,10 +8,10 @@
       "date": "30. October 2026, 14:33",
       "stars": 2,
       "author_rated": true,
-      "puzz": "https://sudokupad.app/2zp4wfcfc2",
+      "puzz": "https://sudokupad.app/2zp4wfcfc2?setting-outlinesondigits=true",
       "lmd": "000VSB",
-      "solves": 1,
-      "sudokupad_solves": 5,
+      "solves": 2,
+      "sudokupad_solves": 6,
       "rating": "N/A",
       "image": "images/000VSB.png"
     },
@@ -576,5 +576,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-30T14:51:16.970707Z"
+  "last_check": "2026-10-30T15:01:21.233210Z"
 }
