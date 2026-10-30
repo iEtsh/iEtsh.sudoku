@@ -10,8 +10,8 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/2zp4wfcfc2",
       "lmd": "000VSB",
-      "solves": 0,
-      "sudokupad_solves": 3,
+      "solves": 1,
+      "sudokupad_solves": 5,
       "rating": "N/A",
       "image": "images/000VSB.png"
     },
@@ -576,5 +576,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-10-30T14:30:59.318852Z"
+  "last_check": "2026-10-30T14:41:06.694963Z"
 }
