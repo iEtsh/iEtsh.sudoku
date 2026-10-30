@@ -45177,5 +45177,27 @@
     "field": "solves",
     "previous": 82,
     "current": 83
+  },
+  {
+    "id": "2026-10-30T07:41:14.446717Z-0",
+    "time": "2026-10-30T07:41:14.446717Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "solves",
+    "previous": 90,
+    "current": 91
+  },
+  {
+    "id": "2026-10-30T07:41:14.446717Z-1",
+    "time": "2026-10-30T07:41:14.446717Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 190,
+    "current": 191
   }
 ]
