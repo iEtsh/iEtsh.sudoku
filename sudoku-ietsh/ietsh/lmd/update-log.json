@@ -45597,5 +45597,16 @@
     "field": "sudokupad_solves",
     "previous": 17,
     "current": 18
+  },
+  {
+    "id": "2026-10-30T18:41:16.247242Z-0",
+    "time": "2026-10-30T18:41:16.247242Z",
+    "type": "Date Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "date",
+    "previous": "30. October 2026, 14:33",
+    "current": "24. October 2026, 08:21"
   }
 ]
