@@ -45619,5 +45619,27 @@
     "field": "date",
     "previous": "24. October 2026, 08:21",
     "current": "30. October 2026, 14:33"
+  },
+  {
+    "id": "2026-10-30T19:01:16.678355Z-0",
+    "time": "2026-10-30T19:01:16.678355Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "sudokupad_solves",
+    "previous": 18,
+    "current": 19
+  },
+  {
+    "id": "2026-10-30T19:01:16.678355Z-1",
+    "time": "2026-10-30T19:01:16.678355Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 115,
+    "current": 116
   }
 ]
