@@ -45718,5 +45718,27 @@
     "field": "sudokupad_solves",
     "previous": 21,
     "current": 22
+  },
+  {
+    "id": "2026-10-30T20:01:03.886353Z-0",
+    "time": "2026-10-30T20:01:03.886353Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1697,
+    "current": 1698
+  },
+  {
+    "id": "2026-10-30T20:01:03.886353Z-1",
+    "time": "2026-10-30T20:01:03.886353Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 234,
+    "current": 235
   }
 ]
