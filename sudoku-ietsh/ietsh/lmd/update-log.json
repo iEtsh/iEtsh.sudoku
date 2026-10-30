@@ -45155,5 +45155,27 @@
     "field": "sudokupad_solves",
     "previous": 234,
     "current": 235
+  },
+  {
+    "id": "2026-10-30T06:21:05.117557Z-0",
+    "time": "2026-10-30T06:21:05.117557Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-10-30T06:21:05.117557Z-1",
+    "time": "2026-10-30T06:21:05.117557Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 82,
+    "current": 83
   }
 ]
