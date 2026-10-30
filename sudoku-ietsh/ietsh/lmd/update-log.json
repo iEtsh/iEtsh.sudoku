@@ -45740,5 +45740,27 @@
     "field": "sudokupad_solves",
     "previous": 234,
     "current": 235
+  },
+  {
+    "id": "2026-10-30T20:21:06.361858Z-0",
+    "time": "2026-10-30T20:21:06.361858Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "sudokupad_solves",
+    "previous": 22,
+    "current": 23
+  },
+  {
+    "id": "2026-10-30T20:21:06.361858Z-1",
+    "time": "2026-10-30T20:21:06.361858Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 23,
+    "current": 24
   }
 ]
