@@ -46136,5 +46136,27 @@
     "field": "sudokupad_solves",
     "previous": 1698,
     "current": 1699
+  },
+  {
+    "id": "2026-10-31T12:31:17.727628Z-0",
+    "time": "2026-10-31T12:31:17.727628Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 25,
+    "current": 26
+  },
+  {
+    "id": "2026-10-31T12:31:17.727628Z-1",
+    "time": "2026-10-31T12:31:17.727628Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 96,
+    "current": 97
   }
 ]
