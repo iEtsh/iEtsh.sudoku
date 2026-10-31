@@ -45982,5 +45982,60 @@
     "field": "sudokupad_solves",
     "previous": 306,
     "current": 307
+  },
+  {
+    "id": "2026-10-31T03:41:16.478079Z-0",
+    "time": "2026-10-31T03:41:16.478079Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "sudokupad_solves",
+    "previous": 24,
+    "current": 25
+  },
+  {
+    "id": "2026-10-31T03:41:16.478079Z-1",
+    "time": "2026-10-31T03:41:16.478079Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "solves",
+    "previous": 208,
+    "current": 209
+  },
+  {
+    "id": "2026-10-31T03:41:16.478079Z-2",
+    "time": "2026-10-31T03:41:16.478079Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "solves",
+    "previous": 107,
+    "current": 108
+  },
+  {
+    "id": "2026-10-31T03:41:16.478079Z-3",
+    "time": "2026-10-31T03:41:16.478079Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "sudokupad_solves",
+    "previous": 247,
+    "current": 248
+  },
+  {
+    "id": "2026-10-31T03:41:16.478079Z-4",
+    "time": "2026-10-31T03:41:16.478079Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink",
+    "puzzleNum": 15,
+    "title": "Blink",
+    "field": "solves",
+    "previous": 161,
+    "current": 162
   }
 ]
