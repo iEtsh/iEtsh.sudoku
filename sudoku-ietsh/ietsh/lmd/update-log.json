@@ -46622,5 +46622,38 @@
     "field": "sudokupad_solves",
     "previous": 22,
     "current": 23
+  },
+  {
+    "id": "2026-11-01T09:01:15.309243Z-0",
+    "time": "2026-11-01T09:01:15.309243Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 23,
+    "current": 24
+  },
+  {
+    "id": "2026-11-01T09:01:15.309243Z-1",
+    "time": "2026-11-01T09:01:15.309243Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "solves",
+    "previous": 39,
+    "current": 40
+  },
+  {
+    "id": "2026-11-01T09:01:15.309243Z-2",
+    "time": "2026-11-01T09:01:15.309243Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 97,
+    "current": 98
   }
 ]
