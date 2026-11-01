@@ -46402,5 +46402,16 @@
     "field": "sudokupad_solves",
     "previous": 45,
     "current": 46
+  },
+  {
+    "id": "2026-11-01T02:51:06.671171Z-0",
+    "time": "2026-11-01T02:51:06.671171Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 69,
+    "current": 70
   }
 ]
