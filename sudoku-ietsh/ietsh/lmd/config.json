@@ -220,8 +220,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/21edcgjbyj",
       "lmd": "000V1L",
-      "solves": 56,
-      "sudokupad_solves": 160,
+      "solves": 57,
+      "sudokupad_solves": 161,
       "rating": "91%",
       "image": "images/000V1L.jpg"
     },
@@ -307,7 +307,7 @@
       "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 431
+      "sudokupad_solves": 432
     },
     {
       "num": 20,
@@ -590,5 +590,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-11-01T14:51:23.122861Z"
+  "last_check": "2026-11-01T15:01:04.545686Z"
 }

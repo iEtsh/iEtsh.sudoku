@@ -46908,5 +46908,38 @@
     "field": "sudokupad_solves",
     "previous": 35,
     "current": 36
+  },
+  {
+    "id": "2026-11-01T15:01:04.556023Z-0",
+    "time": "2026-11-01T15:01:04.556023Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-11-01T15:01:04.556023Z-1",
+    "time": "2026-11-01T15:01:04.556023Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "sudokupad_solves",
+    "previous": 160,
+    "current": 161
+  },
+  {
+    "id": "2026-11-01T15:01:04.556023Z-2",
+    "time": "2026-11-01T15:01:04.556023Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 431,
+    "current": 432
   }
 ]
