@@ -46864,5 +46864,38 @@
     "field": "rating",
     "previous": "N/A",
     "current": "98%"
+  },
+  {
+    "id": "2026-11-01T14:31:22.211273Z-0",
+    "time": "2026-11-01T14:31:22.211273Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 34,
+    "current": 35
+  },
+  {
+    "id": "2026-11-01T14:31:22.211273Z-1",
+    "time": "2026-11-01T14:31:22.211273Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "solves",
+    "previous": 83,
+    "current": 84
+  },
+  {
+    "id": "2026-11-01T14:31:22.211273Z-2",
+    "time": "2026-11-01T14:31:22.211273Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 267,
+    "current": 268
   }
 ]
