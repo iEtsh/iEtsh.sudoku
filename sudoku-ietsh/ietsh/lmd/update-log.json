@@ -47447,5 +47447,16 @@
     "field": "sudokupad_solves",
     "previous": 71,
     "current": 73
+  },
+  {
+    "id": "2026-11-01T19:31:03.843074Z-0",
+    "time": "2026-11-01T19:31:03.843074Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 73,
+    "current": 74
   }
 ]
