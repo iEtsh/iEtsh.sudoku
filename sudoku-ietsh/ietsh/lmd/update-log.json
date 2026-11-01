@@ -46312,5 +46312,29 @@
     "field": "sudokupad_solves",
     "previous": 233,
     "current": 234
+  },
+  {
+    "id": "2026-11-01T00:31:19.079422Z-0",
+    "time": "2026-11-01T00:31:19.079422Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 42,
+      "id": "ietsh-police",
+      "title": "Police",
+      "date": "01. November 2026, 01:25",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/j3sj7n78id?setting-outlinesondigits=true",
+      "lmd": "000VTI",
+      "solves": 0,
+      "sudokupad_solves": 4,
+      "rating": "N/A",
+      "image": "images/000VTI.png"
+    }
   }
 ]
