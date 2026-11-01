@@ -47172,5 +47172,49 @@
     "field": "sudokupad_solves",
     "previous": 50,
     "current": 53
+  },
+  {
+    "id": "2026-11-01T17:31:03.044930Z-0",
+    "time": "2026-11-01T17:31:03.044930Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "solves",
+    "previous": 17,
+    "current": 20
+  },
+  {
+    "id": "2026-11-01T17:31:03.044930Z-1",
+    "time": "2026-11-01T17:31:03.044930Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 53,
+    "current": 58
+  },
+  {
+    "id": "2026-11-01T17:31:03.044930Z-2",
+    "time": "2026-11-01T17:31:03.044930Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 113,
+    "current": 114
+  },
+  {
+    "id": "2026-11-01T17:31:03.044930Z-3",
+    "time": "2026-11-01T17:31:03.044930Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 273,
+    "current": 274
   }
 ]
