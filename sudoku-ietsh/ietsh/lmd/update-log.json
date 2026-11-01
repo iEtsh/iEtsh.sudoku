@@ -46941,5 +46941,49 @@
     "field": "sudokupad_solves",
     "previous": 431,
     "current": 432
+  },
+  {
+    "id": "2026-11-01T15:11:04.224028Z-0",
+    "time": "2026-11-01T15:11:04.224028Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 36,
+    "current": 37
+  },
+  {
+    "id": "2026-11-01T15:11:04.224028Z-1",
+    "time": "2026-11-01T15:11:04.224028Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink4",
+    "puzzleNum": 20,
+    "title": "Blink IV",
+    "field": "sudokupad_solves",
+    "previous": 575,
+    "current": 576
+  },
+  {
+    "id": "2026-11-01T15:11:04.224028Z-2",
+    "time": "2026-11-01T15:11:04.224028Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "solves",
+    "previous": 125,
+    "current": 126
+  },
+  {
+    "id": "2026-11-01T15:11:04.224028Z-3",
+    "time": "2026-11-01T15:11:04.224028Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots",
+    "puzzleNum": 13,
+    "title": "Vibrant Spots",
+    "field": "sudokupad_solves",
+    "previous": 275,
+    "current": 276
   }
 ]
