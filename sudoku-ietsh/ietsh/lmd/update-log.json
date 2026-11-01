@@ -47084,5 +47084,38 @@
     "field": "sudokupad_solves",
     "previous": 45,
     "current": 47
+  },
+  {
+    "id": "2026-11-01T16:51:00.668003Z-0",
+    "time": "2026-11-01T16:51:00.668003Z",
+    "type": "Difficulty Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "stars",
+    "previous": 2,
+    "current": 1
+  },
+  {
+    "id": "2026-11-01T16:51:00.668003Z-1",
+    "time": "2026-11-01T16:51:00.668003Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "solves",
+    "previous": 15,
+    "current": 16
+  },
+  {
+    "id": "2026-11-01T16:51:00.668003Z-2",
+    "time": "2026-11-01T16:51:00.668003Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 47,
+    "current": 49
   }
 ]

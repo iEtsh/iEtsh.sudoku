@@ -6,12 +6,12 @@
       "id": "ietsh-police",
       "title": "Police",
       "date": "01. November 2026, 01:25",
-      "stars": 2,
+      "stars": 1,
       "author_rated": false,
       "puzz": "https://sudokupad.app/j3sj7n78id?setting-outlinesondigits=true",
       "lmd": "000VTI",
-      "solves": 15,
-      "sudokupad_solves": 47,
+      "solves": 16,
+      "sudokupad_solves": 49,
       "rating": "98%",
       "image": "images/000VTI.png"
     },
@@ -590,5 +590,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-11-01T16:41:10.466469Z"
+  "last_check": "2026-11-01T16:51:00.657553Z"
 }
