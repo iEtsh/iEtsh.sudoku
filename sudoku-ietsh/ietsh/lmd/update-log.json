@@ -48052,5 +48052,16 @@
     "field": "sudokupad_solves",
     "previous": 1700,
     "current": 1701
+  },
+  {
+    "id": "2026-11-02T08:21:12.933489Z-0",
+    "time": "2026-11-02T08:21:12.933489Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "solves",
+    "previous": 153,
+    "current": 154
   }
 ]
