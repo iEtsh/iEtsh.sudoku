@@ -1,0 +1,41 @@
+name: Export LMD Analytics Workbook
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Update Puzzle Data
+      - Sync LMD Analytics to Supabase
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  export:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install export dependencies
+        run: pip install supabase openpyxl
+      - name: Export complete Supabase analytics
+        env:
+          SUPABASE_URL: \${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: \${{ secrets.SUPABASE_KEY }}
+          OUTPUT_XLSX: iEtsh_LMD_Analytics.xlsx
+        run: python sudoku-ietsh/ietsh/lmd/export_analytics.py
+      - name: Upload Excel workbook
+        uses: actions/upload-artifact@v4
+        with:
+          name: iEtsh-LMD-Analytics
+          path: iEtsh_LMD_Analytics.xlsx
+          if-no-files-found: error
+          retention-days: 90
