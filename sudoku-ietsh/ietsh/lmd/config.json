@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/j3sj7n78id?setting-outlinesondigits=true",
       "lmd": "000VTI",
       "solves": 33,
-      "sudokupad_solves": 96,
+      "sudokupad_solves": 97,
       "rating": "96%",
       "image": "images/000VTI.png"
     },
@@ -165,7 +165,7 @@
       "puzz": "https://sudokupad.app/syuuh239xm",
       "lmd": "000VA7",
       "solves": 36,
-      "sudokupad_solves": 89,
+      "sudokupad_solves": 90,
       "rating": "91%",
       "image": "images/000VA7.png"
     },
@@ -590,5 +590,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-11-02T06:50:56.974338Z"
+  "last_check": "2026-11-02T07:01:15.323362Z"
 }
