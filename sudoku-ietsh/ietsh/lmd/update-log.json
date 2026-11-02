@@ -48514,5 +48514,27 @@
     "field": "sudokupad_solves",
     "previous": 1258,
     "current": 1259
+  },
+  {
+    "id": "2026-11-02T19:01:17.656594Z-0",
+    "time": "2026-11-02T19:01:17.656594Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 116,
+    "current": 117
+  },
+  {
+    "id": "2026-11-02T19:01:17.656594Z-1",
+    "time": "2026-11-02T19:01:17.656594Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 274,
+    "current": 275
   }
 ]
