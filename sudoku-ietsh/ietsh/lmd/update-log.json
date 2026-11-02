@@ -47909,5 +47909,16 @@
     "field": "sudokupad_solves",
     "previous": 92,
     "current": 93
+  },
+  {
+    "id": "2026-11-02T03:11:12.987482Z-0",
+    "time": "2026-11-02T03:11:12.987482Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "solves",
+    "previous": 32,
+    "current": 33
   }
 ]
