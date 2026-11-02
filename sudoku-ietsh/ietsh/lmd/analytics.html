@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>iEtsh | LMD Analytics</title>
+<link rel="stylesheet" href="../../../lib/base.css">
+<style>
+.analytics-link{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border:1px solid rgba(32,184,197,.35);border-radius:7px;color:#8bdde2;text-decoration:none;font:600 11px/1.2 inherit;letter-spacing:.09em;white-space:nowrap;transition:background .2s,border-color .2s}
+.analytics-link:hover{background:rgba(32,184,197,.1);border-color:#20b8c5}
+.analytics-page{min-height:100vh;background:#0d1015;color:#e9eef4;padding:28px;box-sizing:border-box;font-family:Arial,sans-serif}
+.analytics-wrap{max-width:1440px;margin:0 auto}
+.analytics-top{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.analytics-top h1{font-size:clamp(23px,4vw,36px);margin:0 0 7px}
+.analytics-top p{color:#93a1b2;margin:0;font-size:14px}
+.analytics-actions{display:flex;gap:10px;flex-wrap:wrap}
+.analytics-actions a{color:#dffbfc;text-decoration:none;border:1px solid #315365;border-radius:7px;padding:10px 14px;font-size:13px}
+.analytics-frame{height:calc(100vh - 150px);min-height:620px;border:1px solid #263746;border-radius:10px;overflow:hidden;background:#fff}
+.analytics-frame iframe{width:100%;height:100%;border:0;background:#fff}
+.analytics-note{color:#93a1b2;font-size:12px;line-height:1.6;margin-top:12px}
+@media(max-width:640px){.analytics-page{padding:16px}.analytics-frame{height:78vh;min-height:520px}}
+</style>
+</head>
+<body class="analytics-page">
+<main class="analytics-wrap">
+<header class="analytics-top">
+<div><h1>iEtsh · LMD Analytics</h1><p>Live workbook view · Automatically refreshed after puzzle data updates</p></div>
+<nav class="analytics-actions">
+<a href="./">← Puzzle archive</a>
+<a href="./exports/iEtsh_LMD_Analytics.xlsx" target="_blank" rel="noopener">Open workbook</a>
+<a href="./exports/iEtsh_LMD_Analytics.xlsx" download>Download Excel</a>
+</nav>
+</header>
+<section class="analytics-frame" aria-label="Embedded Excel analytics workbook">
+<iframe title="iEtsh LMD Analytics workbook" src="https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fietsh.github.io%2FiEtsh%2FiEtsh.sudoku%2Fsudoku-ietsh%2Fietsh%2Flmd%2Fexports%2FiEtsh_LMD_Analytics.xlsx" loading="lazy" allowfullscreen></iframe>
+</section>
+<p class="analytics-note">The embedded workbook is read-only. If the preview does not load, use “Open workbook” or “Download Excel”. The workbook link stays the same while its contents are replaced by each successful data refresh.</p>
+</main>
+</body>
+</html>
