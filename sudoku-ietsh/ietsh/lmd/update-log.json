@@ -48349,5 +48349,16 @@
     "field": "rating",
     "previous": "84%",
     "current": "85%"
+  },
+  {
+    "id": "2026-11-02T16:01:13.544070Z-0",
+    "time": "2026-11-02T16:01:13.544070Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "solves",
+    "previous": 6,
+    "current": 7
   }
 ]
