@@ -21,12 +21,12 @@
       "title": "Processor",
       "date": "30. October 2026, 14:33",
       "stars": 2,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/2zp4wfcfc2?setting-outlinesondigits=true",
       "lmd": "000VSB",
-      "solves": 11,
+      "solves": 12,
       "sudokupad_solves": 49,
-      "rating": "N/A",
+      "rating": "88%",
       "image": "images/000VSB.png"
     },
     {
@@ -66,7 +66,7 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/r544zk5sol",
       "lmd": "000VIZ",
-      "solves": 10,
+      "solves": 11,
       "sudokupad_solves": 26,
       "rating": "N/A",
       "image": "images/000VIZ.png"
@@ -590,5 +590,5 @@
       "sudokupad_solves": 146
     }
   ],
-  "last_check": "2026-11-02T15:21:10.576848Z"
+  "last_check": "2026-11-02T15:31:07.072385Z"
 }
