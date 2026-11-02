@@ -28,8 +28,8 @@ jobs:
         run: pip install supabase openpyxl
       - name: Export complete Supabase analytics
         env:
-          SUPABASE_URL: \${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: \${{ secrets.SUPABASE_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           OUTPUT_XLSX: iEtsh_LMD_Analytics.xlsx
         run: python sudoku-ietsh/ietsh/lmd/export_analytics.py
       - name: Upload Excel workbook
