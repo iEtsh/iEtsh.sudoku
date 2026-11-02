@@ -48030,5 +48030,27 @@
     "field": "sudokupad_solves",
     "previous": 99,
     "current": 100
+  },
+  {
+    "id": "2026-11-02T08:11:14.099465Z-0",
+    "time": "2026-11-02T08:11:14.099465Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 100,
+    "current": 101
+  },
+  {
+    "id": "2026-11-02T08:11:14.099465Z-1",
+    "time": "2026-11-02T08:11:14.099465Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1700,
+    "current": 1701
   }
 ]
