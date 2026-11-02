@@ -48305,5 +48305,49 @@
     "field": "rating",
     "previous": "96%",
     "current": "97%"
+  },
+  {
+    "id": "2026-11-02T15:51:24.932109Z-0",
+    "time": "2026-11-02T15:51:24.932109Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "solves",
+    "previous": 2,
+    "current": 6
+  },
+  {
+    "id": "2026-11-02T15:51:24.932109Z-1",
+    "time": "2026-11-02T15:51:24.932109Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "solves",
+    "previous": 49,
+    "current": 50
+  },
+  {
+    "id": "2026-11-02T15:51:24.932109Z-2",
+    "time": "2026-11-02T15:51:24.932109Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "solves",
+    "previous": 13,
+    "current": 14
+  },
+  {
+    "id": "2026-11-02T15:51:24.932109Z-3",
+    "time": "2026-11-02T15:51:24.932109Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "rating",
+    "previous": "84%",
+    "current": "85%"
   }
 ]
