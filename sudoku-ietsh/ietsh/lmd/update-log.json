@@ -48580,5 +48580,27 @@
     "field": "sudokupad_solves",
     "previous": 119,
     "current": 120
+  },
+  {
+    "id": "2026-11-02T22:11:16.384257Z-0",
+    "time": "2026-11-02T22:11:16.384257Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-coin",
+    "puzzleNum": 25,
+    "title": "Coin",
+    "field": "sudokupad_solves",
+    "previous": 1701,
+    "current": 1702
+  },
+  {
+    "id": "2026-11-02T22:11:16.384257Z-1",
+    "time": "2026-11-02T22:11:16.384257Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 329,
+    "current": 330
   }
 ]
