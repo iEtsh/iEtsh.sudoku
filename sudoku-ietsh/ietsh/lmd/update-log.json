@@ -48459,5 +48459,16 @@
     "field": "sudokupad_solves",
     "previous": 328,
     "current": 329
+  },
+  {
+    "id": "2026-11-02T16:41:01.460976Z-0",
+    "time": "2026-11-02T16:41:01.460976Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "solves",
+    "previous": 153,
+    "current": 154
   }
 ]
