@@ -48602,5 +48602,27 @@
     "field": "sudokupad_solves",
     "previous": 329,
     "current": 330
+  },
+  {
+    "id": "2026-11-02T22:31:19.006714Z-0",
+    "time": "2026-11-02T22:31:19.006714Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 120,
+    "current": 121
+  },
+  {
+    "id": "2026-11-02T22:31:19.006714Z-1",
+    "time": "2026-11-02T22:31:19.006714Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "sudokupad_solves",
+    "previous": 51,
+    "current": 52
   }
 ]
