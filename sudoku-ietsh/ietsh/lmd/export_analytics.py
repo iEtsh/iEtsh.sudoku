@@ -1,0 +1,325 @@
+#!/usr/bin/env python3
+"""Export the complete LMD Supabase analytics database to a formatted Excel workbook."""
+import os
+from collections import defaultdict
+from datetime import datetime, timezone
+from pathlib import Path
+
+from supabase import create_client
+from openpyxl import Workbook
+from openpyxl.chart import LineChart, BarChart, Reference
+from openpyxl.chart.label import DataLabelList
+from openpyxl.formatting.rule import ColorScaleRule, DataBarRule
+from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
+from openpyxl.worksheet.table import Table, TableStyleInfo
+from openpyxl.utils import get_column_letter
+
+ROOT = Path(__file__).resolve().parent
+OUTPUT = Path(os.environ.get("OUTPUT_XLSX", ROOT / "iEtsh_LMD_Analytics.xlsx"))
+PAGE_SIZE = 1000
+
+NAVY = "14243A"
+BLUE = "2673B8"
+CYAN = "20B8C5"
+PALE = "EAF2F8"
+LIGHT = "F4F7FA"
+WHITE = "FFFFFF"
+GREEN = "16856B"
+ORANGE = "E69A36"
+RED = "C94C4C"
+GREY = "68788A"
+
+
+def fetch_all(client, table, order_column):
+    rows, offset = [], 0
+    while True:
+        response = (
+            client.table(table).select("*").order(order_column)
+            .range(offset, offset + PAGE_SIZE - 1).execute()
+        )
+        batch = response.data or []
+        rows.extend(batch)
+        if len(batch) < PAGE_SIZE:
+            break
+        offset += PAGE_SIZE
+    return rows
+
+
+def as_dt(value):
+    if not value:
+        return None
+    if isinstance(value, datetime):
+        return value.replace(tzinfo=None)
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00")).replace(tzinfo=None)
+    except (TypeError, ValueError):
+        return None
+
+
+def style_title(ws, title, subtitle, end_col):
+    ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=end_col)
+    c = ws.cell(1, 1, title)
+    c.font = Font(name="Aptos Display", size=20, bold=True, color=WHITE)
+    c.fill = PatternFill("solid", fgColor=NAVY)
+    c.alignment = Alignment(vertical="center")
+    ws.row_dimensions[1].height = 36
+    ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=end_col)
+    c = ws.cell(2, 1, subtitle)
+    c.font = Font(name="Aptos", size=10, italic=True, color=GREY)
+    c.fill = PatternFill("solid", fgColor=PALE)
+    ws.row_dimensions[2].height = 23
+
+
+def write_table(ws, title, headers, rows, table_name, widths=None):
+    style_title(ws, title, f"{len(rows):,} records | Source: Supabase LMD analytics", len(headers))
+    header_row = 4
+    for col, header in enumerate(headers, 1):
+        cell = ws.cell(header_row, col, header)
+        cell.font = Font(bold=True, color=WHITE)
+        cell.fill = PatternFill("solid", fgColor=BLUE)
+        cell.alignment = Alignment(wrap_text=True, vertical="center")
+    ws.row_dimensions[header_row].height = 30
+    for r_idx, row in enumerate(rows, header_row + 1):
+        for c_idx, value in enumerate(row, 1):
+            cell = ws.cell(r_idx, c_idx, value)
+            cell.alignment = Alignment(vertical="top")
+            if r_idx % 2 == 0:
+                cell.fill = PatternFill("solid", fgColor=LIGHT)
+    last_row = header_row + len(rows)
+    if rows:
+        ref = f"A{header_row}:{get_column_letter(len(headers))}{last_row}"
+        tab = Table(displayName=table_name, ref=ref)
+        tab.tableStyleInfo = TableStyleInfo(name="TableStyleMedium2", showRowStripes=True,
+                                            showColumnStripes=False, showFirstColumn=False,
+                                            showLastColumn=False)
+        ws.add_table(tab)
+    ws.freeze_panes = "A5"
+    ws.auto_filter.ref = f"A{header_row}:{get_column_letter(len(headers))}{max(last_row, header_row)}"
+    ws.sheet_view.showGridLines = False
+    for col, header in enumerate(headers, 1):
+        width = (widths or {}).get(header, min(max(len(header) + 3, 14), 30))
+        ws.column_dimensions[get_column_letter(col)].width = width
+    return header_row, last_row
+
+
+def main():
+    url = os.environ["SUPABASE_URL"].rstrip("/")
+    key = os.environ["SUPABASE_KEY"]
+    client = create_client(url, key)
+
+    puzzles = fetch_all(client, "lmd_puzzles", "lmd_code")
+    snapshots = fetch_all(client, "lmd_puzzle_snapshots", "captured_at")
+    if not puzzles:
+        raise RuntimeError("Supabase returned no lmd_puzzles rows; refusing to create an empty workbook.")
+
+    puzzle_by_code = {p["lmd_code"]: p for p in puzzles}
+    snapshots.sort(key=lambda x: (x.get("captured_at") or "", x.get("id") or 0))
+    now = datetime.now(timezone.utc).replace(microsecond=0)
+    wb = Workbook()
+    dash = wb.active
+    dash.title = "Executive Dashboard"
+    dash.sheet_view.showGridLines = False
+    dash.merge_cells("A1:L1")
+    dash["A1"] = "iEtsh | LMD Analytics"
+    dash["A1"].font = Font(name="Aptos Display", size=24, bold=True, color=WHITE)
+    dash["A1"].fill = PatternFill("solid", fgColor=NAVY)
+    dash["A1"].alignment = Alignment(vertical="center")
+    dash.row_dimensions[1].height = 46
+    dash.merge_cells("A2:L2")
+    dash["A2"] = f"Complete database export • Generated {now.isoformat()} • Historical snapshots from Supabase"
+    dash["A2"].font = Font(size=10, italic=True, color=GREY)
+    dash["A2"].fill = PatternFill("solid", fgColor=PALE)
+
+    active = [p for p in puzzles if p.get("is_active", True)]
+    total_lmd = sum(p.get("lmd_solves") or 0 for p in active)
+    total_sp = sum(p.get("sudokupad_solves") or 0 for p in active)
+    ratings = [p["rating_percent"] for p in active if p.get("rating_percent") is not None]
+    metrics = [
+        ("TOTAL PUZZLES", len(puzzles)),
+        ("ACTIVE PUZZLES", len(active)),
+        ("HISTORICAL SNAPSHOTS", len(snapshots)),
+        ("LMD SOLVES", total_lmd),
+        ("SUDOKUPAD SOLVES", total_sp),
+        ("AVG. RATING", round(sum(ratings) / len(ratings), 1) if ratings else None),
+    ]
+    positions = [("A4", "A5"), ("C4", "C5"), ("E4", "E5"), ("G4", "G5"), ("I4", "I5"), ("K4", "K5")]
+    for (label, value), (label_cell, value_cell) in zip(metrics, positions):
+        dash[label_cell] = label
+        dash[label_cell].font = Font(bold=True, size=9, color=GREY)
+        dash[label_cell].fill = PatternFill("solid", fgColor=PALE)
+        dash[value_cell] = value
+        dash[value_cell].font = Font(bold=True, size=19, color=NAVY)
+        dash[value_cell].fill = PatternFill("solid", fgColor=LIGHT)
+        dash[value_cell].number_format = '0.0"%"' if label == "AVG. RATING" else '#,##0'
+
+    # Aggregate each captured timestamp across puzzles for comparable platform totals.
+    by_time = defaultdict(lambda: {"lmd": 0, "sp": 0, "rating_sum": 0, "rating_count": 0})
+    for snap in snapshots:
+        stamp = snap.get("captured_at")
+        if not stamp:
+            continue
+        bucket = by_time[stamp]
+        bucket["lmd"] += snap.get("lmd_solves") or 0
+        bucket["sp"] += snap.get("sudokupad_solves") or 0
+        if snap.get("rating_percent") is not None:
+            bucket["rating_sum"] += snap["rating_percent"]
+            bucket["rating_count"] += 1
+    trend_rows = []
+    for stamp in sorted(by_time):
+        b = by_time[stamp]
+        trend_rows.append([as_dt(stamp), b["lmd"], b["sp"],
+                           round(b["rating_sum"] / b["rating_count"], 2) if b["rating_count"] else None])
+    dash["A8"] = "Historical database trend"
+    dash["A8"].font = Font(bold=True, size=14, color=NAVY)
+    trend_headers = ["Captured At", "LMD Solves (snapshot sum)", "SudokuPad Solves (snapshot sum)", "Average Rating %"]
+    for col, h in enumerate(trend_headers, 1):
+        dash.cell(9, col, h).font = Font(bold=True, color=WHITE)
+        dash.cell(9, col).fill = PatternFill("solid", fgColor=BLUE)
+    for ri, row in enumerate(trend_rows, 10):
+        for ci, val in enumerate(row, 1):
+            dash.cell(ri, ci, val)
+        dash.cell(ri, 1).number_format = "yyyy-mm-dd hh:mm"
+    if trend_rows:
+        line = LineChart()
+        line.title = "Recorded solve totals over time"
+        line.y_axis.title = "Solves"
+        line.x_axis.title = "Capture time"
+        line.height, line.width = 8, 16
+        line.add_data(Reference(dash, min_col=2, max_col=3, min_row=9, max_row=9 + len(trend_rows)), titles_from_data=True)
+        line.set_categories(Reference(dash, min_col=1, min_row=10, max_row=9 + len(trend_rows)))
+        line.style = 13
+        dash.add_chart(line, "F8")
+
+    # Top puzzles by current combined solves.
+    top = sorted(active, key=lambda p: (p.get("lmd_solves") or 0) + (p.get("sudokupad_solves") or 0), reverse=True)[:12]
+    top_start = max(12, 10 + len(trend_rows) + 2)
+    dash.cell(top_start, 1, "Top puzzles by current combined solves").font = Font(bold=True, size=14, color=NAVY)
+    dash.cell(top_start + 1, 1, "Puzzle").font = Font(bold=True, color=WHITE)
+    dash.cell(top_start + 1, 2, "Combined solves").font = Font(bold=True, color=WHITE)
+    for c in (1, 2):
+        dash.cell(top_start + 1, c).fill = PatternFill("solid", fgColor=BLUE)
+    for i, p in enumerate(top, top_start + 2):
+        dash.cell(i, 1, p.get("title"))
+        dash.cell(i, 2, (p.get("lmd_solves") or 0) + (p.get("sudokupad_solves") or 0))
+    if top:
+        bar = BarChart()
+        bar.type = "bar"
+        bar.style = 10
+        bar.title = "Top 12 puzzles"
+        bar.x_axis.title = "Combined solves"
+        bar.y_axis.title = "Puzzle"
+        bar.height, bar.width = 9, 16
+        bar.add_data(Reference(dash, min_col=2, min_row=top_start + 1, max_row=top_start + 1 + len(top)), titles_from_data=True)
+        bar.set_categories(Reference(dash, min_col=1, min_row=top_start + 2, max_row=top_start + 1 + len(top)))
+        dash.add_chart(bar, "F25")
+
+    for col in range(1, 13):
+        dash.column_dimensions[get_column_letter(col)].width = 18
+    dash.column_dimensions["A"].width = 34
+    dash.freeze_panes = "A4"
+
+    # Full current-state table.
+    puzzle_fields = ["lmd_code", "puzzle_id", "puzzle_num", "title", "published_at",
+                     "published_date_raw", "difficulty_stars", "author_rated", "sudokupad_url",
+                     "lmd_solves", "sudokupad_solves", "rating_percent", "image_path",
+                     "source_updated_at", "last_seen_at", "is_active"]
+    puzzle_headers = puzzle_fields
+    puzzle_rows = []
+    for p in sorted(puzzles, key=lambda x: (x.get("puzzle_num") or 0), reverse=True):
+        puzzle_rows.append([as_dt(p.get(f)) if f in ("published_at", "source_updated_at", "last_seen_at") else p.get(f) for f in puzzle_fields])
+    ws = wb.create_sheet("Puzzle Catalog")
+    write_table(ws, "Complete Puzzle Catalog", puzzle_headers, puzzle_rows, "PuzzleCatalog",
+                {"title": 38, "sudokupad_url": 48, "image_path": 28, "published_date_raw": 28})
+    for row in range(5, 5 + len(puzzle_rows)):
+        for col in (5, 14, 15):
+            ws.cell(row, col).number_format = "yyyy-mm-dd hh:mm"
+
+    # Every historical snapshot, enriched with puzzle metadata.
+    snap_fields = ["id", "lmd_code", "captured_at", "lmd_solves", "sudokupad_solves", "rating_percent", "difficulty_stars"]
+    snap_headers = snap_fields + ["puzzle_title", "puzzle_num", "published_at"]
+    snap_rows = []
+    for s in snapshots:
+        p = puzzle_by_code.get(s.get("lmd_code"), {})
+        snap_rows.append([s.get(f) if f != "captured_at" else as_dt(s.get(f)) for f in snap_fields] +
+                         [p.get("title"), p.get("puzzle_num"), as_dt(p.get("published_at"))])
+    ws = wb.create_sheet("Snapshot History")
+    write_table(ws, "Full Historical Snapshot Ledger", snap_headers, snap_rows, "SnapshotHistory",
+                {"puzzle_title": 38})
+    for row in range(5, 5 + len(snap_rows)):
+        ws.cell(row, 3).number_format = "yyyy-mm-dd hh:mm:ss"
+        ws.cell(row, 10).number_format = "yyyy-mm-dd"
+
+    # Chronological per-puzzle deltas, preserving the raw snapshot values.
+    grouped = defaultdict(list)
+    for s in snapshots:
+        grouped[s.get("lmd_code")].append(s)
+    delta_rows = []
+    for code, series in grouped.items():
+        series.sort(key=lambda x: (x.get("captured_at") or "", x.get("id") or 0))
+        previous = None
+        p = puzzle_by_code.get(code, {})
+        for s in series:
+            lmd = s.get("lmd_solves")
+            sp = s.get("sudokupad_solves")
+            delta_rows.append([
+                code, p.get("title"), as_dt(s.get("captured_at")), lmd, sp,
+                s.get("rating_percent"), s.get("difficulty_stars"),
+                None if previous is None or lmd is None or previous.get("lmd_solves") is None else lmd - previous["lmd_solves"],
+                None if previous is None or sp is None or previous.get("sudokupad_solves") is None else sp - previous["sudokupad_solves"],
+                None if previous is None else (lmd or 0) + (sp or 0) - (previous.get("lmd_solves") or 0) - (previous.get("sudokupad_solves") or 0)
+            ])
+            previous = s
+    delta_rows.sort(key=lambda x: (x[0] or "", x[2] or datetime.min))
+    ws = wb.create_sheet("Puzzle Trends")
+    write_table(ws, "Per-Puzzle Historical Development", [
+        "lmd_code", "title", "captured_at", "lmd_solves", "sudokupad_solves",
+        "rating_percent", "difficulty_stars", "lmd_delta", "sudokupad_delta", "combined_delta"
+    ], delta_rows, "PuzzleTrends", {"title": 38})
+    for row in range(5, 5 + len(delta_rows)):
+        ws.cell(row, 3).number_format = "yyyy-mm-dd hh:mm:ss"
+    for col in (8, 9, 10):
+        ws.conditional_formatting.add(f"{get_column_letter(col)}5:{get_column_letter(col)}{max(5, 4+len(delta_rows))}",
+            DataBarRule(start_type="min", end_type="max", color=CYAN, showValue=True))
+
+    # Export manifest and definitions.
+    ws = wb.create_sheet("Read Me")
+    notes = [
+        ["Workbook", "iEtsh LMD Analytics"],
+        ["Source", "Supabase public.lmd_puzzles and public.lmd_puzzle_snapshots, accessed server-side with GitHub Actions secrets."],
+        ["Puzzle Catalog", "One row per puzzle: latest known/current state and metadata."],
+        ["Snapshot History", "Every historical snapshot returned by Supabase; no snapshots are intentionally discarded."],
+        ["Puzzle Trends", "Chronological snapshots plus differences from the previous saved snapshot for the same puzzle."],
+        ["Executive Dashboard", "KPIs and charts calculated from the database export."],
+        ["Snapshot meaning", "The sync script records a snapshot when tracked metrics change, not necessarily on every scheduled run."],
+        ["Historical caveat", "Totals in the dashboard are sums of per-puzzle values recorded at each capture timestamp; captures can be asynchronous."],
+        ["Generated at (UTC)", now.isoformat()],
+        ["Puzzle rows", len(puzzles)],
+        ["Snapshot rows", len(snapshots)],
+    ]
+    style_title(ws, "Workbook Guide & Data Dictionary", "Definitions, provenance and interpretation notes", 2)
+    for i, (k, v) in enumerate(notes, 4):
+        ws.cell(i, 1, k).font = Font(bold=True, color=NAVY)
+        ws.cell(i, 1).fill = PatternFill("solid", fgColor=PALE)
+        ws.cell(i, 2, v).alignment = Alignment(wrap_text=True, vertical="top")
+        ws.row_dimensions[i].height = 32 if len(str(v)) > 90 else 22
+    ws.column_dimensions["A"].width = 25
+    ws.column_dimensions["B"].width = 110
+    ws.sheet_view.showGridLines = False
+    ws.freeze_panes = "A4"
+
+    # Consistent workbook metadata and print setup.
+    wb.properties.title = "iEtsh LMD Analytics"
+    wb.properties.subject = "Complete LMD puzzle catalog and historical Supabase analytics"
+    wb.properties.creator = "iEtsh"
+    for sheet in wb.worksheets:
+        sheet.sheet_properties.pageSetUpPr.fitToPage = True
+        sheet.page_setup.fitToWidth = 1
+        sheet.page_setup.fitToHeight = 0
+        sheet.sheet_view.zoomScale = 90
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    wb.save(OUTPUT)
+    print(f"Created {OUTPUT} | puzzles={len(puzzles)} | snapshots={len(snapshots)} | bytes={OUTPUT.stat().st_size}")
+
+
+if __name__ == "__main__":
+    main()
