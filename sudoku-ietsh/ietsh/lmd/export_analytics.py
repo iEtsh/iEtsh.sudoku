@@ -152,26 +152,27 @@ def main():
         dash[value_cell].fill = PatternFill("solid", fgColor=LIGHT)
         dash[value_cell].number_format = '0.0"%"' if label == "AVG. RATING" else '#,##0'
 
-    # Aggregate each captured timestamp across puzzles for comparable platform totals.
-    by_time = defaultdict(lambda: {"lmd": 0, "sp": 0, "rating_sum": 0, "rating_count": 0})
+    # Reconstruct the latest-known state of every puzzle after each snapshot event.
+    # Snapshots are change-driven and may be sparse, so summing only rows sharing
+    # an exact timestamp would produce misleading partial totals.
+    state = {}
+    by_time = defaultdict(list)
     for snap in snapshots:
-        stamp = snap.get("captured_at")
-        if not stamp:
-            continue
-        bucket = by_time[stamp]
-        bucket["lmd"] += snap.get("lmd_solves") or 0
-        bucket["sp"] += snap.get("sudokupad_solves") or 0
-        if snap.get("rating_percent") is not None:
-            bucket["rating_sum"] += snap["rating_percent"]
-            bucket["rating_count"] += 1
+        if snap.get("captured_at"):
+            by_time[snap["captured_at"]].append(snap)
     trend_rows = []
     for stamp in sorted(by_time):
-        b = by_time[stamp]
-        trend_rows.append([as_dt(stamp), b["lmd"], b["sp"],
-                           round(b["rating_sum"] / b["rating_count"], 2) if b["rating_count"] else None])
+        for snap in by_time[stamp]:
+            state[snap["lmd_code"]] = snap
+        known = list(state.values())
+        lmd_total = sum(x.get("lmd_solves") or 0 for x in known)
+        sp_total = sum(x.get("sudokupad_solves") or 0 for x in known)
+        rating_values = [x["rating_percent"] for x in known if x.get("rating_percent") is not None]
+        avg_rating = round(sum(rating_values) / len(rating_values), 2) if rating_values else None
+        trend_rows.append([as_dt(stamp), lmd_total, sp_total, avg_rating, len(known)])
     dash["A8"] = "Historical database trend"
     dash["A8"].font = Font(bold=True, size=14, color=NAVY)
-    trend_headers = ["Captured At", "LMD Solves (snapshot sum)", "SudokuPad Solves (snapshot sum)", "Average Rating %"]
+    trend_headers = ["Captured At", "LMD Solves (known state)", "SudokuPad Solves (known state)", "Average Rating %", "Puzzles With History"]
     for col, h in enumerate(trend_headers, 1):
         dash.cell(9, col, h).font = Font(bold=True, color=WHITE)
         dash.cell(9, col).fill = PatternFill("solid", fgColor=BLUE)
@@ -291,7 +292,7 @@ def main():
         ["Puzzle Trends", "Chronological snapshots plus differences from the previous saved snapshot for the same puzzle."],
         ["Executive Dashboard", "KPIs and charts calculated from the database export."],
         ["Snapshot meaning", "The sync script records a snapshot when tracked metrics change, not necessarily on every scheduled run."],
-        ["Historical caveat", "Totals in the dashboard are sums of per-puzzle values recorded at each capture timestamp; captures can be asynchronous."],
+        ["Historical caveat", "Trend totals reconstruct each puzzle's latest-known snapshot after each event. Puzzles without any snapshot yet are not included until their first saved snapshot."],
         ["Generated at (UTC)", now.isoformat()],
         ["Puzzle rows", len(puzzles)],
         ["Snapshot rows", len(snapshots)],
