@@ -32,15 +32,38 @@ jobs:
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           OUTPUT_XLSX: sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx
         run: python sudoku-ietsh/ietsh/lmd/export_analytics.py
-      - name: Commit updated workbook to repository
+      - name: Refresh embedded workbook cache key
+        env:
+          CACHE_VERSION: ${{ github.run_id }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          path = Path('sudoku-ietsh/ietsh/lmd/analytics.html')
+          html = path.read_text(encoding='utf-8')
+          updated, count = re.subn(
+              r'(iEtsh_LMD_Analytics\\.xlsx%3Fv%3D)[^"&]+',
+              lambda match: match.group(1) + os.environ['CACHE_VERSION'],
+              html,
+          )
+          if count != 1:
+              raise SystemExit(f'Expected one embedded workbook cache key, found {count}')
+          path.write_text(updated, encoding='utf-8')
+          print(f'Embedded workbook cache key set to {os.environ["CACHE_VERSION"]}')
+
+          PY
+      - name: Commit updated workbook and analytics page
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx
+          git add sudoku-ietsh/ietsh/lmd/analytics.html
           if git diff --cached --quiet; then
-            echo 'Workbook is unchanged; no commit needed.'
+            echo 'Workbook and embedded view are unchanged.'
           else
-            git commit -m 'Update LMD analytics workbook'
+            git commit -m 'Update LMD analytics workbook and embedded view'
             git push
           fi
       - name: Upload Excel workbook
