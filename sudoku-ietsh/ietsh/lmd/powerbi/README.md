@@ -5,17 +5,20 @@
 The complete Power BI Desktop project is in this folder:
 
 - `iEtsh_LMD_Analytics.pbip`
-- `iEtsh_LMD_Analytics.Report/` — four report pages and their visuals
+- `iEtsh_LMD_Analytics.Report/` — five report pages and their visuals
 - `iEtsh_LMD_Analytics.SemanticModel/` — Power Query partitions, relationships, date table, and DAX measures
 
 Open `iEtsh_LMD_Analytics.pbip` with Power BI Desktop. On first open, Power BI may ask you to sign in or choose **Anonymous** credentials for the public GitHub workbook source. Select **Anonymous** and allow the data to refresh.
 
 ## Report pages
 
-1. **Overview** — KPI cards, historical LMD/SudokuPad solve trends, combined puzzle performance, and active-status distribution.
-2. **Puzzle Performance** — separate LMD and SudokuPad solve comparisons and a puzzle detail table.
-3. **Growth & History** — reconstructed historical platform totals and daily solve changes.
-4. **Data Quality** — rating/difficulty coverage, snapshot count, and puzzle data table.
+1. **LMD Command Center** — the primary one-page dashboard: six KPI cards, historical trend, active/inactive donut, platform comparison, LMD and SudokuPad rankings, rating comparison, daily growth area chart, difficulty-vs-rating scatter plot, and full puzzle detail table.
+2. **Overview** — original KPI cards, historical LMD/SudokuPad solve trends, combined puzzle performance, and active-status distribution.
+3. **Puzzle Performance** — separate LMD and SudokuPad solve comparisons and a puzzle detail table.
+4. **Growth & History** — reconstructed historical platform totals and daily solve changes.
+5. **Data Quality** — rating/difficulty coverage, snapshot count, and puzzle data table.
+
+The Command Center is the active page when the report opens. The original detail pages are retained.
 
 ## Data source
 
