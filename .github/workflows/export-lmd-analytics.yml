@@ -44,7 +44,7 @@ jobs:
           path = Path('sudoku-ietsh/ietsh/lmd/analytics.html')
           html = path.read_text(encoding='utf-8')
           updated, count = re.subn(
-              r'(iEtsh_LMD_Analytics\\.xlsx%3Fv%3D)[^"&]+',
+              r'(iEtsh_LMD_Analytics\.xlsx%3Fv%3D)[^"&]+',
               lambda match: match.group(1) + os.environ['CACHE_VERSION'],
               html,
           )
