@@ -1,10 +1,10 @@
-// iEtsh LMD Analytics — DAX
-// Create these measures in Power BI Desktop after loading the three queries.
-// Model relationships:
+// iEtsh LMD Analytics — DAX reference
+// The live PBIP project already contains these measures and queries.
+// Relationships:
 //   PuzzleMasterData[lmd_code] 1 -> * ObservationLog[lmd_code]
 //   PuzzleMasterData[lmd_code] 1 -> * PuzzleTrends[lmd_code]
-// Create a Date table using the DAX expression in README.md and relate
-// Date[Date] 1 -> * ObservationLog[Snapshot Date] (date-only calculated column).
+//   Date[Date] 1 -> * ObservationLog[Snapshot Date]
+//   Date[Date] 1 -> * PuzzleTrends[Snapshot Date]
 
 Active Puzzles =
 CALCULATE (
@@ -12,9 +12,11 @@ CALCULATE (
     PuzzleMasterData[is_active] = TRUE ()
 )
 
+Puzzle Count =
+DISTINCTCOUNT ( PuzzleMasterData[lmd_code] )
+
 Combined Solves =
-SUM ( PuzzleMasterData[lmd_solves] )
-    + SUM ( PuzzleMasterData[sudokupad_solves] )
+[LMD Solves] + [SudokuPad Solves]
 
 LMD Solves =
 SUM ( PuzzleMasterData[lmd_solves] )
