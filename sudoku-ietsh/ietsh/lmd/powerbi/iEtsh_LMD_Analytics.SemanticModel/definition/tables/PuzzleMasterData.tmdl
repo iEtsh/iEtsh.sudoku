@@ -91,6 +91,8 @@ table PuzzleMasterData
 		formatString: #,##0
 	measure 'Snapshot Count' = COUNTROWS(ObservationLog)
 		formatString: #,##0
+	measure 'Puzzle Count' = DISTINCTCOUNT(PuzzleMasterData[lmd_code])
+		formatString: #,##0
 	measure 'Historical LMD Solves' =
 			VAR AsOfDate = MAX('Date'[Date]) + 1
 			RETURN
