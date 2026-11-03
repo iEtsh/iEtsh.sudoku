@@ -17,59 +17,59 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Combined Solves"
+                  "Property": "title"
                 }
               },
-              "queryRef": "PuzzleMasterData.Combined Solves",
-              "nativeQueryRef": "Combined Solves"
+              "queryRef": "PuzzleMasterData.title",
+              "nativeQueryRef": "title"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Combined Solves"
+                  "Property": "published_at"
                 }
               },
-              "queryRef": "PuzzleMasterData.Combined Solves",
-              "nativeQueryRef": "Combined Solves"
+              "queryRef": "PuzzleMasterData.published_at",
+              "nativeQueryRef": "published_at"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Combined Solves"
+                  "Property": "difficulty_stars"
                 }
               },
-              "queryRef": "PuzzleMasterData.Combined Solves",
-              "nativeQueryRef": "Combined Solves"
+              "queryRef": "PuzzleMasterData.difficulty_stars",
+              "nativeQueryRef": "difficulty_stars"
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Combined Solves"
+                  "Property": "rating_percent"
                 }
               },
-              "queryRef": "PuzzleMasterData.Combined Solves",
-              "nativeQueryRef": "Combined Solves"
+              "queryRef": "PuzzleMasterData.rating_percent",
+              "nativeQueryRef": "rating_percent"
             },
             {
               "field": {
