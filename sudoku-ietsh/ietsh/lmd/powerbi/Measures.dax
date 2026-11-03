@@ -74,7 +74,7 @@ VAR AsOfDate = MAX ( 'Date'[Date] ) + 1
 RETURN
 SUMX (
     ALL ( PuzzleMasterData[lmd_code] ),
-    VAR ThisCode = ObservationLog[lmd_code]
+    VAR ThisCode = PuzzleMasterData[lmd_code]
     VAR LastRow =
         TOPN (
             1,
