@@ -7,7 +7,7 @@ from pathlib import Path
 
 from supabase import create_client
 from openpyxl import Workbook
-from openpyxl.chart import LineChart, BarChart, Reference
+from openpyxl.chart import LineChart, BarChart, Reference, DoughnutChart, ScatterChart, Series
 from openpyxl.chart.label import DataLabelList
 from openpyxl.formatting.rule import ColorScaleRule, DataBarRule
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
@@ -103,6 +103,134 @@ def write_table(ws, title, headers, rows, table_name, widths=None):
         ws.column_dimensions[get_column_letter(col)].width = width
     return header_row, last_row
 
+
+
+def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
+    ws = wb.create_sheet("Power BI", 1)
+    ws.sheet_view.showGridLines = False
+    ws.sheet_view.zoomScale = 80
+    ws.freeze_panes = "A8"
+    BG, PANEL, PANEL2 = "101B2B", "192A40", "20364F"
+    WHITE, MUTED = "F3F7FC", "A8B8CA"
+    LMD, SP, GREEN, AMBER, PURPLE = "36C6D2", "A78BFA", "55C59A", "F5B65C", "B69CFF"
+    for col in range(1,17):
+        ws.column_dimensions[get_column_letter(col)].width = 14
+    for col in range(27,45):
+        ws.column_dimensions[get_column_letter(col)].hidden = True
+    ws.merge_cells("A1:P1"); ws["A1"]="iEtsh  /  PUZZLE INTELLIGENCE"
+    ws["A1"].font=Font(name="Aptos Display",size=23,bold=True,color=WHITE)
+    ws["A1"].fill=PatternFill("solid",fgColor=BG); ws.row_dimensions[1].height=44
+    ws.merge_cells("A2:P2"); ws["A2"]="ADVANCED BI OVERVIEW   •   PERFORMANCE  /  PLATFORM MIX  /  HISTORICAL MOMENTUM"
+    ws["A2"].font=Font(size=9,bold=True,color=MUTED); ws["A2"].fill=PatternFill("solid",fgColor=BG)
+    ws.merge_cells("A3:P3"); ws["A3"]=f"{len(active):,} active puzzles  •  {len(snapshots):,} historical observations  •  Generated {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"
+    ws["A3"].font=Font(size=9,color=MUTED); ws["A3"].fill=PatternFill("solid",fgColor=BG)
+    lmd=sum(p.get("lmd_solves") or 0 for p in active); sp=sum(p.get("sudokupad_solves") or 0 for p in active)
+    combined=lmd+sp
+    ratings=[p["rating_percent"] for p in active if p.get("rating_percent") is not None]
+    diffs=[p["difficulty_stars"] for p in active if p.get("difficulty_stars") is not None]
+    cards=[("PUZZLES",len(puzzles),LMD,"#,##0"),("COMBINED SOLVES",combined,GREEN,"#,##0"),
+           ("LMD SOLVES",lmd,LMD,"#,##0"),("SUDOKUPAD SOLVES",sp,SP,"#,##0"),
+           ("AVG RATING",sum(ratings)/len(ratings) if ratings else None,AMBER,'0.0"%"'),
+           ("AVG DIFFICULTY",sum(diffs)/len(diffs) if diffs else None,PURPLE,'0.00" ★"')]
+    for i,(label,value,color,fmt) in enumerate(cards):
+        a=1+i*2; b=a+1
+        ws.merge_cells(start_row=5,start_column=a,end_row=5,end_column=b)
+        ws.merge_cells(start_row=6,start_column=a,end_row=7,end_column=b)
+        for rr in (5,6,7):
+            for cc in (a,b): ws.cell(rr,cc).fill=PatternFill("solid",fgColor=PANEL)
+        h=ws.cell(5,a,label); h.font=Font(size=8,bold=True,color=MUTED); h.alignment=Alignment(horizontal="center")
+        v=ws.cell(6,a,value); v.font=Font(name="Aptos Display",size=20,bold=True,color=color); v.number_format=fmt
+        v.alignment=Alignment(horizontal="center",vertical="center")
+        h.border=Border(top=Side(style="medium",color=color))
+    for row,title in [(8,"01  /  PERFORMANCE & MOMENTUM"),(27,"02  /  AUDIENCE, REACH & QUALITY"),(48,"03  /  DIFFICULTY & CATALOG INTELLIGENCE")]:
+        ws.merge_cells(start_row=row,start_column=1,end_row=row,end_column=16)
+        c=ws.cell(row,1,title); c.font=Font(bold=True,size=11,color=WHITE); c.fill=PatternFill("solid",fgColor=PANEL2)
+        ws.row_dimensions[row].height=25
+    helper=27
+    def data_block(title,headers,rows):
+        nonlocal helper
+        start=helper; ws.cell(1,start,title)
+        for j,x in enumerate(headers): ws.cell(2,start+j,x)
+        for i,row in enumerate(rows,3):
+            for j,x in enumerate(row): ws.cell(i,start+j,x)
+        helper+=max(3,len(headers)+1)
+        return start,len(rows)
+    # Change-driven snapshots: chart the reconstructed latest-known state, not timestamp-only partial sums.
+    c,n=data_block("Historical totals",["Captured at","LMD","SudokuPad"],[[r[0],r[1],r[2]] for r in trend_rows if r[0]])
+    if n:
+        ch=LineChart(); ch.title="Recorded solve volume over time"; ch.style=13; ch.height=9; ch.width=17
+        ch.y_axis.title="Solves"; ch.x_axis.title="Snapshot date"; ch.legend.position="b"
+        ch.add_data(Reference(ws,min_col=c+1,max_col=c+2,min_row=2,max_row=2+n),titles_from_data=True)
+        ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=2+n))
+        for ser,color in zip(ch.series,(LMD,SP)):
+            ser.graphicalProperties.line.solidFill=color; ser.graphicalProperties.line.width=26000; ser.smooth=True
+        ws.add_chart(ch,"A9")
+    top=sorted(active,key=lambda p:(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0),reverse=True)[:12]
+    c,n=data_block("Top puzzles",["Puzzle","Combined solves"],[[(p.get("title") or p.get("lmd_code") or "Untitled")[:40],(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0)] for p in top])
+    if n:
+        ch=BarChart(); ch.type="bar"; ch.style=10; ch.title="Top 12 puzzles • combined solves"; ch.height=9; ch.width=17
+        ch.legend=None; ch.add_data(Reference(ws,min_col=c+1,min_row=2,max_row=2+n),titles_from_data=True)
+        ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=2+n))
+        ch.series[0].graphicalProperties.solidFill=LMD; ch.series[0].graphicalProperties.line.solidFill=LMD
+        ws.add_chart(ch,"I9")
+    c,n=data_block("Platform mix",["Platform","Solves"],[["LMD",lmd],["SudokuPad",sp]])
+    if combined:
+        ch=DoughnutChart(); ch.title="Platform share of recorded solves"; ch.style=10; ch.height=9; ch.width=13; ch.holeSize=62
+        ch.add_data(Reference(ws,min_col=c+1,min_row=2,max_row=4),titles_from_data=True)
+        ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=4))
+        ch.dataLabels=DataLabelList(); ch.dataLabels.showPercent=True
+        from openpyxl.chart.series import DataPoint
+        ch.series[0].data_points=[DataPoint(idx=0,spPr={"solidFill":LMD}),DataPoint(idx=1,spPr={"solidFill":SP})]
+        ws.add_chart(ch,"A28")
+    scatter=[[p.get("rating_percent"),(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0)] for p in active if p.get("rating_percent") is not None]
+    c,n=data_block("Rating and reach",["Rating %","Combined solves"],scatter)
+    if n:
+        ch=ScatterChart(); ch.title="Community rating vs audience reach"; ch.style=13; ch.height=13; ch.width=17
+        ch.x_axis.title="Rating (%)"; ch.y_axis.title="Combined solves"; ch.legend=None
+        ser=Series(Reference(ws,min_col=c+1,min_row=3,max_row=2+n),Reference(ws,min_col=c,min_row=3,max_row=2+n),title="Puzzles")
+        ser.graphicalProperties.line.noFill=True; ser.graphicalProperties.solidFill=PURPLE
+        ser.marker.symbol="circle"; ser.marker.size=6; ch.series.append(ser); ws.add_chart(ch,"H28")
+    groups=defaultdict(list)
+    for p in active:
+        if p.get("difficulty_stars") is not None: groups[p["difficulty_stars"]].append(p)
+    difficulty=[]
+    for d,items in sorted(groups.items()):
+        vals=[(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0) for p in items]
+        rs=[p["rating_percent"] for p in items if p.get("rating_percent") is not None]
+        difficulty.append([d,len(items),round(sum(vals)/len(vals),1),round(sum(rs)/len(rs),1) if rs else None])
+    c,n=data_block("Difficulty profile",["Stars","Puzzle count","Avg combined solves","Avg rating %"],difficulty)
+    if n:
+        ch=BarChart(); ch.type="col"; ch.style=12; ch.title="Average reach by difficulty"; ch.y_axis.title="Average combined solves"
+        ch.x_axis.title="Difficulty (stars)"; ch.height=10; ch.width=17; ch.legend=None
+        ch.add_data(Reference(ws,min_col=c+2,min_row=2,max_row=2+n),titles_from_data=True)
+        ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=2+n))
+        ch.series[0].graphicalProperties.solidFill=AMBER; ch.series[0].graphicalProperties.line.solidFill=AMBER
+        ws.add_chart(ch,"A49")
+    first=trend_rows[0] if trend_rows else None; last=trend_rows[-1] if trend_rows else None
+    growth=None
+    if first and last and (first[1] or 0)+(first[2] or 0):
+        growth=(((last[1] or 0)+(last[2] or 0))/((first[1] or 0)+(first[2] or 0))-1)*100
+    ws.merge_cells("I49:P49"); ws["I49"]="SIGNALS & DATA NOTES"
+    ws["I49"].font=Font(bold=True,color=WHITE,size=11); ws["I49"].fill=PatternFill("solid",fgColor=PANEL)
+    notes=[("HISTORICAL GROWTH",f"{growth:+.1f}%" if growth is not None else "Baseline unavailable"),
+           ("RATING COVERAGE",f"{len(ratings):,} / {len(active):,} puzzles"),
+           ("DIFFICULTY COVERAGE",f"{len(diffs):,} / {len(active):,} puzzles"),
+           ("LATEST HISTORY",f"{last[4]:,} puzzles with observations" if last else "No saved snapshots"),
+           ("PLATFORM MIX","LMD and SudokuPad counts are separate platform totals."),
+           ("HISTORY METHOD","Latest-known state after each event; puzzles enter after first observation."),
+           ("MISSING VALUES","Rating and difficulty averages exclude blank values.")]
+    for i,(label,value) in enumerate(notes,50):
+        ws.merge_cells(start_row=i,start_column=9,end_row=i,end_column=10)
+        ws.merge_cells(start_row=i,start_column=11,end_row=i,end_column=16)
+        a=ws.cell(i,9,label); a.font=Font(bold=True,size=8,color=MUTED); a.fill=PatternFill("solid",fgColor=PANEL)
+        b=ws.cell(i,11,value); b.font=Font(size=9,color=WHITE); b.fill=PatternFill("solid",fgColor=PANEL2)
+        a.alignment=Alignment(vertical="center",wrap_text=True); b.alignment=Alignment(vertical="center",wrap_text=True)
+        ws.row_dimensions[i].height=34 if len(value)>72 else 25
+    for row in ws.iter_rows(min_row=1,max_row=57,min_col=1,max_col=16):
+        for cell in row:
+            if cell.fill.fill_type is None: cell.fill=PatternFill("solid",fgColor=BG)
+    ws.sheet_properties.tabColor=PURPLE
+    ws.print_area="A1:P57"
 
 def main():
     url = os.environ["SUPABASE_URL"].rstrip("/")
@@ -220,6 +348,8 @@ def main():
         dash.column_dimensions[get_column_letter(col)].width = 18
     dash.column_dimensions["A"].width = 34
     dash.freeze_panes = "A4"
+
+    build_power_bi(wb, active, puzzles, snapshots, trend_rows)
 
     # Full current-state table.
     puzzle_fields = ["lmd_code", "puzzle_id", "puzzle_num", "title", "published_at",
