@@ -119,10 +119,10 @@ def main():
     now = datetime.now(timezone.utc).replace(microsecond=0)
     wb = Workbook()
     dash = wb.active
-    dash.title = "Executive Dashboard"
+    dash.title = "Analytics Dashboard"
     dash.sheet_view.showGridLines = False
     dash.merge_cells("A1:L1")
-    dash["A1"] = "iEtsh | LMD Analytics"
+    dash["A1"] = "iEtsh | LMD Analytics Dashboard"
     dash["A1"].font = Font(name="Aptos Display", size=24, bold=True, color=WHITE)
     dash["A1"].fill = PatternFill("solid", fgColor=NAVY)
     dash["A1"].alignment = Alignment(vertical="center")
@@ -172,7 +172,7 @@ def main():
         rating_values = [x["rating_percent"] for x in known if x.get("rating_percent") is not None]
         avg_rating = round(sum(rating_values) / len(rating_values), 2) if rating_values else None
         trend_rows.append([as_dt(stamp), lmd_total, sp_total, avg_rating, len(known)])
-    dash["A8"] = "Historical database trend"
+    dash["A8"] = "Historical Performance Trend"
     dash["A8"].font = Font(bold=True, size=14, color=NAVY)
     trend_headers = ["Captured At", "LMD Solves (known state)", "SudokuPad Solves (known state)", "Average Rating %", "Puzzles With History"]
     for col, h in enumerate(trend_headers, 1):
@@ -196,7 +196,7 @@ def main():
     # Top puzzles by current combined solves.
     top = sorted(active, key=lambda p: (p.get("lmd_solves") or 0) + (p.get("sudokupad_solves") or 0), reverse=True)[:12]
     top_start = max(12, 10 + len(trend_rows) + 2)
-    dash.cell(top_start, 1, "Top puzzles by current combined solves").font = Font(bold=True, size=14, color=NAVY)
+    dash.cell(top_start, 1, "Top Puzzles by Combined Solve Count").font = Font(bold=True, size=14, color=NAVY)
     dash.cell(top_start + 1, 1, "Puzzle").font = Font(bold=True, color=WHITE)
     dash.cell(top_start + 1, 2, "Combined solves").font = Font(bold=True, color=WHITE)
     for c in (1, 2):
@@ -230,8 +230,8 @@ def main():
     puzzle_rows = []
     for p in sorted(puzzles, key=lambda x: (x.get("puzzle_num") or 0), reverse=True):
         puzzle_rows.append([as_dt(p.get(f)) if f in ("published_at", "source_updated_at", "last_seen_at") else p.get(f) for f in puzzle_fields])
-    ws = wb.create_sheet("Puzzle Catalog")
-    write_table(ws, "Complete Puzzle Catalog", puzzle_headers, puzzle_rows, "PuzzleCatalog",
+    ws = wb.create_sheet("Puzzle Master Data")
+    write_table(ws, "Puzzle Master Data", puzzle_headers, puzzle_rows, "PuzzleMasterData",
                 {"title": 38, "sudokupad_url": 48, "image_path": 28, "published_date_raw": 28})
     for row in range(5, 5 + len(puzzle_rows)):
         for col in (5, 14, 15):
@@ -245,8 +245,8 @@ def main():
         p = puzzle_by_code.get(s.get("lmd_code"), {})
         snap_rows.append([s.get(f) if f != "captured_at" else as_dt(s.get(f)) for f in snap_fields] +
                          [p.get("title"), p.get("puzzle_num"), as_dt(p.get("published_at"))])
-    ws = wb.create_sheet("Snapshot History")
-    write_table(ws, "Full Historical Snapshot Ledger", snap_headers, snap_rows, "SnapshotHistory",
+    ws = wb.create_sheet("Observation Log")
+    write_table(ws, "Historical Observation Log", snap_headers, snap_rows, "ObservationLog",
                 {"puzzle_title": 38})
     for row in range(5, 5 + len(snap_rows)):
         ws.cell(row, 3).number_format = "yyyy-mm-dd hh:mm:ss"
@@ -273,8 +273,8 @@ def main():
             ])
             previous = s
     delta_rows.sort(key=lambda x: (x[0] or "", x[2] or datetime.min))
-    ws = wb.create_sheet("Puzzle Trends")
-    write_table(ws, "Per-Puzzle Historical Development", [
+    ws = wb.create_sheet("Derived Metrics")
+    write_table(ws, "Per-Puzzle Derived Metrics & Period-over-Period Changes", [
         "lmd_code", "title", "captured_at", "lmd_solves", "sudokupad_solves",
         "rating_percent", "difficulty_stars", "lmd_delta", "sudokupad_delta", "combined_delta"
     ], delta_rows, "PuzzleTrends", {"title": 38})
@@ -284,31 +284,71 @@ def main():
         ws.conditional_formatting.add(f"{get_column_letter(col)}5:{get_column_letter(col)}{max(5, 4+len(delta_rows))}",
             DataBarRule(start_type="min", end_type="max", color=CYAN, showValue=True))
 
-    # Export manifest and definitions.
-    ws = wb.create_sheet("Read Me")
+    # Workbook documentation, data dictionary and data-lineage diagram.
+    ws = wb.create_sheet("Data Dictionary")
+    style_title(ws, "Data Dictionary & Data Lineage", "Workbook structure, source definitions and analytical transformations", 8)
+
+    # Data-flow diagram: source tables feed the master-data and observation sheets.
+    diagram = [
+        (4, 1, 8, "SUPABASE DATABASE  |  SOURCE TABLES", NAVY, WHITE),
+        (6, 1, 4, "lmd_puzzles", BLUE, WHITE),
+        (6, 5, 8, "lmd_puzzle_snapshots", BLUE, WHITE),
+        (7, 1, 4, "Current puzzle attributes and latest metrics", PALE, NAVY),
+        (7, 5, 8, "Timestamped historical measurements", PALE, NAVY),
+        (9, 1, 4, "↓  Puzzle Master Data", "DCEAF5", NAVY),
+        (9, 5, 8, "↓  Historical Observation Log", "DCEAF5", NAVY),
+        (11, 1, 4, "Current-state records\nOne row per puzzle", LIGHT, NAVY),
+        (11, 5, 8, "Historical records\nOne row per captured observation", LIGHT, NAVY),
+        (13, 5, 8, "↓  Derived Metrics", "FCEBD2", NAVY),
+        (15, 5, 8, "Per-puzzle changes between consecutive observations", LIGHT, NAVY),
+        (17, 1, 8, "↓  Analytics Dashboard", GREEN, WHITE),
+        (18, 1, 8, "KPIs and top-puzzle ranking use current master data. Historical charts reconstruct the latest-known state from the observation log.", "E4F2ED", NAVY),
+    ]
+    for row, start_col, end_col, value, fill, color in diagram:
+        ws.merge_cells(start_row=row, start_column=start_col, end_row=row, end_column=end_col)
+        cell = ws.cell(row, start_col, value)
+        cell.fill = PatternFill("solid", fgColor=fill)
+        cell.font = Font(bold=True, color=color, size=11 if row in (4, 17) else 10)
+        cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        for col in range(start_col, end_col + 1):
+            ws.cell(row, col).fill = PatternFill("solid", fgColor=fill)
+    for row, height in {4:26, 6:24, 7:34, 9:26, 11:42, 13:26, 15:36, 17:28, 18:42}.items():
+        ws.row_dimensions[row].height = height
+    ws.merge_cells("A20:H20")
+    ws["A20"] = "Note: Derived Metrics is calculated from the Observation Log. The Analytics Dashboard uses Master Data and Observation Log directly; it does not depend on Derived Metrics."
+    ws["A20"].font = Font(italic=True, color=GREY, size=9)
+    ws["A20"].alignment = Alignment(wrap_text=True, vertical="center")
+    ws.row_dimensions[20].height = 34
+
+    # Data dictionary and workbook metadata.
     notes = [
         ["Workbook", "iEtsh LMD Analytics"],
-        ["Source", "Supabase public.lmd_puzzles and public.lmd_puzzle_snapshots, accessed server-side with GitHub Actions secrets."],
-        ["Puzzle Catalog", "One row per puzzle: latest known/current state and metadata."],
-        ["Snapshot History", "Every historical snapshot returned by Supabase; no snapshots are intentionally discarded."],
-        ["Puzzle Trends", "Chronological snapshots plus differences from the previous saved snapshot for the same puzzle."],
-        ["Executive Dashboard", "KPIs and charts calculated from the database export."],
-        ["Snapshot meaning", "The sync script records a snapshot when tracked metrics change, not necessarily on every scheduled run."],
-        ["Historical caveat", "Trend totals reconstruct each puzzle's latest-known snapshot after each event. Puzzles without any snapshot yet are not included until their first saved snapshot."],
+        ["Source tables", "Supabase public.lmd_puzzles and public.lmd_puzzle_snapshots. Accessed server-side by GitHub Actions."],
+        ["Analytics Dashboard", "Aggregated KPIs, current top-puzzle ranking and reconstructed historical solve totals."],
+        ["Puzzle Master Data", "One row per puzzle, containing its current/latest attributes and metrics."],
+        ["Observation Log", "All historical snapshots returned by Supabase, with timestamp and measured values."],
+        ["Derived Metrics", "Per-puzzle differences between each observation and its immediately preceding saved observation."],
+        ["Data Dictionary", "Definitions, source provenance, data lineage and interpretation notes for this workbook."],
+        ["Snapshot capture", "The sync process records a snapshot when tracked metrics change; it does not necessarily create a row on every scheduled run."],
+        ["Historical chart method", "At each snapshot event, the chart reconstructs the latest-known values for every puzzle with at least one observation."],
+        ["Historical limitation", "Puzzles without a saved observation are excluded from reconstructed historical totals until their first observation."],
+        ["Delta limitation", "The first observation for each puzzle has no previous observation, so its delta fields are blank."],
         ["Generated at (UTC)", now.isoformat()],
-        ["Puzzle rows", len(puzzles)],
-        ["Snapshot rows", len(snapshots)],
+        ["Puzzle records", len(puzzles)],
+        ["Observation records", len(snapshots)],
     ]
-    style_title(ws, "Workbook Guide & Data Dictionary", "Definitions, provenance and interpretation notes", 2)
-    for i, (k, v) in enumerate(notes, 4):
+    style_title(ws, "Data Dictionary & Workbook Guide", "Definitions, provenance and interpretation notes", 2)
+    for i, (k, v) in enumerate(notes, 22):
         ws.cell(i, 1, k).font = Font(bold=True, color=NAVY)
         ws.cell(i, 1).fill = PatternFill("solid", fgColor=PALE)
         ws.cell(i, 2, v).alignment = Alignment(wrap_text=True, vertical="top")
         ws.row_dimensions[i].height = 32 if len(str(v)) > 90 else 22
     ws.column_dimensions["A"].width = 25
     ws.column_dimensions["B"].width = 110
+    for col in "CDEFGH":
+        ws.column_dimensions[col].width = 16
     ws.sheet_view.showGridLines = False
-    ws.freeze_panes = "A4"
+    ws.freeze_panes = "A22"
 
     # Consistent workbook metadata and print setup.
     wb.properties.title = "iEtsh LMD Analytics"
