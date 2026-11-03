@@ -2,32 +2,32 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000014",
   "position": {
-    "x": 28,
-    "y": 1095,
-    "width": 680,
-    "height": 280,
+    "x": 492,
+    "y": 625,
+    "width": 456,
+    "height": 225,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "areaChart",
+    "visualType": "scatterChart",
     "query": {
       "queryState": {
-        "Category": {
+        "X": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Date"
+                      "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "rating_percent"
                 }
               },
-              "queryRef": "Date.Date",
-              "nativeQueryRef": "Date"
+              "queryRef": "PuzzleMasterData.rating_percent",
+              "nativeQueryRef": "rating_percent"
             }
           ]
         },
@@ -35,18 +35,40 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "LMD Change"
+                  "Property": "difficulty_stars"
                 }
               },
-              "queryRef": "PuzzleMasterData.LMD Change",
-              "nativeQueryRef": "LMD Change"
-            },
+              "queryRef": "PuzzleMasterData.difficulty_stars",
+              "nativeQueryRef": "difficulty_stars"
+            }
+          ]
+        },
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "PuzzleMasterData.title",
+              "nativeQueryRef": "title"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
             {
               "field": {
                 "Measure": {
@@ -55,11 +77,11 @@
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "SudokuPad Change"
+                  "Property": "Combined Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.SudokuPad Change",
-              "nativeQueryRef": "SudokuPad Change"
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
             }
           ]
         }
@@ -79,7 +101,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Daily Solve Growth'"
+                  "Value": "'Difficulty vs Rating — Bubble Size = Solves'"
                 }
               }
             },

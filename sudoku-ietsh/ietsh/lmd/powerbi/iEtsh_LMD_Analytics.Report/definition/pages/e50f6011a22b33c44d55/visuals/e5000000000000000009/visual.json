@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000009",
   "position": {
-    "x": 28,
-    "y": 475,
-    "width": 900,
-    "height": 300,
+    "x": 1168,
+    "y": 130,
+    "width": 248,
+    "height": 250,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "stackedBarChart",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
@@ -23,11 +23,11 @@
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "title"
+                  "Property": "is_active"
                 }
               },
-              "queryRef": "PuzzleMasterData.title",
-              "nativeQueryRef": "title"
+              "queryRef": "PuzzleMasterData.is_active",
+              "nativeQueryRef": "is_active"
             }
           ]
         },
@@ -41,25 +41,11 @@
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "LMD Solves"
+                  "Property": "Puzzle Count"
                 }
               },
-              "queryRef": "PuzzleMasterData.LMD Solves",
-              "nativeQueryRef": "LMD Solves"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "SudokuPad Solves"
-                }
-              },
-              "queryRef": "PuzzleMasterData.SudokuPad Solves",
-              "nativeQueryRef": "SudokuPad Solves"
+              "queryRef": "PuzzleMasterData.Puzzle Count",
+              "nativeQueryRef": "Puzzle Count"
             }
           ]
         }
@@ -79,7 +65,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Platform Mix by Puzzle'"
+                  "Value": "'Active vs Inactive Puzzles'"
                 }
               }
             },

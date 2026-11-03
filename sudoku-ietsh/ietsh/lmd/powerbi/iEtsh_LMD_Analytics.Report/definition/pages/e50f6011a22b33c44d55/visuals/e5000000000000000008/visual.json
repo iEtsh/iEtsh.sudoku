@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000008",
   "position": {
-    "x": 948,
-    "y": 155,
-    "width": 464,
-    "height": 300,
+    "x": 736,
+    "y": 130,
+    "width": 420,
+    "height": 250,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "donutChart",
+    "visualType": "areaChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PuzzleMasterData"
+                      "Entity": "Date"
                     }
                   },
-                  "Property": "is_active"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "PuzzleMasterData.is_active",
-              "nativeQueryRef": "is_active"
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
             }
           ]
         },
@@ -41,11 +41,11 @@
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Puzzle Count"
+                  "Property": "Historical Combined Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.Puzzle Count",
-              "nativeQueryRef": "Puzzle Count"
+              "queryRef": "PuzzleMasterData.Historical Combined Solves",
+              "nativeQueryRef": "Historical Combined Solves"
             }
           ]
         }
@@ -65,7 +65,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Puzzle Portfolio — Active vs Inactive'"
+                  "Value": "'Historical Combined Solves'"
                 }
               }
             },

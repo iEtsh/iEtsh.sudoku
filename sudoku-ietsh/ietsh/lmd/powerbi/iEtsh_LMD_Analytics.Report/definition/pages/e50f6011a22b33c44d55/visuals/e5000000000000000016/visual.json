@@ -2,33 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000016",
   "position": {
-    "x": 28,
-    "y": 1395,
-    "width": 1384,
-    "height": 300,
+    "x": 24,
+    "y": 860,
+    "width": 456,
+    "height": 220,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "puzzle_num"
-                }
-              },
-              "queryRef": "PuzzleMasterData.puzzle_num",
-              "nativeQueryRef": "puzzle_num"
-            },
             {
               "field": {
                 "Column": {
@@ -42,91 +28,11 @@
               },
               "queryRef": "PuzzleMasterData.title",
               "nativeQueryRef": "title"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "lmd_solves"
-                }
-              },
-              "queryRef": "PuzzleMasterData.lmd_solves",
-              "nativeQueryRef": "lmd_solves"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "sudokupad_solves"
-                }
-              },
-              "queryRef": "PuzzleMasterData.sudokupad_solves",
-              "nativeQueryRef": "sudokupad_solves"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "rating_percent"
-                }
-              },
-              "queryRef": "PuzzleMasterData.rating_percent",
-              "nativeQueryRef": "rating_percent"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "difficulty_stars"
-                }
-              },
-              "queryRef": "PuzzleMasterData.difficulty_stars",
-              "nativeQueryRef": "difficulty_stars"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "published_at"
-                }
-              },
-              "queryRef": "PuzzleMasterData.published_at",
-              "nativeQueryRef": "published_at"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "is_active"
-                }
-              },
-              "queryRef": "PuzzleMasterData.is_active",
-              "nativeQueryRef": "is_active"
-            },
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Measure": {
@@ -159,7 +65,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Puzzle Intelligence — Full Detail'"
+                  "Value": "'Combined Solves — Puzzle Ranking'"
                 }
               }
             },

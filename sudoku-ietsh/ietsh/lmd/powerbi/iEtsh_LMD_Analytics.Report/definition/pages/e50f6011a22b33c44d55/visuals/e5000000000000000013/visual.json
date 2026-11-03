@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000013",
   "position": {
-    "x": 958,
-    "y": 795,
-    "width": 454,
-    "height": 280,
+    "x": 24,
+    "y": 625,
+    "width": 456,
+    "height": 225,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "treemap",
     "query": {
       "queryState": {
-        "Category": {
+        "Group": {
           "projections": [
             {
               "field": {
@@ -31,21 +31,21 @@
             }
           ]
         },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "rating_percent"
+                  "Property": "Combined Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.rating_percent",
-              "nativeQueryRef": "rating_percent"
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
             }
           ]
         }
@@ -65,7 +65,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Puzzle Rating Comparison'"
+                  "Value": "'Puzzle Contribution Treemap'"
                 }
               }
             },

@@ -2,32 +2,32 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000015",
   "position": {
-    "x": 718,
-    "y": 1095,
-    "width": 694,
-    "height": 280,
+    "x": 960,
+    "y": 625,
+    "width": 456,
+    "height": 225,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "scatterChart",
+    "visualType": "ribbonChart",
     "query": {
       "queryState": {
-        "X": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PuzzleMasterData"
+                      "Entity": "Date"
                     }
                   },
-                  "Property": "rating_percent"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "PuzzleMasterData.rating_percent",
-              "nativeQueryRef": "rating_percent"
+              "queryRef": "Date.Year Month",
+              "nativeQueryRef": "Year Month"
             }
           ]
         },
@@ -35,35 +35,31 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "difficulty_stars"
+                  "Property": "Historical LMD Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.difficulty_stars",
-              "nativeQueryRef": "difficulty_stars"
-            }
-          ]
-        },
-        "Details": {
-          "projections": [
+              "queryRef": "PuzzleMasterData.Historical LMD Solves",
+              "nativeQueryRef": "Historical LMD Solves"
+            },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "title"
+                  "Property": "Historical SudokuPad Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.title",
-              "nativeQueryRef": "title"
+              "queryRef": "PuzzleMasterData.Historical SudokuPad Solves",
+              "nativeQueryRef": "Historical SudokuPad Solves"
             }
           ]
         }
@@ -83,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Difficulty vs Community Rating'"
+                  "Value": "'Platform Ranking Through Time'"
                 }
               }
             },

@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000011",
   "position": {
-    "x": 28,
-    "y": 795,
-    "width": 450,
-    "height": 280,
+    "x": 492,
+    "y": 390,
+    "width": 456,
+    "height": 225,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "hundredPercentStackedBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -46,6 +46,20 @@
               },
               "queryRef": "PuzzleMasterData.LMD Solves",
               "nativeQueryRef": "LMD Solves"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "SudokuPad Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.SudokuPad Solves",
+              "nativeQueryRef": "SudokuPad Solves"
             }
           ]
         }
@@ -65,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'LMD Solve Ranking'"
+                  "Value": "'Solve Share — 100% Comparison'"
                 }
               }
             },

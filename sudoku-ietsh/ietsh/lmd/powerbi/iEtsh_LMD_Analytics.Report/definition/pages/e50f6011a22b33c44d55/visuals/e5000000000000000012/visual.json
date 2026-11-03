@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000012",
   "position": {
-    "x": 493,
-    "y": 795,
-    "width": 450,
-    "height": 280,
+    "x": 960,
+    "y": 390,
+    "width": 456,
+    "height": 225,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "waterfallChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PuzzleMasterData"
+                      "Entity": "Date"
                     }
                   },
-                  "Property": "title"
+                  "Property": "Year Month"
                 }
               },
-              "queryRef": "PuzzleMasterData.title",
-              "nativeQueryRef": "title"
+              "queryRef": "Date.Year Month",
+              "nativeQueryRef": "Year Month"
             }
           ]
         },
@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PuzzleMasterData"
+                      "Entity": "PuzzleTrends"
                     }
                   },
-                  "Property": "SudokuPad Solves"
+                  "Property": "combined_delta"
                 }
               },
-              "queryRef": "PuzzleMasterData.SudokuPad Solves",
-              "nativeQueryRef": "SudokuPad Solves"
+              "queryRef": "PuzzleTrends.combined_delta",
+              "nativeQueryRef": "combined_delta"
             }
           ]
         }
@@ -65,7 +65,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'SudokuPad Solve Ranking'"
+                  "Value": "'Daily Net Solve Change'"
                 }
               }
             },

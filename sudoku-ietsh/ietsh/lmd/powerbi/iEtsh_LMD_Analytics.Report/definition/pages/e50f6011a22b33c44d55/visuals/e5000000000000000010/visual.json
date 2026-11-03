@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000010",
   "position": {
-    "x": 948,
-    "y": 475,
-    "width": 464,
-    "height": 300,
+    "x": 24,
+    "y": 390,
+    "width": 456,
+    "height": 225,
     "z": 1000,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "stackedBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -41,11 +41,25 @@
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Combined Solves"
+                  "Property": "LMD Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.Combined Solves",
-              "nativeQueryRef": "Combined Solves"
+              "queryRef": "PuzzleMasterData.LMD Solves",
+              "nativeQueryRef": "LMD Solves"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "SudokuPad Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.SudokuPad Solves",
+              "nativeQueryRef": "SudokuPad Solves"
             }
           ]
         }
@@ -65,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Combined Solves by Puzzle'"
+                  "Value": "'Platform Mix by Puzzle'"
                 }
               }
             },

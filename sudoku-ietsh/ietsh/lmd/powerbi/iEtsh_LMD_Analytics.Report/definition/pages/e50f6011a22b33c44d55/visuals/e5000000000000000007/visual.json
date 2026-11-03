@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e5000000000000000007",
   "position": {
-    "x": 28,
-    "y": 155,
-    "width": 900,
-    "height": 300,
+    "x": 24,
+    "y": 130,
+    "width": 700,
+    "height": 250,
     "z": 1000,
     "tabOrder": 0
   },
@@ -79,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Historical Solves — LMD vs SudokuPad'"
+                  "Value": "'Historical Solves — Platform Comparison'"
                 }
               }
             },
