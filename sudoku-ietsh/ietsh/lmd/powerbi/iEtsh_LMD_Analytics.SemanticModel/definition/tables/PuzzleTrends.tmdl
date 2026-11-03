@@ -12,6 +12,11 @@ table PuzzleTrends
 		dataType: dateTime
 		summarizeBy: none
 		sourceColumn: captured_at
+	column 'Snapshot Date'
+		dataType: dateTime
+		isHidden
+		summarizeBy: none
+		sourceColumn: Snapshot Date
 	column lmd_solves
 		dataType: int64
 		summarizeBy: sum
@@ -47,6 +52,7 @@ table PuzzleTrends
 				let
 					Source = Excel.Workbook(Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"), null, true),
 					Data = Source{[Item="PuzzleTrends", Kind="Table"]}[Data],
-					Typed = Table.TransformColumnTypes(Data, {{"lmd_code", type text}, {"title", type text}, {"captured_at", type datetime}, {"lmd_solves", Int64.Type}, {"sudokupad_solves", Int64.Type}, {"rating_percent", type number}, {"difficulty_stars", type number}, {"lmd_delta", Int64.Type}, {"sudokupad_delta", Int64.Type}, {"combined_delta", Int64.Type}})
+					Typed = Table.TransformColumnTypes(Data, {{"lmd_code", type text}, {"title", type text}, {"captured_at", type datetime}, {"lmd_solves", Int64.Type}, {"sudokupad_solves", Int64.Type}, {"rating_percent", type number}, {"difficulty_stars", type number}, {"lmd_delta", Int64.Type}, {"sudokupad_delta", Int64.Type}, {"combined_delta", Int64.Type}}),
+					AddSnapshotDate = Table.AddColumn(Typed, "Snapshot Date", each Date.From([captured_at]), type date)
 				in
-					Typed
+					AddSnapshotDate
