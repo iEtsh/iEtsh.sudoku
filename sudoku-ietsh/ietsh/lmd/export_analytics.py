@@ -322,6 +322,45 @@ def main():
     ws["A20"].alignment = Alignment(wrap_text=True, vertical="center")
     ws.row_dimensions[20].height = 34
 
+    # Side-by-side READ ME text guide. Keep the existing visual lineage diagram
+    # on the left and restore the earlier explanatory narrative on the right.
+    ws.merge_cells("J4:N4")
+    ws["J4"] = "READ ME | TEXT GUIDE"
+    ws["J4"].font = Font(bold=True, size=13, color=WHITE)
+    ws["J4"].fill = PatternFill("solid", fgColor=NAVY)
+    ws["J4"].alignment = Alignment(horizontal="center", vertical="center")
+    for col in range(10, 15):
+        ws.cell(4, col).fill = PatternFill("solid", fgColor=NAVY)
+    readme_blocks = [
+        (6, "WORKBOOK FLOW", "Supabase Database → Puzzle Catalog → Snapshot History → Puzzle Trends, with an Executive Dashboard bringing the analysis together."),
+        (9, "1. CURRENT PUZZLE DATA", "The lmd_puzzles table stores the current record for each puzzle. It feeds Puzzle Master Data, which contains one row per puzzle and its latest known attributes and metrics."),
+        (12, "2. HISTORICAL SNAPSHOTS", "The lmd_puzzle_snapshots table stores timestamped observations. It feeds the Observation Log, preserving the measurements captured over time."),
+        (15, "3. PUZZLE TRENDS", "Derived Metrics is calculated from consecutive observations in the Observation Log. It shows how solve counts and other tracked values changed between saved snapshots."),
+        (18, "4. EXECUTIVE DASHBOARD", "Analytics Dashboard combines current puzzle data with historical observations. Its historical chart reconstructs the latest-known state after each snapshot event; it does not depend on Derived Metrics."),
+    ]
+    for row, heading, body in readme_blocks:
+        ws.merge_cells(start_row=row, start_column=10, end_row=row, end_column=14)
+        h = ws.cell(row, 10, heading)
+        h.font = Font(bold=True, size=10, color=WHITE)
+        h.fill = PatternFill("solid", fgColor=BLUE)
+        h.alignment = Alignment(vertical="center", wrap_text=True)
+        for col in range(10, 15):
+            ws.cell(row, col).fill = PatternFill("solid", fgColor=BLUE)
+        ws.merge_cells(start_row=row + 1, start_column=10, end_row=row + 1, end_column=14)
+        b = ws.cell(row + 1, 10, body)
+        b.font = Font(size=10, color=NAVY)
+        b.fill = PatternFill("solid", fgColor=LIGHT)
+        b.alignment = Alignment(vertical="center", wrap_text=True)
+        for col in range(10, 15):
+            ws.cell(row + 1, col).fill = PatternFill("solid", fgColor=LIGHT)
+        ws.row_dimensions[row].height = 22
+        ws.row_dimensions[row + 1].height = 42
+    ws.merge_cells("J20:N20")
+    ws["J20"] = "Terminology note: the earlier labels Puzzle Catalog, Snapshot History, Puzzle Trends and Executive Dashboard are retained here as a conceptual reading guide. The actual worksheet names are shown in the diagram on the left."
+    ws["J20"].font = Font(italic=True, size=9, color=GREY)
+    ws["J20"].alignment = Alignment(wrap_text=True, vertical="center")
+    ws.row_dimensions[20].height = 42
+
     # Data dictionary and workbook metadata.
     notes = [
         ["Workbook", "iEtsh LMD Analytics"],
@@ -353,6 +392,8 @@ def main():
     ws.column_dimensions["B"].width = 110
     for col in "CDEFGH":
         ws.column_dimensions[col].width = 16
+    for col in "JKLMN":
+        ws.column_dimensions[col].width = 18
     ws.sheet_view.showGridLines = False
     ws.freeze_panes = "A23"
 
