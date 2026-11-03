@@ -40,10 +40,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "Historical LMD Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Historical LMD Solves",
+              "nativeQueryRef": "Historical LMD Solves"
             },
             {
               "field": {
@@ -52,10 +54,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "Historical SudokuPad Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Historical SudokuPad Solves",
+              "nativeQueryRef": "Historical SudokuPad Solves"
             }
           ]
         }
