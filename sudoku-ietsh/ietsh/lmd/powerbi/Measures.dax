@@ -1,0 +1,102 @@
+// iEtsh LMD Analytics — DAX
+// Create these measures in Power BI Desktop after loading the three queries.
+// Model relationships:
+//   PuzzleMasterData[lmd_code] 1 -> * ObservationLog[lmd_code]
+//   PuzzleMasterData[lmd_code] 1 -> * PuzzleTrends[lmd_code]
+// Create a Date table using the DAX expression in README.md and relate
+// Date[Date] 1 -> * ObservationLog[Snapshot Date] (date-only calculated column).
+
+Active Puzzles =
+CALCULATE (
+    DISTINCTCOUNT ( PuzzleMasterData[lmd_code] ),
+    PuzzleMasterData[is_active] = TRUE ()
+)
+
+Combined Solves =
+SUM ( PuzzleMasterData[lmd_solves] )
+    + SUM ( PuzzleMasterData[sudokupad_solves] )
+
+LMD Solves =
+SUM ( PuzzleMasterData[lmd_solves] )
+
+SudokuPad Solves =
+SUM ( PuzzleMasterData[sudokupad_solves] )
+
+Average Rating =
+AVERAGE ( PuzzleMasterData[rating_percent] )
+
+Average Difficulty =
+AVERAGE ( PuzzleMasterData[difficulty_stars] )
+
+Rating Coverage =
+COUNT ( PuzzleMasterData[rating_percent] )
+
+Difficulty Coverage =
+COUNT ( PuzzleMasterData[difficulty_stars] )
+
+LMD Share =
+DIVIDE ( [LMD Solves], [Combined Solves] )
+
+SudokuPad Share =
+DIVIDE ( [SudokuPad Solves], [Combined Solves] )
+
+Average Combined Solves per Puzzle =
+DIVIDE ( [Combined Solves], [Active Puzzles] )
+
+Snapshot Count =
+COUNTROWS ( ObservationLog )
+
+// Reconstructs the latest known solve totals for each puzzle as of the
+// selected date. This avoids summing every historical snapshot as if it
+// were a separate puzzle observation.
+Historical LMD Solves =
+VAR AsOfDate = MAX ( 'Date'[Date] ) + 1
+RETURN
+SUMX (
+    VALUES ( ObservationLog[lmd_code] ),
+    VAR ThisCode = ObservationLog[lmd_code]
+    VAR LastRow =
+        TOPN (
+            1,
+            FILTER (
+                ALL ( ObservationLog ),
+                ObservationLog[lmd_code] = ThisCode
+                    && ObservationLog[captured_at] < AsOfDate
+            ),
+            ObservationLog[captured_at], DESC,
+            ObservationLog[id], DESC
+        )
+    RETURN MAXX ( LastRow, ObservationLog[lmd_solves] )
+)
+
+Historical SudokuPad Solves =
+VAR AsOfDate = MAX ( 'Date'[Date] ) + 1
+RETURN
+SUMX (
+    VALUES ( ObservationLog[lmd_code] ),
+    VAR ThisCode = ObservationLog[lmd_code]
+    VAR LastRow =
+        TOPN (
+            1,
+            FILTER (
+                ALL ( ObservationLog ),
+                ObservationLog[lmd_code] = ThisCode
+                    && ObservationLog[captured_at] < AsOfDate
+            ),
+            ObservationLog[captured_at], DESC,
+            ObservationLog[id], DESC
+        )
+    RETURN MAXX ( LastRow, ObservationLog[sudokupad_solves] )
+)
+
+Historical Combined Solves =
+[Historical LMD Solves] + [Historical SudokuPad Solves]
+
+LMD Change =
+SUM ( PuzzleTrends[lmd_delta] )
+
+SudokuPad Change =
+SUM ( PuzzleTrends[sudokupad_delta] )
+
+Combined Change =
+SUM ( PuzzleTrends[combined_delta] )
