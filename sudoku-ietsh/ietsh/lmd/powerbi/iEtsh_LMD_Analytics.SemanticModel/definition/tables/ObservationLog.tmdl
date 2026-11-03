@@ -42,7 +42,7 @@ table ObservationLog
 		summarizeBy: none
 		sourceColumn: published_at
 	column 'Snapshot Date'
-		dataType: date
+		dataType: dateTime
 		isHidden
 		summarizeBy: none
 		sourceColumn: Snapshot Date
