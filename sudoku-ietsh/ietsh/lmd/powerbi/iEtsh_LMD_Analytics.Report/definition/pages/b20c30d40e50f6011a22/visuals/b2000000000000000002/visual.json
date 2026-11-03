@@ -40,10 +40,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "SudokuPad Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.SudokuPad Solves",
+              "nativeQueryRef": "SudokuPad Solves"
             }
           ]
         }
