@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ObservationLog"
+                      "Entity": "Date"
                     }
                   },
-                  "Property": "Snapshot Date"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "ObservationLog.Snapshot Date",
-              "nativeQueryRef": "Snapshot Date"
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
             }
           ]
         },
@@ -35,31 +35,31 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ObservationLog"
+                      "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "lmd_solves"
+                  "Property": "LMD Change"
                 }
               },
-              "queryRef": "ObservationLog.lmd_solves",
-              "nativeQueryRef": "lmd_solves"
+              "queryRef": "PuzzleMasterData.LMD Change",
+              "nativeQueryRef": "LMD Change"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ObservationLog"
+                      "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "sudokupad_solves"
+                  "Property": "SudokuPad Change"
                 }
               },
-              "queryRef": "ObservationLog.sudokupad_solves",
-              "nativeQueryRef": "sudokupad_solves"
+              "queryRef": "PuzzleMasterData.SudokuPad Change",
+              "nativeQueryRef": "SudokuPad Change"
             }
           ]
         }
