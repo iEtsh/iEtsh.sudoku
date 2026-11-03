@@ -8,6 +8,7 @@ from pathlib import Path
 from supabase import create_client
 from openpyxl import Workbook
 from openpyxl.chart import LineChart, BarChart, Reference, DoughnutChart, ScatterChart, Series
+from openpyxl.chart.shapes import GraphicalProperties
 from openpyxl.chart.label import DataLabelList
 from openpyxl.formatting.rule import ColorScaleRule, DataBarRule
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
@@ -115,7 +116,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
     LMD, SP, GREEN, AMBER, PURPLE = "36C6D2", "A78BFA", "55C59A", "F5B65C", "B69CFF"
     for col in range(1,17):
         ws.column_dimensions[get_column_letter(col)].width = 14
-    for col in range(27,45):
+    for col in range(27,51):
         ws.column_dimensions[get_column_letter(col)].hidden = True
     ws.merge_cells("A1:P1"); ws["A1"]="iEtsh  /  PUZZLE INTELLIGENCE"
     ws["A1"].font=Font(name="Aptos Display",size=23,bold=True,color=WHITE)
@@ -180,7 +181,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
         ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=4))
         ch.dataLabels=DataLabelList(); ch.dataLabels.showPercent=True
         from openpyxl.chart.series import DataPoint
-        ch.series[0].data_points=[DataPoint(idx=0,spPr={"solidFill":LMD}),DataPoint(idx=1,spPr={"solidFill":SP})]
+        ch.series[0].data_points=[DataPoint(idx=0,spPr=GraphicalProperties(solidFill=LMD)),DataPoint(idx=1,spPr=GraphicalProperties(solidFill=SP))]
         ws.add_chart(ch,"A28")
     scatter=[[p.get("rating_percent"),(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0)] for p in active if p.get("rating_percent") is not None]
     c,n=data_block("Rating and reach",["Rating %","Combined solves"],scatter)
