@@ -1,0 +1,59 @@
+table ObservationLog
+	column id
+		dataType: int64
+		isKey
+		summarizeBy: none
+		sourceColumn: id
+	column lmd_code
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: lmd_code
+	column captured_at
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: captured_at
+	column lmd_solves
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: lmd_solves
+	column sudokupad_solves
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: sudokupad_solves
+	column rating_percent
+		dataType: double
+		summarizeBy: average
+		sourceColumn: rating_percent
+	column difficulty_stars
+		dataType: double
+		summarizeBy: average
+		sourceColumn: difficulty_stars
+	column puzzle_title
+		dataType: string
+		summarizeBy: none
+		sourceColumn: puzzle_title
+	column puzzle_num
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: puzzle_num
+	column published_at
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: published_at
+	column 'Snapshot Date'
+		dataType: date
+		isHidden
+		summarizeBy: none
+		sourceColumn: Snapshot Date
+
+	partition ObservationLog = m
+		mode: import
+		source =
+				let
+					Source = Excel.Workbook(Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"), null, true),
+					Data = Source{[Item="ObservationLog", Kind="Table"]}[Data],
+					Typed = Table.TransformColumnTypes(Data, {{"id", Int64.Type}, {"lmd_code", type text}, {"captured_at", type datetime}, {"lmd_solves", Int64.Type}, {"sudokupad_solves", Int64.Type}, {"rating_percent", type number}, {"difficulty_stars", type number}, {"puzzle_title", type text}, {"puzzle_num", Int64.Type}, {"published_at", type datetime}}),
+					AddSnapshotDate = Table.AddColumn(Typed, "Snapshot Date", each Date.From([captured_at]), type date)
+				in
+					AddSnapshotDate
