@@ -49108,5 +49108,49 @@
     "field": "sudokupad_solves",
     "previous": 156,
     "current": 157
+  },
+  {
+    "id": "2026-11-03T22:31:35.730931Z-0",
+    "time": "2026-11-03T22:31:35.730931Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "solves",
+    "previous": 48,
+    "current": 49
+  },
+  {
+    "id": "2026-11-03T22:31:35.730931Z-1",
+    "time": "2026-11-03T22:31:35.730931Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 133,
+    "current": 135
+  },
+  {
+    "id": "2026-11-03T22:31:35.730931Z-2",
+    "time": "2026-11-03T22:31:35.730931Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "rating",
+    "previous": "96%",
+    "current": "95%"
+  },
+  {
+    "id": "2026-11-03T22:31:35.730931Z-3",
+    "time": "2026-11-03T22:31:35.730931Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "solves",
+    "previous": 12,
+    "current": 13
   }
 ]
