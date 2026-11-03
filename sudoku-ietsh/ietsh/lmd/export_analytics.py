@@ -165,6 +165,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
         ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=2+n))
         for ser,color in zip(ch.series,(LMD,SP)):
             ser.graphicalProperties.line.solidFill=color; ser.graphicalProperties.line.width=26000; ser.smooth=True
+        ch.visible_cells_only = False
         ws.add_chart(ch,"A9")
     top=sorted(active,key=lambda p:(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0),reverse=True)[:12]
     c,n=data_block("Top puzzles",["Puzzle","Combined solves"],[[(p.get("title") or p.get("lmd_code") or "Untitled")[:40],(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0)] for p in top])
@@ -173,6 +174,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
         ch.legend=None; ch.add_data(Reference(ws,min_col=c+1,min_row=2,max_row=2+n),titles_from_data=True)
         ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=2+n))
         ch.series[0].graphicalProperties.solidFill=LMD; ch.series[0].graphicalProperties.line.solidFill=LMD
+        ch.visible_cells_only = False
         ws.add_chart(ch,"I9")
     c,n=data_block("Platform mix",["Platform","Solves"],[["LMD",lmd],["SudokuPad",sp]])
     if combined:
@@ -182,6 +184,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
         ch.dataLabels=DataLabelList(); ch.dataLabels.showPercent=True
         from openpyxl.chart.series import DataPoint
         ch.series[0].data_points=[DataPoint(idx=0,spPr=GraphicalProperties(solidFill=LMD)),DataPoint(idx=1,spPr=GraphicalProperties(solidFill=SP))]
+        ch.visible_cells_only = False
         ws.add_chart(ch,"A28")
     scatter=[[p.get("rating_percent"),(p.get("lmd_solves") or 0)+(p.get("sudokupad_solves") or 0)] for p in active if p.get("rating_percent") is not None]
     c,n=data_block("Rating and reach",["Rating %","Combined solves"],scatter)
@@ -190,7 +193,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
         ch.x_axis.title="Rating (%)"; ch.y_axis.title="Combined solves"; ch.legend=None
         ser=Series(Reference(ws,min_col=c+1,min_row=3,max_row=2+n),Reference(ws,min_col=c,min_row=3,max_row=2+n),title="Puzzles")
         ser.graphicalProperties.line.noFill=True; ser.graphicalProperties.solidFill=PURPLE
-        ser.marker.symbol="circle"; ser.marker.size=6; ch.series.append(ser); ws.add_chart(ch,"H28")
+        ser.marker.symbol="circle"; ser.marker.size=6; ch.series.append(ser); ch.visible_cells_only = False; ws.add_chart(ch,"H28")
     groups=defaultdict(list)
     for p in active:
         if p.get("difficulty_stars") is not None: groups[p["difficulty_stars"]].append(p)
@@ -206,6 +209,7 @@ def build_power_bi(wb, active, puzzles, snapshots, trend_rows):
         ch.add_data(Reference(ws,min_col=c+2,min_row=2,max_row=2+n),titles_from_data=True)
         ch.set_categories(Reference(ws,min_col=c,min_row=3,max_row=2+n))
         ch.series[0].graphicalProperties.solidFill=AMBER; ch.series[0].graphicalProperties.line.solidFill=AMBER
+        ch.visible_cells_only = False
         ws.add_chart(ch,"A49")
     first=trend_rows[0] if trend_rows else None; last=trend_rows[-1] if trend_rows else None
     growth=None
