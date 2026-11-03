@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a1000000000000000007",
+  "position": {
+    "x": 35,
+    "y": 525,
+    "z": 1000,
+    "width": 590,
+    "height": 260,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Platform"
+                    }
+                  },
+                  "Property": "Platform"
+                }
+              },
+              "queryRef": "Platform.Platform",
+              "nativeQueryRef": "Platform"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  }
+                }
+              },
+              "queryRef": "PuzzleMasterData.undefined"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
