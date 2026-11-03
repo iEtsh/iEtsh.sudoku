@@ -1,31 +1,32 @@
 {
-  "name": "iEtsh Dark",
+  "name": "iEtsh Dark — Command Center",
   "dataColors": [
-    "#20B8C5",
-    "#6E9FEA",
-    "#E6B85C",
-    "#9B8BE8",
-    "#54C7A5",
-    "#E27D91",
-    "#8DA0B5"
+    "#20D6C7",
+    "#5B9CFF",
+    "#F5B84B",
+    "#A78BFA",
+    "#42D392",
+    "#FF718B",
+    "#69C8E8",
+    "#C4D36B"
   ],
-  "background": "#0D1015",
-  "foreground": "#E9EEF4",
-  "tableAccent": "#20B8C5",
-  "good": "#54C7A5",
-  "neutral": "#E6B85C",
-  "bad": "#E27D91",
+  "background": "#090E16",
+  "foreground": "#EAF2FF",
+  "tableAccent": "#20D6C7",
+  "good": "#42D392",
+  "neutral": "#F5B84B",
+  "bad": "#FF718B",
   "visualStyles": {
     "*": {
       "*": {
         "title": [
           {
             "show": true,
-            "fontFace": "Segoe UI",
+            "fontFace": "Segoe UI Semibold",
             "fontSize": 12,
             "color": {
               "solid": {
-                "color": "#E9EEF4"
+                "color": "#EAF2FF"
               }
             }
           }
@@ -35,9 +36,15 @@
             "show": true,
             "color": {
               "solid": {
-                "color": "#151C25"
+                "color": "#111A27"
               }
-            }
+            },
+            "transparency": 0
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": false
           }
         ]
       }

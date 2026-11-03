@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "e50f6011a22b33c44d55",
+  "displayName": "LMD Command Center",
+  "displayOption": "ActualSize",
+  "height": 1730,
+  "width": 1440
+}
