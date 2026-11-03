@@ -1,6 +1,6 @@
 table Date
 	column Date
-		dataType: date
+		dataType: dateTime
 		isKey
 		summarizeBy: none
 		sourceColumn: Date
