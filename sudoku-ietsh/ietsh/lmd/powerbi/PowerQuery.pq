@@ -1,6 +1,5 @@
 // iEtsh LMD Analytics — Power Query snippets
-// In Power BI Desktop, create three Blank Queries. Rename them exactly as
-// shown and paste the matching let...in expression into Advanced Editor.
+// These are reference copies of the three queries embedded in the PBIP model.
 // The source is the existing automatically refreshed public Excel export.
 // No Supabase service-role key is embedded in this project.
 
@@ -79,6 +78,7 @@ let
         {"lmd_delta", Int64.Type},
         {"sudokupad_delta", Int64.Type},
         {"combined_delta", Int64.Type}
-    })
+    }),
+    AddSnapshotDate = Table.AddColumn(Typed, "Snapshot Date", each Date.From([captured_at]), type date)
 in
-    Typed
+    AddSnapshotDate
