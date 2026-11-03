@@ -1,19 +1,17 @@
-// iEtsh LMD Analytics — Power Query
-// In Power BI Desktop: Home > Transform data > New Source > Blank Query.
-// Create three queries named PuzzleMasterData, ObservationLog, and PuzzleTrends
-// by copying the corresponding query below into Advanced Editor.
-//
-// Source workbook is the existing auto-generated public analytics export.
-// It contains no Supabase credentials; GitHub Actions refreshes it from Supabase.
+// iEtsh LMD Analytics — Power Query snippets
+// In Power BI Desktop, create three Blank Queries. Rename them exactly as
+// shown and paste the matching let...in expression into Advanced Editor.
+// The source is the existing automatically refreshed public Excel export.
+// No Supabase service-role key is embedded in this project.
 
-section iEtshLMD;
 
-shared AnalyticsWorkbookUrl =
-    "https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx";
-
-shared PuzzleMasterData =
+// QUERY 1 — PuzzleMasterData
 let
-    Source = Excel.Workbook(Web.Contents(AnalyticsWorkbookUrl), null, true),
+    Source = Excel.Workbook(
+        Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"),
+        null,
+        true
+    ),
     Data = Source{[Item="PuzzleMasterData", Kind="Table"]}[Data],
     Typed = Table.TransformColumnTypes(Data, {
         {"lmd_code", type text},
@@ -34,11 +32,16 @@ let
         {"is_active", type logical}
     })
 in
-    Typed;
+    Typed
 
-shared ObservationLog =
+
+// QUERY 2 — ObservationLog
 let
-    Source = Excel.Workbook(Web.Contents(AnalyticsWorkbookUrl), null, true),
+    Source = Excel.Workbook(
+        Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"),
+        null,
+        true
+    ),
     Data = Source{[Item="ObservationLog", Kind="Table"]}[Data],
     Typed = Table.TransformColumnTypes(Data, {
         {"id", Int64.Type},
@@ -51,13 +54,19 @@ let
         {"puzzle_title", type text},
         {"puzzle_num", Int64.Type},
         {"published_at", type datetime}
-    })
+    }),
+    AddSnapshotDate = Table.AddColumn(Typed, "Snapshot Date", each Date.From([captured_at]), type date)
 in
-    Typed;
+    AddSnapshotDate
 
-shared PuzzleTrends =
+
+// QUERY 3 — PuzzleTrends
 let
-    Source = Excel.Workbook(Web.Contents(AnalyticsWorkbookUrl), null, true),
+    Source = Excel.Workbook(
+        Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"),
+        null,
+        true
+    ),
     Data = Source{[Item="PuzzleTrends", Kind="Table"]}[Data],
     Typed = Table.TransformColumnTypes(Data, {
         {"lmd_code", type text},
@@ -72,4 +81,4 @@ let
         {"combined_delta", Int64.Type}
     })
 in
-    Typed;
+    Typed
