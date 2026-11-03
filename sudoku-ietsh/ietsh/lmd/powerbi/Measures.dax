@@ -53,7 +53,7 @@ Historical LMD Solves =
 VAR AsOfDate = MAX ( 'Date'[Date] ) + 1
 RETURN
 SUMX (
-    VALUES ( ObservationLog[lmd_code] ),
+    ALL ( PuzzleMasterData[lmd_code] ),
     VAR ThisCode = ObservationLog[lmd_code]
     VAR LastRow =
         TOPN (
