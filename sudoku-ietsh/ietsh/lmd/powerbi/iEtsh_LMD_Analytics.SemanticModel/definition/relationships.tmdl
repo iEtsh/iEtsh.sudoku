@@ -1,0 +1,11 @@
+relationship 6a93d0c2-8e5a-4a5a-9b0e-1d3c7f8a0001
+	fromColumn: ObservationLog.lmd_code
+	toColumn: PuzzleMasterData.lmd_code
+
+relationship 6a93d0c2-8e5a-4a5a-9b0e-1d3c7f8a0002
+	fromColumn: PuzzleTrends.lmd_code
+	toColumn: PuzzleMasterData.lmd_code
+
+relationship 6a93d0c2-8e5a-4a5a-9b0e-1d3c7f8a0003
+	fromColumn: ObservationLog.Snapshot Date
+	toColumn: Date.Date
