@@ -22,10 +22,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "LMD Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.LMD Solves",
+              "nativeQueryRef": "LMD Solves"
             }
           ]
         }
