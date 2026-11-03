@@ -12,9 +12,9 @@ Open `iEtsh_LMD_Analytics.pbip` with Power BI Desktop. On first open, Power BI m
 
 ## Report pages
 
-1. **Overview** — KPI cards, historical LMD/SudokuPad solve trends, and combined puzzle performance.
-2. **Puzzle Performance** — platform-specific comparisons and a puzzle detail table.
-3. **Growth & History** — historical platform totals and observation-level trend.
+1. **Overview** — KPI cards, historical LMD/SudokuPad solve trends, combined puzzle performance, and active-status distribution.
+2. **Puzzle Performance** — separate LMD and SudokuPad solve comparisons and a puzzle detail table.
+3. **Growth & History** — reconstructed historical platform totals and daily solve changes.
 4. **Data Quality** — rating/difficulty coverage, snapshot count, and puzzle data table.
 
 ## Data source
@@ -35,5 +35,6 @@ Relationships:
 - `PuzzleMasterData[lmd_code]` 1 → * `ObservationLog[lmd_code]`
 - `PuzzleMasterData[lmd_code]` 1 → * `PuzzleTrends[lmd_code]`
 - `Date[Date]` 1 → * `ObservationLog[Snapshot Date]`
+- `Date[Date]` 1 → * `PuzzleTrends[Snapshot Date]`
 
-Historical measures reconstruct the latest recorded total per puzzle as of the selected date; they do not sum all snapshots together. Historical data begins when each puzzle first has a saved observation.
+Historical measures reconstruct the latest recorded solve total per puzzle as of the selected date; they do not sum all snapshots together. Daily change visuals use the per-puzzle deltas in `PuzzleTrends`, grouped by snapshot date. Historical data begins when each puzzle first has a saved observation.
