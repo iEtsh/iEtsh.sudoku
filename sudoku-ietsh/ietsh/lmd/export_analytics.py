@@ -354,7 +354,7 @@ def main():
     for col in "CDEFGH":
         ws.column_dimensions[col].width = 16
     ws.sheet_view.showGridLines = False
-    ws.freeze_panes = "A22"
+    ws.freeze_panes = "A23"
 
     # Consistent workbook metadata and print setup.
     wb.properties.title = "iEtsh LMD Analytics"
