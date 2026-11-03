@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "b2000000000000000003",
+  "position": {
+    "x": 35,
+    "y": 395,
+    "z": 1000,
+    "width": 1180,
+    "height": 390,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "PuzzleMasterData.title",
+              "nativeQueryRef": "title"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "published_at"
+                }
+              },
+              "queryRef": "PuzzleMasterData.published_at",
+              "nativeQueryRef": "published_at"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "difficulty_stars"
+                }
+              },
+              "queryRef": "PuzzleMasterData.difficulty_stars",
+              "nativeQueryRef": "difficulty_stars"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "rating_percent"
+                }
+              },
+              "queryRef": "PuzzleMasterData.rating_percent",
+              "nativeQueryRef": "rating_percent"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  }
+                }
+              },
+              "queryRef": "PuzzleMasterData.undefined"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
