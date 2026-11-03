@@ -94,7 +94,9 @@ def write_table(ws, title, headers, rows, table_name, widths=None):
                                             showLastColumn=False)
         ws.add_table(tab)
     ws.freeze_panes = "A5"
-    ws.auto_filter.ref = f"A{header_row}:{get_column_letter(len(headers))}{max(last_row, header_row)}"
+    # Excel Tables already contain their own AutoFilter definition.
+    # Adding a worksheet-level AutoFilter over the same range creates duplicate
+    # filter metadata that can make Excel repair and discard the Table on open.
     ws.sheet_view.showGridLines = False
     for col, header in enumerate(headers, 1):
         width = (widths or {}).get(header, min(max(len(header) + 3, 14), 30))
