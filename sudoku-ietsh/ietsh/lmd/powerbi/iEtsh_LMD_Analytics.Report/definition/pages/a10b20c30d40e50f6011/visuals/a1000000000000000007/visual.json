@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Platform"
+                      "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Platform"
+                  "Property": "is_active"
                 }
               },
-              "queryRef": "Platform.Platform",
-              "nativeQueryRef": "Platform"
+              "queryRef": "PuzzleMasterData.is_active",
+              "nativeQueryRef": "is_active"
             }
           ]
         },
@@ -40,10 +40,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "Puzzle Count"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Puzzle Count",
+              "nativeQueryRef": "Puzzle Count"
             }
           ]
         }
