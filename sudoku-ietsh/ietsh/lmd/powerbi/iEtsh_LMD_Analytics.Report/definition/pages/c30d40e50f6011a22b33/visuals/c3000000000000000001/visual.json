@@ -40,10 +40,18 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": [
+                    "Historical LMD Solves",
+                    "Historical SudokuPad Solves"
+                  ]
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Historical LMD Solves,Historical SudokuPad Solves",
+              "nativeQueryRef": [
+                "Historical LMD Solves",
+                "Historical SudokuPad Solves"
+              ]
             },
             {
               "field": {
@@ -52,10 +60,18 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": [
+                    "Historical LMD Solves",
+                    "Historical SudokuPad Solves"
+                  ]
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Historical LMD Solves,Historical SudokuPad Solves",
+              "nativeQueryRef": [
+                "Historical LMD Solves",
+                "Historical SudokuPad Solves"
+              ]
             }
           ]
         }
