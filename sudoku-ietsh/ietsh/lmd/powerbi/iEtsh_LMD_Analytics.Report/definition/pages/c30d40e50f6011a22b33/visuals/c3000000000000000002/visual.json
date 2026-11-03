@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "c3000000000000000002",
+  "position": {
+    "x": 35,
+    "y": 455,
+    "z": 1000,
+    "width": 1180,
+    "height": 330,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ObservationLog"
+                    }
+                  },
+                  "Property": "Snapshot Date"
+                }
+              },
+              "queryRef": "ObservationLog.Snapshot Date",
+              "nativeQueryRef": "Snapshot Date"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ObservationLog"
+                    }
+                  },
+                  "Property": "lmd_solves"
+                }
+              },
+              "queryRef": "ObservationLog.lmd_solves",
+              "nativeQueryRef": "lmd_solves"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ObservationLog"
+                    }
+                  },
+                  "Property": "sudokupad_solves"
+                }
+              },
+              "queryRef": "ObservationLog.sudokupad_solves",
+              "nativeQueryRef": "sudokupad_solves"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
