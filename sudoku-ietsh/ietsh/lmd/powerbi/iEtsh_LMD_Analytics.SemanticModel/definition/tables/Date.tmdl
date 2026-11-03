@@ -1,0 +1,39 @@
+table Date
+	column Date
+		dataType: date
+		isKey
+		summarizeBy: none
+		sourceColumn: Date
+	column Year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: Year
+	column Month
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Month
+	column 'Year Month'
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Year Month
+	column 'Month Sort'
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: Month Sort
+	partition Date = m
+		mode: import
+		source =
+				let
+					Obs = ObservationLog[Snapshot Date],
+					MinDate = List.Min(Obs),
+					MaxDate = Date.From(DateTime.LocalNow()),
+					Dates = List.Dates(MinDate, Duration.Days(MaxDate - MinDate) + 1, #duration(1,0,0,0)),
+					T = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+					Typed = Table.TransformColumnTypes(T, {{"Date", type date}}),
+					AddYear = Table.AddColumn(Typed, "Year", each Date.Year([Date]), Int64.Type),
+					AddMonth = Table.AddColumn(AddYear, "Month", each Date.ToText([Date], "MMM", "en-US"), type text),
+					AddYearMonth = Table.AddColumn(AddMonth, "Year Month", each Date.ToText([Date], "yyyy-MM", "en-US"), type text),
+					AddMonthSort = Table.AddColumn(AddYearMonth, "Month Sort", each Date.Year([Date]) * 100 + Date.Month([Date]), Int64.Type)
+				in
+					AddMonthSort
