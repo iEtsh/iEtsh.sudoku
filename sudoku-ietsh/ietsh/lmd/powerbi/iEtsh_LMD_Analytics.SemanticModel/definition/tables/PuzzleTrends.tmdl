@@ -1,0 +1,52 @@
+table PuzzleTrends
+	column lmd_code
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: lmd_code
+	column title
+		dataType: string
+		summarizeBy: none
+		sourceColumn: title
+	column captured_at
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: captured_at
+	column lmd_solves
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: lmd_solves
+	column sudokupad_solves
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: sudokupad_solves
+	column rating_percent
+		dataType: double
+		summarizeBy: average
+		sourceColumn: rating_percent
+	column difficulty_stars
+		dataType: double
+		summarizeBy: average
+		sourceColumn: difficulty_stars
+	column lmd_delta
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: lmd_delta
+	column sudokupad_delta
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: sudokupad_delta
+	column combined_delta
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: combined_delta
+
+	partition PuzzleTrends = m
+		mode: import
+		source =
+				let
+					Source = Excel.Workbook(Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"), null, true),
+					Data = Source{[Item="PuzzleTrends", Kind="Table"]}[Data],
+					Typed = Table.TransformColumnTypes(Data, {{"lmd_code", type text}, {"title", type text}, {"captured_at", type datetime}, {"lmd_solves", Int64.Type}, {"sudokupad_solves", Int64.Type}, {"rating_percent", type number}, {"difficulty_stars", type number}, {"lmd_delta", Int64.Type}, {"sudokupad_delta", Int64.Type}, {"combined_delta", Int64.Type}})
+				in
+					Typed
