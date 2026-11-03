@@ -299,7 +299,9 @@ def main():
         (9, 5, 8, "↓  Historical Observation Log", "DCEAF5", NAVY),
         (11, 1, 4, "Current-state records\nOne row per puzzle", LIGHT, NAVY),
         (11, 5, 8, "Historical records\nOne row per captured observation", LIGHT, NAVY),
+        (13, 1, 4, "↓  Dashboard inputs", "DCEAF5", NAVY),
         (13, 5, 8, "↓  Derived Metrics", "FCEBD2", NAVY),
+        (15, 1, 4, "KPIs and current top-puzzle ranking", LIGHT, NAVY),
         (15, 5, 8, "Per-puzzle changes between consecutive observations", LIGHT, NAVY),
         (17, 1, 8, "↓  Analytics Dashboard", GREEN, WHITE),
         (18, 1, 8, "KPIs and top-puzzle ranking use current master data. Historical charts reconstruct the latest-known state from the observation log.", "E4F2ED", NAVY),
@@ -337,8 +339,12 @@ def main():
         ["Puzzle records", len(puzzles)],
         ["Observation records", len(snapshots)],
     ]
-    style_title(ws, "Data Dictionary & Workbook Guide", "Definitions, provenance and interpretation notes", 2)
-    for i, (k, v) in enumerate(notes, 22):
+    ws.merge_cells("A22:B22")
+    ws["A22"] = "DATA DICTIONARY & WORKBOOK GUIDE"
+    ws["A22"].font = Font(bold=True, size=13, color=WHITE)
+    ws["A22"].fill = PatternFill("solid", fgColor=NAVY)
+    ws.row_dimensions[22].height = 28
+    for i, (k, v) in enumerate(notes, 23):
         ws.cell(i, 1, k).font = Font(bold=True, color=NAVY)
         ws.cell(i, 1).fill = PatternFill("solid", fgColor=PALE)
         ws.cell(i, 2, v).alignment = Alignment(wrap_text=True, vertical="top")
