@@ -1,0 +1,143 @@
+table PuzzleMasterData
+	column lmd_code
+		dataType: string
+		isKey
+		summarizeBy: none
+		sourceColumn: lmd_code
+	column puzzle_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: puzzle_id
+	column puzzle_num
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: puzzle_num
+	column title
+		dataType: string
+		summarizeBy: none
+		sourceColumn: title
+	column published_at
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: published_at
+	column published_date_raw
+		dataType: string
+		summarizeBy: none
+		sourceColumn: published_date_raw
+	column difficulty_stars
+		dataType: double
+		summarizeBy: average
+		sourceColumn: difficulty_stars
+	column author_rated
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: author_rated
+	column sudokupad_url
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: sudokupad_url
+	column lmd_solves
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: lmd_solves
+	column sudokupad_solves
+		dataType: int64
+		summarizeBy: sum
+		sourceColumn: sudokupad_solves
+	column rating_percent
+		dataType: double
+		summarizeBy: average
+		sourceColumn: rating_percent
+	column image_path
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: image_path
+	column source_updated_at
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: source_updated_at
+	column last_seen_at
+		dataType: dateTime
+		summarizeBy: none
+		sourceColumn: last_seen_at
+	column is_active
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_active
+
+	measure 'Active Puzzles' = CALCULATE(DISTINCTCOUNT(PuzzleMasterData[lmd_code]), PuzzleMasterData[is_active] = TRUE())
+		formatString: #,##0
+	measure 'Combined Solves' = [LMD Solves] + [SudokuPad Solves]
+		formatString: #,##0
+	measure 'LMD Solves' = SUM(PuzzleMasterData[lmd_solves])
+		formatString: #,##0
+	measure 'SudokuPad Solves' = SUM(PuzzleMasterData[sudokupad_solves])
+		formatString: #,##0
+	measure 'Average Rating' = AVERAGE(PuzzleMasterData[rating_percent])
+		formatString: 0.0
+	measure 'Average Difficulty' = AVERAGE(PuzzleMasterData[difficulty_stars])
+		formatString: 0.00
+	measure 'Rating Coverage' = COUNT(PuzzleMasterData[rating_percent])
+		formatString: #,##0
+	measure 'Difficulty Coverage' = COUNT(PuzzleMasterData[difficulty_stars])
+		formatString: #,##0
+	measure 'LMD Share' = DIVIDE([LMD Solves], [Combined Solves])
+		formatString: 0.0%
+	measure 'SudokuPad Share' = DIVIDE([SudokuPad Solves], [Combined Solves])
+		formatString: 0.0%
+	measure 'Average Combined Solves per Puzzle' = DIVIDE([Combined Solves], [Active Puzzles])
+		formatString: #,##0
+	measure 'Snapshot Count' = COUNTROWS(ObservationLog)
+		formatString: #,##0
+	measure 'Historical LMD Solves' =
+			VAR AsOfDate = MAX('Date'[Date]) + 1
+			RETURN
+			SUMX(
+				ALL(PuzzleMasterData[lmd_code]),
+					VAR ThisCode = PuzzleMasterData[lmd_code]
+					VAR LastRow =
+						TOPN(
+							1,
+							FILTER(ALL(ObservationLog), ObservationLog[lmd_code] = ThisCode && ObservationLog[captured_at] < AsOfDate),
+							ObservationLog[captured_at], DESC,
+							ObservationLog[id], DESC
+						)
+					RETURN MAXX(LastRow, ObservationLog[lmd_solves])
+			)
+		formatString: #,##0
+	measure 'Historical SudokuPad Solves' =
+			VAR AsOfDate = MAX('Date'[Date]) + 1
+			RETURN
+			SUMX(
+				ALL(PuzzleMasterData[lmd_code]),
+					VAR ThisCode = PuzzleMasterData[lmd_code]
+					VAR LastRow =
+						TOPN(
+							1,
+							FILTER(ALL(ObservationLog), ObservationLog[lmd_code] = ThisCode && ObservationLog[captured_at] < AsOfDate),
+							ObservationLog[captured_at], DESC,
+							ObservationLog[id], DESC
+						)
+					RETURN MAXX(LastRow, ObservationLog[sudokupad_solves])
+			)
+		formatString: #,##0
+	measure 'Historical Combined Solves' = [Historical LMD Solves] + [Historical SudokuPad Solves]
+		formatString: #,##0
+	measure 'LMD Change' = SUM(PuzzleTrends[lmd_delta])
+		formatString: #,##0
+	measure 'SudokuPad Change' = SUM(PuzzleTrends[sudokupad_delta])
+		formatString: #,##0
+	measure 'Combined Change' = SUM(PuzzleTrends[combined_delta])
+		formatString: #,##0
+
+	partition PuzzleMasterData = m
+		mode: import
+		source =
+				let
+					Source = Excel.Workbook(Web.Contents("https://raw.githubusercontent.com/iEtsh/iEtsh.sudoku/main/sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx"), null, true),
+					Data = Source{[Item="PuzzleMasterData", Kind="Table"]}[Data],
+					Typed = Table.TransformColumnTypes(Data, {{"lmd_code", type text}, {"puzzle_id", type text}, {"puzzle_num", Int64.Type}, {"title", type text}, {"published_at", type datetime}, {"published_date_raw", type text}, {"difficulty_stars", type number}, {"author_rated", type logical}, {"sudokupad_url", type text}, {"lmd_solves", Int64.Type}, {"sudokupad_solves", Int64.Type}, {"rating_percent", type number}, {"image_path", type text}, {"source_updated_at", type datetime}, {"last_seen_at", type datetime}, {"is_active", type logical}})
+				in
+					Typed
