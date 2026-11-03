@@ -48822,5 +48822,38 @@
     "field": "sudokupad_solves",
     "previous": 127,
     "current": 128
+  },
+  {
+    "id": "2026-11-03T11:31:10.666526Z-0",
+    "time": "2026-11-03T11:31:10.666526Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 230,
+    "current": 231
+  },
+  {
+    "id": "2026-11-03T11:31:10.666526Z-1",
+    "time": "2026-11-03T11:31:10.666526Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "solves",
+    "previous": 129,
+    "current": 130
+  },
+  {
+    "id": "2026-11-03T11:31:10.666526Z-2",
+    "time": "2026-11-03T11:31:10.666526Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots5",
+    "puzzleNum": 22,
+    "title": "Vibrant Spots V",
+    "field": "sudokupad_solves",
+    "previous": 372,
+    "current": 373
   }
 ]
