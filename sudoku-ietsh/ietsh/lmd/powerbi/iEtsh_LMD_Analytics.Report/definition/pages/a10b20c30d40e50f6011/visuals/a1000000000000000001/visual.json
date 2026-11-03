@@ -22,10 +22,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "Active Puzzles"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Active Puzzles",
+              "nativeQueryRef": "Active Puzzles"
             }
           ]
         }
