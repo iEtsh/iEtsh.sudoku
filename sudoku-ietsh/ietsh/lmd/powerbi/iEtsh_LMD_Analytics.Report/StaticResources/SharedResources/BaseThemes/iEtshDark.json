@@ -1,0 +1,46 @@
+{
+  "name": "iEtsh Dark",
+  "dataColors": [
+    "#20B8C5",
+    "#6E9FEA",
+    "#E6B85C",
+    "#9B8BE8",
+    "#54C7A5",
+    "#E27D91",
+    "#8DA0B5"
+  ],
+  "background": "#0D1015",
+  "foreground": "#E9EEF4",
+  "tableAccent": "#20B8C5",
+  "good": "#54C7A5",
+  "neutral": "#E6B85C",
+  "bad": "#E27D91",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontFace": "Segoe UI",
+            "fontSize": 12,
+            "color": {
+              "solid": {
+                "color": "#E9EEF4"
+              }
+            }
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#151C25"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
