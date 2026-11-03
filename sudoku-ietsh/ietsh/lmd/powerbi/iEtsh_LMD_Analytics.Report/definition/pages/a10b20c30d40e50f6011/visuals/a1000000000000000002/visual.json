@@ -22,10 +22,12 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "Combined Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
             }
           ]
         }
