@@ -17,59 +17,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "title"
+                  "Property": "Combined Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.title",
-              "nativeQueryRef": "title"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "published_at"
-                }
-              },
-              "queryRef": "PuzzleMasterData.published_at",
-              "nativeQueryRef": "published_at"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "difficulty_stars"
-                }
-              },
-              "queryRef": "PuzzleMasterData.difficulty_stars",
-              "nativeQueryRef": "difficulty_stars"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "PuzzleMasterData"
-                    }
-                  },
-                  "Property": "rating_percent"
-                }
-              },
-              "queryRef": "PuzzleMasterData.rating_percent",
-              "nativeQueryRef": "rating_percent"
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
             },
             {
               "field": {
@@ -78,10 +36,54 @@
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
-                  }
+                  },
+                  "Property": "Combined Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.undefined"
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "Combined Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "Combined Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "Combined Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
             }
           ]
         }
