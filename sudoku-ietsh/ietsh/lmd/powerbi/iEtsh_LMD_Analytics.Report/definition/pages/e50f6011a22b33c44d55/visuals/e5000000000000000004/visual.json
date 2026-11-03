@@ -10,7 +10,7 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "card",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
         "Data": {

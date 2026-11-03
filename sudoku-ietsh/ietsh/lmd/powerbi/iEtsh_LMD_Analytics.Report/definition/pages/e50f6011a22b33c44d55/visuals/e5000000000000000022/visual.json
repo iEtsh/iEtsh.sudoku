@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "difficulty_stars"
+                  "Property": "Average Difficulty"
                 }
               },
-              "queryRef": "PuzzleMasterData.difficulty_stars",
-              "nativeQueryRef": "difficulty_stars"
+              "queryRef": "PuzzleMasterData.Average Difficulty",
+              "nativeQueryRef": "Average Difficulty"
             }
           ]
         }

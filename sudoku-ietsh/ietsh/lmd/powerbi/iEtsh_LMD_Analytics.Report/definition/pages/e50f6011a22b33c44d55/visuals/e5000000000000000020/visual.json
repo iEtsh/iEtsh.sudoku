@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleTrends"
                     }
                   },
-                  "Property": "rating_percent"
+                  "Property": "Average Snapshot Rating"
                 }
               },
-              "queryRef": "PuzzleTrends.rating_percent",
-              "nativeQueryRef": "rating_percent"
+              "queryRef": "PuzzleTrends.Average Snapshot Rating",
+              "nativeQueryRef": "Average Snapshot Rating"
             }
           ]
         }

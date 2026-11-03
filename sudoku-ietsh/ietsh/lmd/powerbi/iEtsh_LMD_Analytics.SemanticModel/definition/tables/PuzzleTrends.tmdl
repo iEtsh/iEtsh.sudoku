@@ -46,6 +46,11 @@ table PuzzleTrends
 		summarizeBy: sum
 		sourceColumn: combined_delta
 
+	measure 'Average Snapshot Rating' = AVERAGE(PuzzleTrends[rating_percent])
+		formatString: 0.0
+	measure 'Average Snapshot Difficulty' = AVERAGE(PuzzleTrends[difficulty_stars])
+		formatString: 0.00
+
 	partition PuzzleTrends = m
 		mode: import
 		source =

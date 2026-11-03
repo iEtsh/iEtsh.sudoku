@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "rating_percent"
+                  "Property": "Average Rating"
                 }
               },
-              "queryRef": "PuzzleMasterData.rating_percent",
-              "nativeQueryRef": "rating_percent"
+              "queryRef": "PuzzleMasterData.Average Rating",
+              "nativeQueryRef": "Average Rating"
             }
           ]
         }

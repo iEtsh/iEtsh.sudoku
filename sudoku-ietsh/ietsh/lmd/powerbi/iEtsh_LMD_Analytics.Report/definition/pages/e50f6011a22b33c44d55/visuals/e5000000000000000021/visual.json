@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "PuzzleTrends"
+                      "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "combined_delta"
+                  "Property": "Combined Change"
                 }
               },
-              "queryRef": "PuzzleTrends.combined_delta",
-              "nativeQueryRef": "combined_delta"
+              "queryRef": "PuzzleMasterData.Combined Change",
+              "nativeQueryRef": "Combined Change"
             }
           ]
         }
