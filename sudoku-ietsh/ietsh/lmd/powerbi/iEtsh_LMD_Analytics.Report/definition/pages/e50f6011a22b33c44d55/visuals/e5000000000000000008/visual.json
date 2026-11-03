@@ -10,7 +10,7 @@
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "areaChart",
+    "visualType": "stackedAreaChart",
     "query": {
       "queryState": {
         "Category": {
@@ -41,11 +41,25 @@
                       "Entity": "PuzzleMasterData"
                     }
                   },
-                  "Property": "Historical Combined Solves"
+                  "Property": "Historical LMD Solves"
                 }
               },
-              "queryRef": "PuzzleMasterData.Historical Combined Solves",
-              "nativeQueryRef": "Historical Combined Solves"
+              "queryRef": "PuzzleMasterData.Historical LMD Solves",
+              "nativeQueryRef": "Historical LMD Solves"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "Historical SudokuPad Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.Historical SudokuPad Solves",
+              "nativeQueryRef": "Historical SudokuPad Solves"
             }
           ]
         }
@@ -65,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Historical Combined Solves'"
+                  "Value": "'Stacked Area — Platform Contribution'"
                 }
               }
             },
