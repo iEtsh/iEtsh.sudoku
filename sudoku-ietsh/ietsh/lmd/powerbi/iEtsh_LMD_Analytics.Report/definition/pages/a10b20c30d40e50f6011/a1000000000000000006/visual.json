@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a1000000000000000006",
+  "position": {
+    "x": 655,
+    "y": 190,
+    "z": 1000,
+    "width": 560,
+    "height": 310,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "PuzzleMasterData.title",
+              "nativeQueryRef": "title"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PuzzleMasterData"
+                    }
+                  },
+                  "Property": "Combined Solves"
+                }
+              },
+              "queryRef": "PuzzleMasterData.Combined Solves",
+              "nativeQueryRef": "Combined Solves"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
