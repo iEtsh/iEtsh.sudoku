@@ -49944,5 +49944,27 @@
     "field": "sudokupad_solves",
     "previous": 291,
     "current": 292
+  },
+  {
+    "id": "2026-11-04T17:41:37.392960Z-0",
+    "time": "2026-11-04T17:41:37.392960Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/ecounu3znr",
+    "current": "https://sudokupad.app/cxqmuev05s"
+  },
+  {
+    "id": "2026-11-04T17:41:37.392960Z-1",
+    "time": "2026-11-04T17:41:37.392960Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 292,
+    "current": 294
   }
 ]
