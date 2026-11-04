@@ -49273,5 +49273,27 @@
     "field": "sudokupad_solves",
     "previous": 148,
     "current": 149
+  },
+  {
+    "id": "2026-11-04T06:41:23.379894Z-0",
+    "time": "2026-11-04T06:41:23.379894Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipper",
+    "puzzleNum": 33,
+    "title": "Renban Zipper",
+    "field": "sudokupad_solves",
+    "previous": 1261,
+    "current": 1262
+  },
+  {
+    "id": "2026-11-04T06:41:23.379894Z-1",
+    "time": "2026-11-04T06:41:23.379894Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 149,
+    "current": 151
   }
 ]
