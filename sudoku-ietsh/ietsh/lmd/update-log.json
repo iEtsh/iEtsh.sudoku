@@ -50175,5 +50175,49 @@
     "field": "sudokupad_solves",
     "previous": 330,
     "current": 333
+  },
+  {
+    "id": "2026-11-04T21:11:20.055746Z-0",
+    "time": "2026-11-04T21:11:20.055746Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "solves",
+    "previous": 51,
+    "current": 52
+  },
+  {
+    "id": "2026-11-04T21:11:20.055746Z-1",
+    "time": "2026-11-04T21:11:20.055746Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 139,
+    "current": 140
+  },
+  {
+    "id": "2026-11-04T21:11:20.055746Z-2",
+    "time": "2026-11-04T21:11:20.055746Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-arithmeticmeanline",
+    "puzzleNum": 39,
+    "title": "Arithmetic Mean Line",
+    "field": "sudokupad_solves",
+    "previous": 118,
+    "current": 119
+  },
+  {
+    "id": "2026-11-04T21:11:20.055746Z-3",
+    "time": "2026-11-04T21:11:20.055746Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 333,
+    "current": 334
   }
 ]
