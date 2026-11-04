@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/j3sj7n78id?setting-outlinesondigits=true",
       "lmd": "000VTI",
       "solves": 51,
-      "sudokupad_solves": 138,
+      "sudokupad_solves": 139,
       "rating": "95%",
       "image": "images/000VTI.png"
     },
@@ -587,8 +587,8 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000SBZ.png",
-      "sudokupad_solves": 262
+      "sudokupad_solves": 263
     }
   ],
-  "last_check": "2026-11-04T15:21:13.008561Z"
+  "last_check": "2026-11-04T15:31:02.621244Z"
 }
