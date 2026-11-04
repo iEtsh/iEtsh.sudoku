@@ -50120,5 +50120,27 @@
     "field": "sudokupad_solves",
     "previous": 321,
     "current": 325
+  },
+  {
+    "id": "2026-11-04T20:41:44.887069Z-0",
+    "time": "2026-11-04T20:41:44.887069Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots2",
+    "puzzleNum": 14,
+    "title": "Vibrant Spots II",
+    "field": "sudokupad_solves",
+    "previous": 238,
+    "current": 239
+  },
+  {
+    "id": "2026-11-04T20:41:44.887069Z-1",
+    "time": "2026-11-04T20:41:44.887069Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 325,
+    "current": 330
   }
 ]
