@@ -49504,5 +49504,27 @@
     "field": "sudokupad_solves",
     "previous": 188,
     "current": 190
+  },
+  {
+    "id": "2026-11-04T10:11:17.534386Z-0",
+    "time": "2026-11-04T10:11:17.534386Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 157,
+    "current": 158
+  },
+  {
+    "id": "2026-11-04T10:11:17.534386Z-1",
+    "time": "2026-11-04T10:11:17.534386Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 190,
+    "current": 203
   }
 ]
