@@ -50648,5 +50648,27 @@
     "field": "sudokupad_solves",
     "previous": 390,
     "current": 391
+  },
+  {
+    "id": "2026-11-05T07:41:01.012164Z-0",
+    "time": "2026-11-05T07:41:01.012164Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 121,
+    "current": 122
+  },
+  {
+    "id": "2026-11-05T07:41:01.012164Z-1",
+    "time": "2026-11-05T07:41:01.012164Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 391,
+    "current": 392
   }
 ]
