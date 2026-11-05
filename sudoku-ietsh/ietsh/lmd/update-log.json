@@ -51046,5 +51046,49 @@
     "field": "sudokupad_solves",
     "previous": 2,
     "current": 3
+  },
+  {
+    "id": "2026-11-05T20:41:12.776255Z-0",
+    "time": "2026-11-05T20:41:12.776255Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "solves",
+    "previous": 0,
+    "current": 1
+  },
+  {
+    "id": "2026-11-05T20:41:12.776255Z-1",
+    "time": "2026-11-05T20:41:12.776255Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "sudokupad_solves",
+    "previous": 3,
+    "current": 4
+  },
+  {
+    "id": "2026-11-05T20:41:12.776255Z-2",
+    "time": "2026-11-05T20:41:12.776255Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 278,
+    "current": 279
+  },
+  {
+    "id": "2026-11-05T20:41:12.776255Z-3",
+    "time": "2026-11-05T20:41:12.776255Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 412,
+    "current": 413
   }
 ]
