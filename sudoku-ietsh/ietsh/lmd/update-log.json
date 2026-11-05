@@ -51343,5 +51343,38 @@
     "field": "sudokupad_solves",
     "previous": 13,
     "current": 15
+  },
+  {
+    "id": "2026-11-05T23:51:05.079474Z-0",
+    "time": "2026-11-05T23:51:05.079474Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "sudokupad_solves",
+    "previous": 15,
+    "current": 16
+  },
+  {
+    "id": "2026-11-05T23:51:05.079474Z-1",
+    "time": "2026-11-05T23:51:05.079474Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 23,
+    "current": 24
+  },
+  {
+    "id": "2026-11-05T23:51:05.079474Z-2",
+    "time": "2026-11-05T23:51:05.079474Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lonelyhouse",
+    "puzzleNum": 9,
+    "title": "Lonely House",
+    "field": "sudokupad_solves",
+    "previous": 143,
+    "current": 144
   }
 ]
