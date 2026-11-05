@@ -50901,5 +50901,27 @@
     "field": "sudokupad_solves",
     "previous": 143,
     "current": 144
+  },
+  {
+    "id": "2026-11-05T15:31:08.295365Z-0",
+    "time": "2026-11-05T15:31:08.295365Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-police",
+    "puzzleNum": 42,
+    "title": "Police",
+    "field": "sudokupad_solves",
+    "previous": 144,
+    "current": 145
+  },
+  {
+    "id": "2026-11-05T15:31:08.295365Z-1",
+    "time": "2026-11-05T15:31:08.295365Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 405,
+    "current": 406
   }
 ]
