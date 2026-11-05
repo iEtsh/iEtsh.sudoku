@@ -51222,5 +51222,49 @@
     "field": "sudokupad_solves",
     "previous": 11,
     "current": 12
+  },
+  {
+    "id": "2026-11-05T22:21:03.731625Z-0",
+    "time": "2026-11-05T22:21:03.731625Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "solves",
+    "previous": 4,
+    "current": 5
+  },
+  {
+    "id": "2026-11-05T22:21:03.731625Z-1",
+    "time": "2026-11-05T22:21:03.731625Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "sudokupad_solves",
+    "previous": 12,
+    "current": 13
+  },
+  {
+    "id": "2026-11-05T22:21:03.731625Z-2",
+    "time": "2026-11-05T22:21:03.731625Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 122,
+    "current": 123
+  },
+  {
+    "id": "2026-11-05T22:21:03.731625Z-3",
+    "time": "2026-11-05T22:21:03.731625Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 415,
+    "current": 416
   }
 ]
