@@ -2,6 +2,20 @@
   "opts": {},
   "items": [
     {
+      "num": 43,
+      "id": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+      "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+      "date": "05. November 2026, 20:13",
+      "stars": 1,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
+      "lmd": "000TX8",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000TX8.png"
+    },
+    {
       "num": 42,
       "id": "ietsh-police",
       "title": "Police",
@@ -590,5 +604,5 @@
       "sudokupad_solves": 409
     }
   ],
-  "last_check": "2026-11-05T19:11:01.103224Z"
+  "last_check": "2026-11-05T19:21:22.176203Z"
 }
