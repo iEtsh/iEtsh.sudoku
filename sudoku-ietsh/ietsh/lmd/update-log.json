@@ -51002,5 +51002,16 @@
       "rating": "N/A",
       "image": "images/000TX8.png"
     }
+  },
+  {
+    "id": "2026-11-05T19:31:04.478971Z-0",
+    "time": "2026-11-05T19:31:04.478971Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 409,
+    "current": 410
   }
 ]
