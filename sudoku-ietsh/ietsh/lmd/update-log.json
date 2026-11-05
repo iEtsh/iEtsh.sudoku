@@ -50626,5 +50626,16 @@
     "field": "sudokupad_solves",
     "previous": 387,
     "current": 388
+  },
+  {
+    "id": "2026-11-05T07:11:25.279932Z-0",
+    "time": "2026-11-05T07:11:25.279932Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 388,
+    "current": 390
   }
 ]
