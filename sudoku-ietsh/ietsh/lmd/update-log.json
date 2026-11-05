@@ -51277,5 +51277,27 @@
     "field": "sudokupad_solves",
     "previous": 416,
     "current": 417
+  },
+  {
+    "id": "2026-11-05T22:51:07.922656Z-0",
+    "time": "2026-11-05T22:51:07.922656Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "sudokupad_solves",
+    "previous": 57,
+    "current": 58
+  },
+  {
+    "id": "2026-11-05T22:51:07.922656Z-1",
+    "time": "2026-11-05T22:51:07.922656Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-27svs28s",
+    "puzzleNum": 28,
+    "title": "27s vs 28s",
+    "field": "sudokupad_solves",
+    "previous": 99,
+    "current": 100
   }
 ]
