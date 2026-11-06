@@ -535,45 +535,122 @@ def get_sudokupad_link(html):
 # Puzzle image
 # ---------------------------------------------------------
 
-def get_puzzle_image_url(html):
+def get_puzzle_image_url(html, lmd_code):
+    """
+    Return only the image attached to this puzzle's SudokuPad link.
+
+    LMD may place several unrelated images on the detail page. The
+    puzzle graphic is the image inside the anchor that points to the
+    same SudokuPad URL as the dedicated "Solve Puzzle" link.
+
+    Deliberately do not fall back to the first /Dateien/ image on the
+    page: if the expected image/link relationship is missing, return
+    an empty URL rather than downloading an unrelated image.
+    """
 
     soup = BeautifulSoup(
         html,
         "html.parser"
     )
 
-    candidates = []
+    detail_url = (
+        PUZZLE_BASE_URL
+        + str(lmd_code)
+    )
 
-    for img in soup.find_all(
-        "img",
-        src=True
+    solve_url = ""
+
+    # First identify the exact link labelled "Solve Puzzle".
+    for anchor in soup.find_all(
+        "a",
+        href=True
     ):
 
-        src = img.get("src", "").strip()
+        href = anchor.get(
+            "href",
+            ""
+        ).strip()
 
-        if not src:
-            continue
+        text = anchor.get_text(
+            " ",
+            strip=True
+        ).lower()
 
-        absolute_url = urljoin(
-            "https://logic-masters.de/",
-            src
-        )
+        if (
+            "sudokupad" in href.lower()
+            and "solve puzzle" in text
+        ):
+            solve_url = urljoin(
+                detail_url,
+                href
+            )
+            break
 
-        lower_url = absolute_url.lower()
+    # The puzzle image must belong to that exact SudokuPad link.
+    if solve_url:
 
-        # LMD puzzle images are normally served
-        # through /Dateien/bild.php
-        if "/dateien/bild.php" in lower_url:
-            return absolute_url
+        for anchor in soup.find_all(
+            "a",
+            href=True
+        ):
 
-        # Keep other /Dateien/ images as fallback.
-        if "/dateien/" in lower_url:
-            candidates.append(
-                absolute_url
+            anchor_url = urljoin(
+                detail_url,
+                anchor.get("href", "").strip()
             )
 
-    if candidates:
-        return candidates[0]
+            if anchor_url != solve_url:
+                continue
+
+            image = anchor.find(
+                "img",
+                src=True
+            )
+
+            if image:
+                src = image.get(
+                    "src",
+                    ""
+                ).strip()
+
+                if src:
+                    return urljoin(
+                        detail_url,
+                        src
+                    )
+
+    # Some LMD page variants may omit the visible link text. In that
+    # case, accept an image only when it is itself inside a direct
+    # SudokuPad anchor. Never inspect unrelated page images.
+    for anchor in soup.find_all(
+        "a",
+        href=True
+    ):
+
+        href = anchor.get(
+            "href",
+            ""
+        ).strip()
+
+        if "sudokupad" not in href.lower():
+            continue
+
+        image = anchor.find(
+            "img",
+            src=True
+        )
+
+        if image:
+            src = image.get(
+                "src",
+                ""
+            ).strip()
+
+            if src:
+                return urljoin(
+                    detail_url,
+                    src
+                )
 
     return ""
 
@@ -695,18 +772,10 @@ def ensure_puzzle_image(item):
         ""
     )
 
-    # If config already contains an image
-    # and the file still exists, nothing to do.
-    if existing_image:
-
-        filepath = os.path.join(
-            "sudoku-ietsh/ietsh/lmd",
-            existing_image
-        )
-
-        if os.path.isfile(filepath):
-
-            return existing_image
+    existing_source = item.get(
+        "image_source",
+        ""
+    )
 
     lmd_code = item.get(
         "lmd",
@@ -723,17 +792,37 @@ def ensure_puzzle_image(item):
         )
 
         image_url = get_puzzle_image_url(
-            puzzle_html
+            puzzle_html,
+            lmd_code
         )
 
         if not image_url:
 
             print(
-                f"No puzzle image found "
-                f"for {lmd_code}"
+                f"No image linked to the Solve Puzzle link "
+                f"for {lmd_code}; keeping the current image."
             )
 
-            return ""
+            return existing_image
+
+        filepath = ""
+
+        if existing_image:
+            filepath = os.path.join(
+                "sudoku-ietsh/ietsh/lmd",
+                existing_image
+            )
+
+        # Reuse the local image only after its source URL has been
+        # recorded and confirmed unchanged. Existing config entries
+        # without image_source are refreshed once to repair any image
+        # previously selected from the wrong location on the page.
+        if (
+            existing_source == image_url
+            and filepath
+            and os.path.isfile(filepath)
+        ):
+            return existing_image
 
         image_path = download_image(
             image_url,
@@ -741,6 +830,7 @@ def ensure_puzzle_image(item):
         )
 
         if image_path:
+            item["image_source"] = image_url
             return image_path
 
     except Exception as e:
@@ -750,7 +840,7 @@ def ensure_puzzle_image(item):
             f"for {lmd_code}: {e}"
         )
 
-    return ""
+    return existing_image
 
 
 # ---------------------------------------------------------
@@ -1235,6 +1325,7 @@ def update_config():
 
         puzz_link = ""
         image_path = ""
+        image_source = ""
 
         try:
 
@@ -1247,10 +1338,13 @@ def update_config():
             )
 
             image_url = get_puzzle_image_url(
-                puzzle_html
+                puzzle_html,
+                p["lmd"]
             )
 
             if image_url:
+
+                image_source = image_url
 
                 image_path = download_image(
                     image_url,
@@ -1293,7 +1387,8 @@ def update_config():
             "solves": p["solved"],
             "sudokupad_solves": None,
             "rating": p["rating"],
-            "image": image_path
+            "image": image_path,
+            "image_source": image_source
         }
 
         cfg["items"].append(
