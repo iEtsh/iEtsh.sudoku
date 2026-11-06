@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
       "solves": 7,
-      "sudokupad_solves": 24,
+      "sudokupad_solves": 25,
       "rating": "N/A",
       "image": "images/000TX8.png"
     },
@@ -604,5 +604,5 @@
       "sudokupad_solves": 430
     }
   ],
-  "last_check": "2026-11-06T14:31:25.881997Z"
+  "last_check": "2026-11-06T14:41:17.295252Z"
 }
