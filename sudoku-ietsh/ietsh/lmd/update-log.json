@@ -51926,5 +51926,60 @@
     "field": "sudokupad_solves",
     "previous": 28,
     "current": 29
+  },
+  {
+    "id": "2026-11-06T18:21:24.934328Z-0",
+    "time": "2026-11-06T18:21:24.934328Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-divergent",
+    "puzzleNum": 27,
+    "title": "Divergent",
+    "field": "solves",
+    "previous": 58,
+    "current": 59
+  },
+  {
+    "id": "2026-11-06T18:21:24.934328Z-1",
+    "time": "2026-11-06T18:21:24.934328Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-11-06T18:21:24.934328Z-2",
+    "time": "2026-11-06T18:21:24.934328Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "sudokupad_solves",
+    "previous": 169,
+    "current": 170
+  },
+  {
+    "id": "2026-11-06T18:21:24.934328Z-3",
+    "time": "2026-11-06T18:21:24.934328Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "rating",
+    "previous": "81%",
+    "current": "82%"
+  },
+  {
+    "id": "2026-11-06T18:21:24.934328Z-4",
+    "time": "2026-11-06T18:21:24.934328Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 434,
+    "current": 435
   }
 ]
