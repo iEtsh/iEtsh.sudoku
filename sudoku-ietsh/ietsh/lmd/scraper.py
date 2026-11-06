@@ -785,6 +785,18 @@ def ensure_puzzle_image(item):
     if not lmd_code:
         return ""
 
+    # Once the exact linked image source has been recorded, avoid
+    # fetching every detail page on every scheduled scraper run.
+    # Legacy entries without image_source are checked once and repaired.
+    if existing_image and existing_source:
+        existing_filepath = os.path.join(
+            "sudoku-ietsh/ietsh/lmd",
+            existing_image
+        )
+
+        if os.path.isfile(existing_filepath):
+            return existing_image
+
     try:
 
         puzzle_html = fetch_puzzle(
