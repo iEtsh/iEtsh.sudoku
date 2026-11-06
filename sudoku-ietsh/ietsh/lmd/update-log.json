@@ -52212,5 +52212,16 @@
     "field": "date",
     "previous": "05. November 2026, 20:13",
     "current": "5. November 2026, 20:13"
+  },
+  {
+    "id": "2026-11-06T23:31:11.449454Z-0",
+    "time": "2026-11-06T23:31:11.449454Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "sudokupad_solves",
+    "previous": 124,
+    "current": 125
   }
 ]
