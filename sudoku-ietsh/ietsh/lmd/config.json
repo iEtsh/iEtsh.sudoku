@@ -7,12 +7,12 @@
       "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
       "date": "05. November 2026, 20:13",
       "stars": 1,
-      "author_rated": true,
+      "author_rated": false,
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
-      "solves": 7,
+      "solves": 12,
       "sudokupad_solves": 25,
-      "rating": "N/A",
+      "rating": "95%",
       "image": "images/000TX8.png"
     },
     {
@@ -604,5 +604,5 @@
       "sudokupad_solves": 430
     }
   ],
-  "last_check": "2026-11-06T14:51:05.475132Z"
+  "last_check": "2026-11-06T15:01:24.488702Z"
 }
