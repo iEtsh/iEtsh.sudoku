@@ -11,9 +11,10 @@
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
       "solves": 13,
-      "sudokupad_solves": 27,
+      "sudokupad_solves": 28,
       "rating": "95%",
-      "image": "images/000TX8.png"
+      "image": "images/000TX8.jpg",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=77def01a-54474-3030305458382d32"
     },
     {
       "num": 42,
@@ -27,7 +28,8 @@
       "solves": 54,
       "sudokupad_solves": 147,
       "rating": "95%",
-      "image": "images/000VTI.png"
+      "image": "images/000VTI.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=4fee4650-54346-3030305654492d31"
     },
     {
       "num": 41,
@@ -41,7 +43,8 @@
       "solves": 15,
       "sudokupad_solves": 58,
       "rating": "89%",
-      "image": "images/000VSB.png"
+      "image": "images/000VSB.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=2f3bc15d-54294-3030305653422d31"
     },
     {
       "num": 40,
@@ -55,7 +58,8 @@
       "solves": 7,
       "sudokupad_solves": 7,
       "rating": "N/A",
-      "image": "images/000VOS.png"
+      "image": "images/000VOS.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=66f64742-53960-303030564f532d31"
     },
     {
       "num": 39,
@@ -69,7 +73,8 @@
       "solves": 51,
       "sudokupad_solves": 120,
       "rating": "96%",
-      "image": "images/000VLW.png"
+      "image": "images/000VLW.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=bf02f588-53824-303030564c572d31"
     },
     {
       "num": 38,
@@ -83,7 +88,8 @@
       "solves": 11,
       "sudokupad_solves": 27,
       "rating": "N/A",
-      "image": "images/000VIZ.png"
+      "image": "images/000VIZ.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=57841d3a-53717-30303056495a2d31"
     },
     {
       "num": 37,
@@ -97,7 +103,8 @@
       "solves": 14,
       "sudokupad_solves": 24,
       "rating": "85%",
-      "image": "images/000VI2.png"
+      "image": "images/000VI2.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=b5d6c549-53684-3030305649322d31"
     },
     {
       "num": 36,
@@ -111,7 +118,8 @@
       "solves": 35,
       "sudokupad_solves": 71,
       "rating": "93%",
-      "image": "images/000VFT.png"
+      "image": "images/000VFT.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=d1156c4f-53577-3030305646542d31"
     },
     {
       "num": 35,
@@ -125,7 +133,8 @@
       "solves": 80,
       "sudokupad_solves": 236,
       "rating": "92%",
-      "image": "images/000VCU.png"
+      "image": "images/000VCU.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=08965aa4-53460-3030305643552d31"
     },
     {
       "num": 34,
@@ -139,7 +148,8 @@
       "solves": 109,
       "sudokupad_solves": 235,
       "rating": "96%",
-      "image": "images/000VE4.png"
+      "image": "images/000VE4.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=90440eae-53512-3030305645342d31"
     },
     {
       "num": 33,
@@ -153,7 +163,8 @@
       "solves": 157,
       "sudokupad_solves": 1267,
       "rating": "96%",
-      "image": "images/000VCF.png"
+      "image": "images/000VCF.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=6ba26807-53443-3030305643462d31"
     },
     {
       "num": 32,
@@ -167,7 +178,8 @@
       "solves": 57,
       "sudokupad_solves": 123,
       "rating": "97%",
-      "image": "images/000VBP.png"
+      "image": "images/000VBP.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=d6af9b0d-53408-3030305642502d31"
     },
     {
       "num": 31,
@@ -181,7 +193,8 @@
       "solves": 36,
       "sudokupad_solves": 91,
       "rating": "91%",
-      "image": "images/000VA7.png"
+      "image": "images/000VA7.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=475c868e-53345-3030305641372d31"
     },
     {
       "num": 30,
@@ -195,7 +208,8 @@
       "solves": 54,
       "sudokupad_solves": 158,
       "rating": "87%",
-      "image": "images/000V8X.png"
+      "image": "images/000V8X.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=0575cf7a-53266-3030305638582d31"
     },
     {
       "num": 29,
@@ -209,7 +223,8 @@
       "solves": 42,
       "sudokupad_solves": 150,
       "rating": "89%",
-      "image": "images/000V73.png"
+      "image": "images/000V73.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=734d050c-53198-3030305637332d31"
     },
     {
       "num": 28,
@@ -223,7 +238,8 @@
       "solves": 41,
       "sudokupad_solves": 100,
       "rating": "91%",
-      "image": "images/000V48.png"
+      "image": "images/000V48.png",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=19cdcf1b-53071-3030305634382d31"
     },
     {
       "num": 27,
@@ -237,7 +253,8 @@
       "solves": 58,
       "sudokupad_solves": 162,
       "rating": "92%",
-      "image": "images/000V1L.jpg"
+      "image": "images/000V1L.jpg",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=9fae877a-52953-30303056314c2d31"
     },
     {
       "num": 26,
@@ -251,7 +268,8 @@
       "solves": 84,
       "sudokupad_solves": 269,
       "rating": "88%",
-      "image": "images/000V0C.jpg"
+      "image": "images/000V0C.jpg",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=86d041db-52906-3030305630432d31"
     },
     {
       "num": 25,
@@ -265,7 +283,8 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1703
+      "sudokupad_solves": 1703,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=f7fca2e8-52706-3030305556522d31"
     },
     {
       "num": 24,
@@ -279,7 +298,8 @@
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 194
+      "sudokupad_solves": 194,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=e31629fa-52511-3030305552322d31"
     },
     {
       "num": 23,
@@ -293,7 +313,8 @@
       "rating": "93%",
       "author_rated": false,
       "image": "images/000UNY.jpg",
-      "sudokupad_solves": 339
+      "sudokupad_solves": 339,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=6f95e123-52377-303030554e592d31"
     },
     {
       "num": 22,
@@ -307,7 +328,8 @@
       "rating": "89%",
       "author_rated": false,
       "image": "images/000UM4.jpg",
-      "sudokupad_solves": 374
+      "sudokupad_solves": 374,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=c72fdaf9-52300-303030554d342d31"
     },
     {
       "num": 21,
@@ -321,7 +343,8 @@
       "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 435
+      "sudokupad_solves": 435,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=6a2c1efa-51983-3030305546582d31"
     },
     {
       "num": 20,
@@ -335,7 +358,8 @@
       "rating": "85%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 577
+      "sudokupad_solves": 577,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=21b0b8f5-51976-3030305546542d31"
     },
     {
       "num": 19,
@@ -349,7 +373,8 @@
       "rating": "80%",
       "author_rated": false,
       "image": "images/000UDT.png",
-      "sudokupad_solves": 332
+      "sudokupad_solves": 332,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=2108b83a-51855-3030305544542d31"
     },
     {
       "num": 18,
@@ -363,7 +388,8 @@
       "rating": "85%",
       "author_rated": false,
       "image": "images/000UCQ.png",
-      "sudokupad_solves": 249
+      "sudokupad_solves": 249,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=16a3871c-51807-3030305543512d31"
     },
     {
       "num": 17,
@@ -377,7 +403,8 @@
       "rating": "91%",
       "author_rated": false,
       "image": "images/000U9Y.png",
-      "sudokupad_solves": 116
+      "sudokupad_solves": 116,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=f4120419-51679-3030305539592d31"
     },
     {
       "num": 16,
@@ -391,7 +418,8 @@
       "rating": "91%",
       "author_rated": false,
       "image": "images/000U86.png",
-      "sudokupad_solves": 279
+      "sudokupad_solves": 279,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=ce639e27-51581-3030305538362d31"
     },
     {
       "num": 15,
@@ -405,7 +433,8 @@
       "rating": "81%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 307
+      "sudokupad_solves": 307,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=e22c7fa6-51526-3030305537352d31"
     },
     {
       "num": 14,
@@ -419,7 +448,8 @@
       "rating": "92%",
       "author_rated": false,
       "image": "images/000U4O.png",
-      "sudokupad_solves": 239
+      "sudokupad_solves": 239,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=b5c65aec-51410-30303055344f2d31"
     },
     {
       "num": 13,
@@ -433,7 +463,8 @@
       "rating": "89%",
       "author_rated": false,
       "image": "images/000U38.png",
-      "sudokupad_solves": 277
+      "sudokupad_solves": 277,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=48d3e62d-51344-3030305533382d31"
     },
     {
       "num": 12,
@@ -447,7 +478,8 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000U2A.png",
-      "sudokupad_solves": 221
+      "sudokupad_solves": 221,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=a06816c5-51303-3030305532412d31"
     },
     {
       "num": 11,
@@ -461,7 +493,8 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000TSS.png",
-      "sudokupad_solves": 144
+      "sudokupad_solves": 144,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=eaf5467f-50911-3030305453532d31"
     },
     {
       "num": 10,
@@ -475,7 +508,8 @@
       "rating": "92%",
       "author_rated": false,
       "image": "images/000TSP.png",
-      "sudokupad_solves": 235
+      "sudokupad_solves": 235,
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=5fd3250f-50907-3030305453502d31"
     },
     {
       "num": 9,
@@ -601,8 +635,8 @@
       "rating": "83%",
       "author_rated": false,
       "image": "images/000SBZ.png",
-      "sudokupad_solves": 433
+      "sudokupad_solves": 434
     }
   ],
-  "last_check": "2026-11-06T17:31:17.846914Z"
+  "last_check": "2026-11-06T17:42:06.185086Z"
 }
