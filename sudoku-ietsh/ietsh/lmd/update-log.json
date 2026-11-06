@@ -52113,5 +52113,16 @@
     "field": "rating",
     "previous": "97%",
     "current": "95%"
+  },
+  {
+    "id": "2026-11-06T21:11:21.750246Z-0",
+    "time": "2026-11-06T21:11:21.750246Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 435,
+    "current": 436
   }
 ]
