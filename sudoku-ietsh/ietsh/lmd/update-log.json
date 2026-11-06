@@ -51387,5 +51387,27 @@
     "field": "sudokupad_solves",
     "previous": 1265,
     "current": 1266
+  },
+  {
+    "id": "2026-11-06T00:11:22.196075Z-0",
+    "time": "2026-11-06T00:11:22.196075Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspotsviii",
+    "puzzleNum": 31,
+    "title": "Vibrant Spots VIII",
+    "field": "sudokupad_solves",
+    "previous": 90,
+    "current": 91
+  },
+  {
+    "id": "2026-11-06T00:11:22.196075Z-1",
+    "time": "2026-11-06T00:11:22.196075Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 193,
+    "current": 194
   }
 ]
