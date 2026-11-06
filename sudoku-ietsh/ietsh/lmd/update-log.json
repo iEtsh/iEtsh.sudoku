@@ -52168,5 +52168,16 @@
     "field": "sudokupad_solves",
     "previous": 191,
     "current": 192
+  },
+  {
+    "id": "2026-11-06T22:01:25.634245Z-0",
+    "time": "2026-11-06T22:01:25.634245Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 436,
+    "current": 437
   }
 ]
