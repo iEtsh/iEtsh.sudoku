@@ -71,7 +71,7 @@
       "puzz": "https://sudokupad.app/mwo1h87xzn",
       "lmd": "000VLW",
       "solves": 51,
-      "sudokupad_solves": 120,
+      "sudokupad_solves": 121,
       "rating": "96%",
       "image": "images/000VLW.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=bf02f588-53824-303030564c572d31"
@@ -638,5 +638,5 @@
       "sudokupad_solves": 444
     }
   ],
-  "last_check": "2026-11-07T13:21:09.403553Z"
+  "last_check": "2026-11-07T13:31:10.364003Z"
 }
