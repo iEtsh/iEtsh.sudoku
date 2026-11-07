@@ -251,7 +251,7 @@
       "puzz": "https://sudokupad.app/21edcgjbyj",
       "lmd": "000V1L",
       "solves": 59,
-      "sudokupad_solves": 162,
+      "sudokupad_solves": 163,
       "rating": "92%",
       "image": "images/000V1L.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=9fae877a-52953-30303056314c2d31"
@@ -638,5 +638,5 @@
       "sudokupad_solves": 438
     }
   ],
-  "last_check": "2026-11-07T00:51:02.833804Z"
+  "last_check": "2026-11-07T01:01:12.213626Z"
 }
