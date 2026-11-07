@@ -52454,5 +52454,27 @@
     "field": "sudokupad_solves",
     "previous": 445,
     "current": 446
+  },
+  {
+    "id": "2026-11-07T16:01:17.855077Z-0",
+    "time": "2026-11-07T16:01:17.855077Z",
+    "type": "SudokuPad Link Changed",
+    "puzzleId": "ietsh-heartstring",
+    "puzzleNum": 32,
+    "title": "Heartstring",
+    "field": "puzz",
+    "previous": "https://sudokupad.app/uxydsoqbxp",
+    "current": "https://sudokupad.app/nz5jq51lfv"
+  },
+  {
+    "id": "2026-11-07T16:01:17.855077Z-1",
+    "time": "2026-11-07T16:01:17.855077Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 435,
+    "current": 436
   }
 ]

@@ -173,7 +173,7 @@
       "date": "3. October 2026, 22:48",
       "stars": 3,
       "author_rated": false,
-      "puzz": "https://sudokupad.app/uxydsoqbxp",
+      "puzz": "https://sudokupad.app/nz5jq51lfv",
       "lmd": "000VBP",
       "solves": 58,
       "sudokupad_solves": 125,
@@ -343,7 +343,7 @@
       "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 435,
+      "sudokupad_solves": 436,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6a2c1efa-51983-3030305546582d31"
     },
     {
@@ -638,5 +638,5 @@
       "sudokupad_solves": 446
     }
   ],
-  "last_check": "2026-11-07T15:51:20.580007Z"
+  "last_check": "2026-11-07T16:01:17.843815Z"
 }
