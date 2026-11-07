@@ -56,7 +56,7 @@
       "puzz": "https://sudokupad.app/6kvciykt3t?setting-outlinesondigits=true",
       "lmd": "000VOS",
       "solves": 7,
-      "sudokupad_solves": 7,
+      "sudokupad_solves": 8,
       "rating": "N/A",
       "image": "images/000VOS.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=66f64742-53960-303030564f532d31"
@@ -638,5 +638,5 @@
       "sudokupad_solves": 444
     }
   ],
-  "last_check": "2026-11-07T09:10:59.776817Z"
+  "last_check": "2026-11-07T09:21:24.424122Z"
 }
