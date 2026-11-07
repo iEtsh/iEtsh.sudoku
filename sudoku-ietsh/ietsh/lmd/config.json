@@ -266,7 +266,7 @@
       "puzz": "https://sudokupad.app/tmj363gk27",
       "lmd": "000V0C",
       "solves": 84,
-      "sudokupad_solves": 269,
+      "sudokupad_solves": 270,
       "rating": "88%",
       "image": "images/000V0C.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=86d041db-52906-3030305630432d31"
@@ -638,5 +638,5 @@
       "sudokupad_solves": 448
     }
   ],
-  "last_check": "2026-11-07T22:41:10.165199Z"
+  "last_check": "2026-11-07T22:51:23.314564Z"
 }
