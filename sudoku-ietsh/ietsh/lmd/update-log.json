@@ -52861,5 +52861,104 @@
     "field": "sudokupad_solves",
     "previous": 455,
     "current": 456
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-0",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-lonelyhouse",
+    "puzzleNum": 9,
+    "title": "Lonely House",
+    "field": "image",
+    "previous": "images/000STU.png",
+    "current": "images/000STU_2969ec220110.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-1",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-16s",
+    "puzzleNum": 8,
+    "title": "16s",
+    "field": "image",
+    "previous": "images/000SR0.png",
+    "current": "images/000SR0_9f3bd44002e9.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-2",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "image",
+    "previous": "images/000SJN.png",
+    "current": "images/000SJN_5f90735fc710.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-3",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "image",
+    "previous": "images/000SG8.png",
+    "current": "images/000SG8_90c4dc3ddeba.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-4",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-arabesque",
+    "puzzleNum": 5,
+    "title": "Arabesque",
+    "field": "image",
+    "previous": "images/000SFF.png",
+    "current": "images/000SFF_1b3808127b0f.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-5",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "image",
+    "previous": "images/000SDA.png",
+    "current": "images/000SDA_788c31576f2e.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-6",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-evilsaboteurs",
+    "puzzleNum": 3,
+    "title": "Evil Saboteurs",
+    "field": "image",
+    "previous": "images/000SCS.png",
+    "current": "images/000SCS_920d4677b2ed.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-7",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "image",
+    "previous": "images/000SC5.png",
+    "current": "images/000SC5_72e214f22ca0.png"
+  },
+  {
+    "id": "2026-11-08T19:17:52.587123Z-8",
+    "time": "2026-11-08T19:17:52.587123Z",
+    "type": "Puzzle Image Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "image",
+    "previous": "images/000SBZ.png",
+    "current": "images/000SBZ_7888010316bd.png"
   }
 ]
