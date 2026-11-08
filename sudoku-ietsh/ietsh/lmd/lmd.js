@@ -15,6 +15,7 @@
   const archiveViewCache = { gallery: null, table: null };
   let archiveRenderCacheKey = null;
   let galleryRenderToken = 0;
+  let archiveBuildToken = 0;
   const tooltip = d3.select('#tooltip');
 
   const tooltipImage = tooltip.select('.thumb img');
@@ -3021,19 +3022,6 @@
         lmdButton.append('span').text('LMD Link');
       }
 
-      card.on('pointermove', function (event) {
-        if (event.pointerType === 'touch' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const rect = this.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width;
-        const y = (event.clientY - rect.top) / rect.height;
-        this.style.setProperty('--pointer-x', `${x * 100}%`);
-        this.style.setProperty('--pointer-y', `${y * 100}%`);
-        this.style.setProperty('--tilt-x', `${(0.5 - y) * 2.4}deg`);
-        this.style.setProperty('--tilt-y', `${(x - 0.5) * 2.8}deg`);
-      }).on('pointerleave', function () {
-        this.style.setProperty('--tilt-x', '0deg');
-        this.style.setProperty('--tilt-y', '0deg');
-      });
     };
     const renderToken = ++galleryRenderToken;
     let nextCardIndex = 0;
@@ -3059,13 +3047,6 @@
     animate = false
   ) => {
     if (!cache.data) return;
-
-    const previousRows = animate
-      ? new Map(
-          Array.from(document.querySelectorAll('#summary-table .rec'))
-            .map(row => [row.id, row.getBoundingClientRect().top])
-        )
-      : null;
 
     const activeElement = document.activeElement;
     const searchWasFocused = preserveSearchFocus &&
@@ -3094,13 +3075,15 @@
     if (renderKey !== archiveRenderCacheKey) {
       archiveRenderCacheKey = renderKey;
       galleryRenderToken += 1;
+      archiveBuildToken += 1;
       archiveContent.html('');
       archiveViewCache.gallery = null;
       archiveViewCache.table = null;
     }
 
-    summs.selectAll('.archive-controls').remove();
-    genArchiveControls();
+    if (summs.select('.archive-controls').empty()) {
+      genArchiveControls();
+    }
 
     let view = archiveViewCache[archiveMode];
     if (!view) {
@@ -3125,7 +3108,33 @@
               : 'There are no puzzles to display.'
           );
         } else {
-          sorted.forEach(puzzle => createArchiveRow(puzzle, viewHost));
+          const rows = sorted;
+          let rowIndex = 0;
+          const buildToken = archiveBuildToken;
+          const viewNode = viewHost.node();
+          viewNode.setAttribute('aria-busy', 'true');
+
+          const appendTableBatch = () => {
+            if (buildToken !== archiveBuildToken || !viewNode.isConnected) return;
+
+            const fragment = document.createDocumentFragment();
+            const fragmentHost = d3.select(fragment);
+            const batchEnd = Math.min(rowIndex + 8, rows.length);
+
+            for (; rowIndex < batchEnd; rowIndex += 1) {
+              createArchiveRow(rows[rowIndex], fragmentHost);
+            }
+
+            viewNode.appendChild(fragment);
+
+            if (rowIndex < rows.length) {
+              requestAnimationFrame(appendTableBatch);
+            } else {
+              viewNode.removeAttribute('aria-busy');
+            }
+          };
+
+          requestAnimationFrame(appendTableBatch);
         }
       }
     }
@@ -3134,28 +3143,6 @@
       const cachedView = archiveViewCache[mode];
       if (cachedView) cachedView.hidden = mode !== archiveMode;
     });
-
-    if (animate && archiveMode === 'table' && previousRows) {
-      const rows = Array.from(view.querySelectorAll('.rec'));
-      requestAnimationFrame(() => {
-        rows.forEach(row => {
-          const previousTop = previousRows.get(row.id);
-          if (previousTop !== undefined) {
-            const delta = previousTop - row.getBoundingClientRect().top;
-            if (Math.abs(delta) > 1) row.style.transform = `translateY(${delta}px)`;
-          } else {
-            row.style.opacity = '0';
-            row.style.transform = 'translateY(6px)';
-          }
-        });
-        requestAnimationFrame(() => {
-          rows.forEach(row => {
-            row.style.transform = '';
-            row.style.opacity = '';
-          });
-        });
-      });
-    }
 
     if (searchWasFocused) {
       const newInput = document.querySelector('#summary-table .archive-search-input');
