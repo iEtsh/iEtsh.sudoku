@@ -90,18 +90,98 @@ MONTH_MAP = {
 # HTTP
 # ---------------------------------------------------------
 
+def request_with_retry(
+    url,
+    timeout=30,
+    max_attempts=5
+):
+    """
+    Request a page while tolerating temporary server/network failures.
+
+    Retries connection errors, timeouts, HTTP 429 and 5xx responses.
+    Permanent client errors (such as 404) fail immediately.
+    """
+
+    for attempt in range(1, max_attempts + 1):
+
+        try:
+
+            response = requests.get(
+                url,
+                headers=HEADERS,
+                timeout=timeout
+            )
+
+            if (
+                response.status_code == 429
+                or response.status_code >= 500
+            ):
+
+                if attempt < max_attempts:
+
+                    retry_after = response.headers.get(
+                        "Retry-After",
+                        ""
+                    )
+
+                    try:
+                        wait_seconds = float(retry_after)
+                    except (TypeError, ValueError):
+                        wait_seconds = min(
+                            5 * (2 ** (attempt - 1)),
+                            60
+                        )
+
+                    wait_seconds = min(
+                        max(wait_seconds, 1),
+                        120
+                    )
+
+                    print(
+                        f"Temporary HTTP {response.status_code} "
+                        f"for {url}. "
+                        f"Retry {attempt}/{max_attempts - 1} "
+                        f"in {wait_seconds:g}s."
+                    )
+
+                    time.sleep(wait_seconds)
+                    continue
+
+            response.raise_for_status()
+            return response
+
+        except requests.RequestException as e:
+
+            if attempt >= max_attempts:
+                raise
+
+            wait_seconds = min(
+                5 * (2 ** (attempt - 1)),
+                60
+            )
+
+            print(
+                f"Request failed for {url}: {e}. "
+                f"Retry {attempt}/{max_attempts - 1} "
+                f"in {wait_seconds}s."
+            )
+
+            time.sleep(wait_seconds)
+
+    raise requests.RequestException(
+        f"Request failed after {max_attempts} attempts: {url}"
+    )
+
+
 def fetch_page(start=0):
     url = f"{BASE_URL}&start={start}"
 
-    r = requests.get(
+    response = request_with_retry(
         url,
-        headers=HEADERS,
         timeout=30
     )
 
-    r.raise_for_status()
-
-    return r.text
+    return response.text
 
 
 def fetch_puzzle(lmd_code):
@@ -110,15 +190,12 @@ def fetch_puzzle(lmd_code):
         + lmd_code
     )
 
-    r = requests.get(
+    response = request_with_retry(
         url,
-        headers=HEADERS,
         timeout=30
     )
 
-    r.raise_for_status()
-
-    return r.text
+    return response.text
 
 
 # ---------------------------------------------------------
@@ -702,13 +779,10 @@ def download_image(
 
     try:
 
-        response = requests.get(
+        response = request_with_retry(
             image_url,
-            headers=HEADERS,
             timeout=60
         )
-
-        response.raise_for_status()
 
         content_type = response.headers.get(
             "Content-Type",
