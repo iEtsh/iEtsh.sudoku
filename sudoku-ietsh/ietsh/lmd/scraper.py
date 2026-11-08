@@ -1322,7 +1322,34 @@ def update_config():
         )
 
         if not puzzles:
-            break
+
+            soup = BeautifulSoup(
+                html,
+                "html.parser"
+            )
+
+            page_text = " ".join(
+                soup.get_text(" ", strip=True).split()
+            )
+
+            # An empty later page is a normal pagination end only
+            # when LMD explicitly returns its no-results message.
+            # Otherwise, stop safely instead of treating a broken or
+            # changed listing page as proof that puzzles were removed.
+            if (
+                start > 0
+                and "Es konnte kein Rätsel gefunden werden" in page_text
+            ):
+                print(
+                    f"LMD listing ended normally at start={start}."
+                )
+                break
+
+            raise RuntimeError(
+                "LMD listing could not be parsed safely "
+                f"(start={start}). Refusing to continue with "
+                "an incomplete puzzle list."
+            )
 
         all_puzzles.extend(
             puzzles
@@ -1385,6 +1412,52 @@ def update_config():
             cfg.get("items", [])
         )
     )
+
+    # -----------------------------------------------------
+    # Remove puzzles no longer present on LMD
+    # -----------------------------------------------------
+
+    # This uses the complete listing scan already collected above.
+    # If any page request or parsing step failed, execution stopped
+    # before reaching this point, so no puzzle can be removed based
+    # on a partial scan.
+    live_codes = unique_codes
+
+    removed_items = [
+        item
+        for item in cfg["items"]
+        if item.get("lmd") not in live_codes
+    ]
+
+    if removed_items:
+
+        removed_codes = {
+            item.get("lmd")
+            for item in removed_items
+        }
+
+        cfg["items"] = [
+            item
+            for item in cfg["items"]
+            if item.get("lmd") in live_codes
+        ]
+
+        print(
+            f"Removed {len(removed_items)} puzzle(s) "
+            "no longer present on LMD:"
+        )
+
+        for item in removed_items:
+            print(
+                f"Removed: {item.get('title')} "
+                f"({item.get('lmd')})"
+            )
+
+    else:
+
+        print(
+            "No removed puzzles detected."
+        )
 
     existing_lmd = {
         item["lmd"]: item
