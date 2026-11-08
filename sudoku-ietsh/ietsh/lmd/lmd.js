@@ -3117,15 +3117,13 @@
           const appendTableBatch = () => {
             if (buildToken !== archiveBuildToken || !viewNode.isConnected) return;
 
-            const fragment = document.createDocumentFragment();
-            const fragmentHost = d3.select(fragment);
-            const batchEnd = Math.min(rowIndex + 8, rows.length);
+            // Append rows directly to the live view. Some mobile browser engines
+            // handle D3-created nodes in a DocumentFragment inconsistently.
+            const batchEnd = Math.min(rowIndex + 5, rows.length);
 
             for (; rowIndex < batchEnd; rowIndex += 1) {
-              createArchiveRow(rows[rowIndex], fragmentHost);
+              createArchiveRow(rows[rowIndex], viewHost);
             }
-
-            viewNode.appendChild(fragment);
 
             if (rowIndex < rows.length) {
               requestAnimationFrame(appendTableBatch);
