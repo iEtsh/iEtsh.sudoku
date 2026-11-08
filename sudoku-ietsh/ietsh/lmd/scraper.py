@@ -1431,11 +1431,6 @@ def update_config():
 
     if removed_items:
 
-        removed_codes = {
-            item.get("lmd")
-            for item in removed_items
-        }
-
         cfg["items"] = [
             item
             for item in cfg["items"]
