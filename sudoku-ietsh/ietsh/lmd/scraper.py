@@ -615,15 +615,14 @@ def get_sudokupad_link(html):
 
 def get_puzzle_image_url(html, lmd_code):
     """
-    Return only the image attached to this puzzle's SudokuPad link.
+    Find the puzzle image without assuming that it is linked to SudokuPad.
 
-    LMD may place several unrelated images on the detail page. The
-    puzzle graphic is the image inside the anchor that points to the
-    same SudokuPad URL as the dedicated "Solve Puzzle" link.
-
-    Deliberately do not fall back to the first /Dateien/ image on the
-    page: if the expected image/link relationship is missing, return
-    an empty URL rather than downloading an unrelated image.
+    Selection rules:
+    1. Prefer an image contained in a hyperlink, regardless of the link target.
+    2. If no linked image exists, use the page image only when exactly one
+       distinct image is present.
+    3. If the page contains multiple possible images and none is linked,
+       return an empty URL rather than guessing.
     """
 
     soup = BeautifulSoup(
@@ -636,99 +635,81 @@ def get_puzzle_image_url(html, lmd_code):
         + str(lmd_code)
     )
 
-    solve_url = ""
+    # First priority: images wrapped in any hyperlink.
+    linked_images = []
 
-    # First identify the exact link labelled "Solve Puzzle".
     for anchor in soup.find_all(
         "a",
         href=True
     ):
 
-        href = anchor.get(
-            "href",
-            ""
-        ).strip()
-
-        text = anchor.get_text(
-            " ",
-            strip=True
-        ).lower()
-
-        if (
-            "sudokupad" in href.lower()
-            and "solve puzzle" in text
-        ):
-            solve_url = urljoin(
-                detail_url,
-                href
-            )
-            break
-
-    # The puzzle image must belong to that exact SudokuPad link.
-    if solve_url:
-
-        for anchor in soup.find_all(
-            "a",
-            href=True
-        ):
-
-            anchor_url = urljoin(
-                detail_url,
-                anchor.get("href", "").strip()
-            )
-
-            if anchor_url != solve_url:
-                continue
-
-            image = anchor.find(
-                "img",
-                src=True
-            )
-
-            if image:
-                src = image.get(
-                    "src",
-                    ""
-                ).strip()
-
-                if src:
-                    return urljoin(
-                        detail_url,
-                        src
-                    )
-
-    # Some LMD page variants may omit the visible link text. In that
-    # case, accept an image only when it is itself inside a direct
-    # SudokuPad anchor. Never inspect unrelated page images.
-    for anchor in soup.find_all(
-        "a",
-        href=True
-    ):
-
-        href = anchor.get(
-            "href",
-            ""
-        ).strip()
-
-        if "sudokupad" not in href.lower():
-            continue
-
-        image = anchor.find(
+        for image in anchor.find_all(
             "img",
             src=True
-        )
+        ):
 
-        if image:
             src = image.get(
                 "src",
                 ""
             ).strip()
 
-            if src:
-                return urljoin(
-                    detail_url,
-                    src
+            if not src:
+                continue
+
+            image_url = urljoin(
+                detail_url,
+                src
+            )
+
+            if image_url not in linked_images:
+                linked_images.append(
+                    image_url
                 )
+
+    if len(linked_images) == 1:
+        return linked_images[0]
+
+    if len(linked_images) > 1:
+        print(
+            f"Multiple linked images found for {lmd_code}; "
+            "keeping the current image rather than guessing."
+        )
+        return ""
+
+    # No linked images: a single image on the page is unambiguous.
+    page_images = []
+
+    for image in soup.find_all(
+        "img",
+        src=True
+    ):
+
+        src = image.get(
+            "src",
+            ""
+        ).strip()
+
+        if not src:
+            continue
+
+        image_url = urljoin(
+            detail_url,
+            src
+        )
+
+        if image_url not in page_images:
+            page_images.append(
+                image_url
+            )
+
+    if len(page_images) == 1:
+        return page_images[0]
+
+    if len(page_images) > 1:
+        print(
+            f"Multiple unlinked images found for {lmd_code}; "
+            "keeping the current image rather than guessing."
+        )
 
     return ""
 
@@ -904,8 +885,8 @@ def ensure_puzzle_image(item):
         if not image_url:
 
             print(
-                f"No image linked to the Solve Puzzle link "
-                f"for {lmd_code}; keeping the current image."
+                f"No unambiguous puzzle image found for {lmd_code}; "
+                "keeping the current image."
             )
 
             return existing_image
