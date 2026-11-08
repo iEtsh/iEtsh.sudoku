@@ -1566,97 +1566,70 @@
     }
 }
 
-/* Compact-width table: preserve every column and allow horizontal scrolling. */
-@media (max-width: 950px) {
-    /* Only the table panel scrolls; controls and the rest of the page stay put. */
+/* =========================================================
+   Archive table responsive behavior
+   ========================================================= */
+
+/* Desktop/laptop window resizing:
+   preserve the natural desktop table; the viewport simply clips its
+   right edge instead of creating a compact or card-style layout. */
+@media (max-width: 850px) and (pointer: fine) {
+    #summary-table {
+        overflow-x: hidden !important;
+        overflow-y: visible;
+    }
+
     #summary-table .archive-view-panel[data-view="table"] {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        overflow-x: auto;
-        overflow-y: hidden;
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-    }
-
-    /* Keep the complete desktop column set at every compact width. */
-    #summary-table .archive-view-panel[data-view="table"] > .archive-header,
-    #summary-table .archive-view-panel[data-view="table"] > .rec {
-        box-sizing: border-box;
-        width: 920px;
-        min-width: 920px;
-        max-width: none;
-    }
-
-    #summary-table .archive-view-panel[data-view="table"] > .archive-header {
-        display: grid;
-        grid-template-columns: 42px 220px 112px 100px 50px 50px 76px 84px 76px !important;
-        grid-auto-flow: row;
-        grid-template-rows: auto;
-        height: auto;
-        min-height: 28px;
-        gap: 8px;
-        margin: 0 0 7px;
-        padding: 0 10px;
-        overflow: visible;
-        align-items: center;
-    }
-
-    #summary-table .archive-view-panel[data-view="table"] > .archive-header > div {
-        display: block !important;
-        min-width: 0;
-        grid-column: auto !important;
-        grid-row: auto !important;
-        overflow: visible;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    #summary-table .archive-view-panel[data-view="table"] > .archive-header .archive-header-title {
-        text-align: left;
-    }
-
-    #summary-table .archive-view-panel[data-view="table"] > .archive-header .archive-sort-button {
-        display: flex;
         width: 100%;
         min-width: 0;
-        justify-content: center;
-        padding: 4px 2px;
-        font-size: 8px;
-        line-height: 1.2;
-        white-space: nowrap;
-    }
-
-    #summary-table .archive-view-panel[data-view="table"] > .rec {
-        margin-bottom: 8px;
         overflow: hidden;
     }
 
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header,
+    #summary-table .archive-view-panel[data-view="table"] > .rec {
+        box-sizing: border-box;
+        width: 1026px !important;
+        min-width: 1026px !important;
+        max-width: none !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header,
     #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
-        display: grid;
-        grid-template-columns: 42px 220px 112px 100px 50px 50px 76px 84px 76px !important;
-        grid-template-rows: auto;
+        display: grid !important;
+        grid-template-columns: 42px 220px 138px 122px 52px 52px 86px 100px 94px !important;
+        grid-template-rows: auto !important;
         grid-auto-flow: row;
         align-items: center;
         gap: 8px;
+        direction: ltr;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header {
+        height: auto !important;
+        min-height: 28px;
+        padding: 0 10px;
+        overflow: visible;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header > div,
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li {
+        display: block !important;
+        position: static !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        min-width: 0;
+        max-width: none;
+        margin: 0 !important;
+        overflow: visible;
+        white-space: nowrap;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
         width: 100%;
         min-width: 0;
         margin: 0;
         padding: 13px 10px;
         overflow: visible;
-        direction: ltr;
-    }
-
-    #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li {
-        display: block !important;
-        min-width: 0;
-        max-width: none;
-        grid-column: auto !important;
-        grid-row: auto !important;
-        overflow: visible;
-        white-space: normal;
     }
 
     #summary-table .archive-view-panel[data-view="table"] .archive-number,
@@ -1665,31 +1638,32 @@
         display: block !important;
     }
 
-    #summary-table .archive-view-panel[data-view="table"] .archive-title {
-        width: auto;
-        font-size: 13px;
-        line-height: 1.25;
-        white-space: normal;
-        overflow-wrap: anywhere;
-    }
-
     #summary-table .archive-view-panel[data-view="table"] .archive-difficulty {
         display: flex !important;
         align-items: center;
         justify-content: center;
     }
 
+    #summary-table .archive-view-panel[data-view="table"] .archive-title {
+        width: auto;
+        padding: 0 !important;
+        font-size: 13px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     #summary-table .archive-view-panel[data-view="table"] .archive-difficulty .puzzle-stars {
-        width: 50px;
-        min-width: 50px;
-        max-width: 50px;
+        width: 64px;
+        min-width: 64px;
+        max-width: 64px;
         margin: 0 auto;
     }
 
     #summary-table .archive-view-panel[data-view="table"] .archive-difficulty svg {
         display: block;
-        width: 50px;
-        height: 12px;
+        width: 64px;
+        height: 14px;
     }
 
     #summary-table .archive-view-panel[data-view="table"] .archive-link {
@@ -1707,10 +1681,207 @@
         white-space: nowrap;
     }
 
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating {
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
     #summary-table .archive-view-panel[data-view="table"] .archive-sudokupad-solves::before,
     #summary-table .archive-view-panel[data-view="table"] .archive-solves::before,
-    #summary-table .archive-view-panel[data-view="table"] .archive-rating::before {
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating::before,
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating::after {
         content: none !important;
+        display: none !important;
     }
 }
 
+/* Phone in landscape:
+   keep the regular single-row table and fit all nine real columns
+   into the available width without cards, overlap, or horizontal scrolling. */
+@media (max-width: 950px) and (orientation: landscape) and (pointer: coarse) {
+    #summary-table {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 0 4px !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        overflow: visible;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header,
+    #summary-table .archive-view-panel[data-view="table"] > .rec {
+        box-sizing: border-box;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header,
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
+        display: grid !important;
+        grid-template-columns:
+            26px
+            minmax(110px, 1.7fr)
+            minmax(85px, 1.25fr)
+            54px
+            32px
+            32px
+            52px
+            56px
+            52px !important;
+        grid-template-rows: auto !important;
+        grid-auto-flow: row;
+        align-items: center;
+        gap: 5px;
+        direction: ltr;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header {
+        height: auto !important;
+        min-height: 28px;
+        margin: 0 0 7px !important;
+        padding: 0 6px !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header > div,
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li {
+        display: block !important;
+        position: static !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+        min-width: 0 !important;
+        max-width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .rec {
+        margin: 0 0 7px !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 10px 6px !important;
+        overflow: visible;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-number {
+        font-size: 9px;
+        text-align: left;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-title {
+        width: auto;
+        min-width: 0;
+        padding: 0 !important;
+        font-size: 11px;
+        line-height: 1.2;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: left;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-date {
+        display: block !important;
+        font-size: 8px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-difficulty {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-difficulty .puzzle-stars {
+        width: 48px !important;
+        min-width: 48px !important;
+        max-width: 48px !important;
+        margin: 0 auto;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-difficulty svg {
+        display: block;
+        width: 48px !important;
+        height: 12px !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-action {
+        width: 26px;
+        min-width: 26px;
+        height: 28px;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-sudokupad-solves,
+    #summary-table .archive-view-panel[data-view="table"] .archive-solves,
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 9px !important;
+        line-height: 1.2;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-sudokupad-solves::before,
+    #summary-table .archive-view-panel[data-view="table"] .archive-solves::before,
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating::before,
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-number,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-title,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-date,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-difficulty,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-link,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-sudokupad-solves,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-solves,
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-rating {
+        display: block !important;
+        min-width: 0;
+        font-size: 8px;
+        line-height: 1.1;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-title {
+        text-align: left;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-header .archive-sort-button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        padding: 3px 0;
+        font-size: 8px;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+}
