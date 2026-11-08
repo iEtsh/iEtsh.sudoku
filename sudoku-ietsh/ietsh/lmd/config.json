@@ -70,8 +70,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/mwo1h87xzn",
       "lmd": "000VLW",
-      "solves": 51,
-      "sudokupad_solves": 121,
+      "solves": 52,
+      "sudokupad_solves": 122,
       "rating": "96%",
       "image": "images/000VLW.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=bf02f588-53824-303030564c572d31"
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-08T22:21:44.631274Z"
+  "last_check": "2026-11-08T22:31:37.741952Z"
 }
