@@ -2745,7 +2745,7 @@
     const distributionAxis = distributionSvg.append('g').attr('class', 'distribution-axis');
     const distributionNote = distribution.append('div').attr('class', 'gallery-distribution-note');
     const distributionColors = d3.scaleOrdinal(d3.schemeTableau10);
-    const distributionMotionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const distributionMotionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(pointer: coarse)').matches;
     let distributionObserver = null;
     let distributionHasEntered = false;
     let distributionMetric = 'sudokupad_solves';
@@ -2968,6 +2968,7 @@
           .attr('src', puzzle.image)
           .attr('alt', `${puzzle.title || 'Puzzle'} preview`)
           .attr('loading', 'lazy')
+          .attr('fetchpriority', 'low')
           .attr('decoding', 'async');
       } else {
         imageLink.append('div').attr('class', 'gallery-image-placeholder')
