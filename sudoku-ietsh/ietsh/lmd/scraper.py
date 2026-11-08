@@ -1023,19 +1023,28 @@ def ensure_puzzle_image(item):
             and existing_image_name == current_image_name
         )
 
-        if same_source:
+        if image_is_dynamic:
 
-            if image_is_dynamic:
-                # bild.php can serve new bytes at the same URL. Recheck
-                # only when LMD's puzzle-level modified timestamp changes.
-                if (
-                    page_version
-                    and existing_page_version == page_version
-                ):
+            if existing_image and existing_source:
+
+                if existing_page_version:
+                    # The stable bild.php URL can serve a replacement image.
+                    # Download again only when LMD's puzzle-level timestamp changes.
+                    if page_version == existing_page_version:
+                        return existing_image
+
+                else:
+                    # Preserve legacy images on the first run and store a
+                    # baseline timestamp. This avoids redownloading every
+                    # existing puzzle just because its URL is now recognized
+                    # as the page's bild.php endpoint.
+                    if page_version:
+                        item["image_page_version"] = page_version
+
                     return existing_image
 
-            else:
-                return existing_image
+        elif same_source:
+            return existing_image
 
         image_path = download_image(
             image_url,
