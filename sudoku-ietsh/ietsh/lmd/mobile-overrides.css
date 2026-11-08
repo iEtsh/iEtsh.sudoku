@@ -1909,27 +1909,73 @@
 }
 
 
-/* Landscape title containment: the title must stay inside column 2. */
+/* Landscape archive: metadata columns size to their actual contents.
+   The title alone receives the remaining width and wraps inside its cell. */
 @media (max-width: 950px) and (orientation: landscape) and (pointer: coarse) {
     #summary-table .archive-view-panel[data-view="table"] > .archive-header,
     #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
+        display: grid !important;
         grid-template-columns:
-            26px
-            minmax(0, 1fr)
-            78px
+            max-content
+            minmax(100px, 1fr)
+            max-content
             48px
-            24px
-            24px
-            40px
-            40px
-            40px !important;
+            26px
+            26px
+            max-content
+            max-content
+            max-content !important;
+        grid-template-rows: auto !important;
+        grid-auto-flow: row;
+        align-items: center;
+        column-gap: 5px;
+        direction: ltr;
+        box-sizing: border-box !important;
     }
 
-    #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li.archive-title {
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header {
+        padding: 0 6px !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
+        padding: 10px 6px !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header > div,
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li {
+        box-sizing: border-box !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        margin: 0 !important;
+        overflow: visible !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header .archive-sort-button {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-width: 0;
+        padding: 3px 1px;
+        font-size: 8px;
+        line-height: 1.15;
+        white-space: normal !important;
+        text-align: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-header-title {
+        min-width: 0 !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-number {
+        white-space: nowrap !important;
+        text-align: left;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-title {
         grid-column: 2 !important;
         grid-row: 1 !important;
         display: block !important;
-        box-sizing: border-box !important;
         width: 100% !important;
         min-width: 0 !important;
         max-width: 100% !important;
@@ -1943,5 +1989,59 @@
         word-break: normal !important;
         text-align: left !important;
         line-height: 1.2 !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-date {
+        white-space: nowrap !important;
+        font-size: 8px;
+        text-align: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-difficulty {
+        display: flex !important;
+        width: 48px !important;
+        min-width: 48px !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-difficulty .puzzle-stars,
+    #summary-table .archive-view-panel[data-view="table"] .archive-difficulty svg {
+        display: block;
+        width: 48px !important;
+        min-width: 48px !important;
+        max-width: 48px !important;
+        height: 12px !important;
+        margin: 0;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-link {
+        display: flex !important;
+        width: 26px !important;
+        min-width: 26px !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-action {
+        display: flex;
+        width: 26px !important;
+        min-width: 26px !important;
+        height: 28px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] .archive-sudokupad-solves,
+    #summary-table .archive-view-panel[data-view="table"] .archive-solves,
+    #summary-table .archive-view-panel[data-view="table"] .archive-rating {
+        display: block !important;
+        width: max-content !important;
+        min-width: max-content !important;
+        font-size: 9px !important;
+        line-height: 1.2;
+        white-space: nowrap !important;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
     }
 }
