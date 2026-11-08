@@ -347,3 +347,52 @@
     }
 }
 
+
+
+/* Touch-device performance: keep the gallery visually intact without
+   continuously compositing 3D cards, blur layers, and entrance animations. */
+@media (hover: none), (pointer: coarse) {
+    .gallery-puzzle-card {
+        contain-intrinsic-size: auto 520px;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        box-shadow: 0 5px 14px rgba(0, 0, 0, .13);
+    }
+
+    .gallery-puzzle-card::after {
+        display: none;
+    }
+
+    .gallery-puzzle-card:hover,
+    .gallery-puzzle-card:focus-within,
+    .gallery-puzzle-card.is-selected {
+        transform: none !important;
+        box-shadow: 0 5px 14px rgba(0, 0, 0, .13);
+    }
+
+    .gallery-card-image img,
+    .gallery-puzzle-card:hover .gallery-card-image img {
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .gallery-image-overlay {
+        display: none;
+        backdrop-filter: none;
+    }
+
+    .gallery-metric,
+    .gallery-bar-fill {
+        animation: none !important;
+    }
+
+    .gallery-rating-fill {
+        transition: none !important;
+    }
+
+    .gallery-distribution {
+        transition: none !important;
+    }
+}
