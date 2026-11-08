@@ -935,8 +935,8 @@ def get_puzzle_page_version(html):
     )
 
     match = re.search(
-        r"(?:Last changed on|Zuletzt ge[aä]ndert am)\\s+(?:on\\s+)?"
-        r"(\\d{1,2}\\.\\s+\\w+\\s+\\d{4}(?:,\\s*\\d{1,2}:\\d{2})?)",
+        r"(?:Last changed on|Zuletzt ge[aä]ndert am)\s+(?:on\s+)?"
+        r"(\d{1,2}\.\s+\w+\s+\d{4}(?:,\s*\d{1,2}:\d{2})?)",
         page_text,
         re.IGNORECASE
     )
