@@ -396,3 +396,13 @@
         transition: none !important;
     }
 }
+
+
+/* Keep both archive layouts mounted so switching views is immediate. */
+.archive-content {
+    display: block;
+    min-width: 0;
+}
+.archive-view-panel[hidden] {
+    display: none !important;
+}
