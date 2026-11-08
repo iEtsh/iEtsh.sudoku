@@ -128,6 +128,8 @@
 }
 .gallery-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .gallery-puzzle-card {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 430px;
     --pointer-x: 50%; --pointer-y: 0%; --tilt-x: 0deg; --tilt-y: 0deg;
     position: relative; min-width: 0; overflow: hidden; border-radius: 17px;
     border: 1px solid rgba(148, 163, 184, .15);
