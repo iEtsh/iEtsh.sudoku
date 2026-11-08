@@ -462,8 +462,12 @@
         line-height: 1.35;
         color: #929bad;
         white-space: normal;
-        overflow-wrap: anywhere;
+        overflow: visible;
+        text-overflow: clip;
+        overflow-wrap: break-word;
+        word-break: normal;
         text-align: left;
+        justify-self: start;
     }
 
     #summary-table .archive-difficulty {
@@ -1695,6 +1699,19 @@
     }
 }
 
+/* Narrow desktop: wrap long puzzle titles rather than truncating them. */
+@media (max-width: 850px) and (pointer: fine) {
+    #summary-table .archive-view-panel[data-view="table"] .archive-title {
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        overflow-wrap: break-word;
+        word-break: normal;
+        line-height: 1.2;
+        text-align: left;
+    }
+}
+
 /* Phone in landscape:
    keep the regular single-row table and fit all nine real columns
    into the available width without cards, overlap, or horizontal scrolling. */
@@ -1727,8 +1744,8 @@
         display: grid !important;
         grid-template-columns:
             26px
-            minmax(110px, 1.7fr)
-            minmax(85px, 1.25fr)
+            minmax(105px, 1.15fr)
+            minmax(78px, 0.85fr)
             54px
             32px
             32px
