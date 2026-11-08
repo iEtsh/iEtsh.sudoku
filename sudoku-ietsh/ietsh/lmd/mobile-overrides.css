@@ -1915,14 +1915,14 @@
     #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
         grid-template-columns:
             26px
-            minmax(0, 145px)
-            90px
-            minmax(44px, 0.65fr)
-            minmax(28px, 0.40fr)
-            minmax(28px, 0.40fr)
-            minmax(45px, 0.62fr)
-            minmax(48px, 0.68fr)
-            minmax(44px, 0.60fr) !important;
+            minmax(0, 1fr)
+            78px
+            48px
+            24px
+            24px
+            40px
+            40px
+            40px !important;
     }
 
     #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li.archive-title {
