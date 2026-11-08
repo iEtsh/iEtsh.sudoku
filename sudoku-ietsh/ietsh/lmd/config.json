@@ -41,7 +41,7 @@
       "puzz": "https://sudokupad.app/2zp4wfcfc2?setting-outlinesondigits=true",
       "lmd": "000VSB",
       "solves": 15,
-      "sudokupad_solves": 58,
+      "sudokupad_solves": 59,
       "rating": "89%",
       "image": "images/000VSB.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=2f3bc15d-54294-3030305653422d31"
@@ -638,5 +638,5 @@
       "sudokupad_solves": 452
     }
   ],
-  "last_check": "2026-11-08T13:21:24.320302Z"
+  "last_check": "2026-11-08T13:31:10.817414Z"
 }
