@@ -1007,6 +1007,7 @@
           i.title || 'Puzzle'
         )
         .attr('loading', 'eager')
+        .attr('fetchpriority', 'high')
         .attr('decoding', 'async');
     }
   };
@@ -2966,7 +2967,7 @@
         imageLink.append('img')
           .attr('src', puzzle.image)
           .attr('alt', `${puzzle.title || 'Puzzle'} preview`)
-          .attr('loading', index < 2 ? 'eager' : 'lazy')
+          .attr('loading', 'lazy')
           .attr('decoding', 'async');
       } else {
         imageLink.append('div').attr('class', 'gallery-image-placeholder')
