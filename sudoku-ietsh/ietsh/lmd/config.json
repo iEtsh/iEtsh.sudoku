@@ -283,7 +283,7 @@
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1704,
+      "sudokupad_solves": 1705,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=f7fca2e8-52706-3030305556522d31"
     },
     {
@@ -638,5 +638,5 @@
       "sudokupad_solves": 451
     }
   ],
-  "last_check": "2026-11-08T10:51:15.591216Z"
+  "last_check": "2026-11-08T11:01:04.061799Z"
 }
