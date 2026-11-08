@@ -25,7 +25,7 @@ from playwright.sync_api import sync_playwright
 
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, parse_qs
 
 from bs4 import BeautifulSoup
 
@@ -765,6 +765,27 @@ def download_image(
 # Ensure puzzle image exists
 # ---------------------------------------------------------
 
+def get_image_source_name(image_url):
+    """
+    Return the actual image identifier.
+
+    LMD serves images through bild.php?data=..., so the data value
+    identifies the image even though the URL filename is always bild.php.
+    For ordinary image URLs, use the basename of the URL path.
+    """
+
+    if not image_url:
+        return ""
+
+    parsed_url = urlparse(image_url)
+    query = parse_qs(parsed_url.query)
+
+    if query.get("data"):
+        return query["data"][0]
+
+    return os.path.basename(parsed_url.path)
+
+
 def ensure_puzzle_image(item):
 
     existing_image = item.get(
@@ -785,20 +806,9 @@ def ensure_puzzle_image(item):
     if not lmd_code:
         return ""
 
-    # Once the exact linked image source has been recorded, avoid
-    # fetching every detail page on every scheduled scraper run.
-    # Legacy entries without image_source are checked once and repaired.
-    if existing_image and existing_source:
-        existing_filepath = os.path.join(
-            "sudoku-ietsh/ietsh/lmd",
-            existing_image
-        )
-
-        if os.path.isfile(existing_filepath):
-            return existing_image
-
     try:
 
+        # Read the current image reference on every run.
         puzzle_html = fetch_puzzle(
             lmd_code
         )
@@ -817,25 +827,24 @@ def ensure_puzzle_image(item):
 
             return existing_image
 
-        filepath = ""
+        current_image_name = get_image_source_name(
+            image_url
+        )
 
-        if existing_image:
-            filepath = os.path.join(
-                "sudoku-ietsh/ietsh/lmd",
-                existing_image
-            )
+        existing_image_name = get_image_source_name(
+            existing_source
+        )
 
-        # Reuse the local image only after its source URL has been
-        # recorded and confirmed unchanged. Existing config entries
-        # without image_source are refreshed once to repair any image
-        # previously selected from the wrong location on the page.
+        # If the source image name is unchanged, keep the local file.
         if (
-            existing_source == image_url
-            and filepath
-            and os.path.isfile(filepath)
+            existing_image
+            and existing_image_name
+            and existing_image_name == current_image_name
         ):
             return existing_image
 
+        # No previous source name (legacy item), or the image name
+        # changed: download the current image and update its source.
         image_path = download_image(
             image_url,
             lmd_code
@@ -853,7 +862,6 @@ def ensure_puzzle_image(item):
         )
 
     return existing_image
-
 
 # ---------------------------------------------------------
 # Parse puzzle list
