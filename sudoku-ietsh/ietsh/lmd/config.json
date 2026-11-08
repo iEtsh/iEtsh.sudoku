@@ -179,7 +179,7 @@
       "sudokupad_solves": 125,
       "rating": "95%",
       "image": "images/000VBP.png",
-      "image_source": "https://logic-masters.de/Dateien/bild.php?data=d6af9b0d-53408-3030305642502d31"
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=5cebb544-54534-3030305642502d31"
     },
     {
       "num": 31,
@@ -635,8 +635,8 @@
       "rating": "83%",
       "author_rated": false,
       "image": "images/000SBZ.png",
-      "sudokupad_solves": 454
+      "sudokupad_solves": 455
     }
   ],
-  "last_check": "2026-11-08T16:51:16.621948Z"
+  "last_check": "2026-11-08T17:31:44.501211Z"
 }
