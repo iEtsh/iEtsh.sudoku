@@ -1907,3 +1907,41 @@
         white-space: nowrap;
     }
 }
+
+
+/* Landscape title containment: the title must stay inside column 2. */
+@media (max-width: 950px) and (orientation: landscape) and (pointer: coarse) {
+    #summary-table .archive-view-panel[data-view="table"] > .archive-header,
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul {
+        grid-template-columns:
+            26px
+            minmax(0, 145px)
+            90px
+            minmax(44px, 0.65fr)
+            minmax(28px, 0.40fr)
+            minmax(28px, 0.40fr)
+            minmax(45px, 0.62fr)
+            minmax(48px, 0.68fr)
+            minmax(44px, 0.60fr) !important;
+    }
+
+    #summary-table .archive-view-panel[data-view="table"] > .rec > ul > li.archive-title {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        display: block !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        justify-self: stretch !important;
+        align-self: start !important;
+        padding: 0 !important;
+        white-space: normal !important;
+        overflow: hidden !important;
+        text-overflow: clip !important;
+        overflow-wrap: anywhere !important;
+        word-break: normal !important;
+        text-align: left !important;
+        line-height: 1.2 !important;
+    }
+}
