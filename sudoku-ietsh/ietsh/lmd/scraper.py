@@ -17,6 +17,7 @@ sudoku-ietsh/ietsh/lmd/images/
 
 import json
 import os
+import hashlib
 import re
 import time
 import requests
@@ -795,8 +796,16 @@ def download_image(
             )
         )
 
+        # Include the source image identifier in the filename.
+        # When LMD replaces a puzzle image, the resulting URL changes too,
+        # preventing browsers and GitHub Pages from reusing the old cached file.
+        image_source_name = get_image_source_name(image_url)
+        image_version = hashlib.sha256(
+            image_source_name.encode("utf-8")
+        ).hexdigest()[:10]
+
         filename = (
-            f"{lmd_code}{extension}"
+            f"{lmd_code}_{image_version}{extension}"
         )
 
         filepath = os.path.join(
