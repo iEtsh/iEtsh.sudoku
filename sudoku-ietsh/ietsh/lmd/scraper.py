@@ -94,7 +94,8 @@ MONTH_MAP = {
 def request_with_retry(
     url,
     timeout=30,
-    max_attempts=5
+    max_attempts=5,
+    headers=None
 ):
     """
     Request a page while tolerating temporary server/network failures.
@@ -107,9 +108,14 @@ def request_with_retry(
 
         try:
 
+            request_headers = dict(HEADERS)
+
+            if headers:
+                request_headers.update(headers)
+
             response = requests.get(
                 url,
-                headers=HEADERS,
+                headers=request_headers,
                 timeout=timeout
             )
 
@@ -615,14 +621,12 @@ def get_sudokupad_link(html):
 
 def get_puzzle_image_url(html, lmd_code):
     """
-    Find the puzzle image without assuming that it is linked to SudokuPad.
+    Select the actual LMD puzzle image, not decorative page icons.
 
-    Selection rules:
-    1. Prefer an image contained in a hyperlink, regardless of the link target.
-    2. If no linked image exists, use the page image only when exactly one
-       distinct image is present.
-    3. If the page contains multiple possible images and none is linked,
-       return an empty URL rather than guessing.
+    LMD's puzzle image is served through bild.php. Depending on the
+    page layout it may be linked to SudokuPad or displayed on its own.
+    Prefer that puzzle-image element; ignore linked footer icons,
+    language flags, difficulty markers and logos.
     """
 
     soup = BeautifulSoup(
@@ -635,13 +639,106 @@ def get_puzzle_image_url(html, lmd_code):
         + str(lmd_code)
     )
 
-    # First priority: images wrapped in any hyperlink.
-    linked_images = []
+    puzzle_images = []
+
+    for image in soup.find_all(
+        "img",
+        src=True
+    ):
+
+        src = image.get(
+            "src",
+            ""
+        ).strip()
+
+        if not src:
+            continue
+
+        parsed_src = urlparse(src)
+
+        if os.path.basename(
+            parsed_src.path
+        ).lower() != "bild.php":
+            continue
+
+        image_url = urljoin(
+            detail_url,
+            src
+        )
+
+        if image_url not in puzzle_images:
+            puzzle_images.append(
+                image_url
+            )
+
+    # Usually there is exactly one bild.php image: the puzzle itself.
+    if len(puzzle_images) == 1:
+        return puzzle_images[0]
+
+    # If the page has multiple bild.php images, use the unique one
+    # explicitly wrapped by the page's SudokuPad link.
+    if len(puzzle_images) > 1:
+
+        linked_puzzle_images = []
+
+        for image in soup.find_all(
+            "img",
+            src=True
+        ):
+
+            src = image.get(
+                "src",
+                ""
+            ).strip()
+
+            image_url = urljoin(
+                detail_url,
+                src
+            )
+
+            if image_url not in puzzle_images:
+                continue
+
+            anchor = image.find_parent(
+                "a",
+                href=True
+            )
+
+            if (
+                anchor
+                and "sudokupad" in anchor.get(
+                    "href",
+                    ""
+                ).lower()
+                and image_url not in linked_puzzle_images
+            ):
+                linked_puzzle_images.append(
+                    image_url
+                )
+
+        if len(linked_puzzle_images) == 1:
+            return linked_puzzle_images[0]
+
+        print(
+            f"Multiple puzzle-image candidates found for {lmd_code}; "
+            "keeping the current image rather than guessing."
+        )
+        return ""
+
+    # Fallback for LMD page variants that use a different image URL:
+    # accept exactly one image inside the dedicated SudokuPad link.
+    sudokupad_images = []
 
     for anchor in soup.find_all(
         "a",
         href=True
     ):
+
+        if "sudokupad" not in anchor.get(
+            "href",
+            ""
+        ).lower():
+            continue
 
         for image in anchor.find_all(
             "img",
@@ -661,53 +758,17 @@ def get_puzzle_image_url(html, lmd_code):
                 src
             )
 
-            if image_url not in linked_images:
-                linked_images.append(
+            if image_url not in sudokupad_images:
+                sudokupad_images.append(
                     image_url
                 )
 
-    if len(linked_images) == 1:
-        return linked_images[0]
+    if len(sudokupad_images) == 1:
+        return sudokupad_images[0]
 
-    if len(linked_images) > 1:
+    if len(sudokupad_images) > 1:
         print(
-            f"Multiple linked images found for {lmd_code}; "
-            "keeping the current image rather than guessing."
-        )
-        return ""
-
-    # No linked images: a single image on the page is unambiguous.
-    page_images = []
-
-    for image in soup.find_all(
-        "img",
-        src=True
-    ):
-
-        src = image.get(
-            "src",
-            ""
-        ).strip()
-
-        if not src:
-            continue
-
-        image_url = urljoin(
-            detail_url,
-            src
-        )
-
-        if image_url not in page_images:
-            page_images.append(
-                image_url
-            )
-
-    if len(page_images) == 1:
-        return page_images[0]
-
-    if len(page_images) > 1:
-        print(
-            f"Multiple unlinked images found for {lmd_code}; "
+            f"Multiple SudokuPad-linked images found for {lmd_code}; "
             "keeping the current image rather than guessing."
         )
 
@@ -748,7 +809,8 @@ def get_extension_from_content_type(content_type):
 
 def download_image(
     image_url,
-    lmd_code
+    lmd_code,
+    referer_url=""
 ):
 
     if not image_url:
@@ -761,9 +823,15 @@ def download_image(
 
     try:
 
+        extra_headers = {}
+
+        if referer_url:
+            extra_headers["Referer"] = referer_url
+
         response = request_with_retry(
             image_url,
-            timeout=60
+            timeout=60,
+            headers=extra_headers
         )
 
         content_type = response.headers.get(
@@ -777,13 +845,11 @@ def download_image(
             )
         )
 
-        # Include the source image identifier in the filename.
-        # When LMD replaces a puzzle image, the resulting URL changes too,
-        # preventing browsers and GitHub Pages from reusing the old cached file.
-        image_source_name = get_image_source_name(image_url)
+        # Hash the downloaded bytes, not only the URL. LMD's bild.php
+        # endpoint can keep the same URL while serving a replaced image.
         image_version = hashlib.sha256(
-            image_source_name.encode("utf-8")
-        ).hexdigest()[:10]
+            response.content
+        ).hexdigest()[:12]
 
         filename = (
             f"{lmd_code}_{image_version}{extension}"
@@ -850,6 +916,37 @@ def get_image_source_name(image_url):
     return os.path.basename(parsed_url.path)
 
 
+def get_puzzle_page_version(html):
+    """
+    Return LMD's puzzle-level 'Last changed' timestamp.
+
+    The timestamp lets us detect changes to a stable bild.php URL
+    without downloading every puzzle image on every scraper run.
+    """
+
+    soup = BeautifulSoup(
+        html,
+        "html.parser"
+    )
+
+    page_text = soup.get_text(
+        " ",
+        strip=True
+    )
+
+    match = re.search(
+        r"(?:Last changed on|Zuletzt ge[aä]ndert am)\\s+(?:on\\s+)?"
+        r"(\\d{1,2}\\.\\s+\\w+\\s+\\d{4}(?:,\\s*\\d{1,2}:\\d{2})?)",
+        page_text,
+        re.IGNORECASE
+    )
+
+    if not match:
+        return ""
+
+    return match.group(1).strip()
+
+
 def ensure_puzzle_image(item):
 
     existing_image = item.get(
@@ -859,6 +956,11 @@ def ensure_puzzle_image(item):
 
     existing_source = item.get(
         "image_source",
+        ""
+    )
+
+    existing_page_version = item.get(
+        "image_page_version",
         ""
     )
 
@@ -872,7 +974,6 @@ def ensure_puzzle_image(item):
 
     try:
 
-        # Read the current image reference on every run.
         puzzle_html = fetch_puzzle(
             lmd_code
         )
@@ -891,6 +992,23 @@ def ensure_puzzle_image(item):
 
             return existing_image
 
+        page_version = get_puzzle_page_version(
+            puzzle_html
+        )
+
+        parsed_image_url = urlparse(
+            image_url
+        )
+
+        image_is_dynamic = (
+            os.path.basename(
+                parsed_image_url.path
+            ).lower() == "bild.php"
+            and not parse_qs(
+                parsed_image_url.query
+            ).get("data")
+        )
+
         current_image_name = get_image_source_name(
             image_url
         )
@@ -899,23 +1017,46 @@ def ensure_puzzle_image(item):
             existing_source
         )
 
-        # If the source image name is unchanged, keep the local file.
-        if (
+        same_source = (
             existing_image
-            and existing_image_name
+            and existing_source
             and existing_image_name == current_image_name
-        ):
-            return existing_image
+        )
 
-        # No previous source name (legacy item), or the image name
-        # changed: download the current image and update its source.
+        if same_source:
+
+            if image_is_dynamic:
+                # bild.php can serve new bytes at the same URL. Recheck
+                # only when LMD's puzzle-level modified timestamp changes.
+                if (
+                    page_version
+                    and existing_page_version == page_version
+                ):
+                    return existing_image
+
+            else:
+                return existing_image
+
         image_path = download_image(
             image_url,
-            lmd_code
+            lmd_code,
+            referer_url=(
+                PUZZLE_BASE_URL
+                + lmd_code
+            )
         )
 
         if image_path:
             item["image_source"] = image_url
+
+            if page_version:
+                item["image_page_version"] = page_version
+            else:
+                item.pop(
+                    "image_page_version",
+                    None
+                )
+
             return image_path
 
     except Exception as e:
