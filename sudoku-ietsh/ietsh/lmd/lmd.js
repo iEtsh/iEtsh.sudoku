@@ -3117,8 +3117,6 @@
           const appendTableBatch = () => {
             if (buildToken !== archiveBuildToken || !viewNode.isConnected) return;
 
-            // Append rows directly to the live view. Some mobile browser engines
-            // handle D3-created nodes in a DocumentFragment inconsistently.
             const batchEnd = Math.min(rowIndex + 5, rows.length);
 
             for (; rowIndex < batchEnd; rowIndex += 1) {
@@ -3132,7 +3130,10 @@
             }
           };
 
-          requestAnimationFrame(appendTableBatch);
+          // Render the first rows immediately so the table is visibly populated
+          // as soon as the user switches to it. Continue the remaining rows in
+          // small animation-frame batches to keep scrolling and interaction smooth.
+          appendTableBatch();
         }
       }
     }
