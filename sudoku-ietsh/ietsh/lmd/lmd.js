@@ -11,6 +11,10 @@
 
   const recent = d3.select('#most-recent');
   const summs = d3.select('#summary-table');
+  const archiveContent = summs.append('div').attr('class', 'archive-content');
+  const archiveViewCache = { gallery: null, table: null };
+  let archiveRenderCacheKey = null;
+  let galleryRenderToken = 0;
   const tooltip = d3.select('#tooltip');
 
   const tooltipImage = tooltip.select('.thumb img');
@@ -1497,8 +1501,8 @@
   // Archive header
   // ---------------------------------------------------------
 
-  const genSummaryHeader = () => {
-    const header = summs
+  const genSummaryHeader = (host = summs) => {
+    const header = host
       .append('div')
       .attr(
         'class',
@@ -1613,7 +1617,7 @@
   const genArchiveControls = () => {
     const controls =
       summs
-        .append('div')
+        .insert('div', '.archive-content')
         .attr(
           'class',
           'archive-controls'
@@ -2238,11 +2242,11 @@
   // ---------------------------------------------------------
 
   const createArchiveRow =
-    puzzle => {
+    (puzzle, host = summs) => {
       const id =
         puzzle.id;
 
-      const div = summs
+      const div = host
         .append('div')
         .attr(
           'id',
@@ -2629,8 +2633,8 @@
     return value === null ? 'N/A' : `${value}%`;
   };
 
-  const renderGallery = puzzles => {
-    const root = summs
+  const renderGallery = (puzzles, host = summs) => {
+    const root = host
       .append('section')
       .attr('class', 'living-gallery')
       .attr('aria-label', 'Interactive puzzle gallery');
@@ -2949,7 +2953,7 @@
       return;
     }
 
-    puzzles.forEach((puzzle, index) => {
+    const renderCard = (puzzle, index) => {
       const card = grid.append('article')
         .datum(puzzle)
         .attr('id', `gallery-${puzzle.id}`)
@@ -3032,7 +3036,20 @@
         this.style.setProperty('--tilt-x', '0deg');
         this.style.setProperty('--tilt-y', '0deg');
       });
-    });
+    };
+    const renderToken = ++galleryRenderToken;
+    let nextCardIndex = 0;
+    const appendGalleryBatch = () => {
+      if (renderToken !== galleryRenderToken) return;
+      const batchEnd = Math.min(nextCardIndex + 6, puzzles.length);
+      for (; nextCardIndex < batchEnd; nextCardIndex += 1) {
+        renderCard(puzzles[nextCardIndex], nextCardIndex);
+      }
+      if (nextCardIndex < puzzles.length) {
+        requestAnimationFrame(appendGalleryBatch);
+      }
+    };
+    appendGalleryBatch();
   };
 
   // ---------------------------------------------------------
@@ -3043,203 +3060,111 @@
     preserveSearchFocus = false,
     animate = false
   ) => {
-    if (
-      !cache.data
-    ) {
-      return;
-    }
+    if (!cache.data) return;
 
-    const previousRows =
-      animate
-        ? new Map(
-            Array.from(
-              document.querySelectorAll(
-                '#summary-table .rec'
-              )
-            ).map(
-              row => [
-                row.id,
-                row.getBoundingClientRect().top
-              ]
-            )
-          )
-        : null;
+    const previousRows = animate
+      ? new Map(
+          Array.from(document.querySelectorAll('#summary-table .rec'))
+            .map(row => [row.id, row.getBoundingClientRect().top])
+        )
+      : null;
 
-    const activeElement =
-      document.activeElement;
-
-    const searchWasFocused =
-      preserveSearchFocus &&
+    const activeElement = document.activeElement;
+    const searchWasFocused = preserveSearchFocus &&
       activeElement &&
-      activeElement.classList.contains(
-        'archive-search-input'
-      );
+      activeElement.classList.contains('archive-search-input');
 
     let selectionStart = null;
     let selectionEnd = null;
-
     if (searchWasFocused) {
-      selectionStart =
-        activeElement.selectionStart;
-
-      selectionEnd =
-        activeElement.selectionEnd;
+      selectionStart = activeElement.selectionStart;
+      selectionEnd = activeElement.selectionEnd;
     }
 
     hideTooltip();
 
-    const items =
-      cache.data.items || [];
+    const items = cache.data.items || [];
+    const filtered = filteredPuzzles(items);
+    const sorted = sortPuzzles(filtered);
+    const renderKey = JSON.stringify([
+      cache.state,
+      archiveState.search,
+      archiveState.sortKey,
+      archiveState.sortDirection
+    ]);
 
-    const filtered =
-      filteredPuzzles(
-        items
-      );
+    if (renderKey !== archiveRenderCacheKey) {
+      archiveRenderCacheKey = renderKey;
+      galleryRenderToken += 1;
+      archiveContent.html('');
+      archiveViewCache.gallery = null;
+      archiveViewCache.table = null;
+    }
 
-    const sorted =
-      sortPuzzles(
-        filtered
-      );
-
-    summs.html('');
-
+    summs.selectAll('.archive-controls').remove();
     genArchiveControls();
 
-    if (archiveMode === 'gallery') {
-      renderGallery(sorted);
-      if (searchWasFocused) {
-        const newInput = document.querySelector('#summary-table .archive-search-input');
-        if (newInput) {
-          newInput.focus();
-          if (selectionStart !== null && selectionEnd !== null) {
-            newInput.setSelectionRange(selectionStart, selectionEnd);
-          }
+    let view = archiveViewCache[archiveMode];
+    if (!view) {
+      view = archiveContent.append('div')
+        .attr('class', 'archive-view-panel')
+        .attr('data-view', archiveMode)
+        .node();
+      archiveViewCache[archiveMode] = view;
+      const viewHost = d3.select(view);
+
+      if (archiveMode === 'gallery') {
+        renderGallery(sorted, viewHost);
+      } else {
+        genSummaryHeader(viewHost);
+
+        if (!sorted.length) {
+          const empty = viewHost.append('div').attr('class', 'archive-empty');
+          empty.append('strong').text('No puzzles found');
+          empty.append('span').text(
+            archiveState.search
+              ? `No puzzle matches "${archiveState.search}".`
+              : 'There are no puzzles to display.'
+          );
+        } else {
+          sorted.forEach(puzzle => createArchiveRow(puzzle, viewHost));
         }
       }
-      return;
     }
 
-    genSummaryHeader();
+    Object.keys(archiveViewCache).forEach(mode => {
+      const cachedView = archiveViewCache[mode];
+      if (cachedView) cachedView.hidden = mode !== archiveMode;
+    });
 
-    if (
-      !sorted.length
-    ) {
-      const empty =
-        summs
-          .append('div')
-          .attr(
-            'class',
-            'archive-empty'
-          );
-
-      empty
-        .append('strong')
-        .text(
-          'No puzzles found'
-        );
-
-      empty
-        .append('span')
-        .text(
-          archiveState.search
-            ? `No puzzle matches "${archiveState.search}".`
-            : 'There are no puzzles to display.'
-        );
-
-      if (searchWasFocused) {
-        const newInput =
-          document.querySelector(
-            '#summary-table .archive-search-input'
-          );
-
-        if (newInput) {
-          newInput.focus();
-
-          if (
-            selectionStart !== null &&
-            selectionEnd !== null
-          ) {
-            newInput.setSelectionRange(
-              selectionStart,
-              selectionEnd
-            );
-          }
-        }
-      }
-
-      return;
-    }
-
-    sorted.forEach(
-      createArchiveRow
-    );
-
-    if (animate) {
-      const rows =
-        Array.from(
-          document.querySelectorAll(
-            '#summary-table .rec'
-          )
-        );
-
+    if (animate && archiveMode === 'table' && previousRows) {
+      const rows = Array.from(view.querySelectorAll('.rec'));
       requestAnimationFrame(() => {
-        rows.forEach(
-          row => {
-            const previousTop =
-              previousRows &&
-              previousRows.get(row.id);
-
-            if (
-              previousTop !== undefined
-            ) {
-              const currentTop =
-                row.getBoundingClientRect().top;
-
-              const delta =
-                previousTop - currentTop;
-
-              if (
-                Math.abs(delta) > 1
-              ) {
-                row.style.transform =
-                  `translateY(${delta}px)`;
-              }
-            } else {
-              row.style.opacity = '0';
-              row.style.transform =
-                'translateY(6px)';
-            }
+        rows.forEach(row => {
+          const previousTop = previousRows.get(row.id);
+          if (previousTop !== undefined) {
+            const delta = previousTop - row.getBoundingClientRect().top;
+            if (Math.abs(delta) > 1) row.style.transform = `translateY(${delta}px)`;
+          } else {
+            row.style.opacity = '0';
+            row.style.transform = 'translateY(6px)';
           }
-        );
-
+        });
         requestAnimationFrame(() => {
-          rows.forEach(
-            row => {
-              row.style.transform = '';
-              row.style.opacity = '';
-            }
-          );
+          rows.forEach(row => {
+            row.style.transform = '';
+            row.style.opacity = '';
+          });
         });
       });
     }
 
     if (searchWasFocused) {
-      const newInput =
-        document.querySelector(
-          '#summary-table .archive-search-input'
-        );
-
+      const newInput = document.querySelector('#summary-table .archive-search-input');
       if (newInput) {
         newInput.focus();
-
-        if (
-          selectionStart !== null &&
-          selectionEnd !== null
-        ) {
-          newInput.setSelectionRange(
-            selectionStart,
-            selectionEnd
-          );
+        if (selectionStart !== null && selectionEnd !== null) {
+          newInput.setSelectionRange(selectionStart, selectionEnd);
         }
       }
     }
