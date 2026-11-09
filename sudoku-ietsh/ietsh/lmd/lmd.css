@@ -3702,11 +3702,6 @@ body {
 
 
 /* Always-available random puzzle shortcut */
-@property --lucky-angle {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-}
 .feeling-lucky-button {
     position: fixed;
     z-index: 9999;
@@ -3719,10 +3714,10 @@ body {
     min-height: 50px;
     padding: 0 20px;
     border: 0;
-    border-radius: 6px;
-    color: #f8fafc;
-    background: #101827;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, .42), 0 0 18px rgba(34, 211, 238, .12);
+    border-radius: 7px;
+    color: #21152f;
+    background: #fff0c9;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .42), 0 0 20px rgba(255, 190, 90, .18);
     font: inherit;
     font-size: 13px;
     font-weight: 800;
@@ -3739,24 +3734,27 @@ body {
     inset: -4px;
     z-index: 0;
     padding: 4px;
-    border-radius: 10px;
+    border-radius: 11px;
     background: conic-gradient(
-        from var(--lucky-angle),
-        #00e5ff 0deg,
-        #168bff 45deg,
-        #6538ff 90deg,
-        #c026d3 135deg,
-        #ff2d95 180deg,
-        #ff7a18 225deg,
-        #ffe600 270deg,
-        #39ff88 315deg,
-        #00e5ff 360deg
+        from 0deg,
+        #45d6c5 0deg,
+        #45d6c5 42deg,
+        #8c75e8 62deg,
+        #8c75e8 112deg,
+        #f17bb5 137deg,
+        #f17bb5 185deg,
+        #ffad68 211deg,
+        #ffad68 257deg,
+        #b6d879 282deg,
+        #b6d879 326deg,
+        #45d6c5 360deg
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-    animation: lucky-border-orbit 2.2s linear infinite;
+    transform: rotate(-170deg);
+    animation: lucky-border-orbit 1.65s linear -0.8s infinite;
 }
 .feeling-lucky-button > * {
     position: relative;
@@ -3764,7 +3762,7 @@ body {
 }
 @keyframes lucky-border-orbit {
     to {
-        --lucky-angle: 360deg;
+        transform: rotate(190deg);
     }
 }
 .feeling-lucky-button svg {
@@ -3773,6 +3771,15 @@ body {
     fill: none;
     stroke: currentColor;
     stroke-width: 1.7;
+    transform-origin: center;
+}
+.feeling-lucky-button svg.dice-spin {
+    animation: lucky-dice-spin .58s cubic-bezier(.2,.8,.25,1);
+}
+@keyframes lucky-dice-spin {
+    0% { transform: rotate(0deg) scale(1); }
+    45% { transform: rotate(210deg) scale(1.12); }
+    100% { transform: rotate(360deg) scale(1); }
 }
 .feeling-lucky-button svg circle {
     fill: currentColor;
@@ -3780,14 +3787,14 @@ body {
 }
 .feeling-lucky-button:hover {
     transform: translateY(-2px);
-    filter: brightness(1.12);
-    box-shadow: 0 11px 32px rgba(0, 0, 0, .48), 0 0 26px rgba(34, 211, 238, .22);
+    filter: brightness(1.06);
+    box-shadow: 0 11px 32px rgba(0, 0, 0, .48), 0 0 26px rgba(255, 190, 90, .24);
 }
 .feeling-lucky-button:active {
     transform: translateY(0) scale(.98);
 }
 .feeling-lucky-button:focus-visible {
-    outline: 3px solid rgba(103, 232, 249, .45);
+    outline: 3px solid rgba(255, 224, 150, .55);
     outline-offset: 5px;
 }
 @media (max-width: 760px) {
