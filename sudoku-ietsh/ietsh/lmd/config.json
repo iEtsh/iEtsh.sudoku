@@ -221,7 +221,7 @@
       "puzz": "https://sudokupad.app/nr491f32z2",
       "lmd": "000V73",
       "solves": 42,
-      "sudokupad_solves": 150,
+      "sudokupad_solves": 151,
       "rating": "89%",
       "image": "images/000V73.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=734d050c-53198-3030305637332d31"
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-09T03:11:38.231280Z"
+  "last_check": "2026-11-09T03:21:39.268001Z"
 }
