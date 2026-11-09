@@ -3699,3 +3699,72 @@ body {
 .action-icon { display: inline-flex; align-items: center; justify-content: center; }
 .footer-lmd-link { display: inline-flex; align-items: center; gap: 7px; }
 .footer-lmd-link .site-link-icon { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+
+/* Always-available random puzzle shortcut */
+.feeling-lucky-button {
+    position: fixed;
+    z-index: 1200;
+    right: max(22px, calc((100vw - 1160px) / 2));
+    bottom: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 50px;
+    padding: 0 19px;
+    border: 1px solid rgba(103, 232, 249, .48);
+    border-radius: 999px;
+    color: #07131d;
+    background: linear-gradient(110deg, #67e8f9, #a5b4fc);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .38), 0 0 22px rgba(34, 211, 238, .16);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .1px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.feeling-lucky-button svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+}
+.feeling-lucky-button svg circle {
+    fill: currentColor;
+    stroke: none;
+}
+.feeling-lucky-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 11px 32px rgba(0, 0, 0, .42), 0 0 28px rgba(34, 211, 238, .24);
+}
+.feeling-lucky-button:active {
+    transform: translateY(0) scale(.98);
+}
+.feeling-lucky-button:focus-visible {
+    outline: 3px solid rgba(103, 232, 249, .45);
+    outline-offset: 4px;
+}
+@media (max-width: 760px) {
+    .feeling-lucky-button {
+        right: 14px;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        min-height: 46px;
+        padding: 0 16px;
+        gap: 8px;
+        font-size: 12px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .feeling-lucky-button {
+        transition: none;
+    }
+    .feeling-lucky-button:hover,
+    .feeling-lucky-button:active {
+        transform: none;
+    }
+}
