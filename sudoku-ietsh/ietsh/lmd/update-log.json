@@ -53125,5 +53125,38 @@
     "field": "sudokupad_solves",
     "previous": 457,
     "current": 458
+  },
+  {
+    "id": "2026-11-09T00:51:36.606033Z-0",
+    "time": "2026-11-09T00:51:36.606033Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 110,
+    "current": 111
+  },
+  {
+    "id": "2026-11-09T00:51:36.606033Z-1",
+    "time": "2026-11-09T00:51:36.606033Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 236,
+    "current": 237
+  },
+  {
+    "id": "2026-11-09T00:51:36.606033Z-2",
+    "time": "2026-11-09T00:51:36.606033Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 458,
+    "current": 459
   }
 ]
