@@ -18,6 +18,75 @@
   let archiveBuildToken = 0;
   const tooltip = d3.select('#tooltip');
 
+  // ---------------------------------------------------------
+  // Random puzzle launcher
+  // ---------------------------------------------------------
+
+  let randomPuzzleBag = [];
+  let randomPuzzlePoolKey = '';
+  let lastRandomPuzzleId = null;
+
+  const randomPuzzleButton = document.getElementById('feeling-lucky-button');
+
+  const getRandomPuzzle = () => {
+    const puzzles = (cache.data?.items || []).filter(puzzle => {
+      const title = String(puzzle.title || '').trim().toLowerCase();
+      const id = String(puzzle.id || '').trim().toLowerCase();
+      return puzzle.puzz &&
+        title !== 'evil saboteurs' &&
+        id !== 'ietsh-evilsaboteurs';
+    });
+
+    if (!puzzles.length) return null;
+
+    const poolKey = puzzles
+      .map(puzzle => puzzle.id || puzzle.lmd || puzzle.puzz)
+      .sort()
+      .join('|');
+
+    if (poolKey !== randomPuzzlePoolKey) {
+      randomPuzzlePoolKey = poolKey;
+      randomPuzzleBag = [];
+      lastRandomPuzzleId = null;
+    }
+
+    if (!randomPuzzleBag.length) {
+      randomPuzzleBag = [...puzzles];
+
+      // Fisher-Yates shuffle: every puzzle appears once per randomized cycle.
+      for (let i = randomPuzzleBag.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [randomPuzzleBag[i], randomPuzzleBag[j]] =
+          [randomPuzzleBag[j], randomPuzzleBag[i]];
+      }
+
+      // Avoid repeating the previous cycle's final puzzle at the boundary.
+      if (
+        randomPuzzleBag.length > 1 &&
+        (randomPuzzleBag[randomPuzzleBag.length - 1].id || randomPuzzleBag[randomPuzzleBag.length - 1].puzz) === lastRandomPuzzleId
+      ) {
+        const swapIndex = Math.floor(Math.random() * (randomPuzzleBag.length - 1));
+        const lastIndex = randomPuzzleBag.length - 1;
+        [randomPuzzleBag[lastIndex], randomPuzzleBag[swapIndex]] =
+          [randomPuzzleBag[swapIndex], randomPuzzleBag[lastIndex]];
+      }
+    }
+
+    const selected = randomPuzzleBag.pop();
+    lastRandomPuzzleId = selected.id || selected.puzz;
+    return selected;
+  };
+
+  if (randomPuzzleButton) {
+    randomPuzzleButton.addEventListener('click', () => {
+      const puzzle = getRandomPuzzle();
+      if (!puzzle) return;
+
+      const url = puzzle.puzz + (puzzle.qs || '');
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  }
+
   const tooltipImage = tooltip.select('.thumb img');
 
   let lastCheckRaw = null;
