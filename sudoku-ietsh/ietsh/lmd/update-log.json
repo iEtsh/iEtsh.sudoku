@@ -53257,5 +53257,38 @@
     "field": "sudokupad_solves",
     "previous": 270,
     "current": 271
+  },
+  {
+    "id": "2026-11-09T08:01:45.436474Z-0",
+    "time": "2026-11-09T08:01:45.436474Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "solves",
+    "previous": 58,
+    "current": 59
+  },
+  {
+    "id": "2026-11-09T08:01:45.436474Z-1",
+    "time": "2026-11-09T08:01:45.436474Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 460,
+    "current": 461
+  },
+  {
+    "id": "2026-11-09T08:01:45.436474Z-2",
+    "time": "2026-11-09T08:01:45.436474Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "rating",
+    "previous": "83%",
+    "current": "81%"
   }
 ]
