@@ -3702,6 +3702,11 @@ body {
 
 
 /* Always-available random puzzle shortcut */
+@property --lucky-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
 .feeling-lucky-button {
     position: fixed;
     z-index: 1200;
@@ -3714,7 +3719,7 @@ body {
     min-height: 50px;
     padding: 0 19px;
     border: 1px solid rgba(103, 232, 249, .48);
-    border-radius: 999px;
+    border-radius: 12px;
     color: #07131d;
     background: linear-gradient(110deg, #67e8f9, #a5b4fc);
     box-shadow: 0 8px 28px rgba(0, 0, 0, .38), 0 0 22px rgba(34, 211, 238, .16);
@@ -3725,8 +3730,6 @@ body {
     white-space: nowrap;
     cursor: pointer;
     transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-}
-.feeling-lucky-button {
     isolation: isolate;
     overflow: visible;
 }
@@ -3734,16 +3737,17 @@ body {
     content: "";
     position: absolute;
     inset: -2px;
-    z-index: -1;
+    z-index: 0;
     padding: 2px;
-    border-radius: inherit;
+    border-radius: 14px;
     background: conic-gradient(
-        from 0deg,
-        transparent 0deg 275deg,
-        rgba(103, 232, 249, .18) 300deg,
-        #67e8f9 326deg,
-        #ffffff 338deg,
-        #a5b4fc 348deg,
+        from var(--lucky-angle),
+        transparent 0deg 285deg,
+        #22d3ee 302deg,
+        #ffffff 316deg,
+        #8b5cf6 332deg,
+        #ec4899 345deg,
+        #facc15 354deg,
         transparent 360deg
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -3758,7 +3762,7 @@ body {
 }
 @keyframes lucky-border-orbit {
     to {
-        transform: rotate(360deg);
+        --lucky-angle: 360deg;
     }
 }
 .feeling-lucky-button svg {
