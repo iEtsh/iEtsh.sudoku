@@ -10,8 +10,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
-      "solves": 20,
-      "sudokupad_solves": 56,
+      "solves": 21,
+      "sudokupad_solves": 57,
       "rating": "88%",
       "image": "images/000TX8.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=77def01a-54474-3030305458382d32"
@@ -650,10 +650,10 @@
       "rating": "83%",
       "author_rated": false,
       "image": "images/000SBZ_7888010316bd.png",
-      "sudokupad_solves": 459,
+      "sudokupad_solves": 460,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6e6b6efb-48131-30303053425a2d31",
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-09T05:31:35.956298Z"
+  "last_check": "2026-11-09T05:41:37.184246Z"
 }

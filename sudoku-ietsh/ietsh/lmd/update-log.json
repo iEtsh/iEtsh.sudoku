@@ -53202,5 +53202,38 @@
     "field": "solves",
     "previous": 111,
     "current": 112
+  },
+  {
+    "id": "2026-11-09T05:41:37.197261Z-0",
+    "time": "2026-11-09T05:41:37.197261Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "solves",
+    "previous": 20,
+    "current": 21
+  },
+  {
+    "id": "2026-11-09T05:41:37.197261Z-1",
+    "time": "2026-11-09T05:41:37.197261Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "sudokupad_solves",
+    "previous": 56,
+    "current": 57
+  },
+  {
+    "id": "2026-11-09T05:41:37.197261Z-2",
+    "time": "2026-11-09T05:41:37.197261Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 459,
+    "current": 460
   }
 ]
