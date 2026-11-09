@@ -3726,6 +3726,41 @@ body {
     cursor: pointer;
     transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
+.feeling-lucky-button {
+    isolation: isolate;
+    overflow: visible;
+}
+.feeling-lucky-button::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    padding: 2px;
+    border-radius: inherit;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg 275deg,
+        rgba(103, 232, 249, .18) 300deg,
+        #67e8f9 326deg,
+        #ffffff 338deg,
+        #a5b4fc 348deg,
+        transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: lucky-border-orbit 3.2s linear infinite;
+}
+.feeling-lucky-button > * {
+    position: relative;
+    z-index: 1;
+}
+@keyframes lucky-border-orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
 .feeling-lucky-button svg {
     width: 19px;
     height: 19px;
@@ -3762,6 +3797,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .feeling-lucky-button {
         transition: none;
+    }
+    .feeling-lucky-button::before {
+        animation: none;
     }
     .feeling-lucky-button:hover,
     .feeling-lucky-button:active {
