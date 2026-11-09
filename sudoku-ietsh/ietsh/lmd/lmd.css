@@ -3702,6 +3702,12 @@ body {
 
 
 /* Always-available random puzzle shortcut */
+@property --lucky-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
 .feeling-lucky-button {
     position: fixed;
     z-index: 9999;
@@ -3736,34 +3742,28 @@ body {
     padding: 4px;
     border-radius: 11px;
     background: conic-gradient(
-        from 0deg,
-        #45d6c5 0deg,
-        #45d6c5 42deg,
-        #8c75e8 62deg,
-        #8c75e8 112deg,
-        #f17bb5 137deg,
-        #f17bb5 185deg,
-        #ffad68 211deg,
-        #ffad68 257deg,
-        #b6d879 282deg,
-        #b6d879 326deg,
-        #45d6c5 360deg
+        from var(--lucky-angle),
+        rgba(125, 119, 150, .38) 0deg 285deg,
+        #45d6c5 305deg,
+        #8c75e8 322deg,
+        #f17bb5 337deg,
+        #ffad68 350deg,
+        rgba(125, 119, 150, .38) 360deg
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    filter: drop-shadow(0 0 3px rgba(69, 214, 197, .65));
     pointer-events: none;
-    transform: rotate(-170deg);
-    animation: lucky-border-orbit 1.65s linear -0.8s infinite;
+    animation: lucky-light-travel 2.4s linear infinite;
 }
 .feeling-lucky-button > * {
     position: relative;
     z-index: 1;
 }
-@keyframes lucky-border-orbit {
-    to {
-        transform: rotate(190deg);
-    }
+@keyframes lucky-light-travel {
+    from { --lucky-angle: 0deg; }
+    to { --lucky-angle: 360deg; }
 }
 .feeling-lucky-button svg {
     width: 19px;
