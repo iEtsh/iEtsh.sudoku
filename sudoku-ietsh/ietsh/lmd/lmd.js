@@ -28,6 +28,43 @@
 
   const randomPuzzleButton = document.getElementById('feeling-lucky-button');
 
+  // Animate the dice and show a newly randomized face every few seconds.
+  if (randomPuzzleButton) {
+    const diceIcon = randomPuzzleButton.querySelector('svg');
+    const diceDots = [...randomPuzzleButton.querySelectorAll('[data-die-dot]')];
+    const diceFaces = {
+      1: ['c'],
+      2: ['tl', 'br'],
+      3: ['tl', 'c', 'br'],
+      4: ['tl', 'tr', 'bl', 'br'],
+      5: ['tl', 'tr', 'c', 'bl', 'br'],
+      6: ['tl', 'tr', 'ml', 'mr', 'bl', 'br']
+    };
+    let currentDiceFace = 1;
+
+    const rollDiceIcon = () => {
+      let nextFace = 1 + Math.floor(Math.random() * 6);
+      while (nextFace === currentDiceFace) {
+        nextFace = 1 + Math.floor(Math.random() * 6);
+      }
+      currentDiceFace = nextFace;
+
+      const visibleDots = diceFaces[nextFace];
+      diceDots.forEach(dot => {
+        dot.style.display = visibleDots.includes(dot.dataset.dieDot) ? '' : 'none';
+      });
+
+      if (diceIcon) {
+        diceIcon.classList.remove('dice-spin');
+        void diceIcon.getBoundingClientRect();
+        diceIcon.classList.add('dice-spin');
+      }
+    };
+
+    rollDiceIcon();
+    window.setInterval(rollDiceIcon, 2600);
+  }
+
   const getRandomPuzzle = () => {
     const puzzles = (cache.data?.items || []).filter(puzzle => {
       const title = String(puzzle.title || '').trim().toLowerCase();
