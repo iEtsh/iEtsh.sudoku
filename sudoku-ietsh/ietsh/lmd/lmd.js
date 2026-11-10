@@ -19,19 +19,13 @@
   const tooltip = d3.select('#tooltip');
 
   // ---------------------------------------------------------
-  // Random puzzle launcher
+  // Dice animation (the click handler is attached inline in index.html
+  // so the shortcut works before the larger D3 bundle has loaded).
   // ---------------------------------------------------------
 
-  let randomPuzzleBag = [];
-  let randomPuzzlePoolKey = '';
-  let lastRandomPuzzleId = null;
-
   const randomPuzzleButton = document.getElementById('feeling-lucky-button');
-  let initialLoadPromise = null;
-  let randomPuzzleRequestPending = false;
   let dataRenderToken = 0;
 
-  // Animate the dice and show a newly randomized face every few seconds.
   if (randomPuzzleButton) {
     const diceIcon = randomPuzzleButton.querySelector('svg');
     const diceDots = [...randomPuzzleButton.querySelectorAll('[data-die-dot]')];
@@ -51,12 +45,10 @@
         nextFace = 1 + Math.floor(Math.random() * 6);
       }
       currentDiceFace = nextFace;
-
       const visibleDots = diceFaces[nextFace];
       diceDots.forEach(dot => {
         dot.style.display = visibleDots.includes(dot.dataset.dieDot) ? '' : 'none';
       });
-
       if (diceIcon) {
         diceIcon.classList.remove('dice-spin');
         void diceIcon.getBoundingClientRect();
@@ -66,104 +58,6 @@
 
     rollDiceIcon();
     window.setInterval(rollDiceIcon, 2600);
-  }
-
-  const getRandomPuzzle = () => {
-    const puzzles = (cache.data?.items || []).filter(puzzle => {
-      const title = String(puzzle.title || '').trim().toLowerCase();
-      const id = String(puzzle.id || '').trim().toLowerCase();
-      return puzzle.puzz &&
-        title !== 'evil saboteurs' &&
-        id !== 'ietsh-evilsaboteurs';
-    });
-
-    if (!puzzles.length) return null;
-
-    const poolKey = puzzles
-      .map(puzzle => puzzle.id || puzzle.lmd || puzzle.puzz)
-      .sort()
-      .join('|');
-
-    if (poolKey !== randomPuzzlePoolKey) {
-      randomPuzzlePoolKey = poolKey;
-      randomPuzzleBag = [];
-      lastRandomPuzzleId = null;
-    }
-
-    if (!randomPuzzleBag.length) {
-      randomPuzzleBag = [...puzzles];
-
-      // Fisher-Yates shuffle: every puzzle appears once per randomized cycle.
-      for (let i = randomPuzzleBag.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [randomPuzzleBag[i], randomPuzzleBag[j]] =
-          [randomPuzzleBag[j], randomPuzzleBag[i]];
-      }
-
-      // Avoid repeating the previous cycle's final puzzle at the boundary.
-      if (
-        randomPuzzleBag.length > 1 &&
-        (randomPuzzleBag[randomPuzzleBag.length - 1].id || randomPuzzleBag[randomPuzzleBag.length - 1].puzz) === lastRandomPuzzleId
-      ) {
-        const swapIndex = Math.floor(Math.random() * (randomPuzzleBag.length - 1));
-        const lastIndex = randomPuzzleBag.length - 1;
-        [randomPuzzleBag[lastIndex], randomPuzzleBag[swapIndex]] =
-          [randomPuzzleBag[swapIndex], randomPuzzleBag[lastIndex]];
-      }
-    }
-
-    const selected = randomPuzzleBag.pop();
-    lastRandomPuzzleId = selected.id || selected.puzz;
-    return selected;
-  };
-
-  if (randomPuzzleButton) {
-    randomPuzzleButton.addEventListener('click', () => {
-      if (cache.data) {
-        const puzzle = getRandomPuzzle();
-        if (!puzzle) return;
-        window.open(puzzle.puzz + (puzzle.qs || ''), '_blank', 'noopener,noreferrer');
-        return;
-      }
-
-      // Preserve the click's user gesture while the first data request finishes.
-      if (randomPuzzleRequestPending) return;
-      randomPuzzleRequestPending = true;
-      const popup = window.open('about:blank', '_blank');
-      if (popup) popup.opener = null;
-
-      const label = randomPuzzleButton.querySelector('span');
-      const originalLabel = label ? label.textContent : '';
-      randomPuzzleButton.setAttribute('aria-busy', 'true');
-      randomPuzzleButton.classList.add('is-loading');
-      if (label) label.textContent = 'Loading puzzle...';
-
-      Promise.resolve(initialLoadPromise)
-        .then(() => {
-          if (!cache.data) throw new Error('Puzzle data is not available yet.');
-          const puzzle = getRandomPuzzle();
-          if (!puzzle) throw new Error('No playable puzzles are available.');
-          const url = puzzle.puzz + (puzzle.qs || '');
-          if (popup && !popup.closed) {
-            popup.location.replace(url);
-          } else {
-            window.location.assign(url);
-          }
-        })
-        .catch(error => {
-          if (popup && !popup.closed) popup.close();
-          console.error('Unable to open a random puzzle:', error);
-          if (label) label.textContent = 'Try again';
-        })
-        .finally(() => {
-          randomPuzzleRequestPending = false;
-          randomPuzzleButton.removeAttribute('aria-busy');
-          randomPuzzleButton.classList.remove('is-loading');
-          if (label && label.textContent === 'Loading puzzle...') {
-            label.textContent = originalLabel;
-          }
-        });
-    });
   }
 
   const tooltipImage = tooltip.select('.thumb img');
@@ -3424,6 +3318,10 @@
   // ---------------------------------------------------------
 
   async function fetchConfig(forceRefresh = false) {
+    if (!forceRefresh && window.__ietshPuzzleDataPromise) {
+      return await window.__ietshPuzzleDataPromise;
+    }
+
     const response =
       await fetch(confPath, { cache: forceRefresh ? 'no-cache' : 'default' });
 
@@ -3433,7 +3331,9 @@
       );
     }
 
-    return await response.json();
+    const data = await response.json();
+    if (!forceRefresh) window.__ietshPuzzleData = data;
+    return data;
   }
 
   // ---------------------------------------------------------
