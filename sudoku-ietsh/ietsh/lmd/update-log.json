@@ -53741,5 +53741,30 @@
     "field": "sudokupad_solves",
     "previous": 310,
     "current": 311
+  },
+  {
+    "id": "2026-11-10T23:01:50.931699Z-0",
+    "time": "2026-11-10T23:01:50.931699Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 44,
+      "id": "ietsh-13novembermybirthday",
+      "title": "13 NOVEMBER: My Birthday",
+      "date": "10. November 2026, 23:54",
+      "stars": 3,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/9dopisj0am",
+      "lmd": "000VMH",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000VMH_ebd75478830d.jpg",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=c4445e16-54517-303030564d482d31"
+    }
   }
 ]
