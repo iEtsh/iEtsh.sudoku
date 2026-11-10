@@ -354,11 +354,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/l0vo4o13rd",
       "lmd": "000UFT",
-      "solves": 210,
+      "solves": 211,
       "rating": "85%",
       "author_rated": false,
       "image": "images/000UFT.png",
-      "sudokupad_solves": 579,
+      "sudokupad_solves": 580,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=21b0b8f5-51976-3030305546542d31"
     },
     {
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-10T04:11:54.892402Z"
+  "last_check": "2026-11-10T04:21:48.137267Z"
 }
