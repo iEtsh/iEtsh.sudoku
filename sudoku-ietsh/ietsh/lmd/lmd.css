@@ -3811,6 +3811,17 @@ body {
     }
     .feeling-lucky-button::before {
         inset: -4px;
+        background: conic-gradient(
+            from var(--lucky-angle),
+            rgba(125, 119, 150, .38) 0deg 285deg,
+            #45d6c5 305deg,
+            #8c75e8 322deg,
+            #f17bb5 337deg,
+            #ffad68 350deg,
+            rgba(125, 119, 150, .38) 360deg
+        );
+        animation: lucky-light-travel 2.4s linear infinite;
+        filter: drop-shadow(0 0 3px rgba(69, 214, 197, .65));
     }
 }
 @media (prefers-reduced-motion: reduce) {
