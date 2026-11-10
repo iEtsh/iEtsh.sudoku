@@ -339,11 +339,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 194,
-      "rating": "66%",
+      "solves": 195,
+      "rating": "67%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 436,
+      "sudokupad_solves": 437,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6a2c1efa-51983-3030305546582d31"
     },
     {
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-10T03:21:41.834995Z"
+  "last_check": "2026-11-10T03:31:38.953677Z"
 }
