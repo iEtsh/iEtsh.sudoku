@@ -339,11 +339,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 195,
+      "solves": 196,
       "rating": "67%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 437,
+      "sudokupad_solves": 438,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6a2c1efa-51983-3030305546582d31"
     },
     {
@@ -369,11 +369,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/505e2zbaw0",
       "lmd": "000UDT",
-      "solves": 155,
+      "solves": 156,
       "rating": "80%",
       "author_rated": false,
       "image": "images/000UDT.png",
-      "sudokupad_solves": 334,
+      "sudokupad_solves": 335,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=2108b83a-51855-3030305544542d31"
     },
     {
@@ -384,11 +384,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/q4yzi1h1e6",
       "lmd": "000UCQ",
-      "solves": 108,
+      "solves": 109,
       "rating": "85%",
       "author_rated": false,
       "image": "images/000UCQ.png",
-      "sudokupad_solves": 250,
+      "sudokupad_solves": 251,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=16a3871c-51807-3030305543512d31"
     },
     {
@@ -429,11 +429,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/cfrqw6red1",
       "lmd": "000U75",
-      "solves": 162,
+      "solves": 163,
       "rating": "81%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 309,
+      "sudokupad_solves": 310,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=e22c7fa6-51526-3030305537352d31"
     },
     {
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-10T04:01:40.234832Z"
+  "last_check": "2026-11-10T04:11:54.892402Z"
 }
