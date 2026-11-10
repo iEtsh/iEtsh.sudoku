@@ -27,6 +27,9 @@
   let lastRandomPuzzleId = null;
 
   const randomPuzzleButton = document.getElementById('feeling-lucky-button');
+  let initialLoadPromise = null;
+  let randomPuzzleRequestPending = false;
+  let dataRenderToken = 0;
 
   // Animate the dice and show a newly randomized face every few seconds.
   if (randomPuzzleButton) {
@@ -116,11 +119,50 @@
 
   if (randomPuzzleButton) {
     randomPuzzleButton.addEventListener('click', () => {
-      const puzzle = getRandomPuzzle();
-      if (!puzzle) return;
+      if (cache.data) {
+        const puzzle = getRandomPuzzle();
+        if (!puzzle) return;
+        window.open(puzzle.puzz + (puzzle.qs || ''), '_blank', 'noopener,noreferrer');
+        return;
+      }
 
-      const url = puzzle.puzz + (puzzle.qs || '');
-      window.open(url, '_blank', 'noopener,noreferrer');
+      // Preserve the click's user gesture while the first data request finishes.
+      if (randomPuzzleRequestPending) return;
+      randomPuzzleRequestPending = true;
+      const popup = window.open('about:blank', '_blank');
+      if (popup) popup.opener = null;
+
+      const label = randomPuzzleButton.querySelector('span');
+      const originalLabel = label ? label.textContent : '';
+      randomPuzzleButton.setAttribute('aria-busy', 'true');
+      randomPuzzleButton.classList.add('is-loading');
+      if (label) label.textContent = 'Loading puzzle...';
+
+      Promise.resolve(initialLoadPromise)
+        .then(() => {
+          if (!cache.data) throw new Error('Puzzle data is not available yet.');
+          const puzzle = getRandomPuzzle();
+          if (!puzzle) throw new Error('No playable puzzles are available.');
+          const url = puzzle.puzz + (puzzle.qs || '');
+          if (popup && !popup.closed) {
+            popup.location.replace(url);
+          } else {
+            window.location.assign(url);
+          }
+        })
+        .catch(error => {
+          if (popup && !popup.closed) popup.close();
+          console.error('Unable to open a random puzzle:', error);
+          if (label) label.textContent = 'Try again';
+        })
+        .finally(() => {
+          randomPuzzleRequestPending = false;
+          randomPuzzleButton.removeAttribute('aria-busy');
+          randomPuzzleButton.classList.remove('is-loading');
+          if (label && label.textContent === 'Loading puzzle...') {
+            label.textContent = originalLabel;
+          }
+        });
     });
   }
 
@@ -2096,7 +2138,6 @@
       'dashboard-solves'
     );
 
-    renderUpdateMonitor();
   };
 
   // ---------------------------------------------------------
@@ -3302,23 +3343,19 @@
     cache.images = {};
     cache.hovered = null;
 
+    cache.data = d;
+    cache.state = getPuzzleState(d);
     genMostRecent(d);
 
-    cache.data =
-      JSON.parse(
-        JSON.stringify(d)
-      );
-
-    cache.state =
-      getPuzzleState(d);
-
-    genDashboard(d);
-
-    renderUpdateMonitor(
-      newEntryIds
-    );
-
-    renderArchive();
+    // Let the browser paint the latest puzzle and keep the fixed shortcut
+    // responsive before building the dashboard and the heavier archive UI.
+    const renderToken = ++dataRenderToken;
+    requestAnimationFrame(() => {
+      if (renderToken !== dataRenderToken) return;
+      genDashboard(d);
+      renderUpdateMonitor(newEntryIds);
+      renderArchive();
+    });
   }
 
   // ---------------------------------------------------------
@@ -3386,9 +3423,9 @@
   // Fetch config
   // ---------------------------------------------------------
 
-  async function fetchConfig() {
+  async function fetchConfig(forceRefresh = false) {
     const response =
-      await fetch(confPath, { cache: 'no-cache' });
+      await fetch(confPath, { cache: forceRefresh ? 'no-cache' : 'default' });
 
     if (!response.ok) {
       throw new Error(
@@ -3406,7 +3443,7 @@
   async function checkForUpdates() {
     try {
       const d =
-        await fetchConfig();
+        await fetchConfig(true);
 
       if (!d.last_check) {
         return;
@@ -3562,6 +3599,6 @@
   // Start
   // ---------------------------------------------------------
 
-  initialLoad();
+  initialLoadPromise = initialLoad();
 
 })();
