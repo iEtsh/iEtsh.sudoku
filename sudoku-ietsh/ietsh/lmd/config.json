@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
       "solves": 23,
-      "sudokupad_solves": 62,
+      "sudokupad_solves": 63,
       "rating": "89%",
       "image": "images/000TX8.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=77def01a-54474-3030305458382d32"
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-10T12:01:35.259273Z"
+  "last_check": "2026-11-10T12:11:39.238306Z"
 }
