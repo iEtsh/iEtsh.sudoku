@@ -3499,6 +3499,6 @@
   // Start
   // ---------------------------------------------------------
 
-  initialLoadPromise = initialLoad();
+  initialLoad();
 
 })();
