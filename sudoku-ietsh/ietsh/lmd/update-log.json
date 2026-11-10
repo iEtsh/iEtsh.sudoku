@@ -53766,5 +53766,27 @@
       "image": "images/000VMH_ebd75478830d.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=c4445e16-54517-303030564d482d31"
     }
+  },
+  {
+    "id": "2026-11-10T23:21:38.816409Z-0",
+    "time": "2026-11-10T23:21:38.816409Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 239,
+    "current": 240
+  },
+  {
+    "id": "2026-11-10T23:21:38.816409Z-1",
+    "time": "2026-11-10T23:21:38.816409Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 465,
+    "current": 466
   }
 ]
