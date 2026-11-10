@@ -52,6 +52,110 @@
         <span>Feeling lucky?</span>
     </button>
 
+    <script>
+        (() => {
+            const button = document.getElementById('feeling-lucky-button');
+            if (!button) return;
+
+            let bag = [];
+            let poolKey = '';
+            let lastPuzzleId = null;
+            let pending = false;
+
+            const dataPromise = fetch('./config.json', { cache: 'default' })
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    window.__ietshPuzzleData = data;
+                    return data;
+                });
+
+            window.__ietshPuzzleDataPromise = dataPromise;
+
+            const pickPuzzle = data => {
+                const puzzles = (data.items || []).filter(puzzle => {
+                    const title = String(puzzle.title || '').trim().toLowerCase();
+                    const id = String(puzzle.id || '').trim().toLowerCase();
+                    return puzzle.puzz && title !== 'evil saboteurs' && id !== 'ietsh-evilsaboteurs';
+                });
+                if (!puzzles.length) return null;
+
+                const nextPoolKey = puzzles
+                    .map(puzzle => puzzle.id || puzzle.lmd || puzzle.puzz)
+                    .sort()
+                    .join('|');
+
+                if (nextPoolKey !== poolKey) {
+                    poolKey = nextPoolKey;
+                    bag = [];
+                    lastPuzzleId = null;
+                }
+
+                if (!bag.length) {
+                    bag = [...puzzles];
+                    for (let i = bag.length - 1; i > 0; i -= 1) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [bag[i], bag[j]] = [bag[j], bag[i]];
+                    }
+                    const last = bag[bag.length - 1];
+                    if (bag.length > 1 && (last.id || last.puzz) === lastPuzzleId) {
+                        const swapIndex = Math.floor(Math.random() * (bag.length - 1));
+                        [bag[bag.length - 1], bag[swapIndex]] = [bag[swapIndex], bag[bag.length - 1]];
+                    }
+                }
+
+                const selected = bag.pop();
+                lastPuzzleId = selected.id || selected.puzz;
+                return selected;
+            };
+
+            const openPuzzle = (data, popup) => {
+                const puzzle = pickPuzzle(data);
+                if (!puzzle) throw new Error('No playable puzzles are available.');
+                const url = puzzle.puzz + (puzzle.qs || '');
+                if (popup && !popup.closed) popup.location.replace(url);
+                else window.location.assign(url);
+            };
+
+            button.addEventListener('click', () => {
+                if (window.__ietshPuzzleData) {
+                    const popup = window.open('about:blank', '_blank');
+                    if (popup) popup.opener = null;
+                    openPuzzle(window.__ietshPuzzleData, popup);
+                    return;
+                }
+
+                if (pending) return;
+                pending = true;
+                const popup = window.open('about:blank', '_blank');
+                if (popup) popup.opener = null;
+                const label = button.querySelector('span');
+                const originalLabel = label ? label.textContent : '';
+                button.setAttribute('aria-busy', 'true');
+                button.classList.add('is-loading');
+                if (label) label.textContent = 'Loading puzzle...';
+
+                dataPromise
+                    .then(data => openPuzzle(data, popup))
+                    .catch(error => {
+                        if (popup && !popup.closed) popup.close();
+                        console.error('Unable to open a random puzzle:', error);
+                        if (label) label.textContent = 'Try again';
+                    })
+                    .finally(() => {
+                        pending = false;
+                        button.removeAttribute('aria-busy');
+                        button.classList.remove('is-loading');
+                        if (label && label.textContent === 'Loading puzzle...') {
+                            label.textContent = originalLabel;
+                        }
+                    });
+            });
+        })();
+    </script>
+
     <section id="community-section" aria-label="Site support and community comments"></section>
 
     <section class="latest-section">
