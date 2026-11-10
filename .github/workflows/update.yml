@@ -132,11 +132,34 @@ jobs:
           git rebase origin/main
           git push
 
-      - name: Install Supabase client
-        run: pip install supabase
+      - name: Install analytics export dependencies
+        run: pip install supabase openpyxl
 
       - name: Sync latest puzzle data to Supabase
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: python sudoku-ietsh/ietsh/lmd/sync_to_supabase.py
+
+      - name: Generate latest Excel analytics workbook
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          OUTPUT_XLSX: sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx
+        run: python sudoku-ietsh/ietsh/lmd/export_analytics.py
+
+      - name: Commit and push updated Excel workbook
+        run: |
+          git add sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx
+          if git diff --cached --quiet; then
+            echo "Excel analytics workbook is unchanged."
+            exit 0
+          fi
+
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Auto-update LMD analytics workbook'
+
+          git fetch origin main
+          git rebase origin/main
+          git push
