@@ -598,11 +598,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/cxqmuev05s",
       "lmd": "000SDA",
-      "solves": 58,
+      "solves": 59,
       "rating": "82%",
       "author_rated": false,
       "image": "images/000SDA_788c31576f2e.png",
-      "sudokupad_solves": 172,
+      "sudokupad_solves": 173,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=51da5feb-54443-3030305344412d31",
       "image_page_version": "4. November 2026, 18:34"
     },
@@ -655,5 +655,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-10T08:01:42.216086Z"
+  "last_check": "2026-11-10T08:11:41.650755Z"
 }
