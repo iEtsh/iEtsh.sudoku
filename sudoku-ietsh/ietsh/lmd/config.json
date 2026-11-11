@@ -358,7 +358,7 @@
       "rating": "67%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 438,
+      "sudokupad_solves": 439,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6a2c1efa-51983-3030305546582d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-11T18:39:40.082854Z"
+  "last_check": "2026-11-11T18:41:45.744853Z"
 }
