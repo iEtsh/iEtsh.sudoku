@@ -54,7 +54,7 @@ jobs:
           if [ -f sudoku-ietsh/ietsh/lmd/update-log.json ]; then
             cp sudoku-ietsh/ietsh/lmd/update-log.json /tmp/update-log-before-update.json
           else
-            printf '[]\n' > /tmp/update-log-before-update.json
+            printf '[]\\n' > /tmp/update-log-before-update.json
           fi
 
       - name: Run scraper
@@ -148,17 +148,25 @@ jobs:
           OUTPUT_XLSX: sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx
         run: python sudoku-ietsh/ietsh/lmd/export_analytics.py
 
-      - name: Commit and push updated Excel workbook
+      - name: Generate simple raw-data Excel workbook
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          RAW_DATA_XLSX: sudoku-ietsh/ietsh/lmd/exports/raw-data/iEtsh_LMD_Raw_Data.xlsx
+        run: python sudoku-ietsh/ietsh/lmd/export_raw_data.py
+
+      - name: Commit and push updated Excel workbooks
         run: |
           git add sudoku-ietsh/ietsh/lmd/exports/iEtsh_LMD_Analytics.xlsx
+          git add sudoku-ietsh/ietsh/lmd/exports/raw-data/iEtsh_LMD_Raw_Data.xlsx
           if git diff --cached --quiet; then
-            echo "Excel analytics workbook is unchanged."
+            echo "Excel workbooks are unchanged."
             exit 0
           fi
 
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit -m 'Auto-update LMD analytics workbook'
+          git commit -m 'Auto-update LMD Excel exports'
 
           git fetch origin main
           git rebase origin/main
