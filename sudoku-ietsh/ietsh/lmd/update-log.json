@@ -54019,5 +54019,16 @@
     "field": "sudokupad_solves",
     "previous": 1269,
     "current": 1270
+  },
+  {
+    "id": "2026-11-11T13:21:48.605127Z-0",
+    "time": "2026-11-11T13:21:48.605127Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": "solves",
+    "previous": 1,
+    "current": 2
   }
 ]
