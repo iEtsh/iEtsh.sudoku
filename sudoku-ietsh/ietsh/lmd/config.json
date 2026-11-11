@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/zg8vinxnlq",
       "lmd": "000VMH",
       "solves": 1,
-      "sudokupad_solves": 3,
+      "sudokupad_solves": 4,
       "rating": "N/A",
       "image": "images/000VMH_ebd75478830d.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=c4445e16-54517-303030564d482d31"
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-11T10:11:41.069449Z"
+  "last_check": "2026-11-11T10:21:42.819256Z"
 }
