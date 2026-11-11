@@ -54085,5 +54085,16 @@
     "field": "sudokupad_solves",
     "previous": 100,
     "current": 101
+  },
+  {
+    "id": "2026-11-11T17:21:56.635696Z-0",
+    "time": "2026-11-11T17:21:56.635696Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": "sudokupad_solves",
+    "previous": 5,
+    "current": 6
   }
 ]
