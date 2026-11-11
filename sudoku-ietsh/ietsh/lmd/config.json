@@ -25,9 +25,9 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
-      "solves": 25,
-      "sudokupad_solves": 65,
-      "rating": "90%",
+      "solves": 26,
+      "sudokupad_solves": 66,
+      "rating": "89%",
       "image": "images/000TX8.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=77def01a-54474-3030305458382d32"
     },
@@ -251,7 +251,7 @@
       "puzz": "https://sudokupad.app/134eka3x8y",
       "lmd": "000V48",
       "solves": 41,
-      "sudokupad_solves": 100,
+      "sudokupad_solves": 101,
       "rating": "91%",
       "image": "images/000V48.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=19cdcf1b-53071-3030305634382d31"
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-11T15:51:51.369604Z"
+  "last_check": "2026-11-11T16:01:51.902545Z"
 }
