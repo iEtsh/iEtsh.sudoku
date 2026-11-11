@@ -53832,5 +53832,27 @@
     "field": "sudokupad_solves",
     "previous": 466,
     "current": 467
+  },
+  {
+    "id": "2026-11-11T03:41:46.033763Z-0",
+    "time": "2026-11-11T03:41:46.033763Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": "solves",
+    "previous": 0,
+    "current": 1
+  },
+  {
+    "id": "2026-11-11T03:41:46.033763Z-1",
+    "time": "2026-11-11T03:41:46.033763Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": "sudokupad_solves",
+    "previous": 1,
+    "current": 2
   }
 ]
