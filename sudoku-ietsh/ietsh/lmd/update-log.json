@@ -54547,5 +54547,38 @@
     "field": "sudokupad_solves",
     "previous": 164,
     "current": 165
+  },
+  {
+    "id": "2026-11-12T20:01:57.538593Z-0",
+    "time": "2026-11-12T20:01:57.538593Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "sudokupad_solves",
+    "previous": 158,
+    "current": 159
+  },
+  {
+    "id": "2026-11-12T20:01:57.538593Z-1",
+    "time": "2026-11-12T20:01:57.538593Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "solves",
+    "previous": 73,
+    "current": 74
+  },
+  {
+    "id": "2026-11-12T20:01:57.538593Z-2",
+    "time": "2026-11-12T20:01:57.538593Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 195,
+    "current": 196
   }
 ]
