@@ -54580,5 +54580,16 @@
     "field": "sudokupad_solves",
     "previous": 195,
     "current": 196
+  },
+  {
+    "id": "2026-11-12T20:11:49.434057Z-0",
+    "time": "2026-11-12T20:11:49.434057Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-asterism",
+    "puzzleNum": 30,
+    "title": "Asterism",
+    "field": "solves",
+    "previous": 54,
+    "current": 55
   }
 ]
