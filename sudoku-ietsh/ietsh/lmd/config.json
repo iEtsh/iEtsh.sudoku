@@ -25,9 +25,9 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/2m44kpfskj?setting-outlinesondigits=true",
       "lmd": "000TX8",
-      "solves": 26,
-      "sudokupad_solves": 68,
-      "rating": "89%",
+      "solves": 27,
+      "sudokupad_solves": 69,
+      "rating": "88%",
       "image": "images/000TX8.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=77def01a-54474-3030305458382d32"
     },
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-12T17:11:40.266297Z"
+  "last_check": "2026-11-12T17:21:43.730240Z"
 }
