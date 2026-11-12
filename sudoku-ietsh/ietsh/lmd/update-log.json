@@ -54404,5 +54404,27 @@
     "field": "sudokupad_solves",
     "previous": 193,
     "current": 194
+  },
+  {
+    "id": "2026-11-12T15:21:49.342952Z-0",
+    "time": "2026-11-12T15:21:49.342952Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "sudokupad_solves",
+    "previous": 67,
+    "current": 68
+  },
+  {
+    "id": "2026-11-12T15:21:49.342952Z-1",
+    "time": "2026-11-12T15:21:49.342952Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots4",
+    "puzzleNum": 17,
+    "title": "Vibrant Spots IV",
+    "field": "sudokupad_solves",
+    "previous": 116,
+    "current": 117
   }
 ]
