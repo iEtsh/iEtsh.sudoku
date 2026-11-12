@@ -41,7 +41,7 @@
       "puzz": "https://sudokupad.app/j3sj7n78id?setting-outlinesondigits=true",
       "lmd": "000VTI",
       "solves": 56,
-      "sudokupad_solves": 152,
+      "sudokupad_solves": 153,
       "rating": "93%",
       "image": "images/000VTI.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=4fee4650-54346-3030305654492d31"
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-12T20:21:46.008727Z"
+  "last_check": "2026-11-12T20:31:45.705272Z"
 }
