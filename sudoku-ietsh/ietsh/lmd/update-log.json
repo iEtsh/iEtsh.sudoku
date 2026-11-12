@@ -54382,5 +54382,27 @@
     "field": "sudokupad_solves",
     "previous": 66,
     "current": 67
+  },
+  {
+    "id": "2026-11-12T14:01:48.805835Z-0",
+    "time": "2026-11-12T14:01:48.805835Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "solves",
+    "previous": 79,
+    "current": 80
+  },
+  {
+    "id": "2026-11-12T14:01:48.805835Z-1",
+    "time": "2026-11-12T14:01:48.805835Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nocontact",
+    "puzzleNum": 6,
+    "title": "No-Contact",
+    "field": "sudokupad_solves",
+    "previous": 193,
+    "current": 194
   }
 ]
