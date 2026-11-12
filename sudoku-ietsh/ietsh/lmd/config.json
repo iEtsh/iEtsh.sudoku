@@ -10,7 +10,7 @@
       "author_rated": true,
       "puzz": "https://sudokupad.app/zg8vinxnlq",
       "lmd": "000VMH",
-      "solves": 2,
+      "solves": 3,
       "sudokupad_solves": 10,
       "rating": "N/A",
       "image": "images/000VMH_ebd75478830d.jpg",
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-12T16:41:42.186351Z"
+  "last_check": "2026-11-12T16:51:42.685035Z"
 }
