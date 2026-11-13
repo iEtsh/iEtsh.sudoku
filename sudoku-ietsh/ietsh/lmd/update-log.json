@@ -54712,5 +54712,38 @@
     "field": "sudokupad_solves",
     "previous": 1274,
     "current": 1275
+  },
+  {
+    "id": "2026-11-13T09:31:46.151384Z-0",
+    "time": "2026-11-13T09:31:46.151384Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "solves",
+    "previous": 14,
+    "current": 15
+  },
+  {
+    "id": "2026-11-13T09:31:46.151384Z-1",
+    "time": "2026-11-13T09:31:46.151384Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "sudokupad_solves",
+    "previous": 24,
+    "current": 25
+  },
+  {
+    "id": "2026-11-13T09:31:46.151384Z-2",
+    "time": "2026-11-13T09:31:46.151384Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-nerveshredder",
+    "puzzleNum": 37,
+    "title": "Nerve Shredder",
+    "field": "rating",
+    "previous": "85%",
+    "current": "87%"
   }
 ]
