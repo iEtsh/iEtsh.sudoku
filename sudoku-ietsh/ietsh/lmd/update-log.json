@@ -54657,5 +54657,27 @@
     "field": "sudokupad_solves",
     "previous": 1273,
     "current": 1274
+  },
+  {
+    "id": "2026-11-13T02:31:42.195804Z-0",
+    "time": "2026-11-13T02:31:42.195804Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "solves",
+    "previous": 27,
+    "current": 28
+  },
+  {
+    "id": "2026-11-13T02:31:42.195804Z-1",
+    "time": "2026-11-13T02:31:42.195804Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter2chamberofsecretstheserpentkingbasilisk",
+    "puzzleNum": 43,
+    "title": "Harry Potter 2: Chamber of Secrets – The Serpent King: Basilisk!",
+    "field": "sudokupad_solves",
+    "previous": 70,
+    "current": 71
   }
 ]
