@@ -384,11 +384,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/505e2zbaw0",
       "lmd": "000UDT",
-      "solves": 156,
+      "solves": 157,
       "rating": "80%",
       "author_rated": false,
       "image": "images/000UDT.png",
-      "sudokupad_solves": 335,
+      "sudokupad_solves": 336,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=2108b83a-51855-3030305544542d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-13T10:21:40.251131Z"
+  "last_check": "2026-11-13T10:31:46.719869Z"
 }
