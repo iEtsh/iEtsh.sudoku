@@ -130,8 +130,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/7w4ofyxjy8",
       "lmd": "000VFT",
-      "solves": 35,
-      "sudokupad_solves": 72,
+      "solves": 36,
+      "sudokupad_solves": 73,
       "rating": "93%",
       "image": "images/000VFT.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=d1156c4f-53577-3030305646542d31"
@@ -146,7 +146,7 @@
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
       "solves": 80,
-      "sudokupad_solves": 236,
+      "sudokupad_solves": 237,
       "rating": "92%",
       "image": "images/000VCU.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=08965aa4-53460-3030305643552d31"
@@ -313,7 +313,7 @@
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 196,
+      "sudokupad_solves": 197,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=e31629fa-52511-3030305552322d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-13T14:11:45.234527Z"
+  "last_check": "2026-11-13T14:21:41.319515Z"
 }

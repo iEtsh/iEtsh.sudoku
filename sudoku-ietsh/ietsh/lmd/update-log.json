@@ -54789,5 +54789,49 @@
     "field": "sudokupad_solves",
     "previous": 476,
     "current": 477
+  },
+  {
+    "id": "2026-11-13T14:21:41.328044Z-0",
+    "time": "2026-11-13T14:21:41.328044Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 35,
+    "current": 36
+  },
+  {
+    "id": "2026-11-13T14:21:41.328044Z-1",
+    "time": "2026-11-13T14:21:41.328044Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 72,
+    "current": 73
+  },
+  {
+    "id": "2026-11-13T14:21:41.328044Z-2",
+    "time": "2026-11-13T14:21:41.328044Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-renbanzipperii",
+    "puzzleNum": 35,
+    "title": "Renban Zipper II",
+    "field": "sudokupad_solves",
+    "previous": 236,
+    "current": 237
+  },
+  {
+    "id": "2026-11-13T14:21:41.328044Z-3",
+    "time": "2026-11-13T14:21:41.328044Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 196,
+    "current": 197
   }
 ]
