@@ -54976,5 +54976,16 @@
     "field": "rating",
     "previous": "88%",
     "current": "86%"
+  },
+  {
+    "id": "2026-11-14T10:41:46.231368Z-0",
+    "time": "2026-11-14T10:41:46.231368Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink3",
+    "puzzleNum": 19,
+    "title": "Blink III",
+    "field": "sudokupad_solves",
+    "previous": 336,
+    "current": 337
   }
 ]
