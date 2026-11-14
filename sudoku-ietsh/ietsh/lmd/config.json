@@ -313,7 +313,7 @@
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 197,
+      "sudokupad_solves": 198,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=e31629fa-52511-3030305552322d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-14T17:31:51.258092Z"
+  "last_check": "2026-11-14T17:41:46.775958Z"
 }
