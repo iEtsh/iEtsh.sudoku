@@ -55416,5 +55416,16 @@
     "field": "sudokupad_solves",
     "previous": 10,
     "current": 11
+  },
+  {
+    "id": "2026-11-16T14:21:51.054699Z-0",
+    "time": "2026-11-16T14:21:51.054699Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "solves",
+    "previous": 59,
+    "current": 60
   }
 ]
