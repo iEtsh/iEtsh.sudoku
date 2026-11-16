@@ -55460,5 +55460,16 @@
     "field": "sudokupad_solves",
     "previous": 286,
     "current": 287
+  },
+  {
+    "id": "2026-11-16T18:31:46.675923Z-0",
+    "time": "2026-11-16T18:31:46.675923Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 440,
+    "current": 441
   }
 ]
