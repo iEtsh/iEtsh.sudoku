@@ -55427,5 +55427,16 @@
     "field": "solves",
     "previous": 59,
     "current": 60
+  },
+  {
+    "id": "2026-11-16T15:01:47.575208Z-0",
+    "time": "2026-11-16T15:01:47.575208Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "sudokupad_solves",
+    "previous": 144,
+    "current": 145
   }
 ]

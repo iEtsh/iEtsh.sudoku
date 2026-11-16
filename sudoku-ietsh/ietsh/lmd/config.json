@@ -508,7 +508,7 @@
       "rating": "84%",
       "author_rated": false,
       "image": "images/000TSS.png",
-      "sudokupad_solves": 144,
+      "sudokupad_solves": 145,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=eaf5467f-50911-3030305453532d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-16T14:52:01.123222Z"
+  "last_check": "2026-11-16T15:01:47.562327Z"
 }
