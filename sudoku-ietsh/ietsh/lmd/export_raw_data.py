@@ -2,10 +2,12 @@
 """Export raw LMD source tables to a simple Excel workbook (no dashboard/charts)."""
 import json
 import os
+import zipfile
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from supabase import create_client
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.worksheet.table import Table, TableStyleInfo
 from openpyxl.utils import get_column_letter
 
@@ -70,7 +72,8 @@ def write_source_table(wb, sheet_name, table_name, title, rows):
         )
         ws.column_dimensions[get_column_letter(index)].width = min(max(sample_width + 2, 13), 42)
 
-    ws.auto_filter.ref = f"A1:{last_col}{last_row}"
+    # Excel Tables already own their AutoFilter. Do not add ws.auto_filter here:
+    # duplicating the filter at worksheet level can make Excel repair and discard the Table.
     ws.sheet_properties.pageSetUpPr.fitToPage = True
 
 
@@ -86,6 +89,7 @@ def main():
 
     wb = Workbook()
     wb.remove(wb.active)
+    rows_by_sheet = {"Puzzles": puzzles, "Snapshots": snapshots}
     write_source_table(wb, "Puzzles", "PuzzlesData", "Current puzzle data", puzzles)
     write_source_table(wb, "Snapshots", "SnapshotsData", "Historical snapshots", snapshots)
     wb.properties.title = "iEtsh LMD Raw Data"
@@ -93,6 +97,36 @@ def main():
     wb.properties.creator = "iEtsh"
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     wb.save(OUTPUT)
+
+    # Validate the generated XLSX before GitHub Actions is allowed to publish it.
+    # This catches malformed ZIP/XML parts and verifies that Excel Tables survive a round-trip.
+    with zipfile.ZipFile(OUTPUT, "r") as archive:
+        bad_member = archive.testzip()
+        if bad_member:
+            raise RuntimeError(f"Corrupt XLSX archive member: {bad_member}")
+        for member in archive.namelist():
+            if member.endswith(".xml") or member.endswith(".rels"):
+                try:
+                    ET.fromstring(archive.read(member))
+                except ET.ParseError as exc:
+                    raise RuntimeError(f"Invalid XML in XLSX member {member}: {exc}") from exc
+
+    check_wb = load_workbook(OUTPUT, read_only=False, data_only=False)
+    try:
+        expected_tables = {"Puzzles": "PuzzlesData", "Snapshots": "SnapshotsData"}
+        for sheet_name, table_name in expected_tables.items():
+            if sheet_name not in check_wb.sheetnames:
+                raise RuntimeError(f"Validation failed: missing worksheet {sheet_name}")
+            check_ws = check_wb[sheet_name]
+            if rows_by_sheet[sheet_name] and table_name not in check_ws.tables:
+                raise RuntimeError(f"Validation failed: missing Excel Table {table_name}")
+            if check_ws.tables and check_ws.auto_filter.ref:
+                raise RuntimeError(
+                    f"Validation failed: duplicate worksheet-level AutoFilter on {sheet_name}"
+                )
+    finally:
+        check_wb.close()
+
     print(
         f"Created {OUTPUT} | puzzles={len(puzzles)} | snapshots={len(snapshots)} "
         f"| bytes={OUTPUT.stat().st_size}"
