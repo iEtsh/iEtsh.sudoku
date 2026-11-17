@@ -55570,5 +55570,16 @@
     "field": "sudokupad_solves",
     "previous": 485,
     "current": 486
+  },
+  {
+    "id": "2026-11-17T08:51:39.191578Z-0",
+    "time": "2026-11-17T08:51:39.191578Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 288,
+    "current": 289
   }
 ]
