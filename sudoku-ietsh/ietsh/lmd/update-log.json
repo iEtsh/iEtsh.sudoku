@@ -55669,5 +55669,16 @@
     "field": "sudokupad_solves",
     "previous": 289,
     "current": 290
+  },
+  {
+    "id": "2026-11-17T21:41:40.809371Z-0",
+    "time": "2026-11-17T21:41:40.809371Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-arabesque",
+    "puzzleNum": 5,
+    "title": "Arabesque",
+    "field": "solves",
+    "previous": 39,
+    "current": 40
   }
 ]
