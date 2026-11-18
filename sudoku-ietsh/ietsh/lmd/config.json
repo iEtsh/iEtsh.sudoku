@@ -221,7 +221,7 @@
       "puzz": "https://sudokupad.app/69wareo01v",
       "lmd": "000V8X",
       "solves": 55,
-      "sudokupad_solves": 159,
+      "sudokupad_solves": 160,
       "rating": "87%",
       "image": "images/000V8X.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=0575cf7a-53266-3030305638582d31"
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-18T23:31:45.739426Z"
+  "last_check": "2026-11-18T23:41:43.703608Z"
 }
