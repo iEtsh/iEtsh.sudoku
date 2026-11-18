@@ -55845,5 +55845,16 @@
     "field": "solves",
     "previous": 4,
     "current": 7
+  },
+  {
+    "id": "2026-11-18T07:41:40.396845Z-0",
+    "time": "2026-11-18T07:41:40.396845Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": "solves",
+    "previous": 7,
+    "current": 8
   }
 ]
