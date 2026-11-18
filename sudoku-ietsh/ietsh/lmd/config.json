@@ -339,11 +339,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/gunf4ya35z",
       "lmd": "000UM4",
-      "solves": 130,
+      "solves": 131,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000UM4.jpg",
-      "sudokupad_solves": 376,
+      "sudokupad_solves": 377,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=c72fdaf9-52300-303030554d342d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-18T14:31:43.828087Z"
+  "last_check": "2026-11-18T14:41:45.028840Z"
 }
