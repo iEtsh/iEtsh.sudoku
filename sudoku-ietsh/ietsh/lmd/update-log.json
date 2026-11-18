@@ -55988,5 +55988,27 @@
     "field": "sudokupad_solves",
     "previous": 376,
     "current": 377
+  },
+  {
+    "id": "2026-11-18T15:31:44.765104Z-0",
+    "time": "2026-11-18T15:31:44.765104Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "solves",
+    "previous": 95,
+    "current": 96
+  },
+  {
+    "id": "2026-11-18T15:31:44.765104Z-1",
+    "time": "2026-11-18T15:31:44.765104Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-crosscurrents",
+    "puzzleNum": 10,
+    "title": "Crosscurrents",
+    "field": "sudokupad_solves",
+    "previous": 235,
+    "current": 236
   }
 ]
