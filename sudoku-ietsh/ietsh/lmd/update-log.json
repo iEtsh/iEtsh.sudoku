@@ -55823,5 +55823,16 @@
     "field": "rating",
     "previous": "86%",
     "current": "87%"
+  },
+  {
+    "id": "2026-11-18T07:11:56.404613Z-0",
+    "time": "2026-11-18T07:11:56.404613Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-13novembermybirthday",
+    "puzzleNum": 44,
+    "title": "13 NOVEMBER: My Birthday",
+    "field": "solves",
+    "previous": 3,
+    "current": 4
   }
 ]
