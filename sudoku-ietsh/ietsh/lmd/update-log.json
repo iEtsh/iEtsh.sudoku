@@ -56032,5 +56032,27 @@
     "field": "solves",
     "previous": 66,
     "current": 67
+  },
+  {
+    "id": "2026-11-18T16:21:48.725567Z-0",
+    "time": "2026-11-18T16:21:48.725567Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "solves",
+    "previous": 52,
+    "current": 53
+  },
+  {
+    "id": "2026-11-18T16:21:48.725567Z-1",
+    "time": "2026-11-18T16:21:48.725567Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "sudokupad_solves",
+    "previous": 145,
+    "current": 146
   }
 ]

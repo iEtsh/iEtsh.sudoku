@@ -504,11 +504,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/6ihl37tq23",
       "lmd": "000TSS",
-      "solves": 52,
+      "solves": 53,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000TSS.png",
-      "sudokupad_solves": 145,
+      "sudokupad_solves": 146,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=eaf5467f-50911-3030305453532d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-18T16:11:40.850360Z"
+  "last_check": "2026-11-18T16:21:48.711156Z"
 }
