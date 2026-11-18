@@ -309,11 +309,11 @@
       "stars": 4,
       "puzz": "https://sudokupad.app/pnkh0wymgo",
       "lmd": "000UR2",
-      "solves": 92,
+      "solves": 93,
       "rating": "97%",
       "author_rated": false,
       "image": "images/000UR2.jpg",
-      "sudokupad_solves": 198,
+      "sudokupad_solves": 199,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=e31629fa-52511-3030305552322d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-18T13:11:45.670041Z"
+  "last_check": "2026-11-18T13:21:43.300476Z"
 }
