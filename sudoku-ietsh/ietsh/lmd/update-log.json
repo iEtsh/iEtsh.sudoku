@@ -57069,5 +57069,27 @@
     "field": "sudokupad_solves",
     "previous": 58,
     "current": 59
+  },
+  {
+    "id": "2026-11-19T18:11:51.166852Z-0",
+    "time": "2026-11-19T18:11:51.166852Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 59,
+    "current": 60
+  },
+  {
+    "id": "2026-11-19T18:11:51.166852Z-1",
+    "time": "2026-11-19T18:11:51.166852Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots7",
+    "puzzleNum": 24,
+    "title": "Vibrant Spots VII - Special Edition",
+    "field": "sudokupad_solves",
+    "previous": 199,
+    "current": 200
   }
 ]
