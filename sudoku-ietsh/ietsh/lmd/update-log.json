@@ -56343,5 +56343,38 @@
     "field": "sudokupad_solves",
     "previous": 5,
     "current": 6
+  },
+  {
+    "id": "2026-11-19T09:01:53.541926Z-0",
+    "time": "2026-11-19T09:01:53.541926Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "solves",
+    "previous": 4,
+    "current": 5
+  },
+  {
+    "id": "2026-11-19T09:01:53.541926Z-1",
+    "time": "2026-11-19T09:01:53.541926Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 6,
+    "current": 7
+  },
+  {
+    "id": "2026-11-19T09:01:53.541926Z-2",
+    "time": "2026-11-19T09:01:53.541926Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 114,
+    "current": 115
   }
 ]
