@@ -56420,5 +56420,16 @@
     "field": "solves",
     "previous": 164,
     "current": 165
+  },
+  {
+    "id": "2026-11-19T10:01:53.200184Z-0",
+    "time": "2026-11-19T10:01:53.200184Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "solves",
+    "previous": 5,
+    "current": 6
   }
 ]
