@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/4vwlm9i6z4",
       "lmd": "000W4A",
       "solves": 20,
-      "sudokupad_solves": 44,
+      "sudokupad_solves": 45,
       "rating": "95%",
       "image": "images/000W4A_d433520d9996.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=b0c4b87e-54849-3030305734412d31"
@@ -369,8 +369,8 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 199,
-      "rating": "67%",
+      "solves": 200,
+      "rating": "66%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
       "sudokupad_solves": 444,
@@ -459,11 +459,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/cfrqw6red1",
       "lmd": "000U75",
-      "solves": 165,
-      "rating": "81%",
+      "solves": 166,
+      "rating": "80%",
       "author_rated": false,
       "image": "images/000U75.png",
-      "sudokupad_solves": 314,
+      "sudokupad_solves": 315,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=e22c7fa6-51526-3030305537352d31"
     },
     {
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-19T16:51:45.463679Z"
+  "last_check": "2026-11-19T17:01:54.861777Z"
 }
