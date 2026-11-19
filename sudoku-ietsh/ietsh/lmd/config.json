@@ -10,7 +10,7 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/4vwlm9i6z4",
       "lmd": "000W4A",
-      "solves": 12,
+      "solves": 13,
       "sudokupad_solves": 18,
       "rating": "98%",
       "image": "images/000W4A_d433520d9996.jpg",
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-19T13:01:53.347539Z"
+  "last_check": "2026-11-19T13:11:52.352124Z"
 }
