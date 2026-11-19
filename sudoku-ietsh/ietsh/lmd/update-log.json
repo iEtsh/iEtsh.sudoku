@@ -56618,5 +56618,27 @@
     "field": "sudokupad_solves",
     "previous": 243,
     "current": 244
+  },
+  {
+    "id": "2026-11-19T14:11:51.194040Z-0",
+    "time": "2026-11-19T14:11:51.194040Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 20,
+    "current": 21
+  },
+  {
+    "id": "2026-11-19T14:11:51.194040Z-1",
+    "time": "2026-11-19T14:11:51.194040Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-entropydominion",
+    "puzzleNum": 7,
+    "title": "Entropy Dominion",
+    "field": "sudokupad_solves",
+    "previous": 199,
+    "current": 200
   }
 ]

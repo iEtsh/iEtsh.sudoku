@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/4vwlm9i6z4",
       "lmd": "000W4A",
       "solves": 13,
-      "sudokupad_solves": 20,
+      "sudokupad_solves": 21,
       "rating": "98%",
       "image": "images/000W4A_d433520d9996.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=b0c4b87e-54849-3030305734412d31"
@@ -585,7 +585,7 @@
       "rating": "86%",
       "author_rated": false,
       "image": "images/000SJN_5f90735fc710.png",
-      "sudokupad_solves": 199,
+      "sudokupad_solves": 200,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=c7d0f98f-48484-303030534a4e2d31"
     },
     {
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-19T14:01:49.489666Z"
+  "last_check": "2026-11-19T14:11:51.181011Z"
 }
