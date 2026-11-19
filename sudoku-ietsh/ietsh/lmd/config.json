@@ -489,11 +489,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/z1jja1angl",
       "lmd": "000U2A",
-      "solves": 79,
+      "solves": 80,
       "rating": "84%",
       "author_rated": false,
       "image": "images/000U2A.png",
-      "sudokupad_solves": 224,
+      "sudokupad_solves": 225,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=a06816c5-51303-3030305532412d31"
     },
     {
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-19T01:11:45.244039Z"
+  "last_check": "2026-11-19T01:21:54.106488Z"
 }
