@@ -251,7 +251,7 @@
       "puzz": "https://sudokupad.app/134eka3x8y",
       "lmd": "000V48",
       "solves": 41,
-      "sudokupad_solves": 104,
+      "sudokupad_solves": 105,
       "rating": "91%",
       "image": "images/000V48.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=19cdcf1b-53071-3030305634382d31"
@@ -670,5 +670,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-19T06:01:44.802696Z"
+  "last_check": "2026-11-19T06:11:47.634628Z"
 }
