@@ -56255,5 +56255,16 @@
       "image": "images/000W4A_d433520d9996.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=b0c4b87e-54849-3030305734412d31"
     }
+  },
+  {
+    "id": "2026-11-19T07:31:48.497365Z-0",
+    "time": "2026-11-19T07:31:48.497365Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 1,
+    "current": 2
   }
 ]
