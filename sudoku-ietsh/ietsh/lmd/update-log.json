@@ -57168,5 +57168,49 @@
     "field": "rating",
     "previous": "93%",
     "current": "92%"
+  },
+  {
+    "id": "2026-11-19T19:31:50.210028Z-0",
+    "time": "2026-11-19T19:31:50.210028Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "solves",
+    "previous": 27,
+    "current": 28
+  },
+  {
+    "id": "2026-11-19T19:31:50.210028Z-1",
+    "time": "2026-11-19T19:31:50.210028Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 63,
+    "current": 67
+  },
+  {
+    "id": "2026-11-19T19:31:50.210028Z-2",
+    "time": "2026-11-19T19:31:50.210028Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "rating",
+    "previous": "92%",
+    "current": "90%"
+  },
+  {
+    "id": "2026-11-19T19:31:50.210028Z-3",
+    "time": "2026-11-19T19:31:50.210028Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 36,
+    "current": 37
   }
 ]
