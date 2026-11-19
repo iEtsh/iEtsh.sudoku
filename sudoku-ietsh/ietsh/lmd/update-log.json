@@ -56230,5 +56230,30 @@
     "field": "sudokupad_solves",
     "previous": 104,
     "current": 105
+  },
+  {
+    "id": "2026-11-19T06:21:45.473013Z-0",
+    "time": "2026-11-19T06:21:45.473013Z",
+    "type": "Puzzle Added",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": null,
+    "previous": null,
+    "current": {
+      "num": 45,
+      "id": "ietsh-policeii",
+      "title": "Police II",
+      "date": "19. November 2026, 07:19",
+      "stars": 2,
+      "author_rated": true,
+      "puzz": "https://sudokupad.app/4vwlm9i6z4",
+      "lmd": "000W4A",
+      "solves": 0,
+      "sudokupad_solves": 1,
+      "rating": "N/A",
+      "image": "images/000W4A_d433520d9996.jpg",
+      "image_source": "https://logic-masters.de/Dateien/bild.php?data=b0c4b87e-54849-3030305734412d31"
+    }
   }
 ]
