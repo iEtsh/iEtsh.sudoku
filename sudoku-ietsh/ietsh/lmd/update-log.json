@@ -57652,5 +57652,16 @@
     "field": "sudokupad_solves",
     "previous": 91,
     "current": 92
+  },
+  {
+    "id": "2026-11-20T06:31:49.377078Z-0",
+    "time": "2026-11-20T06:31:49.377078Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 92,
+    "current": 93
   }
 ]

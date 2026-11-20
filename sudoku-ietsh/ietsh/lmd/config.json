@@ -11,7 +11,7 @@
       "puzz": "https://sudokupad.app/4vwlm9i6z4",
       "lmd": "000W4A",
       "solves": 38,
-      "sudokupad_solves": 92,
+      "sudokupad_solves": 93,
       "rating": "87%",
       "image": "images/000W4A_d433520d9996.jpg",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=b0c4b87e-54849-3030305734412d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-20T06:21:46.434812Z"
+  "last_check": "2026-11-20T06:31:49.363413Z"
 }
