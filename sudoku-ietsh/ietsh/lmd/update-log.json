@@ -57674,5 +57674,27 @@
     "field": "solves",
     "previous": 38,
     "current": 40
+  },
+  {
+    "id": "2026-11-20T06:51:46.107827Z-0",
+    "time": "2026-11-20T06:51:46.107827Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 93,
+    "current": 94
+  },
+  {
+    "id": "2026-11-20T06:51:46.107827Z-1",
+    "time": "2026-11-20T06:51:46.107827Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lonelyhouse",
+    "puzzleNum": 9,
+    "title": "Lonely House",
+    "field": "sudokupad_solves",
+    "previous": 145,
+    "current": 146
   }
 ]
