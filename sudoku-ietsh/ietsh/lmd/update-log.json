@@ -57784,5 +57784,27 @@
     "field": "sudokupad_solves",
     "previous": 487,
     "current": 488
+  },
+  {
+    "id": "2026-11-20T12:31:48.058287Z-0",
+    "time": "2026-11-20T12:31:48.058287Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "solves",
+    "previous": 41,
+    "current": 42
+  },
+  {
+    "id": "2026-11-20T12:31:48.058287Z-1",
+    "time": "2026-11-20T12:31:48.058287Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 95,
+    "current": 96
   }
 ]
