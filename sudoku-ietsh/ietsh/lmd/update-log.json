@@ -57872,5 +57872,38 @@
     "field": "sudokupad_solves",
     "previous": 167,
     "current": 168
+  },
+  {
+    "id": "2026-11-20T17:31:56.870538Z-0",
+    "time": "2026-11-20T17:31:56.870538Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "solves",
+    "previous": 42,
+    "current": 43
+  },
+  {
+    "id": "2026-11-20T17:31:56.870538Z-1",
+    "time": "2026-11-20T17:31:56.870538Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 102,
+    "current": 103
+  },
+  {
+    "id": "2026-11-20T17:31:56.870538Z-2",
+    "time": "2026-11-20T17:31:56.870538Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-itshouldwork",
+    "puzzleNum": 1,
+    "title": "The \"It Should Work\" Framework",
+    "field": "sudokupad_solves",
+    "previous": 488,
+    "current": 489
   }
 ]
