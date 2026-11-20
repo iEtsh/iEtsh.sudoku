@@ -57564,5 +57564,16 @@
     "field": "sudokupad_solves",
     "previous": 88,
     "current": 89
+  },
+  {
+    "id": "2026-11-20T02:41:50.156370Z-0",
+    "time": "2026-11-20T02:41:50.156370Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-16s",
+    "puzzleNum": 8,
+    "title": "16s",
+    "field": "sudokupad_solves",
+    "previous": 138,
+    "current": 139
   }
 ]
