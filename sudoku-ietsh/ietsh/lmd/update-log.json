@@ -58213,5 +58213,38 @@
     "field": "sudokupad_solves",
     "previous": 315,
     "current": 316
+  },
+  {
+    "id": "2026-11-21T17:42:05.537338Z-0",
+    "time": "2026-11-21T17:42:05.537338Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "solves",
+    "previous": 109,
+    "current": 110
+  },
+  {
+    "id": "2026-11-21T17:42:05.537338Z-1",
+    "time": "2026-11-21T17:42:05.537338Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "sudokupad_solves",
+    "previous": 251,
+    "current": 252
+  },
+  {
+    "id": "2026-11-21T17:42:05.537338Z-2",
+    "time": "2026-11-21T17:42:05.537338Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-blink2",
+    "puzzleNum": 18,
+    "title": "Blink II",
+    "field": "rating",
+    "previous": "85%",
+    "current": "86%"
   }
 ]

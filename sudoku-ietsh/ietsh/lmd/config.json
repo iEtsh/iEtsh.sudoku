@@ -414,11 +414,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/q4yzi1h1e6",
       "lmd": "000UCQ",
-      "solves": 109,
-      "rating": "85%",
+      "solves": 110,
+      "rating": "86%",
       "author_rated": false,
       "image": "images/000UCQ.png",
-      "sudokupad_solves": 251,
+      "sudokupad_solves": 252,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=16a3871c-51807-3030305543512d31"
     },
     {
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-21T17:31:46.702420Z"
+  "last_check": "2026-11-21T17:42:05.526937Z"
 }
