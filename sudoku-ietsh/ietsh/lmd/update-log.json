@@ -58268,5 +58268,27 @@
     "field": "sudokupad_solves",
     "previous": 237,
     "current": 238
+  },
+  {
+    "id": "2026-11-21T20:21:51.013718Z-0",
+    "time": "2026-11-21T20:21:51.013718Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-policeii",
+    "puzzleNum": 45,
+    "title": "Police II",
+    "field": "sudokupad_solves",
+    "previous": 110,
+    "current": 111
+  },
+  {
+    "id": "2026-11-21T20:21:51.013718Z-1",
+    "time": "2026-11-21T20:21:51.013718Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-origami",
+    "puzzleNum": 26,
+    "title": "Origami",
+    "field": "sudokupad_solves",
+    "previous": 295,
+    "current": 296
   }
 ]
