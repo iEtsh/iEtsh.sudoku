@@ -205,8 +205,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/nz5jq51lfv",
       "lmd": "000VBP",
-      "solves": 59,
-      "sudokupad_solves": 127,
+      "solves": 60,
+      "sudokupad_solves": 128,
       "rating": "95%",
       "image": "images/000VBP.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=5cebb544-54534-3030305642502d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-21T15:41:41.686876Z"
+  "last_check": "2026-11-21T15:51:49.360179Z"
 }
