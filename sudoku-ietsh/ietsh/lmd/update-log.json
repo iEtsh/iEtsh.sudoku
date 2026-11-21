@@ -58312,5 +58312,16 @@
     "field": "sudokupad_solves",
     "previous": 111,
     "current": 112
+  },
+  {
+    "id": "2026-11-21T22:11:45.471575Z-0",
+    "time": "2026-11-21T22:11:45.471575Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-clasico",
+    "puzzleNum": 40,
+    "title": "Clasico",
+    "field": "solves",
+    "previous": 7,
+    "current": 8
   }
 ]
