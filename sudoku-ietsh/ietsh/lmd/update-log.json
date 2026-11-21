@@ -58323,5 +58323,16 @@
     "field": "solves",
     "previous": 7,
     "current": 8
+  },
+  {
+    "id": "2026-11-21T23:11:44.786746Z-0",
+    "time": "2026-11-21T23:11:44.786746Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-hlabyrinth",
+    "puzzleNum": 38,
+    "title": "H Labyrinth",
+    "field": "solves",
+    "previous": 11,
+    "current": 12
   }
 ]
