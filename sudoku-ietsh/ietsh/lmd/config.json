@@ -221,7 +221,7 @@
       "puzz": "https://sudokupad.app/syuuh239xm",
       "lmd": "000VA7",
       "solves": 37,
-      "sudokupad_solves": 91,
+      "sudokupad_solves": 92,
       "rating": "91%",
       "image": "images/000VA7.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=475c868e-53345-3030305641372d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-22T00:01:49.931780Z"
+  "last_check": "2026-11-22T00:11:49.628874Z"
 }
