@@ -58532,5 +58532,27 @@
     "field": "sudokupad_solves",
     "previous": 113,
     "current": 114
+  },
+  {
+    "id": "2026-11-22T11:31:48.961199Z-0",
+    "time": "2026-11-22T11:31:48.961199Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "solves",
+    "previous": 116,
+    "current": 117
+  },
+  {
+    "id": "2026-11-22T11:31:48.961199Z-1",
+    "time": "2026-11-22T11:31:48.961199Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 245,
+    "current": 246
   }
 ]
