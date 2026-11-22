@@ -309,11 +309,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/iapen15ls1",
       "lmd": "000UVR",
-      "solves": 156,
+      "solves": 157,
       "rating": "94%",
       "author_rated": false,
       "image": "images/000UVR.jpg",
-      "sudokupad_solves": 1714,
+      "sudokupad_solves": 1715,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=f7fca2e8-52706-3030305556522d31"
     },
     {
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-22T20:41:48.746412Z"
+  "last_check": "2026-11-22T20:51:47.989370Z"
 }
