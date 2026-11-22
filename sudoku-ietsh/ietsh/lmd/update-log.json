@@ -58609,5 +58609,27 @@
     "field": "sudokupad_solves",
     "previous": 278,
     "current": 279
+  },
+  {
+    "id": "2026-11-22T15:41:46.657693Z-0",
+    "time": "2026-11-22T15:41:46.657693Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "solves",
+    "previous": 15,
+    "current": 16
+  },
+  {
+    "id": "2026-11-22T15:41:46.657693Z-1",
+    "time": "2026-11-22T15:41:46.657693Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-processor",
+    "puzzleNum": 41,
+    "title": "Processor",
+    "field": "rating",
+    "previous": "89%",
+    "current": "90%"
   }
 ]
