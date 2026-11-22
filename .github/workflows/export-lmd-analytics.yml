@@ -1,6 +1,10 @@
 name: Export LMD Analytics Workbook
 
 on:
+  push:
+    paths:
+      - 'sudoku-ietsh/ietsh/lmd/export_raw_data.py'
+      - '.github/workflows/export-lmd-analytics.yml'
   workflow_dispatch:
   workflow_run:
     workflows:
