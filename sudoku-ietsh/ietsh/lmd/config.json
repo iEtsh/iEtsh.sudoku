@@ -161,7 +161,7 @@
       "puzz": "https://sudokupad.app/fv3z1s15iy",
       "lmd": "000VCU",
       "solves": 80,
-      "sudokupad_solves": 238,
+      "sudokupad_solves": 239,
       "rating": "92%",
       "image": "images/000VCU.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=08965aa4-53460-3030305643552d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-22T16:11:51.929135Z"
+  "last_check": "2026-11-22T16:21:54.309900Z"
 }
