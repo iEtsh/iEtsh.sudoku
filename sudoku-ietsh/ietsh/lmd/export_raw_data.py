@@ -87,11 +87,24 @@ def main():
     if not puzzles:
         raise RuntimeError("Supabase returned no lmd_puzzles rows; refusing to create an empty workbook.")
 
+    # Snapshots store lmd_code as their relational key. Enrich each observation
+    # with the human-readable puzzle title before exporting it for analysis.
+    puzzle_by_code = {p["lmd_code"]: p for p in puzzles}
+    snapshot_rows = []
+    for snapshot in snapshots:
+        code = snapshot.get("lmd_code")
+        puzzle = puzzle_by_code.get(code, {})
+        snapshot_rows.append({
+            "Puzzle": puzzle.get("title") or code or "Unknown puzzle",
+            "LMD Code (technical)": code,
+            **{key: value for key, value in snapshot.items() if key != "lmd_code"},
+        })
+
     wb = Workbook()
     wb.remove(wb.active)
-    rows_by_sheet = {"Puzzles": puzzles, "Snapshots": snapshots}
+    rows_by_sheet = {"Puzzles": puzzles, "Snapshots": snapshot_rows}
     write_source_table(wb, "Puzzles", "PuzzlesData", "Current puzzle data", puzzles)
-    write_source_table(wb, "Snapshots", "SnapshotsData", "Historical snapshots", snapshots)
+    write_source_table(wb, "Snapshots", "SnapshotsData", "Historical snapshots", snapshot_rows)
     wb.properties.title = "iEtsh LMD Raw Data"
     wb.properties.subject = "Raw rows from the Supabase LMD source tables"
     wb.properties.creator = "iEtsh"
