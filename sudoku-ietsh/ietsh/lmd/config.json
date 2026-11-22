@@ -489,11 +489,11 @@
       "stars": 3,
       "puzz": "https://sudokupad.app/hswdlhrpuo",
       "lmd": "000U38",
-      "solves": 127,
+      "solves": 128,
       "rating": "89%",
       "author_rated": false,
       "image": "images/000U38.png",
-      "sudokupad_solves": 278,
+      "sudokupad_solves": 279,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=48d3e62d-51344-3030305533382d31"
     },
     {
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-22T14:11:45.136120Z"
+  "last_check": "2026-11-22T14:21:44.054584Z"
 }
