@@ -130,8 +130,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/c5opq1vrkj",
       "lmd": "000VI2",
-      "solves": 15,
-      "sudokupad_solves": 25,
+      "solves": 16,
+      "sudokupad_solves": 26,
       "rating": "87%",
       "image": "images/000VI2.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=b5d6c549-53684-3030305649322d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-23T12:31:48.078054Z"
+  "last_check": "2026-11-23T12:41:58.146883Z"
 }
