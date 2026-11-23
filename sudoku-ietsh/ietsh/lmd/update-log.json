@@ -58719,5 +58719,38 @@
     "field": "sudokupad_solves",
     "previous": 490,
     "current": 491
+  },
+  {
+    "id": "2026-11-23T01:51:46.852568Z-0",
+    "time": "2026-11-23T01:51:46.852568Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "solves",
+    "previous": 37,
+    "current": 38
+  },
+  {
+    "id": "2026-11-23T01:51:46.852568Z-1",
+    "time": "2026-11-23T01:51:46.852568Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "sudokupad_solves",
+    "previous": 74,
+    "current": 75
+  },
+  {
+    "id": "2026-11-23T01:51:46.852568Z-2",
+    "time": "2026-11-23T01:51:46.852568Z",
+    "type": "Rating Changed",
+    "puzzleId": "ietsh-uncharted12",
+    "puzzleNum": 36,
+    "title": "Uncharted 12",
+    "field": "rating",
+    "previous": "93%",
+    "current": "94%"
   }
 ]

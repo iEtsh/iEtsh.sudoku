@@ -145,9 +145,9 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/7w4ofyxjy8",
       "lmd": "000VFT",
-      "solves": 37,
-      "sudokupad_solves": 74,
-      "rating": "93%",
+      "solves": 38,
+      "sudokupad_solves": 75,
+      "rating": "94%",
       "image": "images/000VFT.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=d1156c4f-53577-3030305646542d31"
     },
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-23T01:41:54.016044Z"
+  "last_check": "2026-11-23T01:51:46.836974Z"
 }
