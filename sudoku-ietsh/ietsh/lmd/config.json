@@ -191,7 +191,7 @@
       "puzz": "https://sudokupad.app/qm58t9iymm",
       "lmd": "000VCF",
       "solves": 158,
-      "sudokupad_solves": 1281,
+      "sudokupad_solves": 1282,
       "rating": "96%",
       "image": "images/000VCF.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6ba26807-53443-3030305643462d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-24T09:51:48.797636Z"
+  "last_check": "2026-11-24T10:01:57.742586Z"
 }
