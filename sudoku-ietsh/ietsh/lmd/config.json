@@ -660,11 +660,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/dfkxorg4e0",
       "lmd": "000SC5",
-      "solves": 109,
+      "solves": 110,
       "rating": "91%",
       "author_rated": false,
       "image": "images/000SC5_72e214f22ca0.png",
-      "sudokupad_solves": 353,
+      "sudokupad_solves": 354,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=8556654b-48143-3030305343352d31",
       "image_page_version": "22. April 2026, 14:57"
     },
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-25T14:11:45.525953Z"
+  "last_check": "2026-11-25T14:21:47.610847Z"
 }

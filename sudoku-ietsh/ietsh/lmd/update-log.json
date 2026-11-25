@@ -59302,5 +59302,27 @@
     "field": "sudokupad_solves",
     "previous": 259,
     "current": 260
+  },
+  {
+    "id": "2026-11-25T14:21:47.622761Z-0",
+    "time": "2026-11-25T14:21:47.622761Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "solves",
+    "previous": 109,
+    "current": 110
+  },
+  {
+    "id": "2026-11-25T14:21:47.622761Z-1",
+    "time": "2026-11-25T14:21:47.622761Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-15s",
+    "puzzleNum": 2,
+    "title": "15s",
+    "field": "sudokupad_solves",
+    "previous": 353,
+    "current": 354
   }
 ]
