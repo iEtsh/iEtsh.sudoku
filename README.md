@@ -4,7 +4,7 @@ A small project that started as a place to collect my Sudoku puzzles and gradual
 
 The site brings my published puzzles together in one place, with links to play them, a couple of ways to browse the archive, and a dashboard for looking at their activity over time.
 
-**Live site:** https://ietsh.github.io/iEtsh/iEtsh.sudoku/
+**Live site:** https://ietsh.github.io/iEtsh.sudoku/sudoku-ietsh/ietsh/lmd/
 
 ## What you'll find here
 
