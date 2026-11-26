@@ -59489,5 +59489,16 @@
     "field": "sudokupad_solves",
     "previous": 263,
     "current": 264
+  },
+  {
+    "id": "2026-11-26T08:21:44.494380Z-0",
+    "time": "2026-11-26T08:21:44.494380Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-harrypotter1",
+    "puzzleNum": 4,
+    "title": "Harry Potter 1: Chase! Hogwarts Express: Platform 9¾",
+    "field": "sudokupad_solves",
+    "previous": 178,
+    "current": 179
   }
 ]
