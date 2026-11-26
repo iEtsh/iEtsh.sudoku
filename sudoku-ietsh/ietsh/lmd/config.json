@@ -175,8 +175,8 @@
       "author_rated": false,
       "puzz": "https://sudokupad.app/7t90zlfvf3",
       "lmd": "000VE4",
-      "solves": 119,
-      "sudokupad_solves": 265,
+      "solves": 120,
+      "sudokupad_solves": 266,
       "rating": "96%",
       "image": "images/000VE4.png",
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=90440eae-53512-3030305645342d31"
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-26T13:21:44.861237Z"
+  "last_check": "2026-11-26T13:31:49.323553Z"
 }
