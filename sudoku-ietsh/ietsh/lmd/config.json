@@ -369,11 +369,11 @@
       "stars": 1,
       "puzz": "https://sudokupad.app/ujqcxri2fz",
       "lmd": "000UFX",
-      "solves": 204,
+      "solves": 205,
       "rating": "65%",
       "author_rated": false,
       "image": "images/000UFX.jpg",
-      "sudokupad_solves": 449,
+      "sudokupad_solves": 450,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=6a2c1efa-51983-3030305546582d31"
     },
     {
@@ -444,11 +444,11 @@
       "stars": 2,
       "puzz": "https://sudokupad.app/evh9tt2q0i",
       "lmd": "000U86",
-      "solves": 114,
+      "solves": 115,
       "rating": "91%",
       "author_rated": false,
       "image": "images/000U86.png",
-      "sudokupad_solves": 283,
+      "sudokupad_solves": 284,
       "image_source": "https://logic-masters.de/Dateien/bild.php?data=ce639e27-51581-3030305538362d31"
     },
     {
@@ -685,5 +685,5 @@
       "image_page_version": "16. April 2026, 12:14"
     }
   ],
-  "last_check": "2026-11-27T14:11:45.703877Z"
+  "last_check": "2026-11-27T14:21:58.735040Z"
 }

@@ -59654,5 +59654,49 @@
     "field": "sudokupad_solves",
     "previous": 354,
     "current": 355
+  },
+  {
+    "id": "2026-11-27T14:21:58.745676Z-0",
+    "time": "2026-11-27T14:21:58.745676Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "solves",
+    "previous": 204,
+    "current": 205
+  },
+  {
+    "id": "2026-11-27T14:21:58.745676Z-1",
+    "time": "2026-11-27T14:21:58.745676Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-blink5",
+    "puzzleNum": 21,
+    "title": "Blink V",
+    "field": "sudokupad_solves",
+    "previous": 449,
+    "current": 450
+  },
+  {
+    "id": "2026-11-27T14:21:58.745676Z-2",
+    "time": "2026-11-27T14:21:58.745676Z",
+    "type": "LMD Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "solves",
+    "previous": 114,
+    "current": 115
+  },
+  {
+    "id": "2026-11-27T14:21:58.745676Z-3",
+    "time": "2026-11-27T14:21:58.745676Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-vibrantspots3",
+    "puzzleNum": 16,
+    "title": "Vibrant Spots III",
+    "field": "sudokupad_solves",
+    "previous": 283,
+    "current": 284
   }
 ]
