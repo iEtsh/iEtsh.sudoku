@@ -59588,5 +59588,27 @@
     "field": "sudokupad_solves",
     "previous": 268,
     "current": 269
+  },
+  {
+    "id": "2026-11-27T01:01:48.753571Z-0",
+    "time": "2026-11-27T01:01:48.753571Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-uncharted9",
+    "puzzleNum": 34,
+    "title": "Uncharted 9",
+    "field": "sudokupad_solves",
+    "previous": 269,
+    "current": 270
+  },
+  {
+    "id": "2026-11-27T01:01:48.753571Z-1",
+    "time": "2026-11-27T01:01:48.753571Z",
+    "type": "SudokuPad Solvers Changed",
+    "puzzleId": "ietsh-lucifersfall",
+    "puzzleNum": 11,
+    "title": "Lucifer's Fall",
+    "field": "sudokupad_solves",
+    "previous": 146,
+    "current": 147
   }
 ]
